@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreatheIn - Redesign</title>
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandTeal: '#1A7388',
+                        tickerDark: '#0D1418',
+                        badgeHazardous: '#7E1E29',
+                        badgeVeryUnhealthy: '#A85317',
+                        badgeUnhealthy: '#B28816',
+                        textMuted: '#8E989E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Link to compiled CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="font-sans antialiased text-gray-900 selection:bg-brandTeal/20 relative">
+
+    <!-- ========================================== -->
+    <!-- FULL-SCREEN MOBILE NAVIGATION OVERLAY      -->
+    <!-- ========================================== -->
+    <div id="mobileNavOverlay"
+        class="fixed inset-0 z-50 bg-white flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out hidden">
+        <button id="closeMobileNav" class="absolute top-6 right-8 p-2 rounded-full hover:bg-gray-100 transition-colors"
+            aria-label="Close Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <nav class="flex flex-col items-center gap-8 text-center">
+            <a href="#" class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">COLLECTION</a>
+            <a href="#" class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">TECHNOLOGY</a>
+            <a href="#" class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">APP</a>
+            <a href="#" class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">REAL HOMES</a>
+            <a href="#" class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">COMPARE</a>
+            <div class="mt-8 pt-8 border-t border-gray-200 w-full flex flex-col items-center gap-4">
+                <a href="#" class="text-lg font-medium hover:text-brandTeal">My Account</a>
+                <a href="#" class="text-lg font-medium hover:text-brandTeal">Support</a>
+            </div>
+        </nav>
+    </div>
+    <!-- ========================================== -->
+
+    <div id="smart-header"
+        class="sticky top-0 z-50 w-full flex flex-col shadow-sm transition-transform duration-300 ease-in-out translate-y-0">
+
+        <!-- 1. TOP LIVE AQI TICKER BAR -->
+        <div class="w-full bg-tickerDark text-white flex items-center text-[11px] tracking-wider font-medium animate-fade-in-down overflow-hidden"
+            style="animation-delay: 100ms;">
+
+            <div class="bg-brandTeal px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                INDIA AQI TODAY
+            </div>
+
+            <div class="flex flex-1 overflow-hidden relative">
+                <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
+
+                    <div class="flex items-center gap-6 pr-6">
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Delhi</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">392</span>
+                            <span class="text-textMuted text-[10px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Ghaziabad</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">358</span>
+                            <span class="text-textMuted text-[10px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Noida</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">311</span>
+                            <span class="text-textMuted text-[10px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Patna</span>
+                            <span
+                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">286</span>
+                            <span class="text-textMuted text-[10px]">Very Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Lucknow</span>
+                            <span
+                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">242</span>
+                            <span class="text-textMuted text-[10px]">Very Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Kolkata</span>
+                            <span
+                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">198</span>
+                            <span class="text-textMuted text-[10px]">Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Mumbai</span>
+                            <span
+                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">164</span>
+                            <span class="text-textMuted text-[10px]">Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                    </div>
+
+                    <div class="flex items-center gap-6 pr-6">
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Delhi</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">392</span>
+                            <span class="text-textMuted text-[10px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Ghaziabad</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">358</span>
+                            <span class="text-textMuted text-[10px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Noida</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">311</span>
+                            <span class="text-textMuted text-[10px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Patna</span>
+                            <span
+                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">286</span>
+                            <span class="text-textMuted text-[10px]">Very Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Lucknow</span>
+                            <span
+                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">242</span>
+                            <span class="text-textMuted text-[10px]">Very Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Kolkata</span>
+                            <span
+                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">198</span>
+                            <span class="text-textMuted text-[10px]">Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Mumbai</span>
+                            <span
+                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">164</span>
+                            <span class="text-textMuted text-[10px]">Unhealthy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="px-6 py-3 shrink-0 font-medium text-gray-300 hidden lg:block bg-tickerDark z-10 relative shadow-[-10px_0_15px_-3px_rgba(13,20,24,1)]">
+                Indoors is often <span class="text-sky-400 font-bold">5x worse</span> &middot;
+                <a href="#" class="hover:underline text-white inline-flex items-center gap-1">CHECK YOURS <span
+                        class="text-[9px]">&darr;</span></a>
+            </div>
+        </div>
+
+
+        <!-- 2. MAIN NAVIGATION HEADER -->
+        <header
+            class="w-full bg-white border-b border-gray-100 px-4 md:px-8 py-4 flex items-center justify-between animate-fade-in-down"
+            style="animation-delay: 200ms;">
+
+            <button id="openMobileNav" class="md:hidden p-2 -ml-2" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+
+            <div class="flex items-center">
+                <div class="flex flex-col animate-fade-in-up" style="animation-delay: 350ms;">
+                    <img src="./assets/images/logo.png" alt="Breathe In" class="h-8 md:h-10 w-auto object-contain">
+                </div>
+            </div>
+
+            <!-- Navigation Links with staggered delays -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#"
+                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors animate-fade-in-up"
+                    style="animation-delay: 400ms;">COLLECTION</a>
+                <a href="#"
+                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors animate-fade-in-up"
+                    style="animation-delay: 450ms;">TECHNOLOGY</a>
+                <a href="#"
+                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors animate-fade-in-up"
+                    style="animation-delay: 500ms;">APP</a>
+                <a href="#"
+                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors animate-fade-in-up"
+                    style="animation-delay: 550ms;">REAL HOMES</a>
+                <a href="#"
+                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors animate-fade-in-up"
+                    style="animation-delay: 600ms;">COMPARE</a>
+            </nav>
+
+            <!-- Right Side Header Action Buttons with staggered delays -->
+            <div class="flex items-center gap-2 md:gap-4">
+                <a href="#"
+                    class="hidden sm:block border-2 border-black text-[11px] font-bold tracking-widest px-6 py-2.5 hover:bg-black hover:text-white transition-all duration-200 animate-fade-in-up"
+                    style="animation-delay: 650ms;">
+                    FIND MY PURIFIER
+                </a>
+                <button id="cartBtn"
+                    class="p-2 border border-gray-200 rounded-full hover:border-black transition-colors relative animate-fade-in-up"
+                    style="animation-delay: 700ms;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                    </svg>
+                </button>
+                <button
+                    class="hidden sm:block p-2 border border-gray-200 rounded-full hover:border-black transition-colors animate-fade-in-up"
+                    style="animation-delay: 750ms;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                </button>
+                <button id="themeToggle"
+                    class="hidden sm:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors animate-fade-in-up"
+                    style="animation-delay: 800ms;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-3.5 h-3.5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                    </svg>
+                    <span class="text-[10px] font-bold tracking-widest">DARK</span>
+                </button>
+            </div>
+        </header>
+
+    </div>
+
+
+    <!-- Dynamic Target Container for upcoming Homepage Sections -->
+    <main class="homepage-wrapper">
+        <section class="w-full relative bg-white border-b border-gray-100">
+            <div class="swiper heroSwiper w-full min-h-[600px]">
+                <div class="swiper-wrapper w-full h-full">
+
+                    <div class="swiper-slide w-full h-full">
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 w-full h-full">
+
+                            <div
+                                class="bg-white text-gray-900 flex flex-col justify-center px-6 py-16 md:px-16 lg:py-0 lg:pl-[10%] lg:pr-16 relative order-2 lg:order-1">
+
+                                <div
+                                    class="slide-content opacity-0 translate-y-8 transition-all duration-700 ease-out delay-300">
+
+                                    <div class="flex items-center gap-4 mb-6">
+                                        <div class="w-6 md:w-8 h-[1px] bg-brandTeal"></div>
+                                        <span
+                                            class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-gray-500 font-bold">The
+                                            Right Air &middot; Made for India</span>
+                                    </div>
+
+                                    <h1
+                                        class="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.1] mb-6">
+                                        <span class="text-gray-800">Clean air is not a luxury.</span><br>
+                                        It is a <span class="text-brandTeal font-medium">necessity.</span>
+                                    </h1>
+
+                                    <p
+                                        class="text-gray-500 text-sm md:text-base leading-relaxed max-w-md mb-8 md:mb-10 font-light">
+                                        Sophisticated Japanese air-purification technology, thoughtfully designed for
+                                        Indian homes — and priced so respiratory protection stays within reach. Starting
+                                        at ₹9,999.
+                                    </p>
+
+                                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8">
+                                        <a href="#"
+                                            class="bg-gray-900 text-white text-[10px] tracking-widest font-bold uppercase px-8 py-4 hover:bg-brandTeal transition-colors flex items-center gap-3 w-full sm:w-auto justify-center text-center">
+                                            Explore Collection <span>&rarr;</span>
+                                        </a>
+                                        <a href="#"
+                                            class="text-[10px] tracking-widest font-bold uppercase text-gray-900 border-b border-gray-900 pb-1 hover:text-brandTeal hover:border-brandTeal transition-colors inline-block">
+                                            Find My Purifier
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="hidden lg:flex absolute bottom-8 left-8 md:left-16 lg:left-[10%] items-center gap-4 opacity-50">
+                                    <div class="w-8 h-[1px] bg-gray-400"></div>
+                                    <span class="text-[8px] tracking-widest uppercase text-gray-500 font-bold">Scroll to
+                                        explore</span>
+                                </div>
+                            </div>
+
+                            <div class="relative w-full h-[400px] lg:h-full bg-gray-50 order-1 lg:order-2">
+
+                                <img src="./assets/images/air-pro.png" alt="BreatheIn Air Pro Ecosystem"
+                                    class="w-full h-full object-cover object-center slide-product opacity-0 scale-105 transition-all duration-1000 ease-out delay-500">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="swiper-slide w-full h-full bg-gray-100 flex items-center justify-center text-gray-800">
+                        <h2 class="text-4xl font-light">Slide 2 Placeholder</h2>
+                    </div> -->
+
+                </div>
+
+                <div class="swiper-pagination hidden lg:block"></div>
+            </div>
+        </section>
+        <div class="w-full bg-tickerDark text-gray-300 py-4 border-t border-b border-gray-800 overflow-hidden relative">
+
+            <div class="flex whitespace-nowrap animate-marquee">
+
+                <div class="flex items-center gap-12 px-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandTeal"></span>
+                        <span class="text-[10px] tracking-widest font-bold uppercase">99.97% PM2.5 Capture</span>
+                    </div>
+                    <div class="w-[1px] h-4 bg-gray-700"></div>
+
+                    <div class="flex items-center gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandTeal"></span>
+                        <span class="text-[10px] tracking-widest font-bold uppercase">HEPA H13 Filtration</span>
+                    </div>
+                    <div class="w-[1px] h-4 bg-gray-700"></div>
+
+                    <div class="flex items-center gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandTeal"></span>
+                        <span class="text-[10px] tracking-widest font-bold uppercase">Japanese Technology</span>
+                    </div>
+                    <div class="w-[1px] h-4 bg-gray-700"></div>
+
+                    <div class="flex items-center gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandTeal"></span>
+                        <span class="text-[10px] tracking-widest font-bold uppercase">Internationally Certified</span>
+                    </div>
+                    <div class="w-[1px] h-4 bg-gray-700"></div>
+
+                    <div class="flex items-center gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandTeal"></span>
+                        <span class="text-[10px] tracking-widest font-bold uppercase">Starting at ₹9,999</span>
+                    </div>
+                    <div class="w-[1px] h-4 bg-gray-700"></div>
+                </div>
+
+                <div class="flex items-center gap-12 px-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandTeal"></span>
+                        <span class="text-[10px] tracking-widest font-bold uppercase">99.97% PM2.5 Capture</span>
+                    </div>
+                    <div class="w-[1px] h-4 bg-gray-700"></div>
+
+                    <div class="flex items-center gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandTeal"></span>
+                        <span class="text-[10px] tracking-widest font-bold uppercase">HEPA H13 Filtration</span>
+                    </div>
+                    <div class="w-[1px] h-4 bg-gray-700"></div>
+
+                    <div class="flex items-center gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandTeal"></span>
+                        <span class="text-[10px] tracking-widest font-bold uppercase">Japanese Technology</span>
+                    </div>
+                    <div class="w-[1px] h-4 bg-gray-700"></div>
+
+                    <div class="flex items-center gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandTeal"></span>
+                        <span class="text-[10px] tracking-widest font-bold uppercase">Internationally Certified</span>
+                    </div>
+                    <div class="w-[1px] h-4 bg-gray-700"></div>
+
+                    <div class="flex items-center gap-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brandTeal"></span>
+                        <span class="text-[10px] tracking-widest font-bold uppercase">Starting at ₹9,999</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <section
+            class="w-full bg-[#030608] text-white py-24 md:py-32 px-6 md:px-16 lg:px-24 relative overflow-hidden flex flex-col items-center">
+
+            <div class="absolute inset-0 pointer-events-none opacity-20 select-none">
+                <span
+                    class="float-slow absolute top-[20%] left-[15%] text-[9px] tracking-widest text-gray-500">DUST</span>
+                <span class="float-slow absolute top-[30%] right-[20%] text-[9px] tracking-widest text-gray-500"
+                    style="animation-delay: -2s;">PM 10</span>
+                <span class="float-slow absolute top-[45%] left-[25%] text-[9px] tracking-widest text-gray-500"
+                    style="animation-delay: -4s;">VOCS</span>
+                <span class="float-slow absolute bottom-[35%] right-[25%] text-[9px] tracking-widest text-gray-500"
+                    style="animation-delay: -1s;">NO2</span>
+                <span class="float-slow absolute bottom-[25%] left-[30%] text-[9px] tracking-widest text-gray-500"
+                    style="animation-delay: -3s;">PM 2.5</span>
+                <span class="float-slow absolute bottom-[20%] right-[15%] text-[9px] tracking-widest text-gray-500"
+                    style="animation-delay: -5s;">DANDER</span>
+                <span class="float-slow absolute bottom-[40%] left-[45%] text-[9px] tracking-widest text-gray-500"
+                    style="animation-delay: -2.5s;">POLLEN</span>
+            </div>
+
+            <div class="max-w-4xl mx-auto text-center relative z-10 w-full">
+
+                <div class="mb-6 scroll-reveal opacity-0 translate-y-4 transition-all duration-700 ease-out">
+                    <span class="text-[8px] md:text-[10px] tracking-[0.3em] uppercase text-brandTeal font-bold">The Air
+                        Inside Your Home</span>
+                </div>
+
+                <h2
+                    class="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight mb-8 scroll-reveal opacity-0 transition-all duration-700 ease-out delay-100">
+                    Every breath carries <br>
+                    <span class="text-brandTeal font-medium">invisible pollutants.</span>
+                </h2>
+
+                <p
+                    class="text-gray-400 text-sm md:text-[15px] font-light leading-relaxed max-w-2xl mx-auto mb-16 scroll-reveal opacity-0 transition-all duration-700 ease-out delay-200">
+                    Indoor air in Indian homes is 2-5 times more polluted than outside — and 14 of the world's 20 most
+                    polluted cities are in India. What you cannot see may be affecting your sleep, your health, and your
+                    family's wellbeing, every single day.
+                </p>
+
+                <div
+                    class="flex flex-wrap justify-center gap-3 md:gap-4 max-w-3xl mx-auto mb-20 scroll-reveal opacity-0 transition-all duration-700 ease-out delay-300">
+                    <div
+                        class="border border-gray-800 px-5 py-2.5 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
+                        PM 2.5</div>
+                    <div
+                        class="border border-gray-800 px-5 py-2.5 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
+                        Allergens & Pollen</div>
+                    <div
+                        class="border border-gray-800 px-5 py-2.5 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
+                        Dust Mites</div>
+                    <div
+                        class="border border-gray-800 px-5 py-2.5 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
+                        Bacteria & Viruses</div>
+                    <div
+                        class="border border-gray-800 px-5 py-2.5 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
+                        VOCs</div>
+                    <div
+                        class="border border-gray-800 px-5 py-2.5 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
+                        Smoke & Odours</div>
+                    <div
+                        class="border border-gray-800 px-5 py-2.5 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
+                        Formaldehyde</div>
+                    <div
+                        class="border border-gray-800 px-5 py-2.5 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default w-full md:w-auto mt-2 md:mt-0">
+                        Pet Dander</div>
+                </div>
+
+                <div
+                    class="w-full h-[1px] bg-gradient-to-r from-transparent via-gray-800 to-transparent mb-16 scroll-reveal opacity-0 transition-all duration-700 delay-500">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 text-center w-full">
+
+                    <div
+                        class="flex flex-col items-center px-4 scroll-reveal opacity-0 transition-all duration-700 ease-out delay-400">
+                        <span class="text-brandTeal text-5xl md:text-6xl font-light tracking-tight mb-4">14/20</span>
+                        <span
+                            class="text-gray-500 text-[9px] md:text-[10px] tracking-[0.2em] uppercase font-bold leading-relaxed max-w-[200px]">Of
+                            the world's most polluted cities are in India</span>
+                    </div>
+
+                    <div
+                        class="flex flex-col items-center px-4 md:border-l md:border-r border-gray-800/60 scroll-reveal opacity-0 transition-all duration-700 ease-out delay-500">
+                        <span
+                            class="text-brandTeal text-5xl md:text-6xl font-light tracking-tight mb-4">2-5&times;</span>
+                        <span
+                            class="text-gray-500 text-[9px] md:text-[10px] tracking-[0.2em] uppercase font-bold leading-relaxed max-w-[200px]">More
+                            polluted indoors than outside</span>
+                    </div>
+
+                    <div
+                        class="flex flex-col items-center px-4 scroll-reveal opacity-0 transition-all duration-700 ease-out delay-600">
+                        <span class="text-brandTeal text-5xl md:text-6xl font-light tracking-tight mb-4">5-7 yrs</span>
+                        <span
+                            class="text-gray-500 text-[9px] md:text-[10px] tracking-[0.2em] uppercase font-bold leading-relaxed max-w-[200px]">Of
+                            life lost to sustained air-pollution exposure</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="w-full bg-tickerDark pt-8 pb-10 md:pt-10 md:pb-12 border-t border-b border-gray-800/60">
+
+            <div
+                class="max-w-6xl mx-auto px-6 overflow-x-auto no-scrollbar scroll-reveal opacity-0 transition-all duration-700 ease-out">
+
+                <div
+                    class="flex items-center justify-start md:justify-center gap-8 min-w-max mx-auto md:min-h-[80px] py-2">
+
+                    <span
+                        class="text-white text-xl md:text-2xl font-light tracking-wide shrink-0 leading-none flex items-center">Our
+                        Partners</span>
+
+                    <div class="w-[1px] h-8 md:h-[75px] bg-gray-700 shrink-0"></div>
+
+                    <img src="./assets/images/google-logo.svg" alt="Google"
+                        class="h-8 md:h-[59px] w-auto opacity-70 hover:opacity-100 transition-opacity duration-300 shrink-0 object-contain">
+
+                    <div class="w-[1px] h-8 md:h-[75px] bg-gray-700 shrink-0"></div>
+
+                    <img src="./assets/images/coca-cola-logo.svg" alt="Coca-Cola"
+                        class="h-8 md:h-[59px] w-auto opacity-70 hover:opacity-100 transition-opacity duration-300 shrink-0 object-contain">
+
+                    <div class="w-[1px] h-8 md:h-[75px] bg-gray-700 shrink-0"></div>
+
+                    <img src="./assets/images/google-logo.svg" alt="Google"
+                        class="h-8 md:h-[59px] w-auto opacity-70 hover:opacity-100 transition-opacity duration-300 shrink-0 object-contain">
+
+                    <div class="w-[1px] h-8 md:h-[75px] bg-gray-700 shrink-0"></div>
+
+                    <img src="./assets/images/coca-cola-logo.svg" alt="Coca-Cola"
+                        class="h-8 md:h-[59px] w-auto opacity-70 hover:opacity-100 transition-opacity duration-300 shrink-0 object-contain">
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- jQuery Core Library -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Link to Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
