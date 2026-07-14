@@ -169,4 +169,25 @@ $(document).ready(function () {
   revealElements.forEach((el) => {
     revealObserver.observe(el);
   });
+
+  // ==========================================
+    // Product Matcher Slider Logic
+    // ==========================================
+    const $roomSlider = $('#roomAreaSlider');
+    const $roomValue = $('#roomAreaValue');
+
+    $roomSlider.on('input', function() {
+        // Get current value of the range slider
+        let currentValue = $(this).val();
+        
+        // Update the text in the UI
+        $roomValue.text(currentValue);
+
+        /* 
+         * Future WordPress Integration Note:
+         * You can easily expand this later to swap out the product card image, 
+         * title, and price dynamically based on whether the `currentValue` 
+         * is < 400 (Small Room), 400-800 (Medium), or > 800 (Large).
+         */
+    });
 });
