@@ -101,4 +101,19 @@ body {
 }
 .float-slow {
   animation: floatSlow 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }/*# sourceMappingURL=style.css.map */

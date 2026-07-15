@@ -115,33 +115,33 @@ $(document).ready(function () {
   });
 
   // ==========================================
-    // Smart Hide/Show Header on Scroll
-    // ==========================================
-    let lastScrollTop = 0;
-    const $header = $('#smart-header');
+  // Smart Hide/Show Header on Scroll
+  // ==========================================
+  let lastScrollTop = 0;
+  const $header = $("#smart-header");
 
-    $(window).on('scroll', function() {
-        let currentScroll = $(this).scrollTop();
-        
-        // Safeguard for mobile elastic scrolling (rubber-band effect at the top)
-        if (currentScroll <= 0) {
-            $header.removeClass('-translate-y-full').addClass('translate-y-0');
-            lastScrollTop = currentScroll;
-            return;
-        }
+  $(window).on("scroll", function () {
+    let currentScroll = $(this).scrollTop();
 
-        // If scrolling down AND passed the first 100px of the page
-        if (currentScroll > lastScrollTop && currentScroll > 100) {
-            // Slide up out of view
-            $header.removeClass('translate-y-0').addClass('-translate-y-full');
-        } else {
-            // Scrolling up - Slide back down into view
-            $header.removeClass('-translate-y-full').addClass('translate-y-0');
-        }
-        
-        // Update the last scroll position for the next calculation
-        lastScrollTop = currentScroll;
-    });
+    // Safeguard for mobile elastic scrolling (rubber-band effect at the top)
+    if (currentScroll <= 0) {
+      $header.removeClass("-translate-y-full").addClass("translate-y-0");
+      lastScrollTop = currentScroll;
+      return;
+    }
+
+    // If scrolling down AND passed the first 100px of the page
+    if (currentScroll > lastScrollTop && currentScroll > 100) {
+      // Slide up out of view
+      $header.removeClass("translate-y-0").addClass("-translate-y-full");
+    } else {
+      // Scrolling up - Slide back down into view
+      $header.removeClass("-translate-y-full").addClass("translate-y-0");
+    }
+
+    // Update the last scroll position for the next calculation
+    lastScrollTop = currentScroll;
+  });
 
   // ==========================================
   // Scroll Reveal Animations
@@ -171,23 +171,39 @@ $(document).ready(function () {
   });
 
   // ==========================================
-    // Product Matcher Slider Logic
-    // ==========================================
-    const $roomSlider = $('#roomAreaSlider');
-    const $roomValue = $('#roomAreaValue');
+  // Product Matcher Slider Logic
+  // ==========================================
+  const $roomSlider = $("#roomAreaSlider");
+  const $roomValue = $("#roomAreaValue");
 
-    $roomSlider.on('input', function() {
-        // Get current value of the range slider
-        let currentValue = $(this).val();
-        
-        // Update the text in the UI
-        $roomValue.text(currentValue);
+  $roomSlider.on("input", function () {
+    // Get current value of the range slider
+    let currentValue = $(this).val();
 
-        /* 
-         * Future WordPress Integration Note:
-         * You can easily expand this later to swap out the product card image, 
-         * title, and price dynamically based on whether the `currentValue` 
-         * is < 400 (Small Room), 400-800 (Medium), or > 800 (Large).
-         */
+    // Update the text in the UI
+    $roomValue.text(currentValue);
+
+    /*
+     * Future WordPress Integration Note:
+     * You can easily expand this later to swap out the product card image,
+     * title, and price dynamically based on whether the `currentValue`
+     * is < 400 (Small Room), 400-800 (Medium), or > 800 (Large).
+     */
+  });
+
+  // ==========================================
+  // Back to Top Button Logic
+  // ==========================================
+  const backToTopBtn = document.getElementById("backToTop");
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      // Smooth scroll to the top of the window
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     });
+  }
 });
