@@ -61,21 +61,32 @@
     </div>
     <!-- ========================================== -->
 
+    <!-- ========================================== -->
+    <!-- SMART STICKY HEADER                        -->
+    <!-- ========================================== -->
     <div id="smart-header"
         class="sticky top-0 z-50 w-full flex flex-col shadow-sm transition-transform duration-300 ease-in-out translate-y-0">
 
         <!-- 1. TOP LIVE AQI TICKER BAR -->
+        <!-- Updated to match mobile design: unified dark background, teal dot, vertical separator -->
         <div class="w-full bg-tickerDark text-white flex items-center text-[11px] tracking-wider font-medium animate-fade-in-down overflow-hidden"
             style="animation-delay: 100ms;">
 
-            <div class="bg-brandTeal px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative">
-                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+            <div
+                class="bg-tickerDark md:bg-brandTeal px-4 md:px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative">
+                <!-- <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> -->
+                <span class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse"></span>
                 INDIA AQI TODAY
             </div>
 
-            <div class="flex flex-1 overflow-hidden relative">
+            <!-- Separator Line -->
+            <div class="w-[1px] h-6 bg-gray-800 shrink-0 z-10 relative"></div>
+
+            <!-- Scrolling Content -->
+            <div class="flex flex-1 overflow-hidden relative bg-tickerDark">
                 <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
 
+                    <!-- Ticker Items List 1 -->
                     <div class="flex items-center gap-6 pr-6">
                         <div class="flex items-center gap-2">
                             <span class="font-semibold text-gray-200">Delhi</span>
@@ -128,6 +139,7 @@
                         <span class="text-gray-700">|</span>
                     </div>
 
+                    <!-- Ticker Items List 2 (Duplicated for seamless scrolling) -->
                     <div class="flex items-center gap-6 pr-6">
                         <div class="flex items-center gap-2">
                             <span class="font-semibold text-gray-200">Delhi</span>
@@ -181,6 +193,7 @@
                 </div>
             </div>
 
+            <!-- Desktop Info Banner -->
             <div
                 class="px-6 py-3 shrink-0 font-medium text-gray-300 hidden lg:block bg-tickerDark z-10 relative shadow-[-10px_0_15px_-3px_rgba(13,20,24,1)]">
                 Indoors is often <span class="text-sky-400 font-bold">5x worse</span> &middot;
@@ -191,73 +204,59 @@
 
 
         <!-- 2. MAIN NAVIGATION HEADER -->
+        <!-- Updated Mobile Layout: Logo Left, Cart+CTA+Hamburger Right -->
         <header
-            class="w-full bg-white border-b border-gray-100 px-4 md:px-8 py-4 flex items-center justify-between animate-fade-in-down"
+            class="w-full bg-[#FAFCFD] border-b border-gray-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between animate-fade-in-down"
             style="animation-delay: 200ms;">
 
-            <button id="openMobileNav" class="md:hidden p-2 -ml-2" aria-label="Open Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-            </button>
-
+            <!-- Left: Logo -->
             <div class="flex items-center">
-                <div class="flex flex-col animate-fade-in-up" style="animation-delay: 350ms;">
-                    <a href="/index.html" class="h-8 md:h-10 w-auto">
-                        <img src="./assets/images/logo.png" alt="Breathe In" class="h-8 md:h-10 w-auto object-contain">
-                    </a>
-                </div>
+                <a href="/index.html" class="h-7 md:h-10 w-auto">
+                    <img src="./assets/images/logo.png" alt="Breathe In" class="h-7 md:h-10 w-auto object-contain">
+                </a>
             </div>
 
-            <!-- Navigation Links with staggered delays -->
-            <nav class="hidden md:flex items-center gap-8">
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-8">
                 <a href="#"
-                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors animate-fade-in-up"
-                    style="animation-delay: 400ms;">COLLECTION</a>
+                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COLLECTION</a>
                 <a href="#"
-                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors animate-fade-in-up"
-                    style="animation-delay: 450ms;">TECHNOLOGY</a>
+                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">TECHNOLOGY</a>
                 <a href="#"
-                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors animate-fade-in-up"
-                    style="animation-delay: 500ms;">APP</a>
+                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">APP</a>
                 <a href="#"
-                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors animate-fade-in-up"
-                    style="animation-delay: 550ms;">REAL HOMES</a>
+                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">REAL
+                    HOMES</a>
                 <a href="#"
-                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors animate-fade-in-up"
-                    style="animation-delay: 600ms;">COMPARE</a>
+                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COMPARE</a>
             </nav>
 
-            <!-- Right Side Header Action Buttons with staggered delays -->
-            <div class="flex items-center gap-2 md:gap-4">
+            <!-- Right: Action Buttons & Hamburger -->
+            <div class="flex items-center gap-3 md:gap-5">
+
+                <!-- Cart Button with Notification Badge -->
+                <button id="cartBtn"
+                    class="relative p-1.5 text-gray-900 hover:text-brandTeal transition-colors flex items-center justify-center">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1.5"></circle>
+                        <circle cx="20" cy="21" r="1.5"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <!-- Teal Badge -->
+                    <span
+                        class="absolute -top-1.5 -right-1.5 bg-brandTeal text-white text-[9px] font-bold w-4 h-4 aspect-square rounded-full flex items-center justify-center border border-white">3</span>
+                </button>
+
+                <!-- Primary CTA (Now visible on mobile per design) -->
                 <a href="#"
-                    class="hidden sm:block border-2 border-black text-[11px] font-bold tracking-widest px-6 py-2.5 hover:bg-black hover:text-white transition-all duration-200 animate-fade-in-up"
-                    style="animation-delay: 650ms;">
+                    class="border border-black text-[9px] md:text-[11px] font-bold tracking-widest px-3 py-2 md:px-6 md:py-2.5 uppercase hover:bg-black hover:text-white transition-all duration-200">
                     FIND MY PURIFIER
                 </a>
-                <button id="cartBtn"
-                    class="p-2 border border-gray-200 rounded-full hover:border-black transition-colors relative animate-fade-in-up"
-                    style="animation-delay: 700ms;">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                    </svg>
-                </button>
-                <button
-                    class="hidden sm:block p-2 border border-gray-200 rounded-full hover:border-black transition-colors animate-fade-in-up"
-                    style="animation-delay: 750ms;">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                    </svg>
-                </button>
+
+                <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
                 <button id="themeToggle"
-                    class="hidden sm:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors animate-fade-in-up"
-                    style="animation-delay: 800ms;">
+                    class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-3.5 h-3.5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -265,6 +264,16 @@
                     </svg>
                     <span class="text-[10px] font-bold tracking-widest">DARK</span>
                 </button>
+
+                <!-- Hamburger Menu Icon (Moved to right) -->
+                <button id="openMobileNav" class="lg:hidden p-1" aria-label="Open Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-7 h-7 text-gray-900">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+
             </div>
         </header>
 
@@ -273,75 +282,136 @@
 
     <!-- Dynamic Target Container for upcoming Homepage Sections -->
     <main class="homepage-wrapper">
+        <!-- ========================================== -->
+        <!-- HERO SECTION                               -->
+        <!-- ========================================== -->
         <section class="w-full relative bg-white border-b border-gray-100">
-            <div class="swiper heroSwiper w-full min-h-[600px]">
+            <div class="swiper heroSwiper w-full min-h-[100dvh] lg:min-h-[600px]">
                 <div class="swiper-wrapper w-full h-full">
 
                     <div class="swiper-slide w-full h-full">
-
                         <div class="grid grid-cols-1 lg:grid-cols-2 w-full h-full">
 
+                            <!-- ============================================== -->
+                            <!-- 1. VISUAL COLUMN (Top Mobile, Right Desktop)   -->
+                            <!-- ============================================== -->
                             <div
-                                class="bg-white text-gray-900 flex flex-col justify-center px-6 py-16 md:px-16 lg:py-0 lg:pl-[10%] lg:pr-16 relative order-2 lg:order-1">
+                                class="relative w-full min-h-[350px] lg:h-full lg:min-h-full order-1 lg:order-2 bg-gray-100 flex items-center justify-center overflow-hidden">
 
-                                <div
-                                    class="slide-content opacity-0 translate-y-8 transition-all duration-700 ease-out delay-300">
+                                <!-- Background Image (Bedroom) -->
+                                <img src="./assets/images/lifestyle-bedroom.jpg" alt="Bedroom Setup"
+                                    class="absolute inset-0 w-full h-full object-cover object-center slide-product opacity-0 transition-all duration-1000 ease-out delay-200">
 
-                                    <div class="flex items-center gap-4 mb-6">
-                                        <div class="w-6 md:w-8 h-[1px] bg-brandTeal"></div>
-                                        <span
-                                            class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-gray-500 font-bold">The
-                                            Right Air &middot; Made for India</span>
-                                    </div>
-
-                                    <h1
-                                        class="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.1] mb-6">
-                                        <span class="text-gray-800">Clean air is not a luxury.</span><br>
-                                        It is a <span class="text-brandTeal font-medium">necessity.</span>
-                                    </h1>
-
-                                    <p
-                                        class="text-gray-500 text-sm md:text-base leading-relaxed max-w-md mb-8 md:mb-10 font-light">
-                                        Sophisticated Japanese air-purification technology, thoughtfully designed for
-                                        Indian homes — and priced so respiratory protection stays within reach. Starting
-                                        at ₹9,999.
-                                    </p>
-
-                                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8">
-                                        <a href="#"
-                                            class="bg-gray-900 text-white text-[10px] tracking-widest font-bold uppercase px-8 py-4 hover:bg-brandTeal transition-colors flex items-center gap-3 w-full sm:w-auto justify-center text-center">
-                                            Explore Collection <span>&rarr;</span>
-                                        </a>
-                                        <a href="#"
-                                            class="text-[10px] tracking-widest font-bold uppercase text-gray-900 border-b border-gray-900 pb-1 hover:text-brandTeal hover:border-brandTeal transition-colors inline-block">
-                                            Find My Purifier
-                                        </a>
-                                    </div>
+                                <!-- Gradient Overlay 1 -->
+                                <div class="absolute inset-0 z-10 pointer-events-none hidden lg:block"
+                                    style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 3.83%, rgba(255, 255, 255, 0.28) 3.83%, rgba(255, 255, 255, 0.28) 4%);">
                                 </div>
 
+                                <!-- Gradient Overlay 2 -->
+                                <div class="absolute inset-0 z-10 pointer-events-none hidden lg:block"
+                                    style="background: linear-gradient(164.38deg, rgba(168, 218, 242, 0.32) 0%, rgba(21, 110, 138, 0.14) 45%, rgba(247, 249, 250, 0.5) 100%);">
+                                </div>
+
+                                <!-- Desktop Product Overlay (Hidden on Mobile) -->
+                                <img src="./assets/images/air-pro.png" alt="Air Pro Purifier"
+                                    class="hidden lg:block relative z-20 mt-[32%] h-[60%] max-h-[700px] w-auto object-contain drop-shadow-2xl slide-product opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-500">
+
+                                <!-- Floating AQI Badge -->
                                 <div
-                                    class="hidden lg:flex absolute bottom-8 left-8 md:left-16 lg:left-[10%] items-center gap-4 opacity-50">
-                                    <div class="w-8 h-[1px] bg-gray-400"></div>
-                                    <span class="text-[8px] tracking-widest uppercase text-gray-500 font-bold">Scroll to
-                                        explore</span>
+                                    class="absolute bottom-6 left-6 lg:bottom-28 lg:left-12 xl:left-28 bg-white/95 backdrop-blur-md px-4 py-3 shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex items-center gap-3 z-30 slide-product opacity-0 translate-y-4 transition-all duration-700 delay-700">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-[#39B54A]"></span>
+                                    <div class="flex flex-col text-left">
+                                        <span
+                                            class="text-[7px] uppercase tracking-[0.15em] text-gray-400 font-bold leading-none mb-0.5">Indoor
+                                            Air Quality</span>
+                                        <span class="text-sm font-medium text-gray-900 leading-none">Excellent <span
+                                                class="text-[10px] text-gray-500 font-normal tracking-wide">AQI
+                                                14</span></span>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="relative w-full h-[400px] lg:h-full bg-gray-50 order-1 lg:order-2">
+                            <!-- ============================================== -->
+                            <!-- 2. TEXT COLUMN (Bottom Mobile, Left Desktop)   -->
+                            <!-- ============================================== -->
+                            <div
+                                class="bg-white text-gray-900 flex flex-col justify-center px-6 py-10 lg:px-16 lg:pl-[10%] lg:pr-16 relative order-2 lg:order-1">
 
-                                <img src="./assets/images/air-pro.png" alt="BreatheIn Air Pro Ecosystem"
-                                    class="w-full h-full object-contain object-center slide-product opacity-0 scale-105 transition-all duration-1000 ease-out delay-500">
+                                <div
+                                    class="slide-content w-full opacity-0 translate-y-8 transition-all duration-700 ease-out delay-300 max-w-xl mx-auto lg:mx-0">
+
+                                    <!-- Responsive Eyebrow -->
+                                    <div class="flex items-center gap-3 lg:gap-4 mb-4 lg:mb-6">
+                                        <div class="hidden lg:block w-8 h-[1px] bg-gray-300"></div>
+                                        <span class="text-[9px] tracking-[0.2em] uppercase text-[#156E8A] font-bold">
+                                            <span class="lg:hidden">Breathe In &mdash; </span>The Right Air <span
+                                                class="hidden lg:inline text-gray-400">&middot; Made for India</span>
+                                        </span>
+                                    </div>
+
+                                    <!-- Responsive Headline -->
+                                    <h1
+                                        class="text-[32px] sm:text-4xl lg:text-6xl xl:text-7xl font-light tracking-tight leading-[1.15] lg:leading-[1.1] mb-4 lg:mb-6">
+                                        Clean air is not a luxury. <br class="hidden lg:block">
+                                        <span class="lg:text-[#156E8A] lg:font-medium">It is a necessity.</span>
+                                    </h1>
+
+                                    <!-- Subtext -->
+                                    <p
+                                        class="text-gray-500 text-[13px] lg:text-[15px] leading-relaxed mb-8 lg:mb-10 font-light lg:pr-10">
+                                        Sophisticated Japanese air-purification technology, thoughtfully designed for
+                                        Indian homes. Starting at ₹9,999.
+                                    </p>
+
+                                    <!-- Mobile-Only Product Box (Hidden on Desktop) -->
+                                    <div
+                                        class="lg:hidden w-full bg-[#F2F6F8] rounded-2xl py-10 flex justify-center items-center mb-8">
+                                        <img src="./assets/images/air-pro.png" alt="Air Pro"
+                                            class="h-[200px] object-contain drop-shadow-md">
+                                    </div>
+
+                                    <!-- Responsive Action Buttons -->
+                                    <div
+                                        class="flex flex-col lg:flex-row items-stretch lg:items-center gap-3 lg:gap-8 w-full">
+
+                                        <!-- Primary Button -->
+                                        <a href="#"
+                                            class="bg-[#111111] text-white text-[10px] tracking-[0.15em] font-bold uppercase px-6 lg:px-8 py-5 lg:py-4 hover:bg-[#156E8A] transition-colors flex items-center justify-between lg:justify-center gap-3 rounded-sm w-full lg:w-auto">
+                                            <span>Explore Collection</span> <span>&rarr;</span>
+                                        </a>
+
+                                        <!-- Secondary Button -->
+                                        <a href="#"
+                                            class="bg-[#FAFCFD] border border-gray-100 lg:bg-transparent lg:border-0 lg:border-b lg:border-gray-900 text-gray-900 text-[10px] tracking-[0.15em] font-bold uppercase px-6 lg:px-0 py-5 lg:py-1 hover:text-[#156E8A] hover:border-[#156E8A] transition-colors flex items-center justify-between lg:justify-center gap-3 rounded-sm lg:rounded-none w-full lg:w-auto">
+                                            <span>Find My Purifier</span> <span
+                                                class="lg:hidden text-gray-400 font-light">&rarr;</span>
+                                        </a>
+
+                                    </div>
+
+                                    <!-- Mobile Scroll Indicator -->
+                                    <div class="flex lg:hidden items-center gap-4 opacity-40 w-full mt-6">
+                                        <div class="w-8 h-[1px] bg-gray-400"></div>
+                                        <span
+                                            class="text-[8px] tracking-[0.2em] uppercase text-gray-500 font-bold">Scroll
+                                            to explore</span>
+                                    </div>
+
+                                </div>
+
+                                <!-- Desktop Scroll Indicator -->
+                                <div
+                                    class="hidden lg:flex absolute bottom-8 left-[10%] items-center gap-4 opacity-40 slide-content opacity-0 transition-all duration-700 delay-500">
+                                    <div class="w-8 h-[1px] bg-gray-400"></div>
+                                    <span class="text-[8px] tracking-[0.2em] uppercase text-gray-500 font-bold">Scroll
+                                        to explore</span>
+                                </div>
 
                             </div>
                         </div>
                     </div>
 
-                    <!-- <div class="swiper-slide w-full h-full bg-gray-100 flex items-center justify-center text-gray-800">
-                        <h2 class="text-4xl font-light">Slide 2 Placeholder</h2>
-                    </div> -->
-
                 </div>
-
                 <div class="swiper-pagination hidden lg:block"></div>
             </div>
         </section>
@@ -414,10 +484,14 @@
 
             </div>
         </div>
+        <!-- ========================================== -->
+        <!-- SECTION: THE INVISIBLE PROBLEM & PARTNERS  -->
+        <!-- ========================================== -->
         <section
-            class="w-full bg-[#030608] text-white py-24 md:py-32 px-6 md:px-16 lg:px-24 relative overflow-hidden flex flex-col items-center">
+            class="w-full bg-[#030608] text-white py-10 md:py-32 px-6 md:px-16 lg:px-24 relative overflow-hidden flex flex-col items-center">
 
-            <div class="absolute inset-0 pointer-events-none opacity-20 select-none">
+            <!-- Background Floating Tags -->
+            <div class="absolute inset-0 pointer-events-none opacity-20 select-none overflow-hidden">
                 <span
                     class="float-slow absolute top-[20%] left-[15%] text-[9px] tracking-widest text-gray-500">DUST</span>
                 <span class="float-slow absolute top-[30%] right-[20%] text-[9px] tracking-widest text-gray-500"
@@ -434,121 +508,164 @@
                     style="animation-delay: -2.5s;">POLLEN</span>
             </div>
 
-            <div class="max-w-4xl mx-auto text-center relative z-10 w-full">
+            <div class="max-w-5xl mx-auto text-center relative z-10 w-full">
 
-                <div class="mb-6 scroll-reveal opacity-0 translate-y-4 transition-all duration-700 ease-out">
-                    <span class="text-[8px] md:text-[10px] tracking-[0.3em] uppercase text-brandTeal font-bold">The Air
-                        Inside Your Home</span>
+                <!-- Eyebrow -->
+                <div class="mb-4 scroll-reveal opacity-0 translate-y-4 transition-all duration-700 ease-out">
+                    <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-brandTeal font-bold">The
+                        Invisible Problem</span>
                 </div>
 
+                <!-- Headline -->
                 <h2
-                    class="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight mb-8 scroll-reveal opacity-0 transition-all duration-700 ease-out delay-100">
-                    Every breath carries <br>
+                    class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight mb-6 scroll-reveal opacity-0 transition-all duration-700 ease-out delay-100 leading-[1.2]">
+                    Every breath carries <br class="hidden sm:block">
                     <span class="text-brandTeal font-medium">invisible pollutants.</span>
                 </h2>
 
+                <!-- Subtext -->
                 <p
-                    class="text-gray-400 text-sm md:text-[15px] font-light leading-relaxed max-w-2xl mx-auto mb-16 scroll-reveal opacity-0 transition-all duration-700 ease-out delay-200">
+                    class="text-gray-400 text-xs md:text-[15px] font-light leading-relaxed max-w-2xl mx-auto mb-12 scroll-reveal opacity-0 transition-all duration-700 ease-out delay-200">
                     Indoor air in Indian homes is 2-5 times more polluted than outside — and 14 of the world's 20 most
                     polluted cities are in India. What you cannot see may be affecting your sleep, your health, and your
                     family's wellbeing, every single day.
                 </p>
 
+                <!-- Pollutants Tags List -->
                 <div
-                    class="flex flex-wrap justify-center gap-3 md:gap-4 max-w-3xl mx-auto mb-20 scroll-reveal opacity-0 transition-all duration-700 ease-out delay-300">
+                    class="flex flex-wrap justify-center gap-2.5 md:gap-4 max-w-3xl mx-auto mb-16 scroll-reveal opacity-0 transition-all duration-700 ease-out delay-300">
                     <div
-                        class="border border-gray-800 px-5 py-2.5 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
+                        class="border border-gray-800 px-4 py-2 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
                         PM 2.5</div>
                     <div
-                        class="border border-gray-800 px-5 py-2.5 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
+                        class="border border-gray-800 px-4 py-2 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
                         Allergens & Pollen</div>
                     <div
-                        class="border border-gray-800 px-5 py-2.5 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
+                        class="border border-gray-800 px-4 py-2 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
                         Dust Mites</div>
                     <div
-                        class="border border-gray-800 px-5 py-2.5 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
+                        class="border border-gray-800 px-4 py-2 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
                         Bacteria & Viruses</div>
                     <div
-                        class="border border-gray-800 px-5 py-2.5 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
+                        class="border border-gray-800 px-4 py-2 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
                         VOCs</div>
                     <div
-                        class="border border-gray-800 px-5 py-2.5 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
+                        class="border border-gray-800 px-4 py-2 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
                         Smoke & Odours</div>
                     <div
-                        class="border border-gray-800 px-5 py-2.5 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
+                        class="border border-gray-800 px-4 py-2 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
                         Formaldehyde</div>
                     <div
-                        class="border border-gray-800 px-5 py-2.5 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default w-full md:w-auto mt-2 md:mt-0">
+                        class="border border-gray-800 px-4 py-2 text-[9px] md:text-[10px] tracking-widest uppercase text-gray-400 hover:text-white hover:border-brandTeal transition-colors cursor-default">
                         Pet Dander</div>
                 </div>
 
+                <!-- Divider Line -->
                 <div
                     class="w-full h-[1px] bg-gradient-to-r from-transparent via-gray-800 to-transparent mb-16 scroll-reveal opacity-0 transition-all duration-700 delay-500">
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 text-center w-full">
+                <!-- Stats Grid: 2x2 on mobile matching design_392ba0, 3-column or row layout on desktop -->
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 text-left w-full mb-5 md:mb-20">
 
+                    <!-- Card 1 -->
                     <div
-                        class="flex flex-col items-center px-4 scroll-reveal opacity-0 transition-all duration-700 ease-out delay-400">
-                        <span class="text-brandTeal text-5xl md:text-6xl font-light tracking-tight mb-4">14/20</span>
+                        class="bg-[#080C0F] border border-gray-800/80 p-6 md:p-8 flex flex-col justify-between scroll-reveal opacity-0 transition-all duration-700 ease-out delay-400 min-h-[160px] md:min-h-[200px]">
                         <span
-                            class="text-gray-500 text-[9px] md:text-[10px] tracking-[0.2em] uppercase font-bold leading-relaxed max-w-[200px]">Of
-                            the world's most polluted cities are in India</span>
+                            class="text-brandTeal text-3xl sm:text-4xl md:text-5xl font-light tracking-tight">14/20</span>
+                        <span
+                            class="text-gray-400 text-[9px] md:text-[11px] tracking-[0.15em] uppercase font-light leading-relaxed mt-4">
+                            Of the world's most polluted cities are in India
+                        </span>
                     </div>
 
+                    <!-- Card 2 -->
                     <div
-                        class="flex flex-col items-center px-4 md:border-l md:border-r border-gray-800/60 scroll-reveal opacity-0 transition-all duration-700 ease-out delay-500">
+                        class="bg-[#080C0F] border border-gray-800/80 p-6 md:p-8 flex flex-col justify-between scroll-reveal opacity-0 transition-all duration-700 ease-out delay-500 min-h-[160px] md:min-h-[200px]">
                         <span
-                            class="text-brandTeal text-5xl md:text-6xl font-light tracking-tight mb-4">2-5&times;</span>
+                            class="text-brandTeal text-3xl sm:text-4xl md:text-5xl font-light tracking-tight">2&ndash;5&times;</span>
                         <span
-                            class="text-gray-500 text-[9px] md:text-[10px] tracking-[0.2em] uppercase font-bold leading-relaxed max-w-[200px]">More
-                            polluted indoors than outside</span>
+                            class="text-gray-400 text-[9px] md:text-[11px] tracking-[0.15em] uppercase font-light leading-relaxed mt-4">
+                            More polluted indoors than outside
+                        </span>
                     </div>
 
+                    <!-- Card 3 -->
                     <div
-                        class="flex flex-col items-center px-4 scroll-reveal opacity-0 transition-all duration-700 ease-out delay-600">
-                        <span class="text-brandTeal text-5xl md:text-6xl font-light tracking-tight mb-4">5-7 yrs</span>
+                        class="bg-[#080C0F] border border-gray-800/80 p-6 md:p-8 flex flex-col justify-between col-span-2 lg:col-span-1 scroll-reveal opacity-0 transition-all duration-700 ease-out delay-600 min-h-[160px] md:min-h-[200px]">
                         <span
-                            class="text-gray-500 text-[9px] md:text-[10px] tracking-[0.2em] uppercase font-bold leading-relaxed max-w-[200px]">Of
-                            life lost to sustained air-pollution exposure</span>
+                            class="text-brandTeal text-3xl sm:text-4xl md:text-5xl font-light tracking-tight">5&ndash;7
+                            yrs</span>
+                        <span
+                            class="text-gray-400 text-[9px] md:text-[11px] tracking-[0.15em] uppercase font-light leading-relaxed mt-4">
+                            Of life lost to sustained air-pollution exposure
+                        </span>
                     </div>
 
                 </div>
             </div>
         </section>
-        <section class="w-full bg-tickerDark py-8 border-t border-b border-gray-800/60">
+        <!-- ========================================== -->
+        <!-- SECTION: OUR PARTNERS                      -->
+        <!-- ========================================== -->
+        <section class="w-full bg-[#030608] md:bg-tickerDark border-t border-b border-gray-800/60 py-10 md:py-8">
 
+            <!-- ========================================================= -->
+            <!-- 📱 MOBILE LAYOUT (Hidden on Desktop)                      -->
+            <!-- ========================================================= -->
             <div
-                class="max-w-6xl mx-auto px-6 overflow-x-auto no-scrollbar scroll-reveal opacity-0 transition-all duration-700 ease-out">
+                class="md:hidden flex flex-col w-full px-6 scroll-reveal opacity-0 transition-all duration-700 ease-out">
 
-                <div class="flex items-center justify-start md:justify-center gap-8 min-w-max mx-auto py-2">
+                <span class="text-gray-400 text-[10px] uppercase tracking-[0.25em] font-bold mb-8">Our Partners</span>
+
+                <div class="flex flex-wrap gap-8 opacity-70">
+                    <img src="./assets/images/google-logo.png" alt="Google"
+                        class="h-auto w-[70px] object-contain transition-all">
+                    <img src="./assets/images/coca-cola-logo.png" alt="Coca-Cola"
+                        class="h-auto w-[70px] object-contain transition-all">
+                    <img src="./assets/images/google-logo.png" alt="Google"
+                        class="h-auto w-[70px] object-contain transition-all">
+                    <img src="./assets/images/coca-cola-logo.png" alt="Coca-Cola"
+                        class="h-auto w-[70px] object-contain transition-all">
+                </div>
+
+            </div>
+
+            <!-- ========================================================= -->
+            <!-- 💻 DESKTOP LAYOUT (Hidden on Mobile)                      -->
+            <!-- ========================================================= -->
+            <div
+                class="hidden md:block max-w-6xl mx-auto px-6 overflow-x-auto no-scrollbar scroll-reveal opacity-0 transition-all duration-700 ease-out">
+                <div class="flex items-center justify-center gap-8 min-w-max mx-auto py-2">
 
                     <span
-                        class="text-white text-xl md:text-2xl font-light tracking-wide shrink-0 leading-none flex items-center">Our
-                        Partners</span>
+                        class="text-white text-xl md:text-2xl font-light tracking-wide shrink-0 leading-none flex items-center">
+                        Our Partners
+                    </span>
 
-                    <div class="w-[1px] bg-gray-700 shrink-0"></div>
+                    <div class="w-[1px] h-6 bg-gray-700 shrink-0"></div>
 
                     <img src="./assets/images/google-logo.png" alt="Google"
                         class=" w-auto opacity-70 hover:opacity-100 transition-opacity duration-300 shrink-0 object-contain">
 
-                    <div class="w-[1px] bg-gray-700 shrink-0"></div>
+                    <div class="w-[1px] h-6 bg-gray-700 shrink-0"></div>
 
                     <img src="./assets/images/coca-cola-logo.png" alt="Coca-Cola"
                         class=" w-auto opacity-70 hover:opacity-100 transition-opacity duration-300 shrink-0 object-contain">
 
-                    <div class="w-[1px] bg-gray-700 shrink-0"></div>
+                    <div class="w-[1px] h-6 bg-gray-700 shrink-0"></div>
 
                     <img src="./assets/images/google-logo.png" alt="Google"
                         class=" w-auto opacity-70 hover:opacity-100 transition-opacity duration-300 shrink-0 object-contain">
 
-                    <div class="w-[1px] bg-gray-700 shrink-0"></div>
+                    <div class="w-[1px] h-6 bg-gray-700 shrink-0"></div>
 
                     <img src="./assets/images/coca-cola-logo.png" alt="Coca-Cola"
                         class=" w-auto opacity-70 hover:opacity-100 transition-opacity duration-300 shrink-0 object-contain">
 
                 </div>
             </div>
+
         </section>
         <section class="w-full bg-[#fff] relative py-20 md:py-32 px-6 md:px-16 lg:px-24 overflow-hidden">
 
@@ -890,51 +1007,62 @@
                 </div>
             </div>
         </section>
+        
         <!-- ========================================== -->
         <!-- SECTION 7: BENEFITS GRID                   -->
         <!-- ========================================== -->
-        <section class="w-full bg-white py-24 md:py-32 px-6 md:px-16 lg:px-24">
+        <section class="w-full bg-[#FAFCFD] md:bg-white py-16 md:py-32 px-6 md:px-16 lg:px-24">
 
-            <!-- Header Section -->
+            <!-- Header Section (Responsive Alignment) -->
             <div
-                class="max-w-3xl mx-auto text-center mb-16 md:mb-20 scroll-reveal opacity-0 translate-y-6 transition-all duration-700 ease-out">
+                class="max-w-3xl mx-0 md:mx-auto text-left md:text-center mb-10 md:mb-20 scroll-reveal opacity-0 translate-y-6 transition-all duration-700 ease-out">
 
                 <!-- Eyebrow -->
-                <span class="text-[9px] uppercase tracking-[0.2em] text-brandTeal font-bold mb-6 block">
+                <span class="text-[9px] uppercase tracking-[0.2em] text-[#156E8A] font-bold mb-4 md:mb-6 block">
                     Why Clean Air Matters
                 </span>
 
                 <!-- Headline -->
-                <h2 class="text-4xl md:text-5xl font-light tracking-tight text-gray-900 leading-[1.2] mb-6">
-                    The life you deserve <br class="hidden md:block">
-                    starts with the air you breathe.
+                <h2
+                    class="text-[32px] md:text-4xl lg:text-5xl font-light tracking-tight text-gray-900 leading-[1.15] md:leading-[1.2] mb-4 md:mb-6">
+                    The life you deserve <span class="md:hidden">starts with <br> the air you breathe.</span><br
+                        class="hidden md:block">
+                    <span class="hidden md:inline">starts with the air you breathe.</span>
                 </h2>
 
                 <!-- Subtext -->
-                <p class="text-gray-500 text-sm md:text-[15px] font-light leading-relaxed max-w-2xl mx-auto">
+                <p
+                    class="text-gray-500 text-[13px] md:text-[15px] font-light leading-relaxed max-w-2xl mx-0 md:mx-auto pr-4 md:pr-0">
                     Clean air is not a feature. It is a foundation for everything that matters &mdash; sleep, health,
                     focus, and family.
                 </p>
             </div>
 
-            <!-- 4-Column Image Grid -->
+            <!-- ========================================================= -->
+            <!-- UNIFIED GRID (2x2 on Mobile, 1x4 on Desktop)              -->
+            <!-- ========================================================= -->
+            <!-- We use grid-cols-2 for mobile, and md:grid-cols-4 for desktop -->
             <div
-                class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 md:gap-1.5 items-stretch">
+                class="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-1 md:gap-1.5 items-stretch scroll-reveal opacity-0 translate-y-6 transition-all duration-700 delay-100">
 
                 <!-- CARD 1: Deeper Sleep -->
-                <div
-                    class="relative w-full aspect-[4/5] lg:aspect-[3/4] group overflow-hidden scroll-reveal opacity-0 translate-y-6 transition-all duration-700 delay-100">
-                    <!-- Background Image -->
+                <div class="relative w-full aspect-square md:aspect-[4/5] lg:aspect-[3/4] group overflow-hidden">
+
+                    <!-- Responsive Images (Using srcset or simply rely on object-cover to crop) -->
+                    <!-- Note: In a production environment, you might use <picture> tags here, but object-cover works great for this. -->
                     <img src="./assets/images/benefit-sleep.png" alt="Deeper Sleep"
                         class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+
+                    <!-- Gradient Overlays (Mobile is darker at bottom, desktop is slightly taller) -->
                     <div
-                        class="absolute inset-0 bg-gradient-to-t from-[#090D10] via-[#090D10]/50 to-transparent opacity-90">
+                        class="absolute inset-0 bg-gradient-to-t from-[#090D10]/90 md:from-[#090D10] via-[#090D10]/40 md:via-[#090D10]/50 to-transparent md:opacity-90">
                     </div>
 
-                    <!-- Content Container (Pinned to bottom) -->
-                    <div class="absolute inset-0 p-8 flex flex-col justify-end text-left">
-                        <!-- Icon -->
-                        <div class="text-brandTeal mb-4">
+                    <!-- Content Container -->
+                    <div class="absolute inset-0 p-4 md:p-8 flex flex-col justify-end text-left">
+
+                        <!-- Icon (Hidden on Mobile) -->
+                        <div class="text-brandTeal mb-4 hidden md:block">
                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_181_5271)">
@@ -951,54 +1079,74 @@
                                     </clipPath>
                                 </defs>
                             </svg>
-
                         </div>
 
-                        <h3 class="text-white text-xl md:text-2xl font-light mb-3">Deeper Sleep</h3>
+                        <!-- Responsive Text -->
+                        <h3
+                            class="text-white text-[15px] md:text-xl lg:text-2xl font-medium md:font-light mb-1.5 md:mb-3">
+                            <span class="md:hidden">Sleep Deeper</span>
+                            <span class="hidden md:inline">Deeper Sleep</span>
+                        </h3>
 
-                        <p class="text-gray-300 text-[10px] md:text-xs font-light leading-relaxed opacity-80">
-                            Filtered, clean air at night allows your body to rest fully. Waking rested isn't luck
-                            &mdash; it's environment.
+                        <p
+                            class="text-gray-300 text-[9px] md:text-[10px] lg:text-xs font-light leading-snug md:leading-relaxed opacity-90 md:opacity-80 pr-2 md:pr-0">
+                            <span class="md:hidden">Clean air reduces nighttime inflammation &mdash; you wake up more
+                                rested.</span>
+                            <span class="hidden md:inline">Filtered, clean air at night allows your body to rest fully.
+                                Waking rested isn't luck &mdash; it's environment.</span>
                         </p>
                     </div>
                 </div>
 
-                <!-- CARD 2: Protect Your Children -->
-                <div
-                    class="relative w-full aspect-[4/5] lg:aspect-[3/4] group overflow-hidden scroll-reveal opacity-0 translate-y-6 transition-all duration-700 delay-200">
-                    <img src="./assets/images/benefit-children.png" alt="Protect Your Children"
-                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <!-- CARD 2: Focus Better / Protect Your Children -->
+                <div class="relative w-full aspect-square md:aspect-[4/5] lg:aspect-[3/4] group overflow-hidden">
+                    <img src="./assets/images/benefit-children.png" alt="Focus/Children"
+                        class="absolute inset-0 w-full h-full object-cover md:hidden">
+                    <img src="./assets/images/benefit-children.png" alt="Focus/Children"
+                        class="absolute inset-0 w-full h-full object-cover hidden md:block group-hover:scale-105 transition-transform duration-700">
+
                     <div
-                        class="absolute inset-0 bg-gradient-to-t from-[#090D10] via-[#090D10]/50 to-transparent opacity-90">
+                        class="absolute inset-0 bg-gradient-to-t from-[#090D10]/90 md:from-[#090D10] via-[#090D10]/40 md:via-[#090D10]/50 to-transparent md:opacity-90">
                     </div>
 
-                    <div class="absolute inset-0 p-8 flex flex-col justify-end text-left">
-                        <div class="text-brandTeal mb-4">
+                    <div class="absolute inset-0 p-4 md:p-8 flex flex-col justify-end text-left">
+                        <div class="text-brandTeal mb-4 hidden md:block">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                     d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z">
                                 </path>
                             </svg>
                         </div>
-                        <h3 class="text-white text-xl md:text-2xl font-light mb-3">Protect Your Children</h3>
-                        <p class="text-gray-300 text-[10px] md:text-xs font-light leading-relaxed opacity-80">
-                            Young lungs are more vulnerable. Give them the cleanest air in every room they grow, play,
-                            and sleep.
+
+                        <h3
+                            class="text-white text-[15px] md:text-xl lg:text-2xl font-medium md:font-light mb-1.5 md:mb-3">
+                            <span class="md:hidden">Focus Better</span>
+                            <span class="hidden md:inline">Protect Your Children</span>
+                        </h3>
+
+                        <p
+                            class="text-gray-300 text-[9px] md:text-[10px] lg:text-xs font-light leading-snug md:leading-relaxed opacity-90 md:opacity-80 pr-2 md:pr-0">
+                            <span class="md:hidden">PM2.5 clouds cognitive function. Remove it and feel the
+                                clarity.</span>
+                            <span class="hidden md:inline">Young lungs are more vulnerable. Give them the cleanest air
+                                in every room they grow, play, and sleep.</span>
                         </p>
                     </div>
                 </div>
 
-                <!-- CARD 3: Allergy Relief -->
-                <div
-                    class="relative w-full aspect-[4/5] lg:aspect-[3/4] group overflow-hidden scroll-reveal opacity-0 translate-y-6 transition-all duration-700 delay-300">
-                    <img src="./assets/images/benefit-allergy.png" alt="Allergy Relief"
-                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <!-- CARD 3: Protect Family / Allergy Relief -->
+                <div class="relative w-full aspect-square md:aspect-[4/5] lg:aspect-[3/4] group overflow-hidden">
+                    <img src="./assets/images/benefit-allergy.png" alt="Protect/Allergy"
+                        class="absolute inset-0 w-full h-full object-cover md:hidden">
+                    <img src="./assets/images/benefit-allergy.png" alt="Protect/Allergy"
+                        class="absolute inset-0 w-full h-full object-cover hidden md:block group-hover:scale-105 transition-transform duration-700">
+
                     <div
-                        class="absolute inset-0 bg-gradient-to-t from-[#090D10] via-[#090D10]/50 to-transparent opacity-90">
+                        class="absolute inset-0 bg-gradient-to-t from-[#090D10]/90 md:from-[#090D10] via-[#090D10]/40 md:via-[#090D10]/50 to-transparent md:opacity-90">
                     </div>
 
-                    <div class="absolute inset-0 p-8 flex flex-col justify-end text-left">
-                        <div class="text-brandTeal mb-4">
+                    <div class="absolute inset-0 p-4 md:p-8 flex flex-col justify-end text-left">
+                        <div class="text-brandTeal mb-4 hidden md:block">
                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -1007,35 +1155,55 @@
                                     stroke-linejoin="round" />
                             </svg>
                         </div>
-                        <h3 class="text-white text-xl md:text-2xl font-light mb-3">Allergy Relief</h3>
-                        <p class="text-gray-300 text-[10px] md:text-xs font-light leading-relaxed opacity-80">
-                            HEPA H13 captures pollen, dust mites, pet dander, and mould spores before they reach you
-                            &mdash; or your family.
+
+                        <h3
+                            class="text-white text-[15px] md:text-xl lg:text-2xl font-medium md:font-light mb-1.5 md:mb-3">
+                            <span class="md:hidden">Protect Family</span>
+                            <span class="hidden md:inline">Allergy Relief</span>
+                        </h3>
+
+                        <p
+                            class="text-gray-300 text-[9px] md:text-[10px] lg:text-xs font-light leading-snug md:leading-relaxed opacity-90 md:opacity-80 pr-2 md:pr-0">
+                            <span class="md:hidden">Children and elderly are 5&times; more vulnerable to air
+                                pollution.</span>
+                            <span class="hidden md:inline">HEPA H13 captures pollen, dust mites, pet dander, and mould
+                                spores before they reach you &mdash; or your family.</span>
                         </p>
                     </div>
                 </div>
 
-                <!-- CARD 4: Healthier Workspaces -->
-                <div
-                    class="relative w-full aspect-[4/5] lg:aspect-[3/4] group overflow-hidden scroll-reveal opacity-0 translate-y-6 transition-all duration-700 delay-400">
-                    <img src="./assets/images/benefit-workspace.png" alt="Healthier Workspaces"
-                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <!-- CARD 4: Breathe Free / Healthier Workspaces -->
+                <div class="relative w-full aspect-square md:aspect-[4/5] lg:aspect-[3/4] group overflow-hidden">
+                    <img src="./assets/images/benefit-workspace.png" alt="Breathe Free/Workspaces"
+                        class="absolute inset-0 w-full h-full object-cover md:hidden">
+                    <img src="./assets/images/benefit-workspace.png" alt="Breathe Free/Workspaces"
+                        class="absolute inset-0 w-full h-full object-cover hidden md:block group-hover:scale-105 transition-transform duration-700">
+
                     <div
-                        class="absolute inset-0 bg-gradient-to-t from-[#090D10] via-[#090D10]/50 to-transparent opacity-90">
+                        class="absolute inset-0 bg-gradient-to-t from-[#090D10]/90 md:from-[#090D10] via-[#090D10]/40 md:via-[#090D10]/50 to-transparent md:opacity-90">
                     </div>
 
-                    <div class="absolute inset-0 p-8 flex flex-col justify-end text-left">
-                        <div class="text-brandTeal mb-4">
+                    <div class="absolute inset-0 p-4 md:p-8 flex flex-col justify-end text-left">
+                        <div class="text-brandTeal mb-4 hidden md:block">
                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5 8H23M5 14H23M5 20H17" stroke="#156E8A" stroke-width="1.2"
                                     stroke-linecap="round" />
                             </svg>
                         </div>
-                        <h3 class="text-white text-xl md:text-2xl font-light mb-3">Healthier Workspaces</h3>
-                        <p class="text-gray-300 text-[10px] md:text-xs font-light leading-relaxed opacity-80">
-                            Cleaner air at your desk or home office means sharper focus, fewer headaches, and sustained
-                            energy through the day.
+
+                        <h3
+                            class="text-white text-[15px] md:text-xl lg:text-2xl font-medium md:font-light mb-1.5 md:mb-3">
+                            <span class="md:hidden">Breathe Free</span>
+                            <span class="hidden md:inline">Healthier Workspaces</span>
+                        </h3>
+
+                        <p
+                            class="text-gray-300 text-[9px] md:text-[10px] lg:text-xs font-light leading-snug md:leading-relaxed opacity-90 md:opacity-80 pr-2 md:pr-0">
+                            <span class="md:hidden">Allergy and asthma triggers reduced to near-zero within
+                                minutes.</span>
+                            <span class="hidden md:inline">Cleaner air at your desk or home office means sharper focus,
+                                fewer headaches, and sustained energy through the day.</span>
                         </p>
                     </div>
                 </div>
@@ -1346,11 +1514,10 @@
 
             </div>
         </section>
-
         <!-- ========================================== -->
         <!-- SECTION 10: SIDE-BY-SIDE COMPARISON        -->
         <!-- ========================================== -->
-        <section class="w-full bg-[#FAFCFD] py-12 md:py-18 px-6 md:px-16 lg:px-24">
+        <section class="hidden md:block w-full bg-[#FAFCFD] py-12 md:py-18 px-6 md:px-16 lg:px-24">
 
             <!-- Header Section -->
             <div
@@ -1881,11 +2048,11 @@
                 <div class="flex flex-wrap items-center justify-center gap-5 md:gap-10 lg:gap-12">
                     <!-- Replace with actual logo SVG/PNG paths later -->
                     <img src="./assets/images/cert-logo-1.png" alt="Certification 1"
-                        class="h-8 md:h-10 w-auto object-contain grayscale hover:grayscale-0 transition-all">
+                        class="h-8 md:h-10 w-auto object-contain md:grayscale hover:grayscale-0 transition-all">
                     <img src="./assets/images/cert-logo-2.png" alt="Certification 2"
-                        class="h-8 md:h-10 w-auto object-contain grayscale hover:grayscale-0 transition-all">
+                        class="h-8 md:h-10 w-auto object-contain md:grayscale hover:grayscale-0 transition-all">
                     <img src="./assets/images/cert-logo-3.png" alt="AHAM Verifide"
-                        class="h-8 md:h-10 w-auto object-contain grayscale hover:grayscale-0 transition-all">
+                        class="h-8 md:h-10 w-auto object-contain md:grayscale hover:grayscale-0 transition-all">
                 </div>
             </div>
 
@@ -2073,153 +2240,125 @@
         <!-- ========================================== -->
         <!-- SECTION 15: FOOTER                         -->
         <!-- ========================================== -->
-        <footer class="w-full bg-[#080C0F] pt-20 md:pt-28 pb-8 px-6 md:px-16 lg:px-24 border-t border-gray-900">
+        <footer class="w-full bg-[#080C0F] pt-16 md:pt-28 pb-8 px-6 md:px-16 lg:px-24">
 
-            <!-- Main Footer Grid -->
-            <!-- 6 columns total: Brand (2), Collection (1), Explore Left (1), Explore Right (1), Contact (1) -->
-            <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8 mb-20">
+            <!-- Main Footer Wrapper: Flex Column on Mobile, 6-Col Grid on Desktop -->
+            <div class="max-w-[1400px] mx-auto flex flex-col lg:grid lg:grid-cols-6 gap-10 lg:gap-8 mb-6 lg:mb-20">
 
-                <!-- Column 1 & 2: Brand & Bio -->
-                <div class="md:col-span-2 lg:col-span-2 flex flex-col pr-0 lg:pr-12">
+                <!-- ========================================== -->
+                <!-- 1. Brand & Bio                             -->
+                <!-- ========================================== -->
+                <!-- Added border-b for mobile only -->
+                <div class="lg:col-span-2 flex flex-col pr-0 lg:pr-12 pb-10 lg:pb-0 border-b border-gray-800/80 lg:border-none">
+                    
                     <!-- Logo -->
-                    <img src="./assets/images/logo.png" alt="Breathe In"
-                        class="h-10 w-auto mb-6 object-contain object-left">
+                    <img src="./assets/images/logo.png" alt="Breathe In" class="h-10 w-auto mb-6 object-contain object-left self-start">
 
                     <!-- Bio -->
                     <p class="text-gray-400 text-[13px] md:text-sm font-light leading-relaxed mb-8 max-w-sm">
-                        Clean air is not a luxury &mdash; it is a necessity. Sophisticated Japanese air-purification
-                        technology, at honest prices. The right air, for every Indian home.
+                        Clean air is not a luxury &mdash; it is a necessity.<br class="hidden md:block">
+                        Sophisticated Japanese air-purification<br class="hidden md:block">
+                        technology, at honest prices. <span class="hidden lg:inline">The right air, for every Indian home.</span>
                     </p>
 
                     <!-- CTA Button -->
                     <div>
-                        <a href="#"
-                            class="inline-flex items-center justify-center bg-[#156E8A] text-white text-[10px] tracking-[0.2em] font-bold uppercase px-8 py-3.5 hover:bg-[#11576E] transition-colors rounded-sm">
-                            Shop Now <span class="ml-2 text-sm leading-none">&rarr;</span>
+                        <a href="#" class="inline-flex items-center justify-center bg-[#156E8A] text-white text-[10px] tracking-[0.2em] font-bold uppercase px-6 py-4 hover:bg-[#11576E] transition-colors rounded-sm">
+                            SHOP NOW <span class="ml-2 text-sm leading-none">&rarr;</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Column 3: Collection -->
-                <div class="flex flex-col">
-                    <h4 class="text-[9px] uppercase tracking-[0.2em] text-gray-500 font-bold mb-6">Collection</h4>
-                    <ul class="flex flex-col gap-4">
-                        <li><a href="#"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
-                                Pro</a></li>
-                        <li><a href="#"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air Pro
-                                1</a></li>
-                        <li><a href="#"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air Pro
-                                2</a></li>
-                        <li><a href="#"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air Pro
-                                Max</a></li>
-                    </ul>
-                </div>
+                <!-- ========================================== -->
+                <!-- 2. Links Sub-Grid                          -->
+                <!-- ========================================== -->
+                <!-- 3 Columns on Mobile, 4 Columns on Desktop  -->
+                <div class="lg:col-span-4 grid grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8 pb-10 lg:pb-0 border-b border-gray-800/80 lg:border-none">
+                    
+                    <!-- Column A: Collection -->
+                    <div class="flex flex-col">
+                        <h4 class="text-[9px] uppercase tracking-[0.2em] text-gray-500 font-bold mb-6">Collection</h4>
+                        <ul class="flex flex-col gap-3.5 lg:gap-4">
+                            <li><a href="#" class="text-[12px] lg:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air Pro</a></li>
+                            <li><a href="#" class="text-[12px] lg:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air Pro 1</a></li>
+                            <li><a href="#" class="text-[12px] lg:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air Pro 2</a></li>
+                            <li><a href="#" class="text-[12px] lg:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air Pro Max</a></li>
+                        </ul>
+                    </div>
 
-                <!-- Column 4: Explore (Part 1) -->
-                <div class="flex flex-col">
-                    <h4 class="text-[9px] uppercase tracking-[0.2em] text-gray-500 font-bold mb-6">Explore</h4>
-                    <ul class="flex flex-col gap-4">
-                        <li><a href="#"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Technology</a>
-                        </li>
-                        <li><a href="#"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">The
-                                App</a></li>
-                        <li><a href="#"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Compare
-                                Models</a></li>
-                        <li><a href="#"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Filter
-                                Care</a></li>
-                        <li><a href="#"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Corporate
-                                Solutions</a></li>
-                    </ul>
-                </div>
+                    <!-- Column B: Explore -->
+                    <div class="flex flex-col">
+                        <h4 class="text-[9px] uppercase tracking-[0.2em] text-gray-500 font-bold mb-6">Explore</h4>
+                        <ul class="flex flex-col gap-3.5 lg:gap-4">
+                            <li><a href="#" class="text-[12px] lg:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Technology</a></li>
+                            <li><a href="#" class="text-[12px] lg:text-[13px] text-gray-400 hover:text-white transition-colors font-light">The App</a></li>
+                            <li><a href="#" class="text-[12px] lg:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Compare Models</a></li>
+                            <li><a href="#" class="text-[12px] lg:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Filter Care</a></li>
+                            <!-- Hidden on Mobile -->
+                            <li class="hidden lg:block"><a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Corporate Solutions</a></li>
+                        </ul>
+                    </div>
 
-                <!-- Column 5: Explore (Part 2 - No Header) -->
-                <!-- mt-10 md:mt-0 accounts for the missing header height on desktop to keep links aligned -->
-                <div class="flex flex-col pt-0 lg:pt-9">
-                    <ul class="flex flex-col gap-4">
-                        <li><a href="#"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Book a
-                                Demo</a></li>
-                        <li><a href="#"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Case
-                                Studies</a></li>
-                        <li><a href="#"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">FAQ</a>
-                        </li>
-                        <li><a href="#"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Support</a>
-                        </li>
-                        <li><a href="#"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Contact</a>
-                        </li>
-                    </ul>
-                </div>
+                    <!-- Column C: Support (Mobile) / Explore Continued (Desktop) -->
+                    <div class="flex flex-col lg:pt-9">
+                        <!-- Header visible only on mobile -->
+                        <h4 class="text-[9px] uppercase tracking-[0.2em] text-gray-500 font-bold mb-6 lg:hidden">Support</h4>
+                        <ul class="flex flex-col gap-3.5 lg:gap-4">
+                            <!-- Hidden on Mobile -->
+                            <li class="hidden lg:block"><a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Book a Demo</a></li>
+                            <li class="hidden lg:block"><a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Case Studies</a></li>
+                            
+                            <!-- Visible on Both -->
+                            <li><a href="#" class="text-[12px] lg:text-[13px] text-gray-400 hover:text-white transition-colors font-light">FAQ</a></li>
+                            <li><a href="#" class="text-[12px] lg:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Support</a></li>
+                            <li><a href="#" class="text-[12px] lg:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Contact</a></li>
+                            
+                            <!-- WhatsApp added here for Mobile only -->
+                            <li class="lg:hidden"><a href="#" class="text-[12px] text-gray-400 hover:text-white transition-colors font-light">WhatsApp</a></li>
+                        </ul>
+                    </div>
 
-                <!-- Column 6: Contact -->
-                <div class="flex flex-col">
-                    <h4 class="text-[9px] uppercase tracking-[0.2em] text-gray-500 font-bold mb-6">Contact</h4>
-                    <ul class="flex flex-col gap-4">
-                        <li><a href="tel:+919076636639"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">+91
-                                90766 36639</a></li>
-                        <li><a href="#"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">WhatsApp
-                                Support</a></li>
-                        <li><a href="mailto:enquiries@breathein.co.in"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">enquiries@breathein.co.in</a>
-                        </li>
-                        <li><a href="#"
-                                class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">www.breathein.co.in</a>
-                        </li>
-                        <li class="text-[13px] text-gray-400 font-light mt-1">Whitefield, Bengaluru</li>
-                    </ul>
-                </div>
+                    <!-- Column D: Contact (Desktop Only) -->
+                    <div class="hidden lg:flex flex-col">
+                        <h4 class="text-[9px] uppercase tracking-[0.2em] text-gray-500 font-bold mb-6">Contact</h4>
+                        <ul class="flex flex-col gap-4">
+                            <li><a href="tel:+919076636639" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">+91 90766 36639</a></li>
+                            <li><a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">WhatsApp Support</a></li>
+                            <li><a href="mailto:enquiries@breathein.co.in" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">enquiries@breathein.co.in</a></li>
+                            <li><a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">www.breathein.co.in</a></li>
+                            <li class="text-[13px] text-gray-400 font-light mt-1">Whitefield, Bengaluru</li>
+                        </ul>
+                    </div>
 
+                </div>
             </div>
 
-            <!-- Bottom Copyright & Legal Strip -->
-            <div
-                class="max-w-[1400px] mx-auto border-t border-gray-800/80 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 relative pb-4 md:pb-0">
+            <!-- ========================================== -->
+            <!-- 3. Bottom Copyright & Legal Strip          -->
+            <!-- ========================================== -->
+            <div class="max-w-[1400px] mx-auto pt-6 lg:pt-8 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 lg:gap-6 relative pb-4 md:pb-0">
+                
+                <!-- Legal Links (Order 1 on mobile, Centered on desktop) -->
+                <div class="flex flex-wrap items-center justify-start lg:justify-center gap-4 lg:gap-6 order-1 lg:order-2 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+                    <a href="#" class="text-[11px] text-gray-500 hover:text-gray-300 transition-colors font-light">Privacy Policy</a>
+                    <a href="#" class="text-[11px] text-gray-500 hover:text-gray-300 transition-colors font-light">Terms of Use</a>
+                    <a href="#" class="text-[11px] text-gray-500 hover:text-gray-300 transition-colors font-light">Cookie Policy</a>
+                </div>
 
-                <!-- Left Side: Copyright -->
-                <p class="text-[11px] text-gray-500 font-light text-center md:text-left">
+                <!-- Copyright (Order 2 on mobile, Order 1 on desktop) -->
+                <p class="text-[10px] lg:text-[11px] text-gray-600 lg:text-gray-500 font-light text-left order-2 lg:order-1 mt-2 lg:mt-0">
                     &copy; 2026 Breathe In &mdash; The Right Air. All rights reserved. Made in India.
                 </p>
 
-                <!-- Center: Legal Links -->
-                <div
-                    class="flex flex-wrap items-center justify-center gap-6 md:absolute md:left-1/2 md:-translate-x-1/2">
-                    <a href="#"
-                        class="text-[11px] text-gray-500 hover:text-gray-300 transition-colors font-light">Privacy
-                        Policy</a>
-                    <a href="#" class="text-[11px] text-gray-500 hover:text-gray-300 transition-colors font-light">Terms
-                        of Use</a>
-                    <a href="#"
-                        class="text-[11px] text-gray-500 hover:text-gray-300 transition-colors font-light">Cookie
-                        Policy</a>
-                </div>
-
-                <!-- Right Side: Back to Top Button -->
-                <button id="backToTop"
-                    class="flex items-center gap-3 text-[9px] uppercase tracking-[0.2em] text-gray-500 hover:text-white transition-colors font-bold group mt-4 md:mt-0">
+                <!-- Back to Top Button (Hidden on Mobile per design) -->
+                <button id="backToTop" class="flex absolute right-0 bottom-12 lg:static items-center gap-3 text-[9px] uppercase tracking-[0.2em] text-gray-500 hover:text-white transition-colors font-bold group order-3">
                     Back to Top
-                    <span
-                        class="w-7 h-7 rounded-full bg-gray-800/80 flex items-center justify-center group-hover:bg-[#156E8A] transition-colors">
+                    <span class="w-7 h-7 rounded-full bg-gray-800/80 flex items-center justify-center group-hover:bg-[#156E8A] transition-colors">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7">
-                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
                         </svg>
                     </span>
                 </button>
-
             </div>
 
         </footer>
