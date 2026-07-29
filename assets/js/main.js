@@ -206,4 +206,35 @@ $(document).ready(function () {
       });
     });
   }
+
+  // Initialize the Benefits Swiper
+  const benefitsSwiper = new Swiper(".benefitsSwiper", {
+    // Default parameters (Mobile)
+    slidesPerView: 1,
+    spaceBetween: 8, // Small gap for mobile swiping
+    grabCursor: true,
+
+    // Pagination (Only visible on mobile due to our md:hidden class)
+    pagination: {
+      el: ".benefitsSwiper .swiper-pagination",
+      clickable: true,
+    },
+
+    // Responsive breakpoints
+    breakpoints: {
+      // when window width is >= 768px (Tailwind 'md')
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 6, // Matches Tailwind's gap-1.5 (6px)
+        grabCursor: true,
+      },
+      // when window width is >= 1024px (Tailwind 'lg')
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 6, // Matches Tailwind's gap-1.5 (6px)
+        grabCursor: false,
+        allowTouchMove: false, // Disables swiping on desktop so it acts like a normal static grid
+      },
+    },
+  });
 });
