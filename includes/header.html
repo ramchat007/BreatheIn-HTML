@@ -1,0 +1,247 @@
+<!-- ========================================== -->
+<!-- FULL-SCREEN MOBILE NAVIGATION OVERLAY      -->
+<!-- ========================================== -->
+<div id="mobileNavOverlay"
+    class="fixed inset-0 z-[60] bg-white flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out hidden">
+    <button id="closeMobileNav" class="absolute top-6 right-8 p-2 rounded-full hover:bg-gray-100 transition-colors"
+        aria-label="Close Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-8 h-8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+    <nav class="flex flex-col items-center gap-8 text-center">
+        <a href="./collection.html"
+            class="text-3xl text-[#156E8A] font-light tracking-wide hover:text-brandTeal transition-colors">COLLECTION</a>
+        <a href="./tehnology.html"
+            class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">TECHNOLOGY</a>
+        <a href="./app.html" class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">APP</a>
+        <a href="./real-homes.html"
+            class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">REAL HOMES</a>
+        <a href="./compare.html"
+            class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">COMPARE</a>
+        <div class="mt-8 pt-8 border-t border-gray-200 w-full flex flex-col items-center gap-4">
+            <a href="#" class="text-lg font-medium hover:text-brandTeal">My Account</a>
+            <a href="#" class="text-lg font-medium hover:text-brandTeal">Support</a>
+        </div>
+    </nav>
+</div>
+<!-- ========================================== -->
+
+<!-- ========================================== -->
+<!-- SMART STICKY HEADER                        -->
+<!-- ========================================== -->
+<div id="smart-header"
+    class="sticky top-0 z-50 w-full flex flex-col shadow-sm transition-transform duration-300 ease-in-out translate-y-0">
+
+    <!-- 1. TOP LIVE AQI TICKER BAR -->
+    <!-- Updated to match mobile design: unified dark background, teal dot, vertical separator -->
+    <div class="w-full bg-tickerDark text-white flex items-center text-[11px] tracking-wider font-medium animate-fade-in-down overflow-hidden"
+        style="animation-delay: 100ms;">
+
+        <div
+            class="bg-tickerDark md:bg-brandTeal px-4 md:px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative">
+            <!-- <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> -->
+            <span class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse"></span>
+            INDIA AQI TODAY
+        </div>
+
+        <!-- Separator Line -->
+        <div class="w-[1px] h-6 bg-gray-800 shrink-0 z-10 relative"></div>
+
+        <!-- Scrolling Content -->
+        <div class="flex flex-1 overflow-hidden relative bg-tickerDark">
+            <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
+
+                <!-- Ticker Items List 1 -->
+                <div class="flex items-center gap-6 pr-6">
+                    <div class="flex items-center gap-2">
+                        <span class="font-semibold text-gray-200">Delhi</span>
+                        <span
+                            class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">392</span>
+                        <span class="text-textMuted text-[10px]">Hazardous</span>
+                    </div>
+                    <span class="text-gray-700">|</span>
+                    <div class="flex items-center gap-2">
+                        <span class="font-semibold text-gray-200">Ghaziabad</span>
+                        <span
+                            class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">358</span>
+                        <span class="text-textMuted text-[10px]">Hazardous</span>
+                    </div>
+                    <span class="text-gray-700">|</span>
+                    <div class="flex items-center gap-2">
+                        <span class="font-semibold text-gray-200">Noida</span>
+                        <span
+                            class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">311</span>
+                        <span class="text-textMuted text-[10px]">Hazardous</span>
+                    </div>
+                    <span class="text-gray-700">|</span>
+                    <div class="flex items-center gap-2">
+                        <span class="font-semibold text-gray-200">Patna</span>
+                        <span
+                            class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">286</span>
+                        <span class="text-textMuted text-[10px]">Very Unhealthy</span>
+                    </div>
+                    <span class="text-gray-700">|</span>
+                    <div class="flex items-center gap-2">
+                        <span class="font-semibold text-gray-200">Lucknow</span>
+                        <span
+                            class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">242</span>
+                        <span class="text-textMuted text-[10px]">Very Unhealthy</span>
+                    </div>
+                    <span class="text-gray-700">|</span>
+                    <div class="flex items-center gap-2">
+                        <span class="font-semibold text-gray-200">Kolkata</span>
+                        <span
+                            class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">198</span>
+                        <span class="text-textMuted text-[10px]">Unhealthy</span>
+                    </div>
+                    <span class="text-gray-700">|</span>
+                    <div class="flex items-center gap-2">
+                        <span class="font-semibold text-gray-200">Mumbai</span>
+                        <span
+                            class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">164</span>
+                        <span class="text-textMuted text-[10px]">Unhealthy</span>
+                    </div>
+                    <span class="text-gray-700">|</span>
+                </div>
+
+                <!-- Ticker Items List 2 (Duplicated for seamless scrolling) -->
+                <div class="flex items-center gap-6 pr-6">
+                    <div class="flex items-center gap-2">
+                        <span class="font-semibold text-gray-200">Delhi</span>
+                        <span
+                            class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">392</span>
+                        <span class="text-textMuted text-[10px]">Hazardous</span>
+                    </div>
+                    <span class="text-gray-700">|</span>
+                    <div class="flex items-center gap-2">
+                        <span class="font-semibold text-gray-200">Ghaziabad</span>
+                        <span
+                            class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">358</span>
+                        <span class="text-textMuted text-[10px]">Hazardous</span>
+                    </div>
+                    <span class="text-gray-700">|</span>
+                    <div class="flex items-center gap-2">
+                        <span class="font-semibold text-gray-200">Noida</span>
+                        <span
+                            class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">311</span>
+                        <span class="text-textMuted text-[10px]">Hazardous</span>
+                    </div>
+                    <span class="text-gray-700">|</span>
+                    <div class="flex items-center gap-2">
+                        <span class="font-semibold text-gray-200">Patna</span>
+                        <span
+                            class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">286</span>
+                        <span class="text-textMuted text-[10px]">Very Unhealthy</span>
+                    </div>
+                    <span class="text-gray-700">|</span>
+                    <div class="flex items-center gap-2">
+                        <span class="font-semibold text-gray-200">Lucknow</span>
+                        <span
+                            class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">242</span>
+                        <span class="text-textMuted text-[10px]">Very Unhealthy</span>
+                    </div>
+                    <span class="text-gray-700">|</span>
+                    <div class="flex items-center gap-2">
+                        <span class="font-semibold text-gray-200">Kolkata</span>
+                        <span
+                            class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">198</span>
+                        <span class="text-textMuted text-[10px]">Unhealthy</span>
+                    </div>
+                    <span class="text-gray-700">|</span>
+                    <div class="flex items-center gap-2">
+                        <span class="font-semibold text-gray-200">Mumbai</span>
+                        <span
+                            class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">164</span>
+                        <span class="text-textMuted text-[10px]">Unhealthy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desktop Info Banner -->
+        <div
+            class="px-6 py-3 shrink-0 font-medium text-gray-300 hidden lg:block bg-tickerDark z-10 relative shadow-[-10px_0_15px_-3px_rgba(13,20,24,1)]">
+            Indoors is often <span class="text-sky-400 font-bold">5x worse</span> &middot;
+            <a href="#" class="hover:underline text-white inline-flex items-center gap-1">CHECK YOURS <span
+                    class="text-[9px]">&darr;</span></a>
+        </div>
+    </div>
+
+
+    <!-- 2. MAIN NAVIGATION HEADER -->
+    <!-- Updated Mobile Layout: Logo Left, Cart+CTA+Hamburger Right -->
+    <header
+        class="w-full bg-[#FAFCFD] border-b border-gray-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between animate-fade-in-down"
+        style="animation-delay: 200ms;">
+
+        <!-- Left: Logo -->
+        <div class="flex items-center">
+            <a href="/index.html" class="h-7 md:h-10 w-auto">
+                <img src="./assets/images/logo.png" alt="Breathe In" class="h-7 md:h-10 w-auto object-contain">
+            </a>
+        </div>
+
+        <!-- Desktop Nav Links -->
+        <nav class="hidden lg:flex items-center gap-8">
+            <a href="./collection.html"
+                class="text-[12px] text-[#156E8A] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COLLECTION</a>
+            <a href="./tehnology.html"
+                class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">TECHNOLOGY</a>
+            <a href="./app.html"
+                class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">APP</a>
+            <a href="./real-homes.html"
+                class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">REAL
+                HOMES</a>
+            <a href="./compare.html"
+                class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COMPARE</a>
+        </nav>
+
+        <!-- Right: Action Buttons & Hamburger -->
+        <div class="flex items-center gap-3 md:gap-5">
+
+            <!-- Cart Button with Notification Badge -->
+            <button id="cartBtn"
+                class="relative p-1.5 text-gray-900 hover:text-brandTeal transition-colors flex items-center justify-center">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1.5"></circle>
+                    <circle cx="20" cy="21" r="1.5"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <!-- Teal Badge -->
+                <span
+                    class="absolute -top-1.5 -right-1.5 bg-brandTeal text-white text-[9px] font-bold w-4 h-4 aspect-square rounded-full flex items-center justify-center border border-white">3</span>
+            </button>
+
+            <!-- Primary CTA (Now visible on mobile per design) -->
+            <a href="#"
+                class="border border-black text-[9px] md:text-[11px] font-bold tracking-widest px-3 py-2 md:px-6 md:py-2.5 uppercase hover:bg-black hover:text-white transition-all duration-200">
+                FIND MY PURIFIER
+            </a>
+
+            <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
+            <button id="themeToggle"
+                class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-3.5 h-3.5">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                </svg>
+                <span class="text-[10px] font-bold tracking-widest">DARK</span>
+            </button>
+
+            <!-- Hamburger Menu Icon (Moved to right) -->
+            <button id="openMobileNav" class="lg:hidden p-1" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-7 h-7 text-gray-900">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+
+        </div>
+    </header>
+
+</div>
