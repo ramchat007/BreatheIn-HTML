@@ -1,41 +1,11 @@
 /* assets/js/main.js */
 
-// Make the ready function async so we can force it to wait
 $(document).ready(async function () {
-  // 1. Force the script to wait until Header & Footer are fully injected
-  await loadComponents();
-
+  setActiveNav();
+  initHeaderFooterLogic();
   // 2. Initialize the rest of the page components (Swipers, ScrollReveal)
   initPageScripts();
 });
-
-// ==========================================
-// 1. ASYNC COMPONENT LOADER
-// ==========================================
-async function loadComponents() {
-  try {
-    // Fetch and inject Header
-    const headerResponse = await fetch("includes/header.html");
-    if (!headerResponse.ok) throw new Error("Header fetch failed");
-    const headerData = await headerResponse.text();
-    document.getElementById("header-placeholder").innerHTML = headerData;
-
-    // Fetch and inject Footer
-    const footerResponse = await fetch("includes/footer.html");
-    if (!footerResponse.ok) throw new Error("Footer fetch failed");
-    const footerData = await footerResponse.text();
-    document.getElementById("footer-placeholder").innerHTML = footerData;
-
-    // Run Header/Footer scripts now that they are guaranteed to be in the DOM
-    setActiveNav();
-    initHeaderFooterLogic();
-  } catch (error) {
-    console.error("Error loading components:", error);
-    console.warn(
-      "Make sure you are running a local server (like VS Code Live Server), as fetch() does not work on file:/// URLs.",
-    );
-  }
-}
 
 // ==========================================
 // 2. HEADER & FOOTER SPECIFIC LOGIC
@@ -43,36 +13,33 @@ async function loadComponents() {
 function initHeaderFooterLogic() {
   const $body = $("body");
 
-  // Mobile Nav Functions - We grab the overlay directly inside the function
-  // to ensure it selects the newly injected HTML.
   function openNav() {
     const $mobileNavOverlay = $("#mobileNavOverlay");
-    $mobileNavOverlay.removeClass("hidden").addClass("flex");
+    const $body = $("body");
 
+    $mobileNavOverlay.removeClass("hidden").addClass("flex");
     setTimeout(function () {
       $mobileNavOverlay
         .removeClass("opacity-0 pointer-events-none")
         .addClass("opacity-100 pointer-events-auto");
     }, 10);
-
     $body.addClass("overflow-hidden");
   }
 
   function closeNav() {
     const $mobileNavOverlay = $("#mobileNavOverlay");
+    const $body = $("body");
+
     $mobileNavOverlay
       .removeClass("opacity-100 pointer-events-auto")
       .addClass("opacity-0 pointer-events-none");
-
     setTimeout(function () {
       $mobileNavOverlay.removeClass("flex").addClass("hidden");
     }, 300);
-
     $body.removeClass("overflow-hidden");
   }
 
-  // EVENT DELEGATION: Attach listeners to the document, targeting specific IDs.
-  // This guarantees the clicks will work even on dynamically loaded HTML.
+  // REPLACE your old click handlers with these Event Delegated versions:
   $(document).on("click", "#openMobileNav", function (e) {
     e.preventDefault();
     openNav();
@@ -87,11 +54,17 @@ function initHeaderFooterLogic() {
     },
   );
 
+  // ==========================================
+  // UI Interactions (UPDATED FOR DYNAMIC HTML)
+  // ==========================================
+
+  // Replace old #themeToggle click handler
   $(document).on("click", "#themeToggle", function (e) {
     e.preventDefault();
     console.log("Dark Mode toggle initiated.");
   });
 
+  // Replace old #cartBtn click handler
   $(document).on("click", "#cartBtn", function (e) {
     e.preventDefault();
     console.log("Mini-cart opened.");
@@ -138,7 +111,7 @@ function setActiveNav() {
   }
 
   const currentPage = currentPath.split("/").pop();
-  const navLinks = document.querySelectorAll("#header-placeholder nav a");
+  const navLinks = document.querySelectorAll("nav a");
 
   navLinks.forEach((link) => {
     const linkHref = link.getAttribute("href");
