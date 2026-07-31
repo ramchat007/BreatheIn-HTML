@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BreatheIn - Redesign</title>
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./assets/js/tailwind.config.js"></script>
+
+    <!-- Link to compiled CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class=" antialiased text-gray-900 selection:bg-brandTeal/20 relative">
+    <!-- ========================================== -->
+    <!-- FULL-SCREEN MOBILE NAVIGATION OVERLAY      -->
+    <!-- ========================================== -->
+    <div id="mobileNavOverlay"
+        class="fixed inset-0 z-[60] bg-white flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out hidden">
+        <button id="closeMobileNav" class="absolute top-6 right-8 p-2 rounded-full hover:bg-gray-100 transition-colors"
+            aria-label="Close Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <nav class="flex flex-col items-center gap-8 text-center">
+            <a href="./collection.html"
+                class="text-3xl text-[#156E8A] font-light tracking-wide hover:text-brandTeal transition-colors">COLLECTION</a>
+            <a href="./technology.html"
+                class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">TECHNOLOGY</a>
+            <a href="./app.html"
+                class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">APP</a>
+            <a href="./real-homes.html"
+                class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">REAL HOMES</a>
+            <a href="./compare.html"
+                class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">COMPARE</a>
+            <div class="mt-8 pt-8 border-t border-gray-200 w-full flex flex-col items-center gap-4">
+                <a href="#" class="text-lg font-medium hover:text-brandTeal">My Account</a>
+                <a href="#" class="text-lg font-medium hover:text-brandTeal">Support</a>
+            </div>
+        </nav>
+    </div>
+    <!-- ========================================== -->
+
+    <!-- ========================================== -->
+    <!-- SMART STICKY HEADER                        -->
+    <!-- ========================================== -->
+    <div id="smart-header"
+        class="sticky top-0 z-50 w-full flex flex-col shadow-sm transition-transform duration-300 ease-in-out translate-y-0">
+        <!-- 1. TOP LIVE AQI TICKER BAR -->
+        <!-- Updated to match mobile design: unified dark background, teal dot, vertical separator -->
+        <div class="w-full bg-tickerDark text-white flex items-center text-[11px] tracking-wider font-medium animate-fade-in-down overflow-hidden"
+            style="animation-delay: 100ms">
+            <div
+                class="bg-tickerDark md:bg-brandTeal px-4 md:px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative">
+                <!-- <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> -->
+                <span class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse"></span>
+                INDIA AQI TODAY
+            </div>
+
+            <!-- Separator Line -->
+            <div class="w-[1px] h-6 bg-gray-800 shrink-0 z-10 relative"></div>
+
+            <!-- Scrolling Content -->
+            <div class="flex flex-1 overflow-hidden relative bg-tickerDark">
+                <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
+                    <!-- Ticker Items List 1 -->
+                    <div class="flex items-center gap-6 pr-6">
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Delhi</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">392</span>
+                            <span class="text-textMuted text-[10px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Ghaziabad</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">358</span>
+                            <span class="text-textMuted text-[10px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Noida</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">311</span>
+                            <span class="text-textMuted text-[10px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Patna</span>
+                            <span
+                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">286</span>
+                            <span class="text-textMuted text-[10px]">Very Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Lucknow</span>
+                            <span
+                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">242</span>
+                            <span class="text-textMuted text-[10px]">Very Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Kolkata</span>
+                            <span
+                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">198</span>
+                            <span class="text-textMuted text-[10px]">Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Mumbai</span>
+                            <span
+                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">164</span>
+                            <span class="text-textMuted text-[10px]">Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                    </div>
+
+                    <!-- Ticker Items List 2 (Duplicated for seamless scrolling) -->
+                    <div class="flex items-center gap-6 pr-6">
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Delhi</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">392</span>
+                            <span class="text-textMuted text-[10px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Ghaziabad</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">358</span>
+                            <span class="text-textMuted text-[10px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Noida</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">311</span>
+                            <span class="text-textMuted text-[10px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Patna</span>
+                            <span
+                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">286</span>
+                            <span class="text-textMuted text-[10px]">Very Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Lucknow</span>
+                            <span
+                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">242</span>
+                            <span class="text-textMuted text-[10px]">Very Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Kolkata</span>
+                            <span
+                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">198</span>
+                            <span class="text-textMuted text-[10px]">Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Mumbai</span>
+                            <span
+                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">164</span>
+                            <span class="text-textMuted text-[10px]">Unhealthy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Info Banner -->
+            <div
+                class="px-6 py-3 shrink-0 font-medium text-gray-300 hidden lg:block bg-tickerDark z-10 relative shadow-[-10px_0_15px_-3px_rgba(13,20,24,1)]">
+                Indoors is often
+                <span class="text-sky-400 font-bold">5x worse</span> &middot;
+                <a href="#" class="hover:underline text-white inline-flex items-center gap-1">CHECK YOURS <span
+                        class="text-[9px]">&darr;</span></a>
+            </div>
+        </div>
+
+        <!-- 2. MAIN NAVIGATION HEADER -->
+        <!-- Updated Mobile Layout: Logo Left, Cart+CTA+Hamburger Right -->
+        <header
+            class="w-full bg-[#FAFCFD] border-b border-gray-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between animate-fade-in-down"
+            style="animation-delay: 200ms">
+            <!-- Left: Logo -->
+            <div class="flex items-center">
+                <a href="/index.html" class="h-7 md:h-10 w-auto">
+                    <img src="./assets/images/logo.png" alt="Breathe In" class="h-7 md:h-10 w-auto object-contain" />
+                </a>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="./collection.html"
+                    class="text-[12px] text-[#156E8A] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COLLECTION</a>
+                <a href="./technology.html"
+                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">TECHNOLOGY</a>
+                <a href="./app.html"
+                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">APP</a>
+                <a href="./real-homes.html"
+                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">REAL
+                    HOMES</a>
+                <a href="./compare.html"
+                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COMPARE</a>
+            </nav>
+
+            <!-- Right: Action Buttons & Hamburger -->
+            <div class="flex items-center gap-3 md:gap-5">
+                <!-- Cart Button with Notification Badge -->
+                <button id="cartBtn"
+                    class="relative p-1.5 text-gray-900 hover:text-brandTeal transition-colors flex items-center justify-center">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1.5"></circle>
+                        <circle cx="20" cy="21" r="1.5"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <!-- Teal Badge -->
+                    <span
+                        class="absolute -top-1.5 -right-1.5 bg-brandTeal text-white text-[9px] font-bold w-4 h-4 aspect-square rounded-full flex items-center justify-center border border-white">3</span>
+                </button>
+
+                <!-- Primary CTA (Now visible on mobile per design) -->
+                <a href="./find-my-purifier.html"
+                    class="border border-black text-[9px] md:text-[11px] font-bold tracking-widest px-3 py-2 md:px-6 md:py-2.5 uppercase hover:bg-black hover:text-white transition-all duration-200">
+                    FIND MY PURIFIER
+                </a>
+
+                <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
+                <button id="themeToggle"
+                    class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-3.5 h-3.5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                    </svg>
+                    <span class="text-[10px] font-bold tracking-widest">DARK</span>
+                </button>
+                <!-- Hamburger Menu Icon (Moved to right) -->
+                <button id="openMobileNav" class="lg:hidden p-1" aria-label="Open Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-7 h-7 text-gray-900">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <main>
+        <!-- ========================================== -->
+        <!-- HERO SECTION                    -->
+        <!-- ========================================== -->
+        <section class="relative flex items-center overflow-hidden bg-[#FAFCFD]">
+            <!-- Soft Radial Glow (Top Right) -->
+            <div class="hidden md:block absolute inset-0 pointer-events-none" style="
+            background: radial-gradient(
+              40% 60% at 90% 10%,
+              rgba(21, 110, 138, 0.08) 0%,
+              rgba(0, 0, 0, 0) 100%
+            );
+          "></div>
+
+            <div class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-20 py-10 lg:py-20 w-full relative z-10">
+                <div class="max-w-2xl">
+                    <!-- Breadcrumb -->
+                    <nav class="uppercase tracking-[.25em] text-[10px] text-gray-400 mb-5">
+                        HOME <span class="text-gray-300 px-2">/</span> APP
+                    </nav>
+
+                    <!-- Eyebrow -->
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-8 h-px bg-[#156E8A]"></div>
+                        <p class="uppercase tracking-[.25em] text-[9px] text-[#156E8A] font-bold">
+                            Breathe In App · iOS & Android
+                        </p>
+                    </div>
+
+                    <!-- Headline -->
+                    <h1
+                        class="text-5xl md:text-6xl lg:text-[80px] font-light leading-tight tracking-tight text-gray-900 mb-5">
+                        Your air,
+                        <span class="font-medium text-[#156E8A]">in your hands.</span>
+                    </h1>
+
+                    <!-- Subtext -->
+                    <p class="max-w-xl text-gray-500 text-sm md:text-base leading-relaxed font-light">
+                        Monitor and control every purifier in your home from one calm, considered app. See what you're
+                        breathing in real time — and let it look after the rest.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-full bg-[#0A1014] md:bg-white py-10 md:py-20 px-6 md:px-16 lg:px-24 overflow-hidden">
+            <!-- Grid Layout allows reordering. Mobile: 1 column. Desktop: 2 columns, 2 rows -->
+            <div
+                class="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-2 lg:grid-rows-[auto_1fr] gap-x-16 lg:gap-x-24 lg:gap-y-2 items-start lg:items-center">
+                <!-- ========================================== -->
+                <!-- 1. Text Group (Top Mobile / Top-Left Desktop) -->
+                <!-- ========================================== -->
+                <div
+                    class="order-1 lg:col-start-1 lg:row-start-1 w-full flex flex-col scroll-reveal opacity-0 translate-y-6 transition-all duration-700 ease-out">
+                    <!-- Eyebrow -->
+                    <span class="text-[9px] uppercase tracking-[0.2em] text-[#156E8A] font-bold mb-4 md:mb-6 block">
+                        Breathe In App
+                    </span>
+
+                    <!-- Headline -->
+                    <!-- Responsive Text: White on mobile, Dark on desktop -->
+                    <h2
+                        class="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-white md:text-gray-900 leading-[1.1] mb-6">
+                        Your air,
+                        <span class="text-[#156E8A] font-bold">in your <br class="hidden md:block" />
+                            hands.</span>
+                    </h2>
+
+                    <!-- Subtext -->
+                    <p class="text-gray-400 md:text-gray-500 text-sm font-light leading-relaxed mb-4 md:mb-10 max-w-lg">
+                        Monitor and control every purifier in your home from one calm,
+                        considered app. See what you're breathing in real time, adjust
+                        from anywhere, and let it look after the rest.
+                    </p>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- 2. Image (Middle Mobile / Right Desktop)   -->
+                <!-- ========================================== -->
+                <div
+                    class="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 relative w-full flex justify-center scroll-reveal opacity-0 translate-y-6 transition-all duration-700 ease-out delay-200">
+                    <!-- Soft background glow behind the phone -->
+                    <div
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] md:w-[300px] h-[250px] md:h-[300px] bg-brandTeal/10 md:bg-brandTeal/5 rounded-full blur-[60px] pointer-events-none">
+                    </div>
+
+                    <!-- Mobile Image -->
+                    <img src="./assets/images/app-mockup-mobile.png" alt="Breathe In App Mobile"
+                        class="block md:hidden w-full max-w-[320px] h-auto object-contain relative z-10 animate-float" />
+
+                    <!-- Desktop Image -->
+                    <img src="./assets/images/app-mockup.png" alt="Breathe In App Interface"
+                        class="hidden md:block w-full max-w-[450px] h-auto object-contain relative z-10 animate-float" />
+                </div>
+
+                <!-- ========================================== -->
+                <!-- 3. Features & Buttons (Bottom Mobile / Bottom-Left Desktop) -->
+                <!-- ========================================== -->
+                <div
+                    class="order-3 lg:col-start-1 lg:row-start-2 w-full flex flex-col scroll-reveal opacity-0 translate-y-6 transition-all duration-700 ease-out delay-100">
+                    <!-- Feature List -->
+                    <div
+                        class="flex flex-col border-t border-gray-800/80 md:border-t-0 divide-y divide-gray-800/80 md:divide-gray-100 mb-10 md:mb-12">
+                        <!-- Feature 1 -->
+                        <div class="py-5 flex items-start gap-4 md:gap-5">
+                            <div class="mt-0.5 text-[#156E8A] bg-[#111A20] md:bg-sky-50 p-2.5 md:p-2 rounded-full">
+                                <svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z"
+                                        stroke="#156E8A" stroke-width="1.3" />
+                                    <path d="M10 6V10L12.6 11.6" stroke="#156E8A" stroke-width="1.3"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-[15px] text-gray-100 md:text-gray-900 font-medium mb-1">
+                                    Live Air Quality
+                                </h4>
+                                <p class="text-[11px] text-gray-400 md:text-gray-500 font-light leading-relaxed">
+                                    Real-time PM2.5, AQI, and filter status for every room,
+                                    updated by the second.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="py-5 flex items-start gap-4 md:gap-5">
+                            <div class="mt-0.5 text-[#156E8A] bg-[#111A20] md:bg-sky-50 p-2.5 md:p-2 rounded-full">
+                                <svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14.5 2.5H5.5C4.39543 2.5 3.5 3.39543 3.5 4.5V15.5C3.5 16.6046 4.39543 17.5 5.5 17.5H14.5C15.6046 17.5 16.5 16.6046 16.5 15.5V4.5C16.5 3.39543 15.6046 2.5 14.5 2.5Z"
+                                        stroke="#156E8A" stroke-width="1.3" />
+                                    <path d="M8 14.5H12" stroke="#156E8A" stroke-width="1.3" stroke-linecap="round" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-[15px] text-gray-100 md:text-gray-900 font-medium mb-1">
+                                    Control From Anywhere
+                                </h4>
+                                <p class="text-[11px] text-gray-400 md:text-gray-500 font-light leading-relaxed">
+                                    Switch modes, set fan speed, or start purifying before you
+                                    walk through the door.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="py-5 flex items-start gap-4 md:gap-5">
+                            <div class="mt-0.5 text-[#156E8A] bg-[#111A20] md:bg-sky-50 p-2.5 md:p-2 rounded-full">
+                                <svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10 2.5V5.5M10 14.5V17.5M17.5 10H14.5M5.5 10H2.5M15 5L12.9 7.1M7.1 12.9L5 15M15 15L12.9 12.9M7.1 7.1L5 5"
+                                        stroke="#156E8A" stroke-width="1.3" stroke-linecap="round" />
+                                    <path
+                                        d="M10 13C11.6569 13 13 11.6569 13 10C13 8.34315 11.6569 7 10 7C8.34315 7 7 8.34315 7 10C7 11.6569 8.34315 13 10 13Z"
+                                        stroke="#156E8A" stroke-width="1.3" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-[15px] text-gray-100 md:text-gray-900 font-medium mb-1">
+                                    Schedules & Sleep Mode
+                                </h4>
+                                <p class="text-[11px] text-gray-400 md:text-gray-500 font-light leading-relaxed">
+                                    Automate quiet nights and active days. Your home breathes on
+                                    its own rhythm.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 4 -->
+                        <div class="py-5 flex items-start gap-4 md:gap-5">
+                            <div class="mt-0.5 text-[#156E8A] bg-[#111A20] md:bg-sky-50 p-2.5 md:p-2 rounded-full">
+                                <svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 2.5L4 5V9.2C4 12.9 6.5 16.3 10 17.5C13.5 16.3 16 12.9 16 9.2V5L10 2.5Z"
+                                        stroke="#156E8A" stroke-width="1.3" stroke-linejoin="round" />
+                                    <path d="M7.5 10L9.3 11.8L13 8" stroke="#156E8A" stroke-width="1.3"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-[15px] text-gray-100 md:text-gray-900 font-medium mb-1">
+                                    Filter Care Reminders
+                                </h4>
+                                <p class="text-[11px] text-gray-400 md:text-gray-500 font-light leading-relaxed">
+                                    Know exactly when to replace a filter &mdash; and reorder
+                                    genuine parts in a tap.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- App Store Buttons -->
+                    <div class="grid grid-cols-2 md:flex md:flex-wrap items-center gap-3 md:gap-4">
+                        <!-- Apple App Store -->
+                        <a href="#"
+                            class="flex items-center justify-center md:justify-start gap-2.5 md:gap-3 px-3 md:px-5 py-3 md:py-2.5 border border-gray-800 md:border-gray-200 hover:border-gray-500 md:hover:border-gray-300 md:hover:bg-gray-50 transition-all rounded-sm group text-white md:text-[#141414]">
+                            <!-- fill="currentColor" allows the SVG to flip between white on mobile and dark on desktop -->
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.6292 11.4953C15.6109 9.47859 17.2793 8.50693 17.3526 8.46109C16.4176 7.08609 14.9601 6.90276 14.4376 6.88443C13.2001 6.75609 12.0176 7.61776 11.3851 7.61776C10.7526 7.61776 9.79008 6.90276 8.76342 6.92109C7.41592 6.93943 6.16925 7.70943 5.47258 8.91943C4.07008 11.3578 5.11508 14.9694 6.48092 16.9494C7.15008 17.9211 7.94758 19.0119 8.99258 18.9753C10.0009 18.9386 10.3859 18.3244 11.6051 18.3244C12.8243 18.3244 13.1726 18.9753 14.2359 18.9569C15.3176 18.9386 16.0051 17.9669 16.6651 16.9861C17.4351 15.8586 17.7467 14.7678 17.7651 14.7128C17.7376 14.7036 15.6659 13.9061 15.6476 11.5136L15.6292 11.4953ZM13.6401 5.46359C14.1901 4.79443 14.5659 3.86859 14.4651 2.93359C13.6676 2.97026 12.6959 3.46526 12.1184 4.13443C11.6051 4.72109 11.1559 5.66526 11.2751 6.56359C12.1642 6.63693 13.0809 6.11443 13.6401 5.46359Z" />
+                            </svg>
+                            <div class="flex flex-col">
+                                <span
+                                    class="text-[6px] md:text-[7px] uppercase tracking-widest text-gray-500 font-bold leading-none mb-1">Download
+                                    on the</span>
+                                <span class="text-xs md:text-sm font-medium leading-none">App Store</span>
+                            </div>
+                        </a>
+
+                        <!-- Google Play Store -->
+                        <a href="#"
+                            class="flex items-center justify-center md:justify-start gap-2.5 md:gap-3 px-3 md:px-5 py-3 md:py-2.5 border border-gray-800 md:border-gray-200 hover:border-gray-500 md:hover:border-gray-300 md:hover:bg-gray-50 transition-all rounded-sm group text-white md:text-[#141414]">
+                            <!-- fill="currentColor" applied -->
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3.30042 2.20013C3.05292 2.4568 2.90625 2.86013 2.90625 3.37346V18.6268C2.90625 19.1401 3.05292 19.5435 3.30042 19.8001L3.35542 19.846L11.9171 11.0643V10.936L3.35542 2.1543L3.30042 2.20013ZM14.9421 14.0893L12.1004 11.2476V11.1193L14.9421 8.27763L15.0063 8.3143L18.3704 10.2301C19.3329 10.7801 19.3329 11.6693 18.3704 12.2193L15.0063 14.1351L14.9421 14.181V14.0893ZM14.6029 14.4285L11.6971 11.4585L3.30042 19.846C3.62125 20.1851 4.14375 20.2218 4.73958 19.8918L14.6029 14.4285ZM14.6029 8.48846L4.73958 3.02513C4.14375 2.69513 3.62125 2.7318 3.30042 3.07096L11.6971 11.4585L14.6029 8.48846Z" />
+                            </svg>
+                            <div class="flex flex-col">
+                                <span
+                                    class="text-[6px] md:text-[7px] uppercase tracking-widest text-gray-500 font-bold leading-none mb-1">Get
+                                    it on</span>
+                                <span class="text-xs md:text-sm font-medium leading-none">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SETUP INSTRUCTIONS (Responsive Design)     -->
+        <!-- ========================================== -->
+        <section class="w-full bg-[#0B1115] py-10 lg:py-20 px-6 md:px-10 lg:px-20 ">
+            <div class="max-w-[1400px] mx-auto">
+
+                <!-- Header Area -->
+                <!-- Mobile: Left aligned. Desktop: Center aligned -->
+                <div class="text-left lg:text-center max-w-3xl mx-auto mb-12 lg:mb-20">
+                    
+                    <!-- Eyebrow -->
+                    <span class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.25em] text-[#156E8A] font-bold mb-4 block">
+                        Set up in a minute
+                    </span>
+                    
+                    <!-- Headline -->
+                    <!-- Desktop breaks "breath" to a new line to match the design -->
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 tracking-tight">
+                        Connected before your <span class="text-[#156E8A]">first <br class="hidden lg:block"> breath.</span>
+                    </h2>
+                    
+                    <!-- Subtext -->
+                    <!-- Swaps text content based on screen size to match respective mockups -->
+                    <p class="text-gray-400 font-light text-[13px] md:text-sm leading-relaxed lg:hidden">
+                        We technically brief your purifier to clean up in three simple steps.
+                    </p>
+                    <p class="text-gray-400 font-light text-base leading-relaxed hidden lg:block">
+                        No technical know-how required. From box to clean air in three simple steps.
+                    </p>
+                    
+                </div>
+
+                <!-- Steps Grid -->
+                <!-- Mobile: Vertical stack. Desktop: 3-Column Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8">
+
+                    <!-- STEP 01 -->
+                    <!-- Mobile: Dark transparent bg, gray border, top-aligned text -->
+                    <!-- Desktop: Solid white bg, no border, text pushed to top/bottom edges -->
+                    <div class="flex flex-col lg:justify-between gap-4 lg:gap-0 lg:min-h-[280px] p-6 lg:p-12 border border-gray-800 lg:border-none bg-transparent lg:bg-white rounded-sm lg:rounded-none">
+                        <span class="text-[9px] lg:text-[13px] tracking-[0.2em] lg:tracking-normal font-bold text-[#156E8A] uppercase lg:normal-case">
+                            Step 01
+                        </span>
+                        <p class="text-gray-400 lg:text-gray-500 text-[13px] md:text-sm font-light leading-relaxed">
+                            Place your purifier, switch it on, and open the Breathe In app on iOS or Android.
+                        </p>
+                    </div>
+
+                    <!-- STEP 02 -->
+                    <div class="flex flex-col lg:justify-between gap-4 lg:gap-0 lg:min-h-[280px] p-6 lg:p-12 border border-gray-800 lg:border-none bg-transparent lg:bg-white rounded-sm lg:rounded-none">
+                        <span class="text-[9px] lg:text-[13px] tracking-[0.2em] lg:tracking-normal font-bold text-[#156E8A] uppercase lg:normal-case">
+                            Step 02
+                        </span>
+                        <p class="text-gray-400 lg:text-gray-500 text-[13px] md:text-sm font-light leading-relaxed">
+                            The app finds your unit automatically over Wi-Fi. One tap to connect &mdash; no codes, no manuals.
+                        </p>
+                    </div>
+
+                    <!-- STEP 03 -->
+                    <div class="flex flex-col lg:justify-between gap-4 lg:gap-0 lg:min-h-[280px] p-6 lg:p-12 border border-gray-800 lg:border-none bg-transparent lg:bg-white rounded-sm lg:rounded-none">
+                        <span class="text-[9px] lg:text-[13px] tracking-[0.2em] lg:tracking-normal font-bold text-[#156E8A] uppercase lg:normal-case">
+                            Step 03
+                        </span>
+                        <p class="text-gray-400 lg:text-gray-500 text-[13px] md:text-sm font-light leading-relaxed">
+                            Watch live air quality, set schedules, and let auto mode handle the rest from anywhere.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- DARK CTA SECTION: EXPLORE / COMPARE        -->
+        <!-- ========================================== -->
+        <section class="w-full bg-[#0B1115] py-10 md:py-20 px-6 flex flex-col items-center justify-center text-center ">
+            
+            <h2 class="text-4xl md:text-5xl lg:text-[56px] font-light text-white mb-6 md:mb-8 tracking-tight">
+                One app. Every <span class="text-[#156E8A]">room.</span>
+            </h2>
+            
+            <p class="text-gray-400 font-light text-[13px] md:text-[15px] max-w-2xl mx-auto mb-12 leading-relaxed">
+                Manage a single bedroom unit or an entire home of purifiers — all from the same screen.
+            </p>
+            
+            <div class="flex flex-row items-center justify-center gap-6 sm:gap-10 w-full max-w-md sm:max-w-none">
+                
+                <!-- Primary Solid Button -->
+                <a href="#" class="bg-white text-[#0B1115] px-4 py-4 md:py-4.5 uppercase text-[10px] md:text-[11px] tracking-[0.2em] font-bold flex items-center justify-center gap-3 hover:bg-gray-200 transition-colors rounded-sm w-full sm:w-auto">
+                    <span>Find My Purifier</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+                
+                <!-- Secondary Ghost/Underline Button -->
+                <a href="#" class="text-white border-b border-gray-700 pb-1 uppercase text-[10px] md:text-[11px] tracking-[0.2em] font-bold hover:text-[#156E8A] hover:border-[#156E8A] transition-colors w-full sm:w-auto text-center mt-2 sm:mt-0">
+                    See Real Homes
+                </a>
+                
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECTION 17: FOOTER                         -->
+        <!-- ========================================== -->
+        <footer class="w-full bg-[#0B1115] pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24 ">
+            <div class="max-w-[1400px] mx-auto">
+                <!-- Top Section: Brand & Links -->
+                <div class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-10 lg:mb-20">
+                    <!-- Left: Brand, Bio & Buttons -->
+                    <div class="flex flex-col lg:w-5/12">
+                        <!-- Logo -->
+                        <img src="./assets/images/logo.png" alt="Breathe In"
+                            class="h-9 md:h-10 w-auto mb-6 object-contain object-left self-start" />
+
+                        <!-- Bio -->
+                        <!-- Mobile text and Desktop text swap seamlessly using hidden/inline classes -->
+                        <p class="text-gray-400 text-[12px] md:text-[14px] font-light leading-[1.8] mb-8 max-w-sm">
+                            <span class="hidden md:inline">
+                                Clean air isn’t a luxury, it’s a necessity<br />
+                                Sophisticated Japanese air-purification<br />
+                                technology, at honest prices. The right air, for<br />
+                                every Indian home.
+                            </span>
+                            <span class="md:hidden">
+                                Clean air isn’t a luxury, it’s a necessity Sophisticated
+                                Japanese air-purification technology, at honest prices.
+                            </span>
+                        </p>
+
+                        <!-- Buttons (Side-by-Side) -->
+                        <div class="flex flex-row items-center gap-3 md:gap-4 w-full max-w-[400px]">
+                            <!-- Shop Now (Solid Teal on all screens) -->
+                            <a href="#"
+                                class="flex-1 bg-[#156E8A] text-white text-[9px] md:text-[11px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] transition-colors whitespace-nowrap">
+                                <span>SHOP NOW</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 12h14M12 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+
+                            <!-- Download Brochure (Solid Teal on Mobile, Ghost on Desktop) -->
+                            <a href="#"
+                                class="flex-1 bg-[#156E8A] md:bg-transparent border border-[#156E8A] text-white text-[9px] md:text-[11px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] md:hover:bg-[#156E8A] hover:text-white transition-colors whitespace-nowrap">
+                                <span>DOWNLOAD BROCHURE</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 12h14M12 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Divider (Mobile Only) -->
+                    <div class="w-full h-[1px] bg-gray-800/80 lg:hidden mt-2 mb-2"></div>
+
+                    <!-- Right: Links Grid -->
+                    <!-- 3 Cols on Mobile, 4 Cols on Desktop -->
+                    <div class="lg:w-7/12 grid grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
+                        <!-- Column 1: Collection -->
+                        <div class="flex flex-col">
+                            <h4
+                                class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                                Collection
+                            </h4>
+                            <ul class="flex flex-col gap-4">
+                                <li>
+                                    <a href="#"
+                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Air
+                                        Pro</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Air
+                                        Pro 1</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Air
+                                        Pro 2</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Air
+                                        Pro Max</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Column 2: Explore -->
+                        <div class="flex flex-col">
+                            <h4
+                                class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                                Explore
+                            </h4>
+                            <ul class="flex flex-col gap-4">
+                                <li>
+                                    <a href="#"
+                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Technology</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">The
+                                        App</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Compare
+                                        Models</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Filter
+                                        Care</a>
+                                </li>
+                                <!-- Visible only on Desktop -->
+                                <li class="hidden lg:block">
+                                    <a href="#"
+                                        class="text-[12px] text-gray-400 hover:text-white transition-colors font-light">Corporate
+                                        Solutions</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Column 3: Support (Mobile) / Blank Header (Desktop) -->
+                        <div class="flex flex-col">
+                            <!-- Header visible only on mobile -->
+                            <h4 class="text-[9px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6 lg:hidden">
+                                Support
+                            </h4>
+
+                            <!-- Spacer to align links under the empty header space on desktop -->
+                            <div class="hidden lg:block h-[34px]"></div>
+
+                            <ul class="flex flex-col gap-4">
+                                <!-- Visible only on Desktop -->
+                                <li class="hidden lg:block">
+                                    <a href="#"
+                                        class="text-[12px] text-gray-400 hover:text-white transition-colors font-light">Book
+                                        a Demo</a>
+                                </li>
+                                <li class="hidden lg:block">
+                                    <a href="#"
+                                        class="text-[12px] text-gray-400 hover:text-white transition-colors font-light">Case
+                                        Studies</a>
+                                </li>
+
+                                <!-- Visible on Both -->
+                                <li>
+                                    <a href="#"
+                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Support</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Contact</a>
+                                </li>
+
+                                <!-- Visible only on Mobile -->
+                                <li class="lg:hidden">
+                                    <a href="#"
+                                        class="text-[12px] text-gray-400 hover:text-white transition-colors font-light">WhatsApp</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Column 4: Contact (Desktop Only) -->
+                        <div class="hidden lg:flex flex-col">
+                            <h4 class="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                                Contact
+                            </h4>
+                            <ul class="flex flex-col gap-4">
+                                <li>
+                                    <a href="tel:+919076636639"
+                                        class="text-[12px] text-gray-400 hover:text-white transition-colors font-light">+91
+                                        90766 36639</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="text-[12px] text-gray-400 hover:text-white transition-colors font-light">WhatsApp
+                                        Support</a>
+                                </li>
+                                <li>
+                                    <a href="mailto:enquiries@breathein.co.in"
+                                        class="text-[12px] text-gray-400 hover:text-white transition-colors font-light">enquiries@breathein.co.in</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="text-[12px] text-gray-400 hover:text-white transition-colors font-light">www.breathein.co.in</a>
+                                </li>
+                                <li class="text-[12px] text-gray-400 font-light mt-1">
+                                    Whitefield, Bengaluru
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Divider -->
+                <div class="w-full h-[1px] bg-gray-800/80 mb-6 lg:mb-8"></div>
+
+                <!-- Bottom Strip: Legal & Copyright -->
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+                    <!-- Legal Links (Top on mobile, Right on desktop) -->
+                    <div class="flex flex-wrap items-center gap-6 lg:order-2">
+                        <a href="#"
+                            class="text-[11px] md:text-[12px] text-gray-500 hover:text-gray-300 transition-colors font-light">Privacy
+                            Policy</a>
+                        <a href="#"
+                            class="text-[11px] md:text-[12px] text-gray-500 hover:text-gray-300 transition-colors font-light">Terms
+                            of Use</a>
+                        <a href="#"
+                            class="text-[11px] md:text-[12px] text-gray-500 hover:text-gray-300 transition-colors font-light">Cookie
+                            Policy</a>
+                    </div>
+
+                    <!-- Copyright (Bottom on mobile, Left on desktop) -->
+                    <p class="text-[11px] md:text-[12px] text-gray-500 font-light lg:order-1">
+                        &copy; 2026 Breathe In &mdash; The Right Air. All rights reserved.
+                        Made in India.
+                    </p>
+                </div>
+
+                <!-- 
+                <button id="backToTop"
+                    class="flex absolute right-0 bottom-12 lg:static items-center gap-3 text-[9px] uppercase tracking-[0.2em] text-gray-500 hover:text-white transition-colors font-bold group order-3">
+                    Back to Top
+                    <span
+                        class="w-7 h-7 rounded-full bg-gray-800/80 flex items-center justify-center group-hover:bg-[#156E8A] transition-colors">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7">
+                            </path>
+                        </svg>
+                    </span>
+                </button> -->
+            </div>
+        </footer>
+    </main>
+
+    <!-- jQuery Core Library -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Link to Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

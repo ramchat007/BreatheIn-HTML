@@ -1,4 +1,5 @@
 tailwind.config = {
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -15,3 +16,34 @@ tailwind.config = {
     },
   },
 };
+
+if (
+  localStorage.getItem("theme") === "dark" ||
+  (!("theme" in localStorage) &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+  document.documentElement.classList.add("dark");
+} else {
+  document.documentElement.classList.remove("dark");
+}
+
+// ==============================================================
+// TOGGLE BUTTON LOGIC (Best placed at the bottom of the <body>)
+// ==============================================================
+document.addEventListener("DOMContentLoaded", () => {
+  const themeToggleBtn = document.getElementById("themeToggle");
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener("click", function () {
+      // 1. Toggle the class visually on the page
+      document.documentElement.classList.toggle("dark");
+
+      // 2. Save the user's new preference to localStorage
+      if (document.documentElement.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+    });
+  }
+});

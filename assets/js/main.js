@@ -58,18 +58,6 @@ function initHeaderFooterLogic() {
   // UI Interactions (UPDATED FOR DYNAMIC HTML)
   // ==========================================
 
-  // Replace old #themeToggle click handler
-  $(document).on("click", "#themeToggle", function (e) {
-    e.preventDefault();
-    console.log("Dark Mode toggle initiated.");
-  });
-
-  // Replace old #cartBtn click handler
-  $(document).on("click", "#cartBtn", function (e) {
-    e.preventDefault();
-    console.log("Mini-cart opened.");
-  });
-
   // Smart Header Scroll Logic
   let lastScrollTop = 0;
 
@@ -270,6 +258,51 @@ function initPageScripts() {
         clickable: true,
       },
       breakpoints: { 768: { allowTouchMove: false } },
+    });
+  }
+  if ($(".productThumbSwiper").length) {
+    new Swiper(".productThumbSwiper", {
+      spaceBetween: 16, // Gap between thumbs on mobile
+      slidesPerView: 3, // Show 3 thumbs
+      watchSlidesProgress: true,
+      breakpoints: {
+        768: {
+          spaceBetween: 20, // Wider gap on desktop
+        },
+      },
+    });
+  }
+  if ($(".productMainSwiper").length) {
+    new Swiper(".productMainSwiper", {
+      spaceBetween: 16, // Gap between thumbs on mobile
+      slidesPerView: 1, // Show 3 thumbs
+      watchSlidesProgress: true,
+      breakpoints: {
+        768: {
+          spaceBetween: 20, // Wider gap on desktop
+        },
+      },
+      thumbs: {
+        swiper: ".productThumbSwiper",
+      },
+    });
+  }
+  if ($(".reviewsSwiper").length) {
+    new Swiper(".reviewsSwiper", {
+      slidesPerView: "auto", // Allows the 85% width cards to peek out
+      spaceBetween: 16, // Gap between mobile cards
+      grabCursor: true,
+      pagination: {
+        el: ".reviews-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        // When window width is >= 1024px (Tailwind lg breakpoint)
+        1024: {
+          enabled: false, // Disables Swiper entirely
+          spaceBetween: 0, // Resets spacing so CSS Grid takes over perfectly
+        },
+      },
     });
   }
 }
