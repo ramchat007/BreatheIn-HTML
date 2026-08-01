@@ -1,9 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BreatheIn - Redesign</title>
 
     <!-- Tailwind CSS Play CDN -->
@@ -11,943 +10,1435 @@
     <script src="./assets/js/tailwind.config.js"></script>
 
     <!-- Link to compiled CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
 
-<body class="font-sans antialiased text-gray-900 selection:bg-brandTeal/20 relative">
-
+  <body class="antialiased text-gray-900 selection:bg-brandTeal/20 relative">
     <!-- ========================================== -->
     <!-- FULL-SCREEN MOBILE NAVIGATION OVERLAY      -->
     <!-- ========================================== -->
-    <div id="mobileNavOverlay"
-        class="fixed inset-0 z-[60] bg-white flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out hidden">
-        <button id="closeMobileNav" class="absolute top-6 right-8 p-2 rounded-full hover:bg-gray-100 transition-colors"
-            aria-label="Close Menu">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-8 h-8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-        <nav class="flex flex-col items-center gap-8 text-center">
-            <a href="./collection.html"
-                class="text-3xl text-[#156E8A] font-light tracking-wide hover:text-brandTeal transition-colors">COLLECTION</a>
-            <a href="./technology.html"
-                class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">TECHNOLOGY</a>
-            <a href="./app.html"
-                class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">APP</a>
-            <a href="./real-homes.html"
-                class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">REAL HOMES</a>
-            <a href="./compare.html"
-                class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">COMPARE</a>
-            <div class="mt-8 pt-8 border-t border-gray-200 w-full flex flex-col items-center gap-4">
-                <a href="#" class="text-lg font-medium hover:text-brandTeal">My Account</a>
-                <a href="#" class="text-lg font-medium hover:text-brandTeal">Support</a>
-            </div>
-        </nav>
+    <div
+      id="mobileNavOverlay"
+      class="fixed inset-0 z-[60] bg-white flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out hidden"
+    >
+      <button
+        id="closeMobileNav"
+        class="absolute top-6 right-8 p-2 rounded-full hover:bg-gray-100 transition-colors"
+        aria-label="Close Menu"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-8 h-8"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <nav class="flex flex-col items-center gap-8 text-center">
+        <a
+          href="./collection.html"
+          class="text-3xl text-[#156E8A] font-light tracking-wide hover:text-brandTeal transition-colors"
+          >COLLECTION</a
+        >
+        <a
+          href="./technology.html"
+          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
+          >TECHNOLOGY</a
+        >
+        <a
+          href="./app.html"
+          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
+          >APP</a
+        >
+        <a
+          href="./real-homes.html"
+          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
+          >REAL HOMES</a
+        >
+        <a
+          href="./compare.html"
+          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
+          >COMPARE</a
+        >
+        <div
+          class="mt-8 pt-8 border-t border-gray-200 w-full flex flex-col items-center gap-4"
+        >
+          <a href="#" class="text-lg font-medium hover:text-brandTeal"
+            >My Account</a
+          >
+          <a href="#" class="text-lg font-medium hover:text-brandTeal"
+            >Support</a
+          >
+        </div>
+      </nav>
     </div>
     <!-- ========================================== -->
 
     <!-- ========================================== -->
     <!-- SMART STICKY HEADER                        -->
     <!-- ========================================== -->
-    <div id="smart-header"
-        class="sticky top-0 z-50 w-full flex flex-col shadow-sm transition-transform duration-300 ease-in-out translate-y-0">
-
-        <!-- 1. TOP LIVE AQI TICKER BAR -->
-        <!-- Updated to match mobile design: unified dark background, teal dot, vertical separator -->
-        <div class="w-full bg-tickerDark text-white flex items-center text-[11px] tracking-wider font-medium animate-fade-in-down overflow-hidden"
-            style="animation-delay: 100ms;">
-
-            <div
-                class="bg-tickerDark md:bg-brandTeal px-4 md:px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative">
-                <!-- <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> -->
-                <span class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse"></span>
-                INDIA AQI TODAY
-            </div>
-
-            <!-- Separator Line -->
-            <div class="w-[1px] h-6 bg-gray-800 shrink-0 z-10 relative"></div>
-
-            <!-- Scrolling Content -->
-            <div class="flex flex-1 overflow-hidden relative bg-tickerDark">
-                <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
-
-                    <!-- Ticker Items List 1 -->
-                    <div class="flex items-center gap-6 pr-6">
-                        <div class="flex items-center gap-2">
-                            <span class="font-semibold text-gray-200">Delhi</span>
-                            <span
-                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">392</span>
-                            <span class="text-textMuted text-[10px]">Hazardous</span>
-                        </div>
-                        <span class="text-gray-700">|</span>
-                        <div class="flex items-center gap-2">
-                            <span class="font-semibold text-gray-200">Ghaziabad</span>
-                            <span
-                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">358</span>
-                            <span class="text-textMuted text-[10px]">Hazardous</span>
-                        </div>
-                        <span class="text-gray-700">|</span>
-                        <div class="flex items-center gap-2">
-                            <span class="font-semibold text-gray-200">Noida</span>
-                            <span
-                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">311</span>
-                            <span class="text-textMuted text-[10px]">Hazardous</span>
-                        </div>
-                        <span class="text-gray-700">|</span>
-                        <div class="flex items-center gap-2">
-                            <span class="font-semibold text-gray-200">Patna</span>
-                            <span
-                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">286</span>
-                            <span class="text-textMuted text-[10px]">Very Unhealthy</span>
-                        </div>
-                        <span class="text-gray-700">|</span>
-                        <div class="flex items-center gap-2">
-                            <span class="font-semibold text-gray-200">Lucknow</span>
-                            <span
-                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">242</span>
-                            <span class="text-textMuted text-[10px]">Very Unhealthy</span>
-                        </div>
-                        <span class="text-gray-700">|</span>
-                        <div class="flex items-center gap-2">
-                            <span class="font-semibold text-gray-200">Kolkata</span>
-                            <span
-                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">198</span>
-                            <span class="text-textMuted text-[10px]">Unhealthy</span>
-                        </div>
-                        <span class="text-gray-700">|</span>
-                        <div class="flex items-center gap-2">
-                            <span class="font-semibold text-gray-200">Mumbai</span>
-                            <span
-                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">164</span>
-                            <span class="text-textMuted text-[10px]">Unhealthy</span>
-                        </div>
-                        <span class="text-gray-700">|</span>
-                    </div>
-
-                    <!-- Ticker Items List 2 (Duplicated for seamless scrolling) -->
-                    <div class="flex items-center gap-6 pr-6">
-                        <div class="flex items-center gap-2">
-                            <span class="font-semibold text-gray-200">Delhi</span>
-                            <span
-                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">392</span>
-                            <span class="text-textMuted text-[10px]">Hazardous</span>
-                        </div>
-                        <span class="text-gray-700">|</span>
-                        <div class="flex items-center gap-2">
-                            <span class="font-semibold text-gray-200">Ghaziabad</span>
-                            <span
-                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">358</span>
-                            <span class="text-textMuted text-[10px]">Hazardous</span>
-                        </div>
-                        <span class="text-gray-700">|</span>
-                        <div class="flex items-center gap-2">
-                            <span class="font-semibold text-gray-200">Noida</span>
-                            <span
-                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">311</span>
-                            <span class="text-textMuted text-[10px]">Hazardous</span>
-                        </div>
-                        <span class="text-gray-700">|</span>
-                        <div class="flex items-center gap-2">
-                            <span class="font-semibold text-gray-200">Patna</span>
-                            <span
-                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">286</span>
-                            <span class="text-textMuted text-[10px]">Very Unhealthy</span>
-                        </div>
-                        <span class="text-gray-700">|</span>
-                        <div class="flex items-center gap-2">
-                            <span class="font-semibold text-gray-200">Lucknow</span>
-                            <span
-                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">242</span>
-                            <span class="text-textMuted text-[10px]">Very Unhealthy</span>
-                        </div>
-                        <span class="text-gray-700">|</span>
-                        <div class="flex items-center gap-2">
-                            <span class="font-semibold text-gray-200">Kolkata</span>
-                            <span
-                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">198</span>
-                            <span class="text-textMuted text-[10px]">Unhealthy</span>
-                        </div>
-                        <span class="text-gray-700">|</span>
-                        <div class="flex items-center gap-2">
-                            <span class="font-semibold text-gray-200">Mumbai</span>
-                            <span
-                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[10px]">164</span>
-                            <span class="text-textMuted text-[10px]">Unhealthy</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Desktop Info Banner -->
-            <div
-                class="px-6 py-3 shrink-0 font-medium text-gray-300 hidden lg:block bg-tickerDark z-10 relative shadow-[-10px_0_15px_-3px_rgba(13,20,24,1)]">
-                Indoors is often <span class="text-sky-400 font-bold">5x worse</span> &middot;
-                <a href="#" class="hover:underline text-white inline-flex items-center gap-1">CHECK YOURS <span
-                        class="text-[9px]">&darr;</span></a>
-            </div>
+    <div
+      id="smart-header"
+      class="sticky top-0 z-50 w-full flex flex-col shadow-sm transition-transform duration-300 ease-in-out translate-y-0"
+    >
+      <!-- 1. TOP LIVE AQI TICKER BAR -->
+      <!-- Updated to match mobile design: unified dark background, teal dot, vertical separator -->
+      <div
+        class="w-full bg-tickerDark text-white flex items-center text-[11px] tracking-wider font-medium animate-fade-in-down overflow-hidden"
+        style="animation-delay: 100ms"
+      >
+        <div
+          class="bg-tickerDark md:bg-brandTeal px-4 md:px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative"
+        >
+          <!-- <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> -->
+          <span
+            class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse"
+          ></span>
+          INDIA AQI TODAY
         </div>
 
+        <!-- Separator Line -->
+        <div class="w-[1px] h-6 bg-gray-800 shrink-0 z-10 relative"></div>
 
-        <!-- 2. MAIN NAVIGATION HEADER -->
-        <!-- Updated Mobile Layout: Logo Left, Cart+CTA+Hamburger Right -->
-        <header
-            class="w-full bg-[#FAFCFD] border-b border-gray-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between animate-fade-in-down"
-            style="animation-delay: 200ms;">
-
-            <!-- Left: Logo -->
-            <div class="flex items-center">
-                <a href="/index.html" class="h-7 md:h-10 w-auto">
-                    <img src="./assets/images/logo.png" alt="Breathe In" class="h-7 md:h-10 w-auto object-contain">
-                </a>
+        <!-- Scrolling Content -->
+        <div class="flex flex-1 overflow-hidden relative bg-tickerDark">
+          <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
+            <!-- Ticker Items List 1 -->
+            <div class="flex items-center gap-6 pr-6">
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-200">Delhi</span>
+                <span
+                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
+                  >392</span
+                >
+                <span class="text-textMuted text-[12px]">Hazardous</span>
+              </div>
+              <span class="text-gray-700">|</span>
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-200">Ghaziabad</span>
+                <span
+                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
+                  >358</span
+                >
+                <span class="text-textMuted text-[12px]">Hazardous</span>
+              </div>
+              <span class="text-gray-700">|</span>
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-200">Noida</span>
+                <span
+                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
+                  >311</span
+                >
+                <span class="text-textMuted text-[12px]">Hazardous</span>
+              </div>
+              <span class="text-gray-700">|</span>
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-200">Patna</span>
+                <span
+                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
+                  >286</span
+                >
+                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+              </div>
+              <span class="text-gray-700">|</span>
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-200">Lucknow</span>
+                <span
+                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
+                  >242</span
+                >
+                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+              </div>
+              <span class="text-gray-700">|</span>
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-200">Kolkata</span>
+                <span
+                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
+                  >198</span
+                >
+                <span class="text-textMuted text-[12px]">Unhealthy</span>
+              </div>
+              <span class="text-gray-700">|</span>
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-200">Mumbai</span>
+                <span
+                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
+                  >164</span
+                >
+                <span class="text-textMuted text-[12px]">Unhealthy</span>
+              </div>
+              <span class="text-gray-700">|</span>
             </div>
 
-            <!-- Desktop Nav Links -->
-            <nav class="hidden lg:flex items-center gap-8">
-                <a href="./collection.html"
-                    class="text-[12px] text-[#156E8A] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COLLECTION</a>
-                <a href="./technology.html"
-                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">TECHNOLOGY</a>
-                <a href="./app.html"
-                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">APP</a>
-                <a href="./real-homes.html"
-                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">REAL
-                    HOMES</a>
-                <a href="./compare.html"
-                    class="text-[12px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COMPARE</a>
-            </nav>
-
-            <!-- Right: Action Buttons & Hamburger -->
-            <div class="flex items-center gap-3 md:gap-5">
-
-                <!-- Cart Button with Notification Badge -->
-                <button id="cartBtn"
-                    class="relative p-1.5 text-gray-900 hover:text-brandTeal transition-colors flex items-center justify-center">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="9" cy="21" r="1.5"></circle>
-                        <circle cx="20" cy="21" r="1.5"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                    <!-- Teal Badge -->
-                    <span
-                        class="absolute -top-1.5 -right-1.5 bg-brandTeal text-white text-[9px] font-bold w-4 h-4 aspect-square rounded-full flex items-center justify-center border border-white">3</span>
-                </button>
-
-                <!-- Primary CTA (Now visible on mobile per design) -->
-                <a href="./find-my-purifier.html"
-                    class="border border-black text-[9px] md:text-[11px] font-bold tracking-widest px-3 py-2 md:px-6 md:py-2.5 uppercase hover:bg-black hover:text-white transition-all duration-200">
-                    FIND MY PURIFIER
-                </a>
-
-                <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
-                <button id="themeToggle"
-                    class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-3.5 h-3.5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-                    </svg>
-                    <span class="text-[10px] font-bold tracking-widest">DARK</span>
-                </button>
-                <!-- Hamburger Menu Icon (Moved to right) -->
-                <button id="openMobileNav" class="lg:hidden p-1" aria-label="Open Menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-7 h-7 text-gray-900">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </button>
+            <!-- Ticker Items List 2 (Duplicated for seamless scrolling) -->
+            <div class="flex items-center gap-6 pr-6">
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-200">Delhi</span>
+                <span
+                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
+                  >392</span
+                >
+                <span class="text-textMuted text-[12px]">Hazardous</span>
+              </div>
+              <span class="text-gray-700">|</span>
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-200">Ghaziabad</span>
+                <span
+                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
+                  >358</span
+                >
+                <span class="text-textMuted text-[12px]">Hazardous</span>
+              </div>
+              <span class="text-gray-700">|</span>
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-200">Noida</span>
+                <span
+                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
+                  >311</span
+                >
+                <span class="text-textMuted text-[12px]">Hazardous</span>
+              </div>
+              <span class="text-gray-700">|</span>
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-200">Patna</span>
+                <span
+                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
+                  >286</span
+                >
+                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+              </div>
+              <span class="text-gray-700">|</span>
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-200">Lucknow</span>
+                <span
+                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
+                  >242</span
+                >
+                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+              </div>
+              <span class="text-gray-700">|</span>
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-200">Kolkata</span>
+                <span
+                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
+                  >198</span
+                >
+                <span class="text-textMuted text-[12px]">Unhealthy</span>
+              </div>
+              <span class="text-gray-700">|</span>
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-gray-200">Mumbai</span>
+                <span
+                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
+                  >164</span
+                >
+                <span class="text-textMuted text-[12px]">Unhealthy</span>
+              </div>
             </div>
-        </header>
+          </div>
+        </div>
+
+        <!-- Desktop Info Banner -->
+        <div
+          class="px-6 py-3 shrink-0 font-medium text-gray-300 hidden lg:block bg-tickerDark z-10 relative shadow-[-10px_0_15px_-3px_rgba(13,20,24,1)]"
+        >
+          Indoors is often
+          <span class="text-sky-400 font-bold">5x worse</span> &middot;
+          <a
+            href="#"
+            class="hover:underline text-white inline-flex items-center gap-1"
+            >CHECK YOURS <span class="text-[11px]">&darr;</span></a
+          >
+        </div>
+      </div>
+
+      <!-- 2. MAIN NAVIGATION HEADER -->
+      <!-- Updated Mobile Layout: Logo Left, Cart+CTA+Hamburger Right -->
+      <header
+        class="w-full bg-[#FAFCFD] border-b border-gray-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between animate-fade-in-down"
+        style="animation-delay: 200ms"
+      >
+        <!-- Left: Logo -->
+        <div class="flex items-center">
+          <a href="/index.html" class="h-7 md:h-10 w-auto">
+            <img
+              src="./assets/images/logo.png"
+              alt="Breathe In"
+              class="h-7 md:h-10 w-auto object-contain"
+            />
+          </a>
+        </div>
+
+        <!-- Desktop Nav Links -->
+        <nav class="hidden lg:flex items-center gap-8">
+          <a
+            href="./collection.html"
+            class="text-[13px] text-[#156E8A] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
+            >COLLECTION</a
+          >
+          <a
+            href="./technology.html"
+            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
+            >TECHNOLOGY</a
+          >
+          <a
+            href="./app.html"
+            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
+            >APP</a
+          >
+          <a
+            href="./real-homes.html"
+            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
+            >REAL HOMES</a
+          >
+          <a
+            href="./compare.html"
+            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
+            >COMPARE</a
+          >
+        </nav>
+
+        <!-- Right: Action Buttons & Hamburger -->
+        <div class="flex items-center gap-3 md:gap-5">
+          <!-- Cart Button with Notification Badge -->
+          <button
+            id="cartBtn"
+            class="relative p-1.5 text-gray-900 hover:text-brandTeal transition-colors flex items-center justify-center"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="9" cy="21" r="1.5"></circle>
+              <circle cx="20" cy="21" r="1.5"></circle>
+              <path
+                d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+              ></path>
+            </svg>
+            <!-- Teal Badge -->
+            <span
+              class="absolute -top-1.5 -right-1.5 bg-brandTeal text-white text-[11px] font-bold w-4 h-4 aspect-square rounded-full flex items-center justify-center border border-white"
+              >3</span
+            >
+          </button>
+
+          <!-- Primary CTA (Now visible on mobile per design) -->
+          <a
+            href="./find-my-purifier.html"
+            class="border border-black text-[11px] md:text-[13px] font-bold tracking-widest px-3 py-2 md:px-6 md:py-2.5 uppercase hover:bg-black hover:text-white transition-all duration-200"
+          >
+            FIND MY PURIFIER
+          </a>
+
+          <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
+          <button
+            id="themeToggle"
+            class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-3.5 h-3.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+              />
+            </svg>
+            <span class="text-[12px] font-bold tracking-widest">DARK</span>
+          </button>
+          <!-- Hamburger Menu Icon (Moved to right) -->
+          <button
+            id="openMobileNav"
+            class="lg:hidden p-1"
+            aria-label="Open Menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-7 h-7 text-gray-900"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
     </div>
 
     <main>
+      <!-- ========================================== -->
+      <!-- COLLECTION HERO SECTION                    -->
+      <!-- ========================================== -->
+      <section class="relative flex items-center overflow-hidden bg-[#FAFCFD]">
+        <!-- Soft Radial Glow (Top Right) -->
+        <div
+          class="hidden md:block absolute inset-0 pointer-events-none"
+          style="
+            background: radial-gradient(
+              40% 60% at 90% 10%,
+              rgba(21, 110, 138, 0.08) 0%,
+              rgba(0, 0, 0, 0) 100%
+            );
+          "
+        ></div>
 
-        <!-- ========================================== -->
-        <!-- COLLECTION HERO SECTION                    -->
-        <!-- ========================================== -->
-        <section class="relative flex items-center overflow-hidden bg-[#FAFCFD]">
+        <div
+          class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-20 py-10 lg:py-20 w-full relative z-10"
+        >
+          <div class="max-w-2xl">
+            <!-- Breadcrumb -->
+            <nav
+              class="uppercase tracking-[.25em] text-[12px] text-gray-400 mb-5"
+            >
+              HOME <span class="text-gray-300 px-2">/</span> COLLECTION
+            </nav>
 
-            <!-- Soft Radial Glow (Top Right) -->
-            <div class="hidden md:block absolute inset-0 pointer-events-none"
-                style="background: radial-gradient(40% 60% at 90% 10%, rgba(21, 110, 138, 0.08) 0%, rgba(0, 0, 0, 0) 100%);">
+            <!-- Eyebrow -->
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-8 h-px bg-[#156E8A]"></div>
+              <p
+                class="uppercase tracking-[.25em] text-[11px] text-[#156E8A] font-bold"
+              >
+                Four Models &middot; One Standard
+              </p>
             </div>
 
-            <div class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-20 py-10 lg:py-20 w-full relative z-10">
-                <div class="max-w-2xl">
+            <!-- Headline -->
+            <h1
+              class="text-5xl md:text-6xl lg:text-[80px] font-light leading-tight tracking-tight text-gray-900 mb-5"
+            >
+              The <span class="font-medium text-[#156E8A]">Collection.</span>
+            </h1>
 
-                    <!-- Breadcrumb -->
-                    <nav class="uppercase tracking-[.25em] text-[10px] text-gray-400 mb-5">
-                        HOME <span class="text-gray-300 px-2">/</span> COLLECTION
-                    </nav>
-
-                    <!-- Eyebrow -->
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-8 h-px bg-[#156E8A]"></div>
-                        <p class="uppercase tracking-[.25em] text-[9px] text-[#156E8A] font-bold">
-                            Four Models &middot; One Standard
-                        </p>
-                    </div>
-
-                    <!-- Headline -->
-                    <h1
-                        class="text-5xl md:text-6xl lg:text-[80px] font-light leading-tight tracking-tight text-gray-900 mb-5">
-                        The <span class="font-medium text-[#156E8A]">Collection.</span>
-                    </h1>
-
-                    <!-- Subtext -->
-                    <p class="max-w-xl text-gray-500 text-sm md:text-base leading-relaxed font-light">
-                        Not a catalogue &mdash; a curated set of four. Each Breathe In model is sized for a specific
-                        kind of space, so the only choice you make is where it lives.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========================================== -->
-        <!-- COLLECTION GRID (ZIG-ZAG)                  -->
-        <!-- ========================================== -->
-        <section class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-20 pb-10">
-
-            <!-- MODEL 1: AIR PRO -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 border-b border-gray-200/60 lg:pb-0 mb-6 lg:mb-0">
-
-                <!-- Image (Top on mobile, Left on desktop) -->
-                <div class="h-[250px] md:h-[400px] lg:h-auto lg:min-h-[500px] xl:min-h-[600px] relative">
-                    <picture>
-                        <!-- Desktop Image (Triggers at 1024px and up) -->
-                        <source media="(min-width: 1024px)" srcset="./assets/images/air-pro-room.jpg">
-
-                        <!-- Mobile Image (Default fallback for smaller screens) -->
-                        <img src="./assets/images/air-pro-room-mobile.jpg" alt="Air Pro"
-                            class="absolute inset-0 w-full h-full object-cover">
-                    </picture>
-                </div>
-
-                <!-- Text Content -->
-                <div class="bg-white py-5 px-4 lg:p-10 xl:p-20 flex flex-col justify-center">
-
-                    <!-- Eyebrow -->
-                    <p
-                        class="uppercase tracking-[.25em] text-[#156E8A] font-bold text-[8px] md:text-[9px] mb-4 lg:mb-6">
-                        Air Pro &middot; Model P280W
-                    </p>
-
-                    <h2 class="text-4xl md:text-5xl font-light text-gray-900 mb-4 lg:mb-6">Air Pro</h2>
-
-                    <p
-                        class="text-gray-600 lg:text-gray-500 font-light text-[12px] leading-relaxed mb-5 lg:mb-12 max-w-md">
-                        Compact protection for bedrooms and personal spaces. Double-sided suction cleans the air faster,
-                        with 3-stage filtration and double deodorisation. Designed for pet parents as well.
-                    </p>
-
-                    <!-- MOBILE ONLY: The Technology Link (Shows above specs on mobile, hidden on desktop) -->
-                    <div class="lg:hidden mb-5 border-b border-gray-200 pb-4 inline-block self-start pr-0">
-                        <a href="#"
-                            class="inline-flex items-center gap-3 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] transition-colors">
-                            The Technology <span class="text-base leading-none mb-[2px]">&rarr;</span>
-                        </a>
-                    </div>
-
-                    <!-- Specs Container (3-Column Grid on both Mobile and Desktop) -->
-                    <div class="grid grid-cols-3 gap-2 md:gap-4 lg:gap-6 mb-6 lg:mb-12 w-full">
-                        <!-- Coverage -->
-                        <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-                            <span
-                                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">Coverage</span>
-                            <h3
-                                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
-                                35 - 40 m²</h3>
-                        </div>
-                        <!-- CADR -->
-                        <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-                            <span
-                                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">CADR</span>
-                            <h3
-                                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
-                                325 m³/h</h3>
-                        </div>
-                        <!-- Filtration -->
-                        <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-                            <span
-                                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">Filtration</span>
-                            <h3
-                                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
-                                3-Stage</h3>
-                        </div>
-                    </div>
-
-                    <!-- Bottom Action Row (Side-by-side on mobile, stacked text on desktop) -->
-                    <div class="flex flex-row lg:flex-col justify-between items-end lg:items-start lg:gap-10 mt-auto">
-
-                        <!-- Price -->
-                        <div class="flex flex-col lg:flex-row lg:items-baseline gap-1 lg:gap-3">
-                            <span
-                                class="text-[8px] lg:text-[10px] uppercase lg:normal-case tracking-[0.15em] lg:tracking-normal text-gray-400 lg:text-gray-500 font-bold lg:font-light">Starting
-                                from</span>
-                            <span
-                                class="text-xl lg:text-3xl font-light text-gray-900 leading-none tracking-tight">₹24,990</span>
-                        </div>
-
-                        <!-- Buttons -->
-                        <div class="flex items-center gap-6 md:gap-8">
-                            <a href="#"
-                                class="bg-[#111111] text-white px-3 py-2 lg:px-8 uppercase text-[9px] tracking-[0.2em] font-bold flex items-center gap-3 hover:bg-[#156E8A] transition-colors rounded-sm shrink-0">
-                                <span class="hidden lg:inline">Add to Compare</span>
-                                <span class="lg:hidden">Add to Cart</span>
-                                <span class="text-base leading-none mb-[2px]">&rarr;</span>
-                            </a>
-                            <!-- DESKTOP ONLY: The Technology Link -->
-                            <a href="#"
-                                class="hidden lg:inline-flex border-b border-gray-300 pb-1 uppercase text-[9px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] hover:border-[#156E8A] transition-colors">
-                                The Technology
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- MODEL 2: AIR PRO 1 -->
-            <div
-                class="grid grid-cols-1 lg:grid-cols-2 border-b lg:border-none border-gray-200/60 lg:pb-0 mb-6 lg:mb-0">
-
-                <!-- Text Content (Bottom on mobile, Left on desktop) -->
-                <div class="bg-white py-5 px-4 lg:p-10 xl:p-20 flex flex-col justify-center order-2 lg:order-1">
-
-                    <!-- Eyebrow -->
-                    <p
-                        class="uppercase tracking-[.25em] text-[#156E8A] font-bold text-[8px] md:text-[9px] mb-4 lg:mb-6">
-                        Air Pro 1 &middot; Model C06 &middot; Most Chosen
-                    </p>
-
-                    <h2 class="text-4xl md:text-5xl font-light text-gray-900 mb-4 lg:mb-6">Air Pro 1</h2>
-
-                    <p
-                        class="text-gray-600 lg:text-gray-500 font-light text-[12px] leading-relaxed mb-5 lg:mb-12 max-w-md">
-                        AI-intelligent 4-stage purification for medium to large rooms. LED touchscreen, mobile app
-                        control, and a reactive oxygen module for deeper cleaning.
-                    </p>
-
-                    <!-- MOBILE ONLY: The Technology Link -->
-                    <div class="lg:hidden mb-5 border-b border-gray-200 pb-4 inline-block self-start pr-0">
-                        <a href="#"
-                            class="inline-flex items-center gap-3 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] transition-colors">
-                            The Technology <span class="text-base leading-none mb-[2px]">&rarr;</span>
-                        </a>
-                    </div>
-
-                    <!-- Specs Container (3-Column Grid on both Mobile and Desktop) -->
-                    <div class="grid grid-cols-3 gap-2 md:gap-4 lg:gap-6 mb-6 lg:mb-12 w-full">
-                        <!-- Coverage -->
-                        <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-                            <span
-                                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">Coverage</span>
-                            <h3
-                                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
-                                50 - 55 m²</h3>
-                        </div>
-                        <!-- CADR -->
-                        <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-                            <span
-                                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">CADR</span>
-                            <h3
-                                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
-                                400 m³/h</h3>
-                        </div>
-                        <!-- Filtration -->
-                        <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-                            <span
-                                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">Filtration</span>
-                            <h3
-                                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
-                                4-Stage</h3>
-                        </div>
-                    </div>
-
-                    <!-- Bottom Action Row -->
-                    <div class="flex flex-row lg:flex-col justify-between items-end lg:items-start lg:gap-10 mt-auto">
-
-                        <!-- Price -->
-                        <div class="flex flex-col lg:flex-row lg:items-baseline gap-1 lg:gap-3">
-                            <span
-                                class="text-[8px] lg:text-[10px] uppercase lg:normal-case tracking-[0.15em] lg:tracking-normal text-gray-400 lg:text-gray-500 font-bold lg:font-light">Starting
-                                from</span>
-                            <span
-                                class="text-xl lg:text-3xl font-light text-gray-900 leading-none tracking-tight">₹44,990</span>
-                        </div>
-
-                        <!-- Buttons -->
-                        <div class="flex items-center gap-6 md:gap-8">
-                            <a href="#"
-                                class="bg-[#111111] text-white px-3 py-2 lg:px-8 uppercase text-[9px] tracking-[0.2em] font-bold flex items-center gap-3 hover:bg-[#156E8A] transition-colors rounded-sm shrink-0">
-                                <span class="hidden lg:inline">Add to Compare</span>
-                                <span class="lg:hidden">Add to Cart</span>
-                                <span class="text-base leading-none mb-[2px]">&rarr;</span>
-                            </a>
-                            <!-- DESKTOP ONLY: The Technology Link -->
-                            <a href="#"
-                                class="hidden lg:inline-flex border-b border-gray-300 pb-1 uppercase text-[9px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] hover:border-[#156E8A] transition-colors">
-                                The Technology
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Image (Top on mobile, Right on desktop) -->
-                <div
-                    class="h-[250px] md:h-[400px] lg:h-auto lg:min-h-[500px] xl:min-h-[600px] relative order-1 lg:order-2">
-                    <picture>
-                        <source media="(min-width: 1024px)" srcset="./assets/images/air-pro1-room.jpg">
-                        <img src="./assets/images/air-pro1-room-mobile.jpg" alt="Air Pro 1"
-                            class="absolute inset-0 w-full h-full object-cover">
-                    </picture>
-                </div>
-            </div>
-
-            <!-- ========================================== -->
-            <!-- MODEL 3: AIR PRO 2                         -->
-            <!-- ========================================== -->
-            <!-- Desktop: Image Left, Text Right -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 border-b border-gray-200/60 lg:pb-0 mb-6 lg:mb-0">
-
-                <!-- Image -->
-                <div class="h-[250px] md:h-[400px] lg:h-auto lg:min-h-[500px] xl:min-h-[600px] relative">
-                    <!-- Bestseller Badge -->
-                    <div
-                        class="absolute top-6 left-0 bg-[#156E8A] text-white text-[9px] tracking-[0.2em] font-bold uppercase px-4 py-2 z-10 shadow-sm">
-                        Bestseller
-                    </div>
-                    <picture>
-                        <source media="(min-width: 1024px)" srcset="./assets/images/air-pro2-room.jpg">
-                        <img src="./assets/images/air-pro2-room-mobile.jpg" alt="Air Pro 2"
-                            class="absolute inset-0 w-full h-full object-cover">
-                    </picture>
-                </div>
-
-                <!-- Text Content -->
-                <div class="bg-white py-5 px-4 lg:p-10 xl:p-20 flex flex-col justify-center">
-
-                    <!-- Eyebrow -->
-                    <p
-                        class="uppercase tracking-[.25em] text-[#156E8A] font-bold text-[8px] md:text-[9px] mb-4 lg:mb-6">
-                        Air Pro 1 &middot; Model C06 &middot; Most Chosen
-                    </p>
-
-                    <h2 class="text-4xl md:text-5xl font-light text-gray-900 mb-4 lg:mb-6">Air Pro 2</h2>
-
-                    <p
-                        class="text-gray-600 lg:text-gray-500 font-light text-[12px] leading-relaxed mb-5 lg:mb-12 max-w-md">
-                        AI-intelligent 4-stage purification for medium to large rooms. LED touchscreen, mobile app
-                        control and a reactive oxygen module for deeper cleaning.
-                    </p>
-
-                    <!-- MOBILE ONLY: The Technology Link -->
-                    <div class="lg:hidden mb-5 border-b border-gray-200 pb-4 inline-block self-start pr-0">
-                        <a href="#"
-                            class="inline-flex items-center gap-3 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] transition-colors">
-                            The Technology <span class="text-base leading-none mb-[2px]">&rarr;</span>
-                        </a>
-                    </div>
-
-                    <!-- Specs Container (3-Column Grid on both Mobile and Desktop) -->
-                    <div class="grid grid-cols-3 gap-1 md:gap-4 lg:gap-6 mb-10 lg:mb-12 w-full">
-                        <!-- Coverage -->
-                        <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-                            <span
-                                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">Coverage</span>
-                            <h3
-                                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate leading-tight">
-                                75 - 80 m²
-                            </h3>
-                        </div>
-                        <!-- CADR -->
-                        <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-                            <span
-                                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">CADR</span>
-                            <h3
-                                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
-                                400 m³/h</h3>
-                        </div>
-                        <!-- Filtration -->
-                        <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-                            <span
-                                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">Filtration</span>
-                            <h3
-                                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
-                                4-Stage</h3>
-                        </div>
-                    </div>
-
-                    <!-- Bottom Action Row -->
-                    <div class="flex flex-row lg:flex-col justify-between items-end lg:items-start lg:gap-10 mt-auto">
-
-                        <!-- Price -->
-                        <div class="flex flex-col lg:flex-row lg:items-baseline gap-1 lg:gap-3">
-                            <span
-                                class="text-[8px] lg:text-[10px] uppercase lg:normal-case tracking-[0.15em] lg:tracking-normal text-gray-400 lg:text-gray-500 font-bold lg:font-light">Starting
-                                from</span>
-                            <span
-                                class="text-xl lg:text-3xl font-light text-gray-900 leading-none tracking-tight">₹24,999.00</span>
-                        </div>
-
-                        <!-- Buttons -->
-                        <div class="flex items-center gap-6 md:gap-8">
-                            <a href="#"
-                                class="bg-[#111111] text-white px-3 py-2 lg:px-8 uppercase text-[9px] tracking-[0.2em] font-bold flex items-center gap-3 hover:bg-[#156E8A] transition-colors rounded-sm shrink-0">
-                                <span class="hidden lg:inline">Add to Compare</span>
-                                <span class="lg:hidden">Add to Cart</span>
-                                <span class="text-base leading-none mb-[2px]">&rarr;</span>
-                            </a>
-                            <!-- DESKTOP ONLY: The Technology Link -->
-                            <a href="#"
-                                class="hidden lg:inline-flex border-b border-gray-300 pb-1 uppercase text-[9px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] hover:border-[#156E8A] transition-colors">
-                                The Technology
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ========================================== -->
-            <!-- MODEL 4: AIR PRO MAX                       -->
-            <!-- ========================================== -->
-            <!-- Desktop: Text Left, Image Right -->
-            <div
-                class="grid grid-cols-1 lg:grid-cols-2 border-b lg:border-none border-gray-200/60 lg:pb-0 mb-6 lg:mb-0">
-
-                <!-- Text Content -->
-                <div class="bg-white py-5 px-4 lg:p-10 xl:p-20 flex flex-col justify-center order-2 lg:order-1">
-
-                    <!-- Eyebrow -->
-                    <p
-                        class="uppercase tracking-[.25em] text-[#156E8A] font-bold text-[8px] md:text-[9px] mb-4 lg:mb-6">
-                        Air Pro Max &middot; Ultimate Protection
-                    </p>
-
-                    <h2 class="text-4xl md:text-5xl font-light text-gray-900 mb-4 lg:mb-6">Air Pro Max</h2>
-
-                    <p
-                        class="text-gray-600 lg:text-gray-500 font-light text-[12px] leading-relaxed mb-5 lg:mb-12 max-w-md">
-                        Maximum capacity for expansive living spaces. Features dual HEPA filters, comprehensive smart
-                        home integration, and the highest CADR rating in its class.
-                    </p>
-
-                    <!-- MOBILE ONLY: The Technology Link -->
-                    <div class="lg:hidden mb-5 border-b border-gray-200 pb-4 inline-block self-start pr-0">
-                        <a href="#"
-                            class="inline-flex items-center gap-3 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] transition-colors">
-                            The Technology <span class="text-base leading-none mb-[2px]">&rarr;</span>
-                        </a>
-                    </div>
-
-                    <!-- Specs Container (3-Column Grid on both Mobile and Desktop) -->
-                    <div class="grid grid-cols-3 gap-1 md:gap-4 lg:gap-6 mb-10 lg:mb-12 w-full">
-                        <!-- Coverage -->
-                        <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-                            <span
-                                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">Coverage</span>
-                            <h3
-                                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate leading-tight">
-                                90 - 100 m²
-                            </h3>
-                        </div>
-                        <!-- CADR -->
-                        <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-                            <span
-                                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">CADR</span>
-                            <h3
-                                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
-                                600 m³/h</h3>
-                        </div>
-                        <!-- Filtration -->
-                        <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-                            <span
-                                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">Filtration</span>
-                            <h3
-                                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
-                                5-Stage</h3>
-                        </div>
-                    </div>
-
-                    <!-- Bottom Action Row -->
-                    <div class="flex flex-row lg:flex-col justify-between items-end lg:items-start lg:gap-10 mt-auto">
-
-                        <!-- Price -->
-                        <div class="flex flex-col lg:flex-row lg:items-baseline gap-1 lg:gap-3">
-                            <span
-                                class="text-[8px] lg:text-[10px] uppercase lg:normal-case tracking-[0.15em] lg:tracking-normal text-gray-400 lg:text-gray-500 font-bold lg:font-light">Starting
-                                from</span>
-                            <span
-                                class="text-xl lg:text-3xl font-light text-gray-900 leading-none tracking-tight">₹34,999.00</span>
-                        </div>
-
-                        <!-- Buttons -->
-                        <div class="flex items-center gap-6 md:gap-8">
-                            <a href="#"
-                                class="bg-[#111111] text-white px-3 py-2 lg:px-8 uppercase text-[9px] tracking-[0.2em] font-bold flex items-center gap-3 hover:bg-[#156E8A] transition-colors rounded-sm shrink-0">
-                                <span class="hidden lg:inline">Add to Compare</span>
-                                <span class="lg:hidden">Add to Cart</span>
-                                <span class="text-base leading-none mb-[2px]">&rarr;</span>
-                            </a>
-                            <!-- DESKTOP ONLY: The Technology Link -->
-                            <a href="#"
-                                class="hidden lg:inline-flex border-b border-gray-300 pb-1 uppercase text-[9px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] hover:border-[#156E8A] transition-colors">
-                                The Technology
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Image -->
-                <div
-                    class="h-[250px] md:h-[400px] lg:h-auto lg:min-h-[500px] xl:min-h-[600px] relative order-1 lg:order-2">
-                    <picture>
-                        <source media="(min-width: 1024px)" srcset="./assets/images/air-pro-max-room.jpg">
-                        <img src="./assets/images/air-pro-max-room-mobile.jpg" alt="Air Pro Max"
-                            class="absolute inset-0 w-full h-full object-cover">
-                    </picture>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- ========================================== -->
-        <!-- DARK CTA SECTION: EXPLORE / COMPARE        -->
-        <!-- ========================================== -->
-        <section class="w-full bg-[#0B1115] py-10 md:py-20 px-6 flex flex-col items-center justify-center text-center font-sans">
-            
-            <h2 class="text-4xl md:text-5xl lg:text-[56px] font-light text-white mb-6 md:mb-8 tracking-tight">
-                Not sure which one <span class="text-[#156E8A]">fits?</span>
-            </h2>
-            
-            <p class="text-gray-400 font-light text-[13px] md:text-[15px] max-w-2xl mx-auto mb-12 leading-relaxed">
-                Tell us your room and we'll point you to the right model in seconds.
+            <!-- Subtext -->
+            <p
+              class="max-w-xl text-gray-500 text-sm md:text-base leading-relaxed font-light"
+            >
+              Not a catalogue &mdash; a curated set of four. Each Breathe In
+              model is sized for a specific kind of space, so the only choice
+              you make is where it lives.
             </p>
-            
-            <div class="flex flex-row items-center justify-center gap-6 sm:gap-10 w-full max-w-md sm:max-w-none">
-                
-                <!-- Primary Solid Button -->
-                <a href="./find-my-purifier.html" class="bg-white text-[#0B1115] px-4 py-4 md:py-4.5 uppercase text-[10px] md:text-[11px] tracking-[0.2em] font-bold flex items-center justify-center gap-3 hover:bg-gray-200 transition-colors rounded-sm w-full sm:w-auto">
-                    <span>Find My Purifier</span>
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                    </svg>
-                </a>
-                
-                <!-- Secondary Ghost/Underline Button -->
-                <a href="#" class="text-white border-b border-gray-700 pb-1 uppercase text-[10px] md:text-[11px] tracking-[0.2em] font-bold hover:text-[#156E8A] hover:border-[#156E8A] transition-colors w-full sm:w-auto text-center mt-2 sm:mt-0">
-                    See the App
-                </a>
-                
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- COLLECTION GRID (ZIG-ZAG)                  -->
+      <!-- ========================================== -->
+      <section class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-20 pb-10">
+        <!-- MODEL 1: AIR PRO -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 border-b border-gray-200/60 lg:pb-0 mb-6 lg:mb-0"
+        >
+          <!-- Image (Top on mobile, Left on desktop) -->
+          <div
+            class="h-[250px] md:h-[400px] lg:h-auto lg:min-h-[500px] xl:min-h-[600px] relative"
+          >
+            <picture>
+              <!-- Desktop Image (Triggers at 1024px and up) -->
+              <source
+                media="(min-width: 1024px)"
+                srcset="./assets/images/air-pro-room.jpg"
+              />
+
+              <!-- Mobile Image (Default fallback for smaller screens) -->
+              <img
+                src="./assets/images/air-pro-room-mobile.jpg"
+                alt="Air Pro"
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+            </picture>
+          </div>
+
+          <!-- Text Content -->
+          <div
+            class="bg-white py-5 px-4 lg:p-10 xl:p-20 flex flex-col justify-center"
+          >
+            <!-- Eyebrow -->
+            <p
+              class="uppercase tracking-[.25em] text-[#156E8A] font-bold text-[8px] md:text-[13px] mb-4 lg:mb-6"
+            >
+              Air Pro &middot; Model P280W
+            </p>
+
+            <h2
+              class="text-4xl md:text-5xl font-light text-gray-900 mb-4 lg:mb-6"
+            >
+              Air Pro
+            </h2>
+
+            <p
+              class="text-gray-600 lg:text-gray-500 font-light text-[13px] leading-relaxed mb-5 lg:mb-12 max-w-md"
+            >
+              Compact protection for bedrooms and personal spaces. Double-sided
+              suction cleans the air faster, with 3-stage filtration and double
+              deodorisation. Designed for pet parents as well.
+            </p>
+
+            <!-- MOBILE ONLY: The Technology Link (Shows above specs on mobile, hidden on desktop) -->
+            <div
+              class="lg:hidden mb-5 border-b border-gray-200 pb-4 inline-block self-start pr-0"
+            >
+              <a
+                href="#"
+                class="inline-flex items-center gap-3 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] transition-colors"
+              >
+                The Technology
+                <span class="text-base leading-none mb-[2px]">&rarr;</span>
+              </a>
             </div>
-        </section>
+
+            <!-- Specs Container (3-Column Grid on both Mobile and Desktop) -->
+            <div
+              class="grid grid-cols-3 gap-2 md:gap-4 lg:gap-6 mb-6 lg:mb-12 w-full"
+            >
+              <!-- Coverage -->
+              <div
+                class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0"
+              >
+                <span
+                  class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2"
+                  >Coverage</span
+                >
+                <h3
+                  class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate"
+                >
+                  35 - 40 m²
+                </h3>
+              </div>
+              <!-- CADR -->
+              <div
+                class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0"
+              >
+                <span
+                  class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2"
+                  >CADR</span
+                >
+                <h3
+                  class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate"
+                >
+                  325 m³/h
+                </h3>
+              </div>
+              <!-- Filtration -->
+              <div
+                class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0"
+              >
+                <span
+                  class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2"
+                  >Filtration</span
+                >
+                <h3
+                  class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate"
+                >
+                  3-Stage
+                </h3>
+              </div>
+            </div>
+
+            <!-- Bottom Action Row (Side-by-side on mobile, stacked text on desktop) -->
+            <div
+              class="flex flex-row lg:flex-col justify-between items-end lg:items-start lg:gap-10 mt-auto"
+            >
+              <!-- Price -->
+              <div
+                class="flex flex-col lg:flex-row lg:items-baseline gap-1 lg:gap-3"
+              >
+                <span
+                  class="text-[8px] lg:text-[12px] uppercase lg:normal-case tracking-[0.15em] lg:tracking-normal text-gray-400 lg:text-gray-500 font-bold lg:font-light"
+                  >Starting from</span
+                >
+                <span
+                  class="text-xl lg:text-3xl font-light text-gray-900 leading-none tracking-tight"
+                  >₹24,990</span
+                >
+              </div>
+
+              <!-- Buttons -->
+              <div class="flex items-center gap-6 md:gap-8">
+                <a
+                  href="#"
+                  class="bg-[#111111] text-white px-3 py-2 lg:px-8 uppercase text-[11px] tracking-[0.2em] font-bold flex items-center gap-3 hover:bg-[#156E8A] transition-colors rounded-sm shrink-0"
+                >
+                  <span class="hidden lg:inline">Add to Compare</span>
+                  <span class="lg:hidden">Add to Cart</span>
+                  <span class="text-base leading-none mb-[2px]">&rarr;</span>
+                </a>
+                <!-- DESKTOP ONLY: The Technology Link -->
+                <a
+                  href="#"
+                  class="hidden lg:inline-flex border-b border-gray-300 pb-1 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] hover:border-[#156E8A] transition-colors"
+                >
+                  The Technology
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODEL 2: AIR PRO 1 -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 border-b lg:border-none border-gray-200/60 lg:pb-0 mb-6 lg:mb-0"
+        >
+          <!-- Text Content (Bottom on mobile, Left on desktop) -->
+          <div
+            class="bg-white py-5 px-4 lg:p-10 xl:p-20 flex flex-col justify-center order-2 lg:order-1"
+          >
+            <!-- Eyebrow -->
+            <p
+              class="uppercase tracking-[.25em] text-[#156E8A] font-bold text-[8px] md:text-[13px] mb-4 lg:mb-6"
+            >
+              Air Pro 1 &middot; Model C06 &middot; Most Chosen
+            </p>
+
+            <h2
+              class="text-4xl md:text-5xl font-light text-gray-900 mb-4 lg:mb-6"
+            >
+              Air Pro 1
+            </h2>
+
+            <p
+              class="text-gray-600 lg:text-gray-500 font-light text-[13px] leading-relaxed mb-5 lg:mb-12 max-w-md"
+            >
+              AI-intelligent 4-stage purification for medium to large rooms. LED
+              touchscreen, mobile app control, and a reactive oxygen module for
+              deeper cleaning.
+            </p>
+
+            <!-- MOBILE ONLY: The Technology Link -->
+            <div
+              class="lg:hidden mb-5 border-b border-gray-200 pb-4 inline-block self-start pr-0"
+            >
+              <a
+                href="#"
+                class="inline-flex items-center gap-3 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] transition-colors"
+              >
+                The Technology
+                <span class="text-base leading-none mb-[2px]">&rarr;</span>
+              </a>
+            </div>
+
+            <!-- Specs Container (3-Column Grid on both Mobile and Desktop) -->
+            <div
+              class="grid grid-cols-3 gap-2 md:gap-4 lg:gap-6 mb-6 lg:mb-12 w-full"
+            >
+              <!-- Coverage -->
+              <div
+                class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0"
+              >
+                <span
+                  class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2"
+                  >Coverage</span
+                >
+                <h3
+                  class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate"
+                >
+                  50 - 55 m²
+                </h3>
+              </div>
+              <!-- CADR -->
+              <div
+                class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0"
+              >
+                <span
+                  class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2"
+                  >CADR</span
+                >
+                <h3
+                  class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate"
+                >
+                  400 m³/h
+                </h3>
+              </div>
+              <!-- Filtration -->
+              <div
+                class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0"
+              >
+                <span
+                  class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2"
+                  >Filtration</span
+                >
+                <h3
+                  class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate"
+                >
+                  4-Stage
+                </h3>
+              </div>
+            </div>
+
+            <!-- Bottom Action Row -->
+            <div
+              class="flex flex-row lg:flex-col justify-between items-end lg:items-start lg:gap-10 mt-auto"
+            >
+              <!-- Price -->
+              <div
+                class="flex flex-col lg:flex-row lg:items-baseline gap-1 lg:gap-3"
+              >
+                <span
+                  class="text-[8px] lg:text-[12px] uppercase lg:normal-case tracking-[0.15em] lg:tracking-normal text-gray-400 lg:text-gray-500 font-bold lg:font-light"
+                  >Starting from</span
+                >
+                <span
+                  class="text-xl lg:text-3xl font-light text-gray-900 leading-none tracking-tight"
+                  >₹44,990</span
+                >
+              </div>
+
+              <!-- Buttons -->
+              <div class="flex items-center gap-6 md:gap-8">
+                <a
+                  href="#"
+                  class="bg-[#111111] text-white px-3 py-2 lg:px-8 uppercase text-[11px] tracking-[0.2em] font-bold flex items-center gap-3 hover:bg-[#156E8A] transition-colors rounded-sm shrink-0"
+                >
+                  <span class="hidden lg:inline">Add to Compare</span>
+                  <span class="lg:hidden">Add to Cart</span>
+                  <span class="text-base leading-none mb-[2px]">&rarr;</span>
+                </a>
+                <!-- DESKTOP ONLY: The Technology Link -->
+                <a
+                  href="#"
+                  class="hidden lg:inline-flex border-b border-gray-300 pb-1 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] hover:border-[#156E8A] transition-colors"
+                >
+                  The Technology
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image (Top on mobile, Right on desktop) -->
+          <div
+            class="h-[250px] md:h-[400px] lg:h-auto lg:min-h-[500px] xl:min-h-[600px] relative order-1 lg:order-2"
+          >
+            <picture>
+              <source
+                media="(min-width: 1024px)"
+                srcset="./assets/images/air-pro1-room.jpg"
+              />
+              <img
+                src="./assets/images/air-pro1-room-mobile.jpg"
+                alt="Air Pro 1"
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+            </picture>
+          </div>
+        </div>
 
         <!-- ========================================== -->
-        <!-- SECTION 17: FOOTER                         -->
+        <!-- MODEL 3: AIR PRO 2                         -->
         <!-- ========================================== -->
-        <footer class="w-full bg-[#0B1115] pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24 font-sans">
-            <div class="max-w-[1400px] mx-auto">
+        <!-- Desktop: Image Left, Text Right -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 border-b border-gray-200/60 lg:pb-0 mb-6 lg:mb-0"
+        >
+          <!-- Image -->
+          <div
+            class="h-[250px] md:h-[400px] lg:h-auto lg:min-h-[500px] xl:min-h-[600px] relative"
+          >
+            <!-- Bestseller Badge -->
+            <div
+              class="absolute top-6 left-0 bg-[#156E8A] text-white text-[11px] tracking-[0.2em] font-bold uppercase px-4 py-2 z-10 shadow-sm"
+            >
+              Bestseller
+            </div>
+            <picture>
+              <source
+                media="(min-width: 1024px)"
+                srcset="./assets/images/air-pro2-room.jpg"
+              />
+              <img
+                src="./assets/images/air-pro2-room-mobile.jpg"
+                alt="Air Pro 2"
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+            </picture>
+          </div>
 
-                <!-- Top Section: Brand & Links -->
-                <div class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-10 lg:mb-20">
+          <!-- Text Content -->
+          <div
+            class="bg-white py-5 px-4 lg:p-10 xl:p-20 flex flex-col justify-center"
+          >
+            <!-- Eyebrow -->
+            <p
+              class="uppercase tracking-[.25em] text-[#156E8A] font-bold text-[8px] md:text-[13px] mb-4 lg:mb-6"
+            >
+              Air Pro 1 &middot; Model C06 &middot; Most Chosen
+            </p>
 
-                    <!-- Left: Brand, Bio & Buttons -->
-                    <div class="flex flex-col lg:w-5/12">
+            <h2
+              class="text-4xl md:text-5xl font-light text-gray-900 mb-4 lg:mb-6"
+            >
+              Air Pro 2
+            </h2>
 
-                        <!-- Logo -->
-                        <img src="./assets/images/logo.png" alt="Breathe In"
-                            class="h-9 md:h-10 w-auto mb-6 object-contain object-left self-start">
+            <p
+              class="text-gray-600 lg:text-gray-500 font-light text-[13px] leading-relaxed mb-5 lg:mb-12 max-w-md"
+            >
+              AI-intelligent 4-stage purification for medium to large rooms. LED
+              touchscreen, mobile app control and a reactive oxygen module for
+              deeper cleaning.
+            </p>
 
-                        <!-- Bio -->
-                        <!-- Mobile text and Desktop text swap seamlessly using hidden/inline classes -->
-                        <p class="text-gray-400 text-[12px] md:text-[14px] font-light leading-[1.8] mb-8 max-w-sm">
-                            <span class="hidden md:inline">
-                                Clean air isn’t a luxury, it’s a necessity<br>
-                                Sophisticated Japanese air-purification<br>
-                                technology, at honest prices. The right air, for<br>
-                                every Indian home.
-                            </span>
-                            <span class="md:hidden">
-                                Clean air isn’t a luxury, it’s a necessity Sophisticated Japanese air-purification
-                                technology,
-                                at honest prices.
-                            </span>
-                        </p>
+            <!-- MOBILE ONLY: The Technology Link -->
+            <div
+              class="lg:hidden mb-5 border-b border-gray-200 pb-4 inline-block self-start pr-0"
+            >
+              <a
+                href="#"
+                class="inline-flex items-center gap-3 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] transition-colors"
+              >
+                The Technology
+                <span class="text-base leading-none mb-[2px]">&rarr;</span>
+              </a>
+            </div>
 
-                        <!-- Buttons (Side-by-Side) -->
-                        <div class="flex flex-row items-center gap-3 md:gap-4 w-full max-w-[400px]">
+            <!-- Specs Container (3-Column Grid on both Mobile and Desktop) -->
+            <div
+              class="grid grid-cols-3 gap-1 md:gap-4 lg:gap-6 mb-10 lg:mb-12 w-full"
+            >
+              <!-- Coverage -->
+              <div
+                class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0"
+              >
+                <span
+                  class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2"
+                  >Coverage</span
+                >
+                <h3
+                  class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate leading-tight"
+                >
+                  75 - 80 m²
+                </h3>
+              </div>
+              <!-- CADR -->
+              <div
+                class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0"
+              >
+                <span
+                  class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2"
+                  >CADR</span
+                >
+                <h3
+                  class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate"
+                >
+                  400 m³/h
+                </h3>
+              </div>
+              <!-- Filtration -->
+              <div
+                class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0"
+              >
+                <span
+                  class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2"
+                  >Filtration</span
+                >
+                <h3
+                  class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate"
+                >
+                  4-Stage
+                </h3>
+              </div>
+            </div>
 
-                            <!-- Shop Now (Solid Teal on all screens) -->
-                            <a href="#"
-                                class="flex-1 bg-[#156E8A] text-white text-[9px] md:text-[11px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] transition-colors whitespace-nowrap">
-                                <span>SHOP NOW</span>
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 12h14M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+            <!-- Bottom Action Row -->
+            <div
+              class="flex flex-row lg:flex-col justify-between items-end lg:items-start lg:gap-10 mt-auto"
+            >
+              <!-- Price -->
+              <div
+                class="flex flex-col lg:flex-row lg:items-baseline gap-1 lg:gap-3"
+              >
+                <span
+                  class="text-[8px] lg:text-[12px] uppercase lg:normal-case tracking-[0.15em] lg:tracking-normal text-gray-400 lg:text-gray-500 font-bold lg:font-light"
+                  >Starting from</span
+                >
+                <span
+                  class="text-xl lg:text-3xl font-light text-gray-900 leading-none tracking-tight"
+                  >₹24,999.00</span
+                >
+              </div>
 
-                            <!-- Download Brochure (Solid Teal on Mobile, Ghost on Desktop) -->
-                            <a href="#"
-                                class="flex-1 bg-[#156E8A] md:bg-transparent border border-[#156E8A] text-white text-[9px] md:text-[11px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] md:hover:bg-[#156E8A] hover:text-white transition-colors whitespace-nowrap">
-                                <span>DOWNLOAD BROCHURE</span>
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 12h14M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+              <!-- Buttons -->
+              <div class="flex items-center gap-6 md:gap-8">
+                <a
+                  href="#"
+                  class="bg-[#111111] text-white px-3 py-2 lg:px-8 uppercase text-[11px] tracking-[0.2em] font-bold flex items-center gap-3 hover:bg-[#156E8A] transition-colors rounded-sm shrink-0"
+                >
+                  <span class="hidden lg:inline">Add to Compare</span>
+                  <span class="lg:hidden">Add to Cart</span>
+                  <span class="text-base leading-none mb-[2px]">&rarr;</span>
+                </a>
+                <!-- DESKTOP ONLY: The Technology Link -->
+                <a
+                  href="#"
+                  class="hidden lg:inline-flex border-b border-gray-300 pb-1 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] hover:border-[#156E8A] transition-colors"
+                >
+                  The Technology
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                        </div>
-                    </div>
+        <!-- ========================================== -->
+        <!-- MODEL 4: AIR PRO MAX                       -->
+        <!-- ========================================== -->
+        <!-- Desktop: Text Left, Image Right -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 border-b lg:border-none border-gray-200/60 lg:pb-0 mb-6 lg:mb-0"
+        >
+          <!-- Text Content -->
+          <div
+            class="bg-white py-5 px-4 lg:p-10 xl:p-20 flex flex-col justify-center order-2 lg:order-1"
+          >
+            <!-- Eyebrow -->
+            <p
+              class="uppercase tracking-[.25em] text-[#156E8A] font-bold text-[8px] md:text-[13px] mb-4 lg:mb-6"
+            >
+              Air Pro Max &middot; Ultimate Protection
+            </p>
 
-                    <!-- Divider (Mobile Only) -->
-                    <div class="w-full h-[1px] bg-gray-800/80 lg:hidden mt-2 mb-2"></div>
+            <h2
+              class="text-4xl md:text-5xl font-light text-gray-900 mb-4 lg:mb-6"
+            >
+              Air Pro Max
+            </h2>
 
-                    <!-- Right: Links Grid -->
-                    <!-- 3 Cols on Mobile, 4 Cols on Desktop -->
-                    <div class="lg:w-7/12 grid grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
+            <p
+              class="text-gray-600 lg:text-gray-500 font-light text-[13px] leading-relaxed mb-5 lg:mb-12 max-w-md"
+            >
+              Maximum capacity for expansive living spaces. Features dual HEPA
+              filters, comprehensive smart home integration, and the highest
+              CADR rating in its class.
+            </p>
 
-                        <!-- Column 1: Collection -->
-                        <div class="flex flex-col">
-                            <h4
-                                class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
-                                Collection</h4>
-                            <ul class="flex flex-col gap-4">
-                                <li><a href="#"
-                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Air
-                                        Pro</a></li>
-                                <li><a href="#"
-                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Air
-                                        Pro 1</a></li>
-                                <li><a href="#"
-                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Air
-                                        Pro 2</a></li>
-                                <li><a href="#"
-                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Air
-                                        Pro Max</a></li>
-                            </ul>
-                        </div>
+            <!-- MOBILE ONLY: The Technology Link -->
+            <div
+              class="lg:hidden mb-5 border-b border-gray-200 pb-4 inline-block self-start pr-0"
+            >
+              <a
+                href="#"
+                class="inline-flex items-center gap-3 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] transition-colors"
+              >
+                The Technology
+                <span class="text-base leading-none mb-[2px]">&rarr;</span>
+              </a>
+            </div>
 
-                        <!-- Column 2: Explore -->
-                        <div class="flex flex-col">
-                            <h4
-                                class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
-                                Explore</h4>
-                            <ul class="flex flex-col gap-4">
-                                <li><a href="#"
-                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Technology</a>
-                                </li>
-                                <li><a href="#"
-                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">The
-                                        App</a></li>
-                                <li><a href="#"
-                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Compare
-                                        Models</a></li>
-                                <li><a href="#"
-                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Filter
-                                        Care</a></li>
-                                <!-- Visible only on Desktop -->
-                                <li class="hidden lg:block"><a href="#"
-                                        class="text-[12px] text-gray-400 hover:text-white transition-colors font-light">Corporate
-                                        Solutions</a></li>
-                            </ul>
-                        </div>
+            <!-- Specs Container (3-Column Grid on both Mobile and Desktop) -->
+            <div
+              class="grid grid-cols-3 gap-1 md:gap-4 lg:gap-6 mb-10 lg:mb-12 w-full"
+            >
+              <!-- Coverage -->
+              <div
+                class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0"
+              >
+                <span
+                  class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2"
+                  >Coverage</span
+                >
+                <h3
+                  class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate leading-tight"
+                >
+                  90 - 100 m²
+                </h3>
+              </div>
+              <!-- CADR -->
+              <div
+                class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0"
+              >
+                <span
+                  class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2"
+                  >CADR</span
+                >
+                <h3
+                  class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate"
+                >
+                  600 m³/h
+                </h3>
+              </div>
+              <!-- Filtration -->
+              <div
+                class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0"
+              >
+                <span
+                  class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2"
+                  >Filtration</span
+                >
+                <h3
+                  class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate"
+                >
+                  5-Stage
+                </h3>
+              </div>
+            </div>
 
-                        <!-- Column 3: Support (Mobile) / Blank Header (Desktop) -->
-                        <div class="flex flex-col">
-                            <!-- Header visible only on mobile -->
-                            <h4 class="text-[9px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6 lg:hidden">
-                                Support
-                            </h4>
+            <!-- Bottom Action Row -->
+            <div
+              class="flex flex-row lg:flex-col justify-between items-end lg:items-start lg:gap-10 mt-auto"
+            >
+              <!-- Price -->
+              <div
+                class="flex flex-col lg:flex-row lg:items-baseline gap-1 lg:gap-3"
+              >
+                <span
+                  class="text-[8px] lg:text-[12px] uppercase lg:normal-case tracking-[0.15em] lg:tracking-normal text-gray-400 lg:text-gray-500 font-bold lg:font-light"
+                  >Starting from</span
+                >
+                <span
+                  class="text-xl lg:text-3xl font-light text-gray-900 leading-none tracking-tight"
+                  >₹34,999.00</span
+                >
+              </div>
 
-                            <!-- Spacer to align links under the empty header space on desktop -->
-                            <div class="hidden lg:block h-[34px]"></div>
+              <!-- Buttons -->
+              <div class="flex items-center gap-6 md:gap-8">
+                <a
+                  href="#"
+                  class="bg-[#111111] text-white px-3 py-2 lg:px-8 uppercase text-[11px] tracking-[0.2em] font-bold flex items-center gap-3 hover:bg-[#156E8A] transition-colors rounded-sm shrink-0"
+                >
+                  <span class="hidden lg:inline">Add to Compare</span>
+                  <span class="lg:hidden">Add to Cart</span>
+                  <span class="text-base leading-none mb-[2px]">&rarr;</span>
+                </a>
+                <!-- DESKTOP ONLY: The Technology Link -->
+                <a
+                  href="#"
+                  class="hidden lg:inline-flex border-b border-gray-300 pb-1 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] hover:border-[#156E8A] transition-colors"
+                >
+                  The Technology
+                </a>
+              </div>
+            </div>
+          </div>
 
-                            <ul class="flex flex-col gap-4">
-                                <!-- Visible only on Desktop -->
-                                <li class="hidden lg:block"><a href="#"
-                                        class="text-[12px] text-gray-400 hover:text-white transition-colors font-light">Book
-                                        a
-                                        Demo</a></li>
-                                <li class="hidden lg:block"><a href="#"
-                                        class="text-[12px] text-gray-400 hover:text-white transition-colors font-light">Case
-                                        Studies</a></li>
+          <!-- Image -->
+          <div
+            class="h-[250px] md:h-[400px] lg:h-auto lg:min-h-[500px] xl:min-h-[600px] relative order-1 lg:order-2"
+          >
+            <picture>
+              <source
+                media="(min-width: 1024px)"
+                srcset="./assets/images/air-pro-max-room.jpg"
+              />
+              <img
+                src="./assets/images/air-pro-max-room-mobile.jpg"
+                alt="Air Pro Max"
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+            </picture>
+          </div>
+        </div>
+      </section>
 
-                                <!-- Visible on Both -->
-                                <li><a href="#"
-                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">FAQ</a>
-                                </li>
-                                <li><a href="#"
-                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Support</a>
-                                </li>
-                                <li><a href="#"
-                                        class="text-[12px] md:text-[12px] text-gray-400 hover:text-white transition-colors font-light">Contact</a>
-                                </li>
+      <!-- ========================================== -->
+      <!-- DARK CTA SECTION: EXPLORE / COMPARE        -->
+      <!-- ========================================== -->
+      <section
+        class="w-full bg-[#0B1115] py-10 md:py-20 px-6 flex flex-col items-center justify-center text-center"
+      >
+        <h2
+          class="text-4xl md:text-5xl lg:text-[56px] font-light text-white mb-6 md:mb-8 tracking-tight"
+        >
+          Not sure which one <span class="text-[#156E8A]">fits?</span>
+        </h2>
 
-                                <!-- Visible only on Mobile -->
-                                <li class="lg:hidden"><a href="#"
-                                        class="text-[12px] text-gray-400 hover:text-white transition-colors font-light">WhatsApp</a>
-                                </li>
-                            </ul>
-                        </div>
+        <p
+          class="text-gray-400 font-light text-[12px] md:text-[15px] max-w-2xl mx-auto mb-12 leading-relaxed"
+        >
+          Tell us your room and we'll point you to the right model in seconds.
+        </p>
 
-                        <!-- Column 4: Contact (Desktop Only) -->
-                        <div class="hidden lg:flex flex-col">
-                            <h4 class="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">Contact
-                            </h4>
-                            <ul class="flex flex-col gap-4">
-                                <li><a href="tel:+919076636639"
-                                        class="text-[12px] text-gray-400 hover:text-white transition-colors font-light">+91
-                                        90766 36639</a></li>
-                                <li><a href="#"
-                                        class="text-[12px] text-gray-400 hover:text-white transition-colors font-light">WhatsApp
-                                        Support</a></li>
-                                <li><a href="mailto:enquiries@breathein.co.in"
-                                        class="text-[12px] text-gray-400 hover:text-white transition-colors font-light">enquiries@breathein.co.in</a>
-                                </li>
-                                <li><a href="#"
-                                        class="text-[12px] text-gray-400 hover:text-white transition-colors font-light">www.breathein.co.in</a>
-                                </li>
-                                <li class="text-[12px] text-gray-400 font-light mt-1">Whitefield, Bengaluru</li>
-                            </ul>
-                        </div>
+        <div
+          class="flex flex-row items-center justify-center gap-6 sm:gap-10 w-full max-w-md sm:max-w-none"
+        >
+          <!-- Primary Solid Button -->
+          <a
+            href="./find-my-purifier.html"
+            class="bg-white text-[#0B1115] px-4 py-4 md:py-4 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold flex items-center justify-center gap-3 hover:bg-gray-200 transition-colors rounded-sm w-full sm:w-auto"
+          >
+            <span>Find My Purifier</span>
+            <svg
+              class="w-3.5 h-3.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              ></path>
+            </svg>
+          </a>
 
-                    </div>
-                </div>
+          <!-- Secondary Ghost/Underline Button -->
+          <a
+            href="#"
+            class="text-white border-b border-gray-700 pb-1 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold hover:text-[#156E8A] hover:border-[#156E8A] transition-colors w-full sm:w-auto text-center mt-2 sm:mt-0"
+          >
+            See the App
+          </a>
+        </div>
+      </section>
 
-                <!-- Bottom Divider -->
-                <div class="w-full h-[1px] bg-gray-800/80 mb-6 lg:mb-8"></div>
+      <!-- ========================================== -->
+      <!-- SECTION 17: FOOTER                         -->
+      <!-- ========================================== -->
+      <footer
+        class="w-full bg-[#0B1115] pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24"
+      >
+        <div class="max-w-[1400px] mx-auto">
+          <!-- Top Section: Brand & Links -->
+          <div
+            class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-10 lg:mb-20"
+          >
+            <!-- Left: Brand, Bio & Buttons -->
+            <div class="flex flex-col lg:w-5/12">
+              <!-- Logo -->
+              <img
+                src="./assets/images/logo.png"
+                alt="Breathe In"
+                class="h-9 md:h-10 w-auto mb-6 object-contain object-left self-start"
+              />
 
-                <!-- Bottom Strip: Legal & Copyright -->
-                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+              <!-- Bio -->
+              <!-- Mobile text and Desktop text swap seamlessly using hidden/inline classes -->
+              <p
+                class="text-gray-400 text-[13px] md:text-[14px] font-light leading-[1.8] mb-8 max-w-sm"
+              >
+                <span class="hidden md:inline">
+                  Clean air isn’t a luxury, it’s a necessity<br />
+                  Sophisticated Japanese air-purification<br />
+                  technology, at honest prices. The right air, for<br />
+                  every Indian home.
+                </span>
+                <span class="md:hidden">
+                  Clean air isn’t a luxury, it’s a necessity Sophisticated
+                  Japanese air-purification technology, at honest prices.
+                </span>
+              </p>
 
-                    <!-- Legal Links (Top on mobile, Right on desktop) -->
-                    <div class="flex flex-wrap items-center gap-6 lg:order-2">
-                        <a href="#"
-                            class="text-[11px] md:text-[12px] text-gray-500 hover:text-gray-300 transition-colors font-light">Privacy
-                            Policy</a>
-                        <a href="#"
-                            class="text-[11px] md:text-[12px] text-gray-500 hover:text-gray-300 transition-colors font-light">Terms
-                            of Use</a>
-                        <a href="#"
-                            class="text-[11px] md:text-[12px] text-gray-500 hover:text-gray-300 transition-colors font-light">Cookie
-                            Policy</a>
-                    </div>
+              <!-- Buttons (Side-by-Side) -->
+              <div
+                class="flex flex-row items-center gap-3 md:gap-4 w-full max-w-[400px]"
+              >
+                <!-- Shop Now (Solid Teal on all screens) -->
+                <a
+                  href="#"
+                  class="flex-1 bg-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] transition-colors whitespace-nowrap"
+                >
+                  <span>SHOP NOW</span>
+                  <svg
+                    class="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 12h14M12 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                </a>
 
-                    <!-- Copyright (Bottom on mobile, Left on desktop) -->
-                    <p class="text-[11px] md:text-[12px] text-gray-500 font-light lg:order-1">
-                        &copy; 2026 Breathe In &mdash; The Right Air. All rights reserved. Made in India.
-                    </p>
+                <!-- Download Brochure (Solid Teal on Mobile, Ghost on Desktop) -->
+                <a
+                  href="#"
+                  class="flex-1 bg-[#156E8A] md:bg-transparent border border-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] md:hover:bg-[#156E8A] hover:text-white transition-colors whitespace-nowrap"
+                >
+                  <span>DOWNLOAD BROCHURE</span>
+                  <svg
+                    class="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 12h14M12 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
 
-                </div>
+            <!-- Divider (Mobile Only) -->
+            <div
+              class="w-full h-[1px] bg-gray-800/80 lg:hidden mt-2 mb-2"
+            ></div>
 
-                <!-- 
+            <!-- Right: Links Grid -->
+            <!-- 3 Cols on Mobile, 4 Cols on Desktop -->
+            <div
+              class="lg:w-7/12 grid grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8"
+            >
+              <!-- Column 1: Collection -->
+              <div class="flex flex-col">
+                <h4
+                  class="text-[11px] md:text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6"
+                >
+                  Collection
+                </h4>
+                <ul class="flex flex-col gap-4">
+                  <li>
+                    <a
+                      href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >Air Pro</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >Air Pro 1</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >Air Pro 2</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >Air Pro Max</a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Column 2: Explore -->
+              <div class="flex flex-col">
+                <h4
+                  class="text-[11px] md:text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6"
+                >
+                  Explore
+                </h4>
+                <ul class="flex flex-col gap-4">
+                  <li>
+                    <a
+                      href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >Technology</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >The App</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >Compare Models</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >Filter Care</a
+                    >
+                  </li>
+                  <!-- Visible only on Desktop -->
+                  <li class="hidden lg:block">
+                    <a
+                      href="#"
+                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >Corporate Solutions</a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Column 3: Support (Mobile) / Blank Header (Desktop) -->
+              <div class="flex flex-col">
+                <!-- Header visible only on mobile -->
+                <h4
+                  class="text-[11px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6 lg:hidden"
+                >
+                  Support
+                </h4>
+
+                <!-- Spacer to align links under the empty header space on desktop -->
+                <div class="hidden lg:block h-[34px]"></div>
+
+                <ul class="flex flex-col gap-4">
+                  <!-- Visible only on Desktop -->
+                  <li class="hidden lg:block">
+                    <a
+                      href="#"
+                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >Book a Demo</a
+                    >
+                  </li>
+                  <li class="hidden lg:block">
+                    <a
+                      href="#"
+                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >Case Studies</a
+                    >
+                  </li>
+
+                  <!-- Visible on Both -->
+                  <li>
+                    <a
+                      href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >FAQ</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >Support</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >Contact</a
+                    >
+                  </li>
+
+                  <!-- Visible only on Mobile -->
+                  <li class="lg:hidden">
+                    <a
+                      href="#"
+                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >WhatsApp</a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Column 4: Contact (Desktop Only) -->
+              <div class="hidden lg:flex flex-col">
+                <h4
+                  class="text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6"
+                >
+                  Contact
+                </h4>
+                <ul class="flex flex-col gap-4">
+                  <li>
+                    <a
+                      href="tel:+919076636639"
+                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >+91 90766 36639</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >WhatsApp Support</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="mailto:enquiries@breathein.co.in"
+                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >enquiries@breathein.co.in</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
+                      >www.breathein.co.in</a
+                    >
+                  </li>
+                  <li class="text-[13px] text-gray-400 font-light mt-1">
+                    Whitefield, Bengaluru
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Divider -->
+          <div class="w-full h-[1px] bg-gray-800/80 mb-6 lg:mb-8"></div>
+
+          <!-- Bottom Strip: Legal & Copyright -->
+          <div
+            class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6"
+          >
+            <!-- Legal Links (Top on mobile, Right on desktop) -->
+            <div class="flex flex-wrap items-center gap-6 lg:order-2">
+              <a
+                href="#"
+                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light"
+                >Privacy Policy</a
+              >
+              <a
+                href="#"
+                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light"
+                >Terms of Use</a
+              >
+              <a
+                href="#"
+                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light"
+                >Cookie Policy</a
+              >
+            </div>
+
+            <!-- Copyright (Bottom on mobile, Left on desktop) -->
+            <p
+              class="text-[11px] md:text-[13px] text-gray-500 font-light lg:order-1"
+            >
+              &copy; 2026 Breathe In &mdash; The Right Air. All rights reserved.
+              Made in India.
+            </p>
+          </div>
+
+          <!-- 
                 <button id="backToTop"
-                    class="flex absolute right-0 bottom-12 lg:static items-center gap-3 text-[9px] uppercase tracking-[0.2em] text-gray-500 hover:text-white transition-colors font-bold group order-3">
+                    class="flex absolute right-0 bottom-12 lg:static items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-gray-500 hover:text-white transition-colors font-bold group order-3">
                     Back to Top
                     <span
                         class="w-7 h-7 rounded-full bg-gray-800/80 flex items-center justify-center group-hover:bg-[#156E8A] transition-colors">
@@ -957,11 +1448,9 @@
                         </svg>
                     </span>
                 </button> -->
-            </div>
-        </footer>
-
+        </div>
+      </footer>
     </main>
-
 
     <!-- jQuery Core Library -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -969,6 +1458,5 @@
 
     <!-- Link to Custom JS -->
     <script src="assets/js/main.js"></script>
-</body>
-
+  </body>
 </html>

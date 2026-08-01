@@ -58,6 +58,11 @@ function initHeaderFooterLogic() {
   // UI Interactions (UPDATED FOR DYNAMIC HTML)
   // ==========================================
 
+  $(document).on("click", "#cartBtn", function (e) {
+    e.preventDefault();
+    window.location.href = "cart.html";
+  });
+
   // Smart Header Scroll Logic
   let lastScrollTop = 0;
 
@@ -304,5 +309,39 @@ function initPageScripts() {
         },
       },
     });
-  }
+  };
+
+  const paymentRadios = document.querySelectorAll('input[name="payment_method"]');
+        const paymentOptions = document.querySelectorAll('.payment-option');
+
+        paymentRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                
+                paymentOptions.forEach(option => {
+                    const isChecked = option.querySelector('input[type="radio"]').checked;
+                    const outerRadio = option.querySelector('.radio-outer');
+                    const innerRadio = option.querySelector('.radio-inner');
+
+                    if (isChecked) {
+                        // Add Active State
+                        option.classList.remove('border-gray-200', 'dark:border-gray-700', 'bg-white', 'dark:bg-tickerDark', 'hover:border-gray-300', 'dark:hover:border-gray-600');
+                        option.classList.add('border-[#156E8A]', 'bg-[#EEF5F7]', 'dark:bg-[#111a20]');
+                        
+                        outerRadio.classList.remove('border-gray-200', 'dark:border-gray-600');
+                        outerRadio.classList.add('border-[#156E8A]');
+                        
+                        innerRadio.classList.remove('hidden');
+                    } else {
+                        // Reset to Inactive State
+                        option.classList.remove('border-[#156E8A]', 'bg-[#EEF5F7]', 'dark:bg-[#111a20]');
+                        option.classList.add('border-gray-200', 'dark:border-gray-700', 'bg-white', 'dark:bg-tickerDark', 'hover:border-gray-300', 'dark:hover:border-gray-600');
+                        
+                        outerRadio.classList.remove('border-[#156E8A]');
+                        outerRadio.classList.add('border-gray-200', 'dark:border-gray-600');
+                        
+                        innerRadio.classList.add('hidden');
+                    }
+                });
+            });
+        });
 }
