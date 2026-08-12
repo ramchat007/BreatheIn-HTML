@@ -310,6 +310,77 @@ function initPageScripts() {
       },
     });
   };
+  var caseStudySwiper = new Swiper('.caseStudySwiper', {
+    slidesPerView: 1, // Allows the 85% width cards to peek out on mobile
+    spaceBetween: 16,
+    grabCursor: true,
+    breakpoints: {
+        // Tablet
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 24,
+        },
+        // Desktop
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 32, // Perfect gap for the 3-column grid
+        }
+    }
+  });
+
+// 1. Accordion Toggle Logic (Event Listener based)
+        const faqButtons = document.querySelectorAll('.faq-toggle-btn');
+        
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Find the content and icons relative to the clicked button
+                const content = button.nextElementSibling;
+                const plusIcon = button.querySelector('.plus-icon');
+                const minusIcon = button.querySelector('.minus-icon');
+                
+                // Toggle the hidden class on the content
+                content.classList.toggle('hidden');
+                
+                // Swap the icons
+                if (content.classList.contains('hidden')) {
+                    plusIcon.classList.remove('hidden');
+                    minusIcon.classList.add('hidden');
+                } else {
+                    plusIcon.classList.add('hidden');
+                    minusIcon.classList.remove('hidden');
+                }
+            });
+        });
+
+        // 2. Simple Scroll Spy Logic (Highlights sidebar links as you scroll)
+        const sections = document.querySelectorAll('.faq-section');
+        const navLinks = document.querySelectorAll('.faq-nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                // Check if we've scrolled past the section (with a 150px offset for headers)
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                // Reset all links
+                link.classList.remove('border-[#156E8A]', 'text-[#156E8A]');
+                link.classList.add('border-transparent', 'text-gray-500');
+                
+                // Highlight active link
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('border-transparent', 'text-gray-500');
+                    link.classList.add('border-[#156E8A]', 'text-[#156E8A]');
+                }
+            });
+        });
+
+
 
   const paymentRadios = document.querySelectorAll('input[name="payment_method"]');
         const paymentOptions = document.querySelectorAll('.payment-option');
