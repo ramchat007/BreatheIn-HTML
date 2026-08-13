@@ -309,110 +309,294 @@ function initPageScripts() {
         },
       },
     });
-  };
-  var caseStudySwiper = new Swiper('.caseStudySwiper', {
+  }
+  var caseStudySwiper = new Swiper(".caseStudySwiper", {
     slidesPerView: 1, // Allows the 85% width cards to peek out on mobile
     spaceBetween: 16,
     grabCursor: true,
     breakpoints: {
-        // Tablet
-        768: {
-            slidesPerView: 2,
-            spaceBetween: 24,
-        },
-        // Desktop
-        1024: {
-            slidesPerView: 3,
-            spaceBetween: 32, // Perfect gap for the 3-column grid
-        }
-    }
+      // Tablet
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 24,
+      },
+      // Desktop
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 32, // Perfect gap for the 3-column grid
+      },
+    },
   });
 
-// 1. Accordion Toggle Logic (Event Listener based)
-        const faqButtons = document.querySelectorAll('.faq-toggle-btn');
-        
-        faqButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Find the content and icons relative to the clicked button
-                const content = button.nextElementSibling;
-                const plusIcon = button.querySelector('.plus-icon');
-                const minusIcon = button.querySelector('.minus-icon');
-                
-                // Toggle the hidden class on the content
-                content.classList.toggle('hidden');
-                
-                // Swap the icons
-                if (content.classList.contains('hidden')) {
-                    plusIcon.classList.remove('hidden');
-                    minusIcon.classList.add('hidden');
-                } else {
-                    plusIcon.classList.add('hidden');
-                    minusIcon.classList.remove('hidden');
-                }
-            });
-        });
+  // 1. Accordion Toggle Logic (Event Listener based)
+  const faqButtons = document.querySelectorAll(".faq-toggle-btn");
 
-        // 2. Simple Scroll Spy Logic (Highlights sidebar links as you scroll)
-        const sections = document.querySelectorAll('.faq-section');
-        const navLinks = document.querySelectorAll('.faq-nav-link');
+  faqButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      // Find the content and icons relative to the clicked button
+      const content = button.nextElementSibling;
+      const plusIcon = button.querySelector(".plus-icon");
+      const minusIcon = button.querySelector(".minus-icon");
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                // Check if we've scrolled past the section (with a 150px offset for headers)
-                if (scrollY >= (sectionTop - 150)) {
-                    current = section.getAttribute('id');
-                }
-            });
+      // Toggle the hidden class on the content
+      content.classList.toggle("hidden");
 
-            navLinks.forEach(link => {
-                // Reset all links
-                link.classList.remove('border-[#156E8A]', 'text-[#156E8A]');
-                link.classList.add('border-transparent', 'text-gray-500');
-                
-                // Highlight active link
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.remove('border-transparent', 'text-gray-500');
-                    link.classList.add('border-[#156E8A]', 'text-[#156E8A]');
-                }
-            });
-        });
+      // Swap the icons
+      if (content.classList.contains("hidden")) {
+        plusIcon.classList.remove("hidden");
+        minusIcon.classList.add("hidden");
+      } else {
+        plusIcon.classList.add("hidden");
+        minusIcon.classList.remove("hidden");
+      }
+    });
+  });
 
+  // 2. Simple Scroll Spy Logic (Highlights sidebar links as you scroll)
+  const sections = document.querySelectorAll(".faq-section");
+  const navLinks = document.querySelectorAll(".faq-nav-link");
 
+  window.addEventListener("scroll", () => {
+    let current = "";
 
-  const paymentRadios = document.querySelectorAll('input[name="payment_method"]');
-        const paymentOptions = document.querySelectorAll('.payment-option');
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      // Check if we've scrolled past the section (with a 150px offset for headers)
+      if (scrollY >= sectionTop - 150) {
+        current = section.getAttribute("id");
+      }
+    });
 
-        paymentRadios.forEach(radio => {
-            radio.addEventListener('change', function() {
-                
-                paymentOptions.forEach(option => {
-                    const isChecked = option.querySelector('input[type="radio"]').checked;
-                    const outerRadio = option.querySelector('.radio-outer');
-                    const innerRadio = option.querySelector('.radio-inner');
+    navLinks.forEach((link) => {
+      // Reset all links
+      link.classList.remove("border-[#156E8A]", "text-[#156E8A]");
+      link.classList.add("border-transparent", "text-gray-500");
 
-                    if (isChecked) {
-                        // Add Active State
-                        option.classList.remove('border-gray-200', 'dark:border-gray-700', 'bg-white', 'dark:bg-tickerDark', 'hover:border-gray-300', 'dark:hover:border-gray-600');
-                        option.classList.add('border-[#156E8A]', 'bg-[#EEF5F7]', 'dark:bg-[#111a20]');
-                        
-                        outerRadio.classList.remove('border-gray-200', 'dark:border-gray-600');
-                        outerRadio.classList.add('border-[#156E8A]');
-                        
-                        innerRadio.classList.remove('hidden');
-                    } else {
-                        // Reset to Inactive State
-                        option.classList.remove('border-[#156E8A]', 'bg-[#EEF5F7]', 'dark:bg-[#111a20]');
-                        option.classList.add('border-gray-200', 'dark:border-gray-700', 'bg-white', 'dark:bg-tickerDark', 'hover:border-gray-300', 'dark:hover:border-gray-600');
-                        
-                        outerRadio.classList.remove('border-[#156E8A]');
-                        outerRadio.classList.add('border-gray-200', 'dark:border-gray-600');
-                        
-                        innerRadio.classList.add('hidden');
-                    }
-                });
-            });
-        });
+      // Highlight active link
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.remove("border-transparent", "text-gray-500");
+        link.classList.add("border-[#156E8A]", "text-[#156E8A]");
+      }
+    });
+  });
+
+  const paymentRadios = document.querySelectorAll(
+    'input[name="payment_method"]',
+  );
+  const paymentOptions = document.querySelectorAll(".payment-option");
+
+  paymentRadios.forEach((radio) => {
+    radio.addEventListener("change", function () {
+      paymentOptions.forEach((option) => {
+        const isChecked = option.querySelector('input[type="radio"]').checked;
+        const outerRadio = option.querySelector(".radio-outer");
+        const innerRadio = option.querySelector(".radio-inner");
+
+        if (isChecked) {
+          // Add Active State
+          option.classList.remove(
+            "border-gray-200",
+            "dark:border-gray-700",
+            "bg-white",
+            "dark:bg-tickerDark",
+            "hover:border-gray-300",
+            "dark:hover:border-gray-600",
+          );
+          option.classList.add(
+            "border-[#156E8A]",
+            "bg-[#EEF5F7]",
+            "dark:bg-[#111a20]",
+          );
+
+          outerRadio.classList.remove(
+            "border-gray-200",
+            "dark:border-gray-600",
+          );
+          outerRadio.classList.add("border-[#156E8A]");
+
+          innerRadio.classList.remove("hidden");
+        } else {
+          // Reset to Inactive State
+          option.classList.remove(
+            "border-[#156E8A]",
+            "bg-[#EEF5F7]",
+            "dark:bg-[#111a20]",
+          );
+          option.classList.add(
+            "border-gray-200",
+            "dark:border-gray-700",
+            "bg-white",
+            "dark:bg-tickerDark",
+            "hover:border-gray-300",
+            "dark:hover:border-gray-600",
+          );
+
+          outerRadio.classList.remove("border-[#156E8A]");
+          outerRadio.classList.add("border-gray-200", "dark:border-gray-600");
+
+          innerRadio.classList.add("hidden");
+        }
+      });
+    });
+  });
+
+  let currentStep = 1;
+  const totalScreens = 5; 
+  const totalProgressSteps = 4; // Visual circles
+
+  // --- BUTTON ELEMENTS ---
+  const btnBack = document.getElementById('btn-back');
+  const btnNext = document.getElementById('btn-next');
+  const btnBackResults = document.getElementById('btn-back-results');
+  const nextText = document.getElementById('btn-next-text');
+  const globalFooter = document.getElementById('global-wizard-footer');
+
+  // --- NAVIGATION LOGIC ---
+  function navigateWizard(direction) {
+      if (currentStep + direction < 1 || currentStep + direction > totalScreens) return;
+
+      // Hide current step
+      document.getElementById(`wizard-step-${currentStep}`).classList.add('hidden');
+      document.getElementById(`wizard-step-${currentStep}`).classList.remove('block');
+      
+      currentStep += direction;
+
+      // Show new step
+      document.getElementById(`wizard-step-${currentStep}`).classList.remove('hidden');
+      document.getElementById(`wizard-step-${currentStep}`).classList.add('block');
+
+      updateProgressBar();
+  }
+
+  // --- BIND CLICK EVENTS ---
+  if (btnBack) btnBack.addEventListener('click', () => navigateWizard(-1));
+  if (btnNext) btnNext.addEventListener('click', () => navigateWizard(1));
+  if (btnBackResults) btnBackResults.addEventListener('click', () => navigateWizard(-1));
+
+  // --- PROGRESS BAR LOGIC ---
+  function updateProgressBar() {
+      
+      // Toggle Global Footer visibility (hide on Results screen)
+      if (currentStep === totalScreens) {
+          globalFooter.classList.add('hidden');
+          globalFooter.classList.remove('flex');
+      } else {
+          globalFooter.classList.remove('hidden');
+          globalFooter.classList.add('flex');
+      }
+
+      // Back button visibility
+      if (currentStep === 1) {
+          btnBack.classList.add('invisible');
+      } else {
+          btnBack.classList.remove('invisible');
+      }
+
+      // Next button text
+      if (currentStep === totalScreens - 1) {
+          nextText.innerText = "SEE RESULTS";
+      } else {
+          nextText.innerText = "CONTINUE";
+      }
+
+      // Calculate progress line width based on active step (max 4)
+      const activeLineStep = Math.min(currentStep, totalProgressSteps);
+      const linePercentage = ((activeLineStep - 1) / (totalProgressSteps - 1)) * 80;
+      const deskLine = document.getElementById('desk-progress-line');
+      if(deskLine) deskLine.style.width = `${linePercentage}%`;
+
+      // Update Circles
+      for (let i = 1; i <= totalProgressSteps; i++) {
+          const deskCircle = document.getElementById(`desk-step-${i}`);
+          const mobCircle = document.getElementById(`mob-step-${i}`);
+
+          // STATE: COMPLETED (Filled Background, White Text, No Outline Offset)
+          if (i < currentStep) {
+              if(deskCircle) deskCircle.className = "relative z-10 w-10 h-10 rounded-full bg-[#156E8A] text-white flex items-center justify-center text-[15px] font-medium transition-colors duration-300";
+              if(mobCircle) mobCircle.className = "relative z-10 w-8 h-8 rounded-full bg-[#156E8A] text-white flex items-center justify-center text-[15px] font-medium transition-colors duration-300";
+          } 
+          // STATE: CURRENT (White Background, Colored Border/Outline, Colored Text)
+          else if (i === currentStep) {
+              if(deskCircle) deskCircle.className = "relative z-10 w-10 h-10 rounded-full bg-white dark:bg-[#0a0f12] text-[#156E8A] dark:text-[#2094B6] border-2 border-[#156E8A] dark:border-[#2094B6] flex items-center justify-center text-[15px] font-medium outline outline-4 outline-white dark:outline-[#0a0f12] transition-colors duration-300";
+              if(mobCircle) mobCircle.className = "relative z-10 w-8 h-8 rounded-full bg-white dark:bg-[#0a0f12] text-[#156E8A] dark:text-[#2094B6] border-2 border-[#156E8A] dark:border-[#2094B6] flex items-center justify-center text-[15px] font-medium transition-colors duration-300 outline outline-4 outline-[#FAFCFD] dark:outline-black";
+          } 
+          // STATE: INACTIVE (White Background, Gray Border, Gray Text)
+          else {
+              if(deskCircle) deskCircle.className = "relative z-10 w-10 h-10 rounded-full bg-white dark:bg-[#0a0f12] text-gray-400 border border-gray-300 dark:border-gray-700 flex items-center justify-center text-[15px] font-medium outline outline-4 outline-white dark:outline-[#0a0f12] transition-colors duration-300";
+              if(mobCircle) mobCircle.className = "relative z-10 w-8 h-8 rounded-full bg-white dark:bg-[#111a20] text-gray-400 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-[15px] font-medium transition-colors duration-300 outline outline-4 outline-[#FAFCFD] dark:outline-black";
+          }
+      }
+  }
+
+  // --- 1. SLIDER DYNAMIC UPDATE ---
+  const slider = document.getElementById('roomAreaSlider');
+  const valueDisplay = document.getElementById('roomAreaValue');
+  const labelDisplay = document.getElementById('roomAreaLabel');
+  
+  if(slider && valueDisplay) {
+      slider.addEventListener('input', function() {
+          valueDisplay.textContent = this.value;
+          
+          if (this.value < 300) {
+              labelDisplay.textContent = "About a small bedroom";
+          } else if (this.value < 600) {
+              labelDisplay.textContent = "About a medium living room";
+          } else if (this.value < 1000) {
+              labelDisplay.textContent = "About a large open-plan space";
+          } else {
+              labelDisplay.textContent = "About a very large or commercial space";
+          }
+      });
+  }
+
+  // --- 2. HANDLE RADIO BUTTONS (Ceiling & Room Type) ---
+  const radioInputs = document.querySelectorAll('input[type="radio"]');
+  radioInputs.forEach(radio => {
+      radio.addEventListener('change', function() {
+          const siblingRadios = document.querySelectorAll(`input[name="${this.name}"]`);
+          
+          siblingRadios.forEach(sibling => {
+              const label = sibling.closest('.radio-option');
+              if(label) {
+                  label.classList.remove('bg-[#EEF5F7]', 'dark:bg-[#0c1318]', 'border-[#156E8A]');
+                  label.classList.add('bg-white', 'dark:bg-[#111a20]', 'border-gray-200', 'dark:border-gray-700');
+              }
+          });
+
+          const activeLabel = this.closest('.radio-option');
+          if(activeLabel) {
+              activeLabel.classList.remove('bg-white', 'dark:bg-[#111a20]', 'border-gray-200', 'dark:border-gray-700');
+              activeLabel.classList.add('bg-[#EEF5F7]', 'dark:bg-[#0c1318]', 'border-[#156E8A]');
+          }
+      });
+  });
+
+  // --- 3. HANDLE CHECKBOXES (Concerns) ---
+  const checkboxInputs = document.querySelectorAll('input[type="checkbox"]');
+  checkboxInputs.forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+          const label = this.closest('.concern-option');
+          const emptyIndicator = label.querySelector('.indicator-empty');
+          const checkedIndicator = label.querySelector('.indicator-checked');
+
+          if (this.checked) {
+              label.classList.remove('bg-white', 'dark:bg-[#111a20]', 'border-gray-200', 'dark:border-gray-700');
+              label.classList.add('bg-[#EEF5F7]', 'dark:bg-[#0c1318]', 'border-[#156E8A]');
+              
+              emptyIndicator.classList.add('hidden');
+              checkedIndicator.classList.remove('hidden');
+              checkedIndicator.classList.add('flex');
+          } else {
+              label.classList.remove('bg-[#EEF5F7]', 'dark:bg-[#0c1318]', 'border-[#156E8A]');
+              label.classList.add('bg-white', 'dark:bg-[#111a20]', 'border-gray-200', 'dark:border-gray-700');
+              
+              checkedIndicator.classList.add('hidden');
+              checkedIndicator.classList.remove('flex');
+              emptyIndicator.classList.remove('hidden');
+          }
+      });
+  });
+  
+  // --- INITIALIZE UI STATE ---
+  updateProgressBar(); 
 }

@@ -1,1035 +1,1307 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BreatheIn - Redesign</title>
 
-    <!-- Tailwind CSS Play CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./assets/js/tailwind.config.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BreatheIn - Redesign</title>
 
-    <!-- Link to compiled CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./assets/js/tailwind.config.js"></script>
 
-  <body class="antialiased text-gray-900 selection:bg-brandTeal/20 relative">
-    <!-- ========================================== -->
-    <!-- FULL-SCREEN MOBILE NAVIGATION OVERLAY      -->
-    <!-- ========================================== -->
+  <!-- Link to compiled CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="antialiased text-gray-900 selection:bg-brandTeal/20 relative">
+  <!-- ========================================== -->
+  <!-- FULL-SCREEN MOBILE NAVIGATION OVERLAY      -->
+  <!-- ========================================== -->
+  <div id="mobileNavOverlay"
+    class="fixed inset-0 z-[60] bg-white flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out hidden">
+    <button id="closeMobileNav" class="absolute top-6 right-8 p-2 rounded-full hover:bg-gray-100 transition-colors"
+      aria-label="Close Menu">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-8 h-8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <nav class="flex flex-col items-center gap-8 text-center">
+      <a href="./collection.html"
+        class="text-3xl text-[#156E8A] font-light tracking-wide hover:text-brandTeal transition-colors">COLLECTION</a>
+      <a href="./technology.html"
+        class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">TECHNOLOGY</a>
+      <a href="./app.html" class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">APP</a>
+      <a href="./real-homes.html" class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">REAL
+        HOMES</a>
+      <a href="./compare.html"
+        class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">COMPARE</a>
+      <div class="mt-8 pt-8 border-t border-gray-200 w-full flex flex-col items-center gap-4">
+        <a href="#" class="text-lg font-medium hover:text-brandTeal">My Account</a>
+        <a href="#" class="text-lg font-medium hover:text-brandTeal">Support</a>
+      </div>
+    </nav>
+  </div>
+  <!-- ========================================== -->
+
+  <!-- ========================================== -->
+  <!-- SMART STICKY HEADER                        -->
+  <!-- ========================================== -->
+  <div id="smart-header"
+    class="sticky top-0 z-50 w-full flex flex-col shadow-sm transition-transform duration-300 ease-in-out translate-y-0">
+    <!-- 1. TOP LIVE AQI TICKER BAR -->
+    <!-- Updated to match mobile design: unified dark background, teal dot, vertical separator -->
     <div
-      id="mobileNavOverlay"
-      class="fixed inset-0 z-[60] bg-white flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out hidden"
-    >
-      <button
-        id="closeMobileNav"
-        class="absolute top-6 right-8 p-2 rounded-full hover:bg-gray-100 transition-colors"
-        aria-label="Close Menu"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-8 h-8"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
-      <nav class="flex flex-col items-center gap-8 text-center">
-        <a
-          href="./collection.html"
-          class="text-3xl text-[#156E8A] font-light tracking-wide hover:text-brandTeal transition-colors"
-          >COLLECTION</a
-        >
-        <a
-          href="./technology.html"
-          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
-          >TECHNOLOGY</a
-        >
-        <a
-          href="./app.html"
-          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
-          >APP</a
-        >
-        <a
-          href="./real-homes.html"
-          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
-          >REAL HOMES</a
-        >
-        <a
-          href="./compare.html"
-          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
-          >COMPARE</a
-        >
-        <div
-          class="mt-8 pt-8 border-t border-gray-200 w-full flex flex-col items-center gap-4"
-        >
-          <a href="#" class="text-lg font-medium hover:text-brandTeal"
-            >My Account</a
-          >
-          <a href="#" class="text-lg font-medium hover:text-brandTeal"
-            >Support</a
-          >
-        </div>
-      </nav>
-    </div>
-    <!-- ========================================== -->
-
-    <!-- ========================================== -->
-    <!-- SMART STICKY HEADER                        -->
-    <!-- ========================================== -->
-    <div
-      id="smart-header"
-      class="sticky top-0 z-50 w-full flex flex-col shadow-sm transition-transform duration-300 ease-in-out translate-y-0"
-    >
-      <!-- 1. TOP LIVE AQI TICKER BAR -->
-      <!-- Updated to match mobile design: unified dark background, teal dot, vertical separator -->
+      class="w-full bg-tickerDark text-white flex items-center text-[11px] tracking-wider font-medium animate-fade-in-down overflow-hidden"
+      style="animation-delay: 100ms">
       <div
-        class="w-full bg-tickerDark text-white flex items-center text-[11px] tracking-wider font-medium animate-fade-in-down overflow-hidden"
-        style="animation-delay: 100ms"
-      >
-        <div
-          class="bg-tickerDark md:bg-brandTeal px-4 md:px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative"
-        >
-          <!-- <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> -->
-          <span
-            class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse"
-          ></span>
-          INDIA AQI TODAY
-        </div>
+        class="bg-tickerDark md:bg-brandTeal px-4 md:px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative">
+        <!-- <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> -->
+        <span class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse"></span>
+        INDIA AQI TODAY
+      </div>
 
-        <!-- Separator Line -->
-        <div class="w-[1px] h-6 bg-gray-800 shrink-0 z-10 relative"></div>
+      <!-- Separator Line -->
+      <div class="w-[1px] h-6 bg-gray-800 shrink-0 z-10 relative"></div>
 
-        <!-- Scrolling Content -->
-        <div class="flex flex-1 overflow-hidden relative bg-tickerDark">
-          <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
-            <!-- Ticker Items List 1 -->
-            <div class="flex items-center gap-6 pr-6">
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Delhi</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >392</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Ghaziabad</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >358</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Noida</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >311</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Patna</span>
-                <span
-                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >286</span
-                >
-                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Lucknow</span>
-                <span
-                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >242</span
-                >
-                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Kolkata</span>
-                <span
-                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >198</span
-                >
-                <span class="text-textMuted text-[12px]">Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Mumbai</span>
-                <span
-                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >164</span
-                >
-                <span class="text-textMuted text-[12px]">Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
+      <!-- Scrolling Content -->
+      <div class="flex flex-1 overflow-hidden relative bg-tickerDark">
+        <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
+          <!-- Ticker Items List 1 -->
+          <div class="flex items-center gap-6 pr-6">
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Delhi</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">392</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
             </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Ghaziabad</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">358</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Noida</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">311</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Patna</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">286</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Lucknow</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">242</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Kolkata</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">198</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Mumbai</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">164</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+          </div>
 
-            <!-- Ticker Items List 2 (Duplicated for seamless scrolling) -->
-            <div class="flex items-center gap-6 pr-6">
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Delhi</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >392</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Ghaziabad</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >358</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Noida</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >311</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Patna</span>
-                <span
-                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >286</span
-                >
-                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Lucknow</span>
-                <span
-                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >242</span
-                >
-                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Kolkata</span>
-                <span
-                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >198</span
-                >
-                <span class="text-textMuted text-[12px]">Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Mumbai</span>
-                <span
-                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >164</span
-                >
-                <span class="text-textMuted text-[12px]">Unhealthy</span>
-              </div>
+          <!-- Ticker Items List 2 (Duplicated for seamless scrolling) -->
+          <div class="flex items-center gap-6 pr-6">
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Delhi</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">392</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Ghaziabad</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">358</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Noida</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">311</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Patna</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">286</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Lucknow</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">242</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Kolkata</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">198</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Mumbai</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">164</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
             </div>
           </div>
         </div>
-
-        <!-- Desktop Info Banner -->
-        <div
-          class="px-6 py-3 shrink-0 font-medium text-gray-300 hidden lg:block bg-tickerDark z-10 relative shadow-[-10px_0_15px_-3px_rgba(13,20,24,1)]"
-        >
-          Indoors is often
-          <span class="text-sky-400 font-bold">5x worse</span> &middot;
-          <a
-            href="#"
-            class="hover:underline text-white inline-flex items-center gap-1"
-            >CHECK YOURS <span class="text-[11px]">&darr;</span></a
-          >
-        </div>
       </div>
 
-      <!-- 2. MAIN NAVIGATION HEADER -->
-      <!-- Updated Mobile Layout: Logo Left, Cart+CTA+Hamburger Right -->
-      <header
-        class="w-full bg-[#FAFCFD] border-b border-gray-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between animate-fade-in-down"
-        style="animation-delay: 200ms"
-      >
-        <!-- Left: Logo -->
-        <div class="flex items-center">
-          <a href="/index.html" class="h-7 md:h-10 w-auto">
-            <img
-              src="./assets/images/logo.png"
-              alt="Breathe In"
-              class="h-7 md:h-10 w-auto object-contain"
-            />
-          </a>
-        </div>
-
-        <!-- Desktop Nav Links -->
-        <nav class="hidden lg:flex items-center gap-8">
-          <a
-            href="./collection.html"
-            class="text-[13px] text-[#156E8A] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >COLLECTION</a
-          >
-          <a
-            href="./technology.html"
-            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >TECHNOLOGY</a
-          >
-          <a
-            href="./app.html"
-            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >APP</a
-          >
-          <a
-            href="./real-homes.html"
-            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >REAL HOMES</a
-          >
-          <a
-            href="./compare.html"
-            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >COMPARE</a
-          >
-        </nav>
-
-        <!-- Right: Action Buttons & Hamburger -->
-        <div class="flex items-center gap-3 md:gap-5">
-          <!-- Cart Button with Notification Badge -->
-          <button
-            id="cartBtn"
-            class="relative p-1.5 text-gray-900 hover:text-brandTeal transition-colors flex items-center justify-center"
-          >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="9" cy="21" r="1.5"></circle>
-              <circle cx="20" cy="21" r="1.5"></circle>
-              <path
-                d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-              ></path>
-            </svg>
-            <!-- Teal Badge -->
-            <span
-              class="absolute -top-1.5 -right-1.5 bg-brandTeal text-white text-[11px] font-bold w-4 h-4 aspect-square rounded-full flex items-center justify-center border border-white"
-              >3</span
-            >
-          </button>
-
-          <!-- Primary CTA (Now visible on mobile per design) -->
-          <a
-            href="./find-my-purifier.html"
-            class="border border-black text-[11px] md:text-[13px] font-bold tracking-widest px-3 py-2 md:px-6 md:py-2.5 uppercase hover:bg-black hover:text-white transition-all duration-200"
-          >
-            FIND MY PURIFIER
-          </a>
-
-          <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
-          <button
-            id="themeToggle"
-            class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-3.5 h-3.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-              />
-            </svg>
-            <span class="text-[12px] font-bold tracking-widest">DARK</span>
-          </button>
-          <!-- Hamburger Menu Icon (Moved to right) -->
-          <button
-            id="openMobileNav"
-            class="lg:hidden p-1"
-            aria-label="Open Menu"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-7 h-7 text-gray-900"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-          </button>
-        </div>
-      </header>
+      <!-- Desktop Info Banner -->
+      <div
+        class="px-6 py-3 shrink-0 font-medium text-gray-300 hidden lg:block bg-tickerDark z-10 relative shadow-[-10px_0_15px_-3px_rgba(13,20,24,1)]">
+        Indoors is often
+        <span class="text-sky-400 font-bold">5x worse</span> &middot;
+        <a href="#" class="hover:underline text-white inline-flex items-center gap-1">CHECK YOURS <span
+            class="text-[11px]">&darr;</span></a>
+      </div>
     </div>
 
-    <main>
-      <!-- ========================================== -->
-      <!-- HERO SECTION: FIND MY PURIFIER             -->
-      <!-- ========================================== -->
-      <section class="relative flex items-center overflow-hidden bg-[#FAFCFD]">
-        <!-- Centered Radial Glow (Desktop Only) -->
-        <div
-          class="hidden md:block absolute inset-0 pointer-events-none"
-          style="
+    <!-- 2. MAIN NAVIGATION HEADER -->
+    <!-- Updated Mobile Layout: Logo Left, Cart+CTA+Hamburger Right -->
+    <header
+      class="w-full bg-[#FAFCFD] border-b border-gray-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between animate-fade-in-down"
+      style="animation-delay: 200ms">
+      <!-- Left: Logo -->
+      <div class="flex items-center">
+        <a href="/index.html" class="h-7 md:h-10 w-auto">
+          <img src="./assets/images/logo.png" alt="Breathe In" class="h-7 md:h-10 w-auto object-contain" />
+        </a>
+      </div>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="./collection.html"
+          class="text-[13px] text-[#156E8A] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COLLECTION</a>
+        <a href="./technology.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">TECHNOLOGY</a>
+        <a href="./app.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">APP</a>
+        <a href="./real-homes.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">REAL
+          HOMES</a>
+        <a href="./compare.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COMPARE</a>
+      </nav>
+
+      <!-- Right: Action Buttons & Hamburger -->
+      <div class="flex items-center gap-3 md:gap-5">
+        <!-- Cart Button with Notification Badge -->
+        <button id="cartBtn"
+          class="relative p-1.5 text-gray-900 hover:text-brandTeal transition-colors flex items-center justify-center">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1.5"></circle>
+            <circle cx="20" cy="21" r="1.5"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <!-- Teal Badge -->
+          <span
+            class="absolute -top-1.5 -right-1.5 bg-brandTeal text-white text-[11px] font-bold w-4 h-4 aspect-square rounded-full flex items-center justify-center border border-white">3</span>
+        </button>
+
+        <!-- Primary CTA (Now visible on mobile per design) -->
+        <a href="./find-my-purifier.html"
+          class="border border-black text-[11px] md:text-[13px] font-bold tracking-widest px-3 py-2 md:px-6 md:py-2.5 uppercase hover:bg-black hover:text-white transition-all duration-200">
+          FIND MY PURIFIER
+        </a>
+
+        <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
+        <button id="themeToggle"
+          class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-3.5 h-3.5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+          </svg>
+          <span class="text-[12px] font-bold tracking-widest">DARK</span>
+        </button>
+        <!-- Hamburger Menu Icon (Moved to right) -->
+        <button id="openMobileNav" class="lg:hidden p-1" aria-label="Open Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-7 h-7 text-gray-900">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <main>
+    <!-- ========================================== -->
+    <!-- HERO SECTION: FIND MY PURIFIER             -->
+    <!-- ========================================== -->
+    <section class="relative flex items-center overflow-hidden bg-[#FAFCFD]">
+      <!-- Centered Radial Glow (Desktop Only) -->
+      <div class="hidden md:block absolute inset-0 pointer-events-none" style="
             background: radial-gradient(
               circle at 50% 50%,
               rgba(21, 110, 138, 0.08) 0%,
               rgba(250, 252, 253, 0) 50%
             );
-          "
-        ></div>
+          "></div>
 
-        <div
-          class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-20 py-16 lg:py-24 w-full relative z-10 flex flex-col md:items-center md:text-center"
-        >
-          <div class="max-w-2xl lg:max-w-3xl flex flex-col md:items-center">
-            <!-- Breadcrumb (Mobile Only) -->
-            <nav
-              class="uppercase tracking-[.25em] text-[12px] text-gray-400 mb-6 md:hidden"
-            >
-              HOME <span class="text-gray-300 px-2">/</span> FIND
-            </nav>
+      <div
+        class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-20 py-10 lg:py-24 w-full relative z-10 flex flex-col md:items-center md:text-center">
+        <div class="max-w-2xl lg:max-w-3xl flex flex-col md:items-center">
+          <!-- Breadcrumb (Mobile Only) -->
+          <nav class="uppercase tracking-[.25em] text-[12px] text-gray-400 mb-6 md:hidden">
+            HOME <span class="text-gray-300 px-2">/</span> FIND
+          </nav>
 
-            <!-- Eyebrow -->
-            <!-- Left aligned with line on mobile, centered without line on desktop -->
-            <div
-              class="flex items-center gap-4 mb-5 md:mb-6 justify-start md:justify-center"
-            >
-              <div class="w-8 h-px bg-[#156E8A] md:hidden"></div>
-              <p
-                class="uppercase tracking-[.25em] text-[11px] md:text-[12px] text-[#156E8A] font-bold"
-              >
-                FIND MY PURIFIER
-              </p>
-            </div>
-
-            <!-- Headline -->
-            <h1
-              class="text-5xl md:text-6xl lg:text-[80px] font-light leading-[1.1] tracking-tight text-gray-900 mb-5 md:mb-6"
-            >
-              Let's find <span class="font-medium text-[#156E8A]">your</span
-              ><br class="hidden md:block" />
-              perfect match.
-            </h1>
-
-            <!-- Subtext -->
-            <p
-              class="max-w-xl lg:max-w-2xl text-gray-500 text-sm md:text-base leading-relaxed font-light"
-            >
-              Four quick questions. We'll weigh your space, your air, and how
-              you live &mdash; then recommend the one model built for it.
+          <!-- Eyebrow -->
+          <!-- Left aligned with line on mobile, centered without line on desktop -->
+          <div class="flex items-center gap-4 mb-5 md:mb-6 justify-start md:justify-center">
+            <div class="w-8 h-px bg-[#156E8A] md:hidden"></div>
+            <p class="uppercase tracking-[.25em] text-[11px] md:text-[12px] text-[#156E8A] font-bold">
+              FIND MY PURIFIER
             </p>
           </div>
-        </div>
-      </section>
 
-      <section
-        class="w-full min-h-screen bg-[#FAFCFD] py-12 md:py-20 px-4 md:px-8 flex flex-col items-center"
-      >
+          <!-- Headline -->
+          <h1
+            class="text-5xl md:text-6xl lg:text-[80px] font-light leading-[1.1] tracking-tight text-gray-900 mb-5 md:mb-6">
+            Let's find <span class="font-medium text-[#156E8A]">your</span><br class="hidden md:block" />
+            perfect match.
+          </h1>
+
+          <!-- Subtext -->
+          <p class="max-w-xl lg:max-w-2xl text-gray-500 text-sm md:text-base leading-relaxed font-light">
+            Four quick questions. We'll weigh your space, your air, and how
+            you live &mdash; then recommend the one model built for it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- FIND MY PURIFIER - COMBINED WIZARD         -->
+    <!-- ========================================== -->
+    <section id="wizard-container"
+      class="w-full min-h-screen bg-[#FAFCFD] dark:bg-black py-6 md:py-20 px-4 md:px-8 flex flex-col items-center transition-colors duration-300">
+
+      <!-- ========================================== -->
+      <!-- MOBILE PROGRESS BAR (Hidden on Desktop)    -->
+      <!-- ========================================== -->
+      <div class="lg:hidden flex items-center justify-between w-full max-w-[280px] mb-8 relative">
+        <div class="absolute top-1/2 left-0 w-full h-px bg-gray-200 dark:bg-gray-800 z-0"></div>
+        <div id="mob-step-1"
+          class="relative z-10 w-8 h-8 rounded-full flex items-center justify-center text-[15px] font-medium transition-colors duration-300 outline outline-4 outline-[#FAFCFD] dark:outline-black">
+          1</div>
+        <div id="mob-step-2"
+          class="relative z-10 w-8 h-8 rounded-full flex items-center justify-center text-[15px] font-medium transition-colors duration-300 outline outline-4 outline-[#FAFCFD] dark:outline-black">
+          2</div>
+        <div id="mob-step-3"
+          class="relative z-10 w-8 h-8 rounded-full flex items-center justify-center text-[15px] font-medium transition-colors duration-300 outline outline-4 outline-[#FAFCFD] dark:outline-black">
+          3</div>
+        <div id="mob-step-4"
+          class="relative z-10 w-8 h-8 rounded-full flex items-center justify-center text-[15px] font-medium transition-colors duration-300 outline outline-4 outline-[#FAFCFD] dark:outline-black">
+          4</div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- MAIN WIZARD CARD                           -->
+      <!-- ========================================== -->
+      <div
+        class="w-full max-w-[850px] bg-white dark:bg-[#0a0f12] border border-gray-200 dark:border-gray-800 rounded-[4px] shadow-[0_4px_20px_rgba(0,0,0,0.02)] overflow-hidden flex flex-col transition-colors duration-300">
+
         <!-- ========================================== -->
-        <!-- MOBILE PROGRESS BAR (Hidden on Desktop)    -->
+        <!-- DESKTOP PROGRESS BAR (Hidden on Mobile)    -->
         <!-- ========================================== -->
         <div
-          class="lg:hidden flex items-center justify-between w-full max-w-[280px] mb-8 relative"
-        >
-          <!-- Connecting Line (Fixed z-index) -->
-          <div
-            class="absolute top-1/2 left-0 w-full h-px bg-gray-200 z-0"
-          ></div>
+          class="hidden lg:flex items-center justify-between px-16 py-6 border-b border-gray-100 dark:border-gray-800 relative">
+          <!-- Connecting Line -->
+          <div class="absolute top-1/2 left-16 right-16 h-px bg-gray-200 dark:bg-gray-800 z-0"></div>
+          <!-- Lines overlay (dynamic) -->
+          <div class="absolute top-1/2 left-16 h-px bg-[#156E8A] z-0 transition-all duration-500"
+            id="desk-progress-line" style="width: 0%;"></div>
 
-          <!-- Step 1 (Active - Added relative z-10) -->
-          <div
-            class="relative z-10 w-8 h-8 rounded-full bg-[#156E8A] text-white flex items-center justify-center text-[15px] font-medium border-4 border-[#FAFCFD]"
-          >
-            1
-          </div>
-          <!-- Step 2 -->
-          <div
-            class="relative z-10 w-8 h-8 rounded-full bg-white text-gray-400 flex items-center justify-center text-[15px] font-medium border border-gray-200"
-          >
-            2
-          </div>
-          <!-- Step 3 -->
-          <div
-            class="relative z-10 w-8 h-8 rounded-full bg-white text-gray-400 flex items-center justify-center text-[15px] font-medium border border-gray-200"
-          >
-            3
-          </div>
-          <!-- Step 4 -->
-          <div
-            class="relative z-10 w-8 h-8 rounded-full bg-white text-gray-400 flex items-center justify-center text-[15px] font-medium border border-gray-200"
-          >
-            4
-          </div>
+          <!-- Desktop Steps -->
+          <div id="desk-step-1"
+            class="relative z-10 w-10 h-10 rounded-full flex items-center justify-center text-[15px] font-medium transition-colors duration-300 outline outline-4 outline-white dark:outline-[#0a0f12]">
+            1</div>
+          <div id="desk-step-2"
+            class="relative z-10 w-10 h-10 rounded-full flex items-center justify-center text-[15px] font-medium transition-colors duration-300 outline outline-4 outline-white dark:outline-[#0a0f12]">
+            2</div>
+          <div id="desk-step-3"
+            class="relative z-10 w-10 h-10 rounded-full flex items-center justify-center text-[15px] font-medium transition-colors duration-300 outline outline-4 outline-white dark:outline-[#0a0f12]">
+            3</div>
+          <div id="desk-step-4"
+            class="relative z-10 w-10 h-10 rounded-full flex items-center justify-center text-[15px] font-medium transition-colors duration-300 outline outline-4 outline-white dark:outline-[#0a0f12]">
+            4</div>
         </div>
 
-        <!-- ========================================== -->
-        <!-- MAIN WIZARD CARD                           -->
-        <!-- ========================================== -->
-        <div
-          class="w-full max-w-[850px] bg-white border border-gray-200 rounded-[4px] shadow-[0_4px_20px_rgba(0,0,0,0.02)] overflow-hidden"
-        >
-          <!-- ========================================== -->
-          <!-- DESKTOP PROGRESS BAR (Hidden on Mobile)    -->
-          <!-- ========================================== -->
-          <div
-            class="hidden lg:flex items-center justify-between px-16 py-6 border-b border-gray-100 relative"
-          >
-            <!-- Connecting Line (Fixed z-index) -->
-            <div
-              class="absolute top-1/2 left-16 right-16 h-px bg-gray-200 z-0"
-            ></div>
-
-            <!-- Step 1 (Active - Added relative z-10) -->
-            <div
-              class="relative z-10 w-10 h-10 rounded-full bg-white text-[#156E8A] border-2 border-[#156E8A] flex items-center justify-center text-[15px] font-medium outline outline-4 outline-white"
-            >
-              1
-            </div>
-            <!-- Step 2 -->
-            <div
-              class="relative z-10 w-10 h-10 rounded-full bg-white text-gray-400 border border-gray-300 flex items-center justify-center text-[15px] font-medium outline outline-4 outline-white"
-            >
-              2
-            </div>
-            <!-- Step 3 -->
-            <div
-              class="relative z-10 w-10 h-10 rounded-full bg-white text-gray-400 border border-gray-300 flex items-center justify-center text-[15px] font-medium outline outline-4 outline-white"
-            >
-              3
-            </div>
-            <!-- Step 4 -->
-            <div
-              class="relative z-10 w-10 h-10 rounded-full bg-white text-gray-400 border border-gray-300 flex items-center justify-center text-[15px] font-medium outline outline-4 outline-white"
-            >
-              4
-            </div>
-          </div>
+        <!-- FORM WRAPPER -->
+        <form id="purifier-wizard-form" onsubmit="return false;" class="flex flex-col flex-1">
 
           <!-- ========================================== -->
-          <!-- CARD CONTENT AREA                          -->
+          <!-- STEP 1: ROOM SIZE (Slider)                 -->
           <!-- ========================================== -->
-          <div class="px-6 py-10 lg:px-20 lg:pt-16 lg:pb-24">
-            <!-- Headline -->
+          <div id="wizard-step-1" class="wizard-step block px-6 py-10 lg:px-20 lg:pt-16 lg:pb-24">
             <h1
-              class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight mb-3 lg:mb-4"
-            >
-              How <span class="font-medium text-[#156E8A]">large</span> is the
-              space?
+              class="text-3xl md:text-4xl lg:text-[42px] font-light text-gray-900 dark:text-white tracking-tight mb-3 lg:mb-4">
+              How <span class="font-medium text-[#156E8A]">large</span> is the space?
             </h1>
+            <p class="text-gray-400 font-light text-[15px]">Drag to match the room you want to keep clean.</p>
 
-            <!-- Subtext -->
-            <p class="text-gray-400 font-light text-[15px] lg:text-[15px]">
-              Drag to match the room you want to keep clean.
-            </p>
-
-            <!-- Dynamic Number Value -->
             <div class="mt-10 lg:mt-16">
               <div class="flex items-baseline gap-2 mb-2 lg:mb-3">
-                <span
-                  id="roomAreaValue"
-                  class="text-5xl md:text-6xl lg:text-[72px] font-light text-gray-900 tracking-tight leading-none"
-                  >600</span
-                >
-                <span class="text-gray-400 text-lg lg:text-xl font-light"
-                  >sq ft</span
-                >
+                <span id="roomAreaValue"
+                  class="text-5xl md:text-6xl lg:text-[72px] font-light text-gray-900 dark:text-white tracking-tight leading-none">600</span>
+                <span class="text-gray-400 text-lg lg:text-xl font-light">sq ft</span>
               </div>
-
-              <!-- Room Description Label -->
-              <!-- Mobile: Uppercase and smaller. Desktop: Sentence case and slightly larger. -->
-              <div
-                class="text-[#156E8A] font-bold lg:font-medium text-[11px] lg:text-[15px] uppercase lg:normal-case tracking-[0.1em] lg:tracking-normal"
-              >
+              <div id="roomAreaLabel"
+                class="text-[#156E8A] dark:text-[#2094B6] font-bold lg:font-medium text-[11px] lg:text-[15px] uppercase lg:normal-case tracking-[0.1em] lg:tracking-normal">
                 About a large living room
               </div>
             </div>
 
-            <!-- Custom Range Slider Area -->
             <div class="mt-8 lg:mt-12">
-              <!-- Slider Input -->
-              <!-- The value is set to 35 to roughly match the 600 sq ft position visually -->
-              <input
-                type="range"
-                id="roomAreaSlider"
-                min="100"
-                max="1500"
-                value="450"
-                class="w-full custom-slider outline-none"
-                aria-label="Square footage selector"
-              />
-
-              <!-- Min / Max Labels -->
-              <div
-                class="flex justify-between mt-4 text-[12px] text-gray-300 font-bold uppercase tracking-[0.15em]"
-              >
+              <input type="range" id="roomAreaSlider" name="room_area" min="100" max="1500" value="600"
+                class="w-full custom-slider outline-none accent-[#156E8A]" aria-label="Square footage selector" />
+              <div class="flex justify-between mt-4 text-[12px] text-gray-400 font-bold uppercase tracking-[0.15em]">
                 <span>100</span>
                 <span>1,500 SQ FT</span>
               </div>
             </div>
-
-            <!-- Mobile Only Button (Inside padding) -->
-            <button
-              class="lg:hidden w-full mt-12 bg-[#111111] text-white px-8 py-4 uppercase text-[12px] tracking-[0.2em] font-bold flex justify-center items-center gap-3 hover:bg-[#156E8A] transition-colors rounded-sm"
-            >
-              CONTINUE <span class="text-lg leading-none mb-[2px]">&rarr;</span>
-            </button>
           </div>
 
           <!-- ========================================== -->
-          <!-- DESKTOP ACTION BAR (Hidden on Mobile)      -->
+          <!-- STEP 2: CEILING HEIGHT                     -->
           <!-- ========================================== -->
-          <!-- Light gray background, top border, right-aligned button -->
-          <div
-            class="hidden lg:flex justify-end px-20 py-8 bg-[#F9FAFB] border-t border-gray-100"
-          >
-            <button
-              class="bg-[#111111] text-white px-10 py-4 uppercase text-[11px] tracking-[0.2em] font-bold flex justify-center items-center gap-3 hover:bg-[#156E8A] transition-colors rounded-sm"
-            >
-              CONTINUE <span class="text-lg leading-none mb-[2px]">&rarr;</span>
+          <div id="wizard-step-2" class="wizard-step hidden px-6 py-10 lg:px-20 lg:pt-16 lg:pb-24">
+            <div class="mb-10 lg:mb-12">
+              <h2
+                class="text-3xl md:text-4xl lg:text-[42px] font-light text-gray-900 dark:text-white tracking-tight mb-3 lg:mb-4">
+                How <span class="font-medium text-[#156E8A]">High</span> are the Ceilings?
+              </h2>
+              <p class="text-gray-400 font-light text-[15px]">Taller rooms hold more air - it changes the coverage you
+                need.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+              <label
+                class="radio-option group flex flex-col bg-white dark:bg-[#111a20] border border-gray-200 dark:border-gray-700 hover:border-[#156E8A] dark:hover:border-[#156E8A] rounded-[6px] p-4 lg:p-8 cursor-pointer transition-colors">
+                <input type="radio" name="ceiling_height" value="standard" class="hidden">
+                <h3
+                  class="text-[20px] md:text-[22px] text-gray-900 dark:text-white font-normal mb-1 md:mb-2 transition-colors">
+                  Standard</h3>
+                <p class="text-[13px] md:text-[14px] text-gray-400 font-light">up to 9 ft</p>
+              </label>
+              <label
+                class="radio-option group flex flex-col bg-[#EEF5F7] dark:bg-[#0c1318] border border-[#156E8A] rounded-[6px] p-4 lg:p-8 cursor-pointer transition-colors">
+                <input type="radio" name="ceiling_height" value="high" class="hidden" checked>
+                <h3
+                  class="text-[20px] md:text-[22px] text-gray-900 dark:text-white font-normal mb-1 md:mb-2 transition-colors">
+                  High</h3>
+                <p class="text-[13px] md:text-[14px] text-gray-400 font-light">9-12 ft</p>
+              </label>
+              <label
+                class="radio-option group flex flex-col bg-white dark:bg-[#111a20] border border-gray-200 dark:border-gray-700 hover:border-[#156E8A] dark:hover:border-[#156E8A] rounded-[6px] p-4 lg:p-8 cursor-pointer transition-colors">
+                <input type="radio" name="ceiling_height" value="very_high" class="hidden">
+                <h3
+                  class="text-[20px] md:text-[22px] text-gray-900 dark:text-white font-normal mb-1 md:mb-2 transition-colors">
+                  Very High</h3>
+                <p class="text-[13px] md:text-[14px] text-gray-400 font-light">12+ ft</p>
+              </label>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- STEP 3: CONCERNS                           -->
+          <!-- ========================================== -->
+          <div id="wizard-step-3" class="wizard-step hidden px-6 py-10 lg:px-20 lg:pt-16 lg:pb-24">
+            <div class="mb-10 lg:mb-12">
+              <h2
+                class="text-3xl md:text-4xl lg:text-[42px] font-light text-gray-900 dark:text-white tracking-tight mb-3 lg:mb-4">
+                What are you most <span class="font-medium text-[#156E8A]">Concerned</span> about?
+              </h2>
+              <p class="text-gray-400 font-light text-[15px]">Choose all that apply - this shapes the filtration you
+                need.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+              <!-- Option 1 -->
+              <label
+                class="concern-option flex items-center bg-white dark:bg-[#111a20] border border-gray-200 dark:border-gray-700 hover:border-[#156E8A] dark:hover:border-[#156E8A] rounded-[6px] p-3 lg:p-6 cursor-pointer transition-colors">
+                <input type="checkbox" name="concerns" value="allergies" class="hidden">
+                <div class="text-[#156E8A] mr-4 shrink-0"><svg width="32" height="24" viewBox="0 0 32 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M16 5V2M16 22V19M11.0503 7.05024L8.92896 4.92892M23.0711 19.0711L20.9498 16.9497M23 12H26M6 12H9M20.9497 7.05024L23.071 4.92892M8.92891 19.0711L11.0502 16.9497"
+                      stroke="#156E8A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg></div>
+                <div class="flex-1">
+                  <h3 class="text-[18px] lg:text-[20px] text-gray-900 dark:text-white font-normal mb-1">Allergies & Dust
+                  </h3>
+                  <p class="text-[13px] text-gray-400 font-light">Pollen, Mites, Mould</p>
+                </div>
+                <div
+                  class="indicator-empty w-6 h-6 rounded-full border border-gray-300 dark:border-gray-600 shrink-0 ml-4 transition-all">
+                </div>
+                <div
+                  class="indicator-checked w-6 h-6 rounded-full bg-[#156E8A] hidden items-center justify-center shrink-0 ml-4 transition-all text-white">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                  </svg>
+                </div>
+              </label>
+
+              <!-- Option 2 -->
+              <label
+                class="concern-option flex items-center bg-white dark:bg-[#111a20] border border-gray-200 dark:border-gray-700 hover:border-[#156E8A] dark:hover:border-[#156E8A] rounded-[6px] p-3 lg:p-6 cursor-pointer transition-colors">
+                <input type="checkbox" name="concerns" value="smoke" class="hidden">
+                <div class="text-[#156E8A] mr-4 shrink-0"><svg width="32" height="25" viewBox="0 0 32 25" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M26 19.1391L23.3849 17.57C21.9512 16.7098 20.1338 16.8321 18.8282 17.8765L18.4988 18.1401C17.0379 19.3088 14.9621 19.3088 13.5012 18.1401L13.1718 17.8765C11.8662 16.8321 10.0488 16.7098 8.61506 17.57L6 19.1391M26 13.1391L23.3849 11.57C21.9512 10.7098 20.1338 10.8321 18.8282 11.8765L18.4988 12.1401C17.0379 13.3088 14.9621 13.3088 13.5012 12.1401L13.1718 11.8765C11.8662 10.8321 10.0488 10.7098 8.61506 11.57L6 13.1391M26 7.13908L23.3849 5.57005C21.9512 4.70983 20.1338 4.83207 18.8282 5.87654L18.4988 6.14006C17.0379 7.30876 14.9621 7.30876 13.5012 6.14006L13.1718 5.87654C11.8662 4.83207 10.0488 4.70983 8.61506 5.57005L6 7.13908"
+                      stroke="#156E8A" stroke-width="1.5" stroke-linecap="round" />
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-[18px] lg:text-[20px] text-gray-900 dark:text-white font-normal mb-1">Smoke & Cooking
+                  </h3>
+                  <p class="text-[13px] text-gray-400 font-light">Odours, VOCs</p>
+                </div>
+                <div
+                  class="indicator-empty w-6 h-6 rounded-full border border-gray-300 dark:border-gray-600 shrink-0 ml-4 transition-all">
+                </div>
+                <div
+                  class="indicator-checked w-6 h-6 rounded-full bg-[#156E8A] hidden items-center justify-center shrink-0 ml-4 transition-all text-white">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                  </svg>
+                </div>
+              </label>
+
+              <!-- Option 3 (Pre-checked) -->
+              <label
+                class="concern-option flex items-center bg-[#EEF5F7] dark:bg-[#0c1318] border border-[#156E8A] rounded-[6px] p-3 lg:p-6 cursor-pointer transition-colors">
+                <input type="checkbox" name="concerns" value="pets" class="hidden" checked>
+                <div class="text-[#156E8A] mr-4 shrink-0"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M11.7228 16.9813C11.2855 17.9093 10.5762 18.6239 9.72282 18.9919C7.70149 19.8666 6.56549 21.9999 6.95482 24.1866C7.22149 25.6853 8.19749 26.9546 9.57349 27.5893C10.9122 28.2079 12.4535 28.1866 13.8082 27.5146C15.2055 26.8213 16.8108 26.8213 18.2082 27.5146C18.9068 27.8613 19.6588 28.0373 20.4108 28.0373C21.1042 28.0373 21.7975 27.8879 22.4428 27.5893C23.8135 26.9546 24.7948 25.6799 25.0615 24.1866C25.4455 22.0319 24.3308 19.9039 22.3415 19.0133C21.4775 18.6239 20.7895 17.9146 20.4108 17.0079C19.8295 15.6159 18.5975 13.9573 16.0588 13.9573C16.0428 13.9573 16.0215 13.9573 16.0055 13.9573C14.1175 13.9839 12.6402 15.0239 11.7228 16.9813ZM16.0108 15.0293H16.0535C17.6268 15.0293 18.7575 15.8346 19.4242 17.4239C19.9095 18.5813 20.7895 19.4933 21.9042 19.9946C23.4402 20.6826 24.3042 22.3306 24.0055 24.0053C23.8028 25.1413 23.0295 26.1493 21.9895 26.6293C20.9442 27.1146 19.7335 27.0933 18.6775 26.5706C17.8295 26.1493 16.9175 25.9413 16.0055 25.9413C15.0935 25.9413 14.1815 26.1493 13.3335 26.5706C12.2775 27.0933 11.0668 27.1146 10.0215 26.6293C8.98149 26.1493 8.20816 25.1413 8.00549 24.0053C7.70149 22.3093 8.58683 20.6559 10.1495 19.9786C11.2428 19.5039 12.1442 18.6026 12.6882 17.4399C13.4295 15.8559 14.5495 15.0453 16.0108 15.0293Z"
+                      fill="#156E8A" />
+                    <path
+                      d="M27.8028 11.3599C27.0188 10.9866 26.0908 11.0666 25.1948 11.5839C24.3575 12.0639 23.6428 12.8746 23.1682 13.8719C22.6935 14.8692 22.5228 15.9359 22.6775 16.8906C22.8482 17.9146 23.3708 18.6772 24.1548 19.0506C24.4802 19.2052 24.8322 19.2799 25.1948 19.2799C25.7068 19.2799 26.2402 19.1252 26.7628 18.8266C27.5948 18.3466 28.3148 17.5359 28.7895 16.5386C29.2642 15.5412 29.4348 14.4746 29.2802 13.5199C29.1148 12.5012 28.5868 11.7332 27.8028 11.3599ZM27.8295 16.0852C27.4508 16.8852 26.8855 17.5306 26.2348 17.9039C25.6482 18.2399 25.0722 18.3039 24.6135 18.0906C24.1548 17.8719 23.8402 17.3866 23.7335 16.7199C23.6108 15.9839 23.7548 15.1359 24.1335 14.3359C24.5122 13.5359 25.0775 12.8906 25.7282 12.5172C26.0855 12.3092 26.4428 12.2079 26.7682 12.2079C26.9762 12.2079 27.1682 12.2506 27.3495 12.3359C27.8082 12.5546 28.1228 13.0399 28.2295 13.7066C28.3522 14.4372 28.2082 15.2799 27.8295 16.0852Z"
+                      fill="#156E8A" />
+                    <path
+                      d="M19.2054 12.8854C19.4187 12.9388 19.632 12.9654 19.8454 12.9654C20.544 12.9654 21.2587 12.6774 21.8987 12.1228C22.6827 11.4454 23.28 10.4428 23.5787 9.2961C23.8774 8.14943 23.8454 6.98143 23.488 6.00543C23.1147 4.97077 22.4107 4.26677 21.5094 4.03743C19.7334 3.57343 17.7654 5.1841 17.1307 7.62143C16.4854 10.1014 17.3974 12.4161 19.2054 12.8854ZM18.1654 7.8881C18.5974 6.22943 19.7814 5.01877 20.88 5.01877C21.0027 5.01877 21.1254 5.03477 21.2427 5.06677C21.792 5.21077 22.2347 5.67477 22.4907 6.37877C22.7734 7.1521 22.7947 8.09077 22.5494 9.03477C22.304 9.97343 21.824 10.7894 21.2054 11.3228C20.64 11.8081 20.0214 12.0001 19.472 11.8561C18.2827 11.5468 17.6854 9.7281 18.1654 7.8881Z"
+                      fill="#156E8A" />
+                    <path
+                      d="M5.24269 18.8266C5.76535 19.1306 6.30402 19.2799 6.81069 19.2799C7.17335 19.2799 7.52535 19.2053 7.85069 19.0506C8.63469 18.6773 9.16269 17.9093 9.32802 16.8906C9.48269 15.9413 9.31202 14.8693 8.83735 13.8719C7.81335 11.7173 5.78135 10.6133 4.20269 11.3599C2.62402 12.1066 2.19202 14.3839 3.21602 16.5386C3.68535 17.5359 4.40535 18.3466 5.24269 18.8266ZM4.66135 12.3253C4.84269 12.2399 5.03469 12.1973 5.23735 12.1973C6.16535 12.1973 7.26402 13.0453 7.87735 14.3253C8.25602 15.1253 8.40002 15.9733 8.27735 16.7093C8.16535 17.3759 7.85602 17.8613 7.39735 18.0799C6.93869 18.2986 6.36269 18.2346 5.77602 17.8933C5.13069 17.5199 4.56002 16.8746 4.18135 16.0746C3.44002 14.5226 3.65869 12.7999 4.66135 12.3253Z"
+                      fill="#156E8A" />
+                    <path
+                      d="M8.42649 9.30134C8.98649 11.4613 10.5918 12.9653 12.1812 12.9653C12.3892 12.9653 12.5972 12.9387 12.8052 12.8853C14.5812 12.4213 15.5145 10.0587 14.8745 7.61601C14.2398 5.17334 12.2718 3.56801 10.4958 4.03201C8.71983 4.49601 7.78649 6.85868 8.42649 9.30134ZM10.7625 5.06668C11.9518 4.75734 13.3598 6.04801 13.8398 7.88801C14.3198 9.72801 13.7225 11.5467 12.5332 11.856C11.3492 12.1653 9.93583 10.8747 9.45583 9.03468C8.97583 7.19468 9.57849 5.37601 10.7625 5.06668Z"
+                      fill="#156E8A" />
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-[18px] lg:text-[20px] text-gray-900 dark:text-white font-normal mb-1">Pets</h3>
+                  <p class="text-[13px] text-gray-400 font-light">Dander & hair</p>
+                </div>
+                <div
+                  class="indicator-empty w-6 h-6 rounded-full border border-gray-300 dark:border-gray-600 shrink-0 ml-4 transition-all hidden">
+                </div>
+                <div
+                  class="indicator-checked w-6 h-6 rounded-full bg-[#156E8A] flex items-center justify-center shrink-0 ml-4 transition-all text-white">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                  </svg>
+                </div>
+              </label>
+
+              <!-- Option 4 -->
+              <label
+                class="concern-option flex items-center bg-white dark:bg-[#111a20] border border-gray-200 dark:border-gray-700 hover:border-[#156E8A] dark:hover:border-[#156E8A] rounded-[6px] p-3 lg:p-6 cursor-pointer transition-colors">
+                <input type="checkbox" name="concerns" value="kids" class="hidden">
+                <div class="text-[#156E8A] mr-4 shrink-0"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10.6201 14.7542C12.2348 14.7542 13.5535 16.0417 13.6064 17.6438H11.9297C11.8784 16.9656 11.3112 16.4299 10.6201 16.4299C9.92922 16.4302 9.36281 16.9658 9.31152 17.6438H7.63379C7.68672 16.0419 9.00559 14.7544 10.6201 14.7542Z"
+                      fill="#156E8A" stroke="white" stroke-width="0.2" />
+                    <path
+                      d="M21.3789 14.7539C22.9937 14.7539 24.3123 16.0415 24.3652 17.6436H22.6885C22.6372 16.9654 22.07 16.4297 21.3789 16.4297C20.688 16.4299 20.1216 16.9655 20.0703 17.6436H18.3926C18.4455 16.0416 19.7644 14.7541 21.3789 14.7539Z"
+                      fill="#156E8A" stroke="white" stroke-width="0.2" />
+                    <path
+                      d="M20.376 22.5571C19.4436 24.0687 17.7771 25.0054 16 25.0054C14.2228 25.0054 12.5554 24.069 11.623 22.5571L13.0664 21.7056C13.6987 22.7095 14.8122 23.3296 16 23.3296C17.1875 23.3296 18.3004 22.7092 18.9326 21.7056L20.376 22.5571Z"
+                      fill="#156E8A" stroke="white" stroke-width="0.2" />
+                    <path
+                      d="M8.23535 1.46826C8.28806 2.98689 9.53705 4.20654 11.0684 4.20654H11.8604L11.7422 4.04639C11.206 3.32165 10.8823 2.43192 10.8613 1.46826H12.5391C12.5918 2.98677 13.8399 4.20636 15.3711 4.20654H16C21.7189 4.20654 26.7799 7.91763 28.5244 13.3081L28.542 13.3647L28.6006 13.3755C29.2956 13.5074 29.9429 13.8187 30.4844 14.2847L30.709 14.4937C31.4772 15.2627 31.9004 16.2831 31.9004 17.3687C31.9004 18.4408 31.4864 19.4516 30.7354 20.2163C30.1482 20.814 29.4074 21.2088 28.6006 21.3618L28.542 21.3726L28.5244 21.4292C26.78 26.8197 21.719 30.5308 16 30.5308C10.281 30.5308 5.21993 26.8197 3.47559 21.4292L3.45801 21.3726L3.39941 21.3618L3.10059 21.2925C2.41013 21.1064 1.77844 20.7394 1.26465 20.2163C0.513619 19.4516 0.0996094 18.4408 0.0996094 17.3687C0.0996094 16.3509 0.47142 15.3903 1.15039 14.6411L1.29004 14.4946C1.87351 13.9118 2.60528 13.5262 3.39941 13.3755L3.45801 13.3647L3.47559 13.3081C4.52746 10.0577 6.78597 7.41839 9.66699 5.83447L9.86816 5.72412L9.65039 5.65186C7.88459 5.06591 6.60008 3.41764 6.55762 1.46826H8.23535ZM16 5.88135C10.8207 5.88135 6.26047 9.36797 4.91016 14.3608L4.74609 14.9673L4.11719 14.98C3.49749 14.9917 2.91387 15.2396 2.47461 15.6782V15.6792C2.02409 16.1303 1.77539 16.7306 1.77539 17.3687C1.77539 18.6618 2.82592 19.7329 4.11816 19.7573L4.74609 19.769L4.91016 20.3765C6.26042 25.3694 10.8207 28.856 16 28.856C21.1792 28.8559 25.7395 25.3694 27.0898 20.3765L27.2529 19.769L27.8818 19.7573C29.174 19.733 30.2245 18.6618 30.2246 17.3687C30.2246 16.7307 29.9765 16.13 29.5254 15.6782C29.0868 15.2401 28.5027 14.9917 27.8828 14.98L27.2529 14.9673L27.0898 14.3608C26.1508 10.8888 23.6591 8.14567 20.4873 6.79639L20.2402 6.69092L20.3584 6.93213C20.672 7.57343 20.8486 8.29347 20.8486 9.0542C20.8486 11.7274 18.6732 13.9028 16 13.9028C13.3603 13.9028 11.2079 11.7819 11.1543 9.15479H12.8291C12.8823 10.8583 14.2838 12.228 16 12.228C17.7498 12.228 19.1729 10.804 19.1729 9.0542C19.1728 7.30448 17.7497 5.88135 16 5.88135Z"
+                      fill="#156E8A" stroke="white" stroke-width="0.2" />
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-[18px] lg:text-[20px] text-gray-900 dark:text-white font-normal mb-1">Babies & Kids
+                  </h3>
+                  <p class="text-[13px] text-gray-400 font-light">Sensitive lungs</p>
+                </div>
+                <div
+                  class="indicator-empty w-6 h-6 rounded-full border border-gray-300 dark:border-gray-600 shrink-0 ml-4 transition-all">
+                </div>
+                <div
+                  class="indicator-checked w-6 h-6 rounded-full bg-[#156E8A] hidden items-center justify-center shrink-0 ml-4 transition-all text-white">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                  </svg>
+                </div>
+              </label>
+
+              <!-- Option 5 -->
+              <label
+                class="concern-option flex items-center bg-white dark:bg-[#111a20] border border-gray-200 dark:border-gray-700 hover:border-[#156E8A] dark:hover:border-[#156E8A] rounded-[6px] p-3 lg:p-6 cursor-pointer transition-colors">
+                <input type="checkbox" name="concerns" value="kids" class="hidden">
+                <div class="text-[#156E8A] mr-4 shrink-0"><svg width="31" height="24" viewBox="0 0 31 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_236_8900)">
+                      <path
+                        d="M26.0168 23.191H25.3427V2.02247C25.3427 1.79902 25.1616 1.61798 24.9382 1.61798H17.3876C17.1642 1.61798 16.9831 1.79902 16.9831 2.02247V3.77527H16.1742V2.02247C16.1742 1.79902 15.9931 1.61798 15.7697 1.61798H14.0168V0.404484C14.0168 0.181031 13.8357 0 13.6124 0C13.389 0 13.2079 0.181031 13.2079 0.404484V1.61798H11.4551C11.2317 1.61798 11.0506 1.79902 11.0506 2.02247V3.77527H9.8371C9.61369 3.77527 9.43261 3.9563 9.43261 4.17975V7.55053H6.06183C5.83843 7.55053 5.65735 7.73156 5.65735 7.95502V23.191H4.9831C4.75969 23.191 4.57861 23.372 4.57861 23.5955C4.57861 23.8189 4.75974 24 4.9831 24H26.0168C26.2403 24 26.4213 23.819 26.4213 23.5955C26.4213 23.3721 26.2402 23.191 26.0168 23.191ZM11.8595 2.42695H15.3651V3.77527H11.8595V2.42695ZM10.5112 23.191H10.2415V22.5169C10.2415 22.2934 10.0604 22.1124 9.83705 22.1124C9.61369 22.1124 9.43257 22.2934 9.43257 22.5169V23.191H9.16289V21.8427H10.5112V23.191ZM13.2078 12.809V13.5048V23.191H11.3202V21.4382C11.3202 21.2148 11.1391 21.0338 10.9157 21.0338H8.75841C8.535 21.0338 8.35393 21.2148 8.35393 21.4382V23.191H6.46627V8.35955H13.2078V12.809ZM13.6123 7.55058H10.2415V4.58428H16.9831V12.4045H14.0168V11.0562H15.2303C15.4538 11.0562 15.6348 10.8751 15.6348 10.6517C15.6348 10.4282 15.4537 10.2472 15.2303 10.2472H14.0168V8.89889H15.2303C15.4538 8.89889 15.6348 8.71786 15.6348 8.49441C15.6348 8.27095 15.4537 8.08992 15.2303 8.08992H14.0168V7.95511C14.0168 7.73161 13.8357 7.55058 13.6123 7.55058ZM20.7584 23.191H14.0168V13.5048V13.2135H20.7584V23.191ZM24.5337 23.191H21.5674V12.809V12.2696C21.5674 12.0462 21.3863 11.8651 21.1629 11.8651C20.9395 11.8651 20.7584 12.0462 20.7584 12.2696V12.4044H19.9494V12.2696C19.9494 12.0462 19.7683 11.8651 19.545 11.8651C19.3216 11.8651 19.1405 12.0462 19.1405 12.2696V12.4044H17.7922V4.1798V2.42695H24.5337V23.191H24.5337Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M15.7697 22.3822C15.9931 22.3822 16.1742 22.2011 16.1742 21.9777V14.4272C16.1742 14.2037 15.9931 14.0227 15.7697 14.0227C15.5464 14.0227 15.3652 14.2037 15.3652 14.4272V21.9778C15.3652 22.2011 15.5463 22.3822 15.7697 22.3822Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M17.3874 22.3822C17.6108 22.3822 17.7919 22.2011 17.7919 21.9777V14.4272C17.7919 14.2037 17.6108 14.0227 17.3874 14.0227C17.164 14.0227 16.9829 14.2037 16.9829 14.4272V21.9778C16.9829 22.2011 17.164 22.3822 17.3874 22.3822Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M19.0056 22.3822C19.229 22.3822 19.41 22.2011 19.41 21.9777V14.4272C19.41 14.2037 19.2289 14.0227 19.0056 14.0227C18.7822 14.0227 18.6011 14.2037 18.6011 14.4272V21.9778C18.6011 22.2011 18.7822 22.3822 19.0056 22.3822Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M19.5451 5.12366C19.7685 5.12366 19.9496 4.94263 19.9496 4.71917V4.17987C19.9496 3.95642 19.7685 3.77539 19.5451 3.77539C19.3217 3.77539 19.1406 3.95642 19.1406 4.17987V4.71922C19.1406 4.94263 19.3217 5.12366 19.5451 5.12366Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M21.1628 5.12366C21.3862 5.12366 21.5673 4.94263 21.5673 4.71917V4.17987C21.5673 3.95642 21.3861 3.77539 21.1628 3.77539C20.9394 3.77539 20.7583 3.95642 20.7583 4.17987V4.71922C20.7583 4.94263 20.9394 5.12366 21.1628 5.12366Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M22.7809 5.12366C23.0044 5.12366 23.1854 4.94263 23.1854 4.71917V4.17987C23.1854 3.95642 23.0043 3.77539 22.7809 3.77539C22.5576 3.77539 22.3765 3.95642 22.3765 4.17987V4.71922C22.3765 4.94263 22.5575 5.12366 22.7809 5.12366Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M19.5451 7.82024C19.7685 7.82024 19.9496 7.6392 19.9496 7.41575V6.87641C19.9496 6.65295 19.7685 6.47192 19.5451 6.47192C19.3217 6.47192 19.1406 6.65295 19.1406 6.87641V7.41575C19.1406 7.6392 19.3217 7.82024 19.5451 7.82024Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M21.1628 7.82024C21.3862 7.82024 21.5673 7.6392 21.5673 7.41575V6.87641C21.5673 6.65295 21.3861 6.47192 21.1628 6.47192C20.9394 6.47192 20.7583 6.65295 20.7583 6.87641V7.41575C20.7583 7.6392 20.9394 7.82024 21.1628 7.82024Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M22.7809 7.82024C23.0044 7.82024 23.1854 7.6392 23.1854 7.41575V6.87641C23.1854 6.65295 23.0043 6.47192 22.7809 6.47192C22.5576 6.47192 22.3765 6.65295 22.3765 6.87641V7.41575C22.3765 7.6392 22.5575 7.82024 22.7809 7.82024Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M19.5451 10.5168C19.7685 10.5168 19.9496 10.3357 19.9496 10.1123V9.57294C19.9496 9.34949 19.7685 9.16846 19.5451 9.16846C19.3217 9.16846 19.1406 9.34949 19.1406 9.57294V10.1123C19.1406 10.3357 19.3217 10.5168 19.5451 10.5168Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M21.1628 10.5168C21.3862 10.5168 21.5673 10.3357 21.5673 10.1123V9.57294C21.5673 9.34949 21.3861 9.16846 21.1628 9.16846C20.9394 9.16846 20.7583 9.34949 20.7583 9.57294V10.1123C20.7583 10.3357 20.9394 10.5168 21.1628 10.5168Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M22.7809 10.5168C23.0044 10.5168 23.1854 10.3357 23.1854 10.1123V9.57294C23.1854 9.34949 23.0043 9.16846 22.7809 9.16846C22.5576 9.16846 22.3765 9.34949 22.3765 9.57294V10.1123C22.3765 10.3357 22.5575 10.5168 22.7809 10.5168Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M8.21894 11.5956C8.44234 11.5956 8.62342 11.4146 8.62342 11.1911V10.6518C8.62342 10.4283 8.4423 10.2473 8.21894 10.2473C7.99558 10.2473 7.81445 10.4283 7.81445 10.6518V11.1911C7.81445 11.4145 7.99558 11.5956 8.21894 11.5956Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M9.8371 11.5956C10.0605 11.5956 10.2416 11.4146 10.2416 11.1911V10.6518C10.2416 10.4283 10.0605 10.2473 9.8371 10.2473C9.61374 10.2473 9.43262 10.4283 9.43262 10.6518V11.1911C9.43262 11.4145 9.6137 11.5956 9.8371 11.5956Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M11.4553 11.5956C11.6787 11.5956 11.8598 11.4146 11.8598 11.1911V10.6518C11.8598 10.4283 11.6786 10.2473 11.4553 10.2473C11.2319 10.2473 11.0508 10.4283 11.0508 10.6518V11.1911C11.0508 11.4145 11.2319 11.5956 11.4553 11.5956Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M8.21894 14.2922C8.44234 14.2922 8.62342 14.1111 8.62342 13.8877V13.3483C8.62342 13.1249 8.4423 12.9438 8.21894 12.9438C7.99558 12.9438 7.81445 13.1249 7.81445 13.3483V13.8877C7.81445 14.1111 7.99558 14.2922 8.21894 14.2922Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M9.8371 14.2922C10.0605 14.2922 10.2416 14.1111 10.2416 13.8877V13.3483C10.2416 13.1249 10.0605 12.9438 9.8371 12.9438C9.61374 12.9438 9.43262 13.1249 9.43262 13.3483V13.8877C9.43262 14.1111 9.6137 14.2922 9.8371 14.2922Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M11.4553 14.2922C11.6787 14.2922 11.8598 14.1111 11.8598 13.8877V13.3483C11.8598 13.1249 11.6786 12.9438 11.4553 12.9438C11.2319 12.9438 11.0508 13.1249 11.0508 13.3483V13.8877C11.0508 14.1111 11.2319 14.2922 11.4553 14.2922Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M8.21894 16.9887C8.44234 16.9887 8.62342 16.8077 8.62342 16.5842V16.0449C8.62342 15.8214 8.4423 15.6404 8.21894 15.6404C7.99558 15.6404 7.81445 15.8214 7.81445 16.0449V16.5842C7.81445 16.8077 7.99558 16.9887 8.21894 16.9887Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M9.8371 16.9887C10.0605 16.9887 10.2416 16.8077 10.2416 16.5842V16.0449C10.2416 15.8214 10.0605 15.6404 9.8371 15.6404C9.61374 15.6404 9.43262 15.8214 9.43262 16.0449V16.5842C9.43262 16.8077 9.6137 16.9887 9.8371 16.9887Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M11.4553 16.9887C11.6787 16.9887 11.8598 16.8077 11.8598 16.5842V16.0449C11.8598 15.8214 11.6786 15.6404 11.4553 15.6404C11.2319 15.6404 11.0508 15.8214 11.0508 16.0449V16.5842C11.0508 16.8077 11.2319 16.9887 11.4553 16.9887Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M8.21894 19.6855C8.44234 19.6855 8.62342 19.5044 8.62342 19.281V18.7416C8.62342 18.5182 8.4423 18.3372 8.21894 18.3372C7.99558 18.3372 7.81445 18.5182 7.81445 18.7416V19.281C7.81445 19.5044 7.99558 19.6855 8.21894 19.6855Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M9.8371 19.6855C10.0605 19.6855 10.2416 19.5044 10.2416 19.281V18.7416C10.2416 18.5182 10.0605 18.3372 9.8371 18.3372C9.61374 18.3372 9.43262 18.5182 9.43262 18.7416V19.281C9.43262 19.5044 9.6137 19.6855 9.8371 19.6855Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M11.4553 19.6855C11.6787 19.6855 11.8598 19.5044 11.8598 19.281V18.7416C11.8598 18.5182 11.6786 18.3372 11.4553 18.3372C11.2319 18.3372 11.0508 18.5182 11.0508 18.7416V19.281C11.0508 19.5044 11.2319 19.6855 11.4553 19.6855Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M22.7809 13.2135C23.0044 13.2135 23.1854 13.0325 23.1854 12.8091V12.2697C23.1854 12.0463 23.0043 11.8652 22.7809 11.8652C22.5576 11.8652 22.3765 12.0463 22.3765 12.2697V12.8091C22.3765 13.0325 22.5575 13.2135 22.7809 13.2135Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M22.7809 15.9101C23.0044 15.9101 23.1854 15.729 23.1854 15.5056V14.9663C23.1854 14.7428 23.0043 14.5618 22.7809 14.5618C22.5576 14.5618 22.3765 14.7428 22.3765 14.9663V15.5056C22.3765 15.729 22.5575 15.9101 22.7809 15.9101Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M22.7809 18.6069C23.0044 18.6069 23.1854 18.4258 23.1854 18.2024V17.663C23.1854 17.4396 23.0043 17.2585 22.7809 17.2585C22.5576 17.2585 22.3765 17.4396 22.3765 17.663V18.2024C22.3765 18.4258 22.5575 18.6069 22.7809 18.6069Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M22.7809 21.3034C23.0044 21.3034 23.1854 21.1224 23.1854 20.8989V20.3596C23.1854 20.1361 23.0043 19.9551 22.7809 19.9551C22.5576 19.9551 22.3765 20.1361 22.3765 20.3596V20.8989C22.3765 21.1223 22.5575 21.3034 22.7809 21.3034Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M15.6348 6.3371C15.6348 6.11365 15.4537 5.93262 15.2303 5.93262H11.9943C11.7709 5.93262 11.5898 6.11365 11.5898 6.3371C11.5898 6.56055 11.771 6.74159 11.9943 6.74159H15.2303C15.4537 6.74159 15.6348 6.56055 15.6348 6.3371Z"
+                        fill="#156E8A" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_236_8900">
+                        <rect width="24" height="24" fill="white" transform="translate(3.5)" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-[18px] lg:text-[20px] text-gray-900 dark:text-white font-normal mb-1">City Pollution
+                  </h3>
+                  <p class="text-[13px] text-gray-400 font-light">PM2.5, traffic</p>
+                </div>
+                <div
+                  class="indicator-empty w-6 h-6 rounded-full border border-gray-300 dark:border-gray-600 shrink-0 ml-4 transition-all">
+                </div>
+                <div
+                  class="indicator-checked w-6 h-6 rounded-full bg-[#156E8A] hidden items-center justify-center shrink-0 ml-4 transition-all text-white">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                  </svg>
+                </div>
+              </label>
+
+              <!-- Option 4 -->
+              <label
+                class="concern-option flex items-center bg-white dark:bg-[#111a20] border border-gray-200 dark:border-gray-700 hover:border-[#156E8A] dark:hover:border-[#156E8A] rounded-[6px] p-3 lg:p-6 cursor-pointer transition-colors">
+                <input type="checkbox" name="concerns" value="kids" class="hidden">
+                <div class="text-[#156E8A] mr-4 shrink-0"><svg width="31" height="24" viewBox="0 0 31 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_236_8940)">
+                      <path
+                        d="M5.20257 13.1605H22.3478C24.8335 13.1605 26.8557 11.1383 26.8557 8.65262C26.8557 6.17062 24.8394 4.15066 22.3586 4.14478C22.1142 4.14109 20.5273 4.16305 19.3424 5.31839C18.5485 6.09239 18.1461 7.15592 18.1461 8.47929C18.1461 9.06364 18.6197 9.53733 19.2041 9.53733C19.7885 9.53733 20.2621 9.0636 20.2621 8.47929C20.2621 7.75451 20.4463 7.20415 20.8093 6.84364C21.3752 6.28168 22.2554 6.26145 22.3258 6.26074C22.3357 6.26105 22.3344 6.2609 22.3477 6.2609C23.6666 6.2609 24.7396 7.33384 24.7396 8.65262C24.7396 9.97149 23.6667 11.0444 22.3477 11.0444H5.20257C4.61822 11.0444 4.14453 11.5182 4.14453 12.1025C4.14453 12.6868 4.61822 13.1605 5.20257 13.1605Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M5.20257 9.01599H13.3748C15.8605 9.01599 17.8827 6.99371 17.8827 4.50807C17.8827 2.02591 15.8664 0.00586936 13.3856 0.000222299C13.1383 -0.00322868 11.5539 0.0188106 10.3693 1.17383C9.57547 1.94791 9.17296 3.01144 9.17296 4.33481C9.17296 4.91916 9.64661 5.39293 10.231 5.39293C10.8154 5.39293 11.289 4.9192 11.289 4.33481C11.289 3.61003 11.4732 3.05967 11.8362 2.69916C12.402 2.13728 13.2822 2.11689 13.3528 2.11618C13.3627 2.1165 13.3614 2.11634 13.3748 2.11634C14.6936 2.11634 15.7666 3.18928 15.7666 4.50807C15.7666 5.82693 14.6937 6.89987 13.3748 6.89987H5.20257C4.61822 6.89987 4.14453 7.37359 4.14453 7.95799C4.14453 8.54238 4.61822 9.01599 5.20257 9.01599Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M22.3478 14.9841H5.20257C4.61822 14.9841 4.14453 15.4579 4.14453 16.0422C4.14453 16.6264 4.61818 17.1002 5.20257 17.1002H22.3478C23.6667 17.1002 24.7397 18.1732 24.7397 19.4919C24.7397 20.8108 23.6667 21.8837 22.3478 21.8837C22.3345 21.8837 22.3357 21.8835 22.3258 21.8839C22.2554 21.8832 21.3751 21.8629 20.8094 21.301C20.4463 20.9405 20.2621 20.3901 20.2621 19.6653C20.2621 19.0809 19.7885 18.6072 19.2041 18.6072C18.6198 18.6072 18.1461 19.0809 18.1461 19.6653C18.1461 20.9887 18.5485 22.0522 19.3424 22.8263C20.4796 23.9352 21.9858 24.0002 22.3226 24.0001C22.3367 24.0001 22.3487 24 22.3586 23.9999C24.8394 23.994 26.8557 21.974 26.8557 19.492C26.8557 17.0063 24.8336 14.9841 22.3478 14.9841Z"
+                        fill="#156E8A" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_236_8940">
+                        <rect width="24" height="24" fill="white" transform="translate(3.5)" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-[18px] lg:text-[20px] text-gray-900 dark:text-white font-normal mb-1">Just Cleaner Air
+                  </h3>
+                  <p class="text-[13px] text-gray-400 font-light">Everyday wellness</p>
+                </div>
+                <div
+                  class="indicator-empty w-6 h-6 rounded-full border border-gray-300 dark:border-gray-600 shrink-0 ml-4 transition-all">
+                </div>
+                <div
+                  class="indicator-checked w-6 h-6 rounded-full bg-[#156E8A] hidden items-center justify-center shrink-0 ml-4 transition-all text-white">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                  </svg>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- STEP 4: ROOM TYPE                          -->
+          <!-- ========================================== -->
+          <div id="wizard-step-4" class="wizard-step hidden px-6 py-10 lg:px-20 lg:pt-16 lg:pb-24">
+            <div class="mb-10 lg:mb-12">
+              <h2
+                class="text-3xl md:text-4xl lg:text-[42px] font-light text-gray-900 dark:text-white tracking-tight mb-3 lg:mb-4">
+                Where will it <span class="font-medium text-[#156E8A]">live</span>?
+              </h2>
+              <p class="text-gray-400 font-light text-[15px]">This tells us how much quiet matters.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+              <label
+                class="concern-option flex items-center bg-white dark:bg-[#111a20] border border-gray-200 dark:border-gray-700 hover:border-[#156E8A] dark:hover:border-[#156E8A] rounded-[6px] p-3 lg:p-6 cursor-pointer transition-colors">
+                <input type="checkbox" name="concerns" value="kids" class="hidden">
+                <div class="text-[#156E8A] mr-4 shrink-0"><svg width="32" height="24" viewBox="0 0 32 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M26.4689 11.7885V4.24509C26.4689 2.41021 24.9761 0.91748 23.1413 0.91748H8.76306C6.92819 0.91748 5.43545 2.41026 5.43545 4.24509V11.8858C4.5467 12.815 4 14.0739 4 15.4581V21.1779C4 22.2279 4.8542 23.0821 5.9042 23.0821C6.95416 23.0821 7.80836 22.2279 7.80836 21.1779V20.5872H24.1917V21.1779C24.1917 22.2279 25.0459 23.0821 26.0958 23.0821C27.1458 23.0821 28 22.2279 28 21.1779V15.4581C28 14.0249 27.4139 12.7261 26.4689 11.7885ZM8.76306 1.85498H23.1413C24.4592 1.85498 25.5314 2.9272 25.5314 4.24509V11.0507C25.2443 10.874 24.9387 10.7244 24.6183 10.6058V9.04706C24.6183 7.66518 23.494 6.54093 22.1122 6.54093H18.0374C17.1985 6.54093 16.4552 6.95564 16 7.59037C15.5449 6.95564 14.8015 6.54093 13.9627 6.54093H9.88792C8.50605 6.54093 7.3818 7.66514 7.3818 9.04706V10.6058C7.0255 10.7377 6.68758 10.9078 6.373 11.111V4.24509C6.37295 2.9272 7.44513 1.85498 8.76306 1.85498ZM9.17186 10.2862C8.88147 10.2862 8.59666 10.3107 8.3192 10.3569V9.04706C8.3192 8.18212 9.02289 7.47843 9.88783 7.47843H13.9626C14.8275 7.47843 15.5312 8.18212 15.5312 9.04706V10.2863H9.17186V10.2862ZM16.4688 9.04701C16.4688 8.18208 17.1724 7.47839 18.0374 7.47839H22.1121C22.9771 7.47839 23.6807 8.18208 23.6807 9.04701V10.3569C23.4032 10.3107 23.1185 10.2862 22.8281 10.2862H16.4688V9.04701ZM9.17186 11.2237H22.8281C25.1629 11.2237 27.0625 13.1233 27.0625 15.4581V16.8487H22.3611C22.1022 16.8487 21.8923 17.0587 21.8923 17.3175C21.8923 17.5763 22.1022 17.7862 22.3611 17.7862H27.0625V19.6498H4.9375V17.7862H17.6736C17.9325 17.7862 18.1423 17.5763 18.1423 17.3175C18.1423 17.0587 17.9325 16.8487 17.6736 16.8487H4.9375V15.4581C4.9375 13.1233 6.83702 11.2237 9.17186 11.2237ZM6.87086 21.1779C6.87086 21.711 6.43722 22.1446 5.9042 22.1446C5.37119 22.1446 4.9375 21.711 4.9375 21.1779V20.5872H6.87086V21.1779ZM26.0958 22.1446C25.5628 22.1446 25.1291 21.711 25.1291 21.1779V20.5872H27.0625V21.1779C27.0625 21.711 26.6289 22.1446 26.0958 22.1446Z"
+                      fill="#00718D" />
+                    <path
+                      d="M20.0173 17.7866C20.2763 17.7866 20.4863 17.5766 20.4863 17.3176C20.4863 17.0586 20.2763 16.8486 20.0173 16.8486C19.7583 16.8486 19.5483 17.0586 19.5483 17.3176C19.5483 17.5766 19.7583 17.7866 20.0173 17.7866Z"
+                      fill="#00718D" />
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-[18px] lg:text-[20px] text-gray-900 dark:text-white font-normal mb-1">Bedroom</h3>
+                  <p class="text-[13px] text-gray-400 font-light">Sleep matters most</p>
+                </div>
+                <div
+                  class="indicator-empty w-6 h-6 rounded-full border border-gray-300 dark:border-gray-600 shrink-0 ml-4 transition-all">
+                </div>
+                <div
+                  class="indicator-checked w-6 h-6 rounded-full bg-[#156E8A] hidden items-center justify-center shrink-0 ml-4 transition-all text-white">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                  </svg>
+                </div>
+              </label>
+              <label
+                class="concern-option flex items-center bg-white dark:bg-[#111a20] border border-gray-200 dark:border-gray-700 hover:border-[#156E8A] dark:hover:border-[#156E8A] rounded-[6px] p-3 lg:p-6 cursor-pointer transition-colors">
+                <input type="checkbox" name="concerns" value="kids" class="hidden">
+                <div class="text-[#156E8A] mr-4 shrink-0"><svg width="32" height="24" viewBox="0 0 32 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M27.0156 20.2427H24.0761V19.2968H24.7764C25.5555 19.2968 26.1897 18.663 26.1897 17.8835V15.3672C26.1897 14.6843 25.7027 14.1129 25.0577 13.9821V12.799C25.0577 12.0082 24.4141 11.3646 23.6233 11.3646H15.4834C14.6927 11.3646 14.0491 12.0082 14.0491 12.799V13.9821C13.8386 14.0247 13.645 14.1143 13.4795 14.2394V6.8585H14.1888V8.8535C14.1888 9.00865 14.3148 9.13475 14.47 9.13475C14.6252 9.13475 14.7513 9.00865 14.7513 8.8535V6.8585H15.4952C15.5805 6.8585 15.6616 6.81959 15.715 6.75303C15.7684 6.68646 15.7886 6.59881 15.7698 6.51537L14.8328 2.35756C14.8038 2.22912 14.6898 2.13818 14.5586 2.13818H11.838C11.7063 2.13818 11.5923 2.22912 11.5638 2.35756L10.6267 6.51584C10.608 6.59928 10.6281 6.68647 10.6816 6.7535C10.735 6.82006 10.8156 6.85896 10.9014 6.85896H12.9175V15.3677V17.884C12.9175 18.663 13.5513 19.2972 14.3308 19.2972H15.0311V20.2432H12.2627V14.9688C12.2627 14.8137 12.1366 14.6876 11.9814 14.6876H10.2531L11.1137 12.5979C11.1494 12.5112 11.1395 12.4122 11.0875 12.3344C11.0355 12.2566 10.9478 12.2097 10.8536 12.2097H10.7894C10.9131 12.1179 11.0298 12.0157 11.1377 11.9013C11.6734 11.3337 11.9275 10.563 11.8356 9.78678C11.8197 9.65178 11.7091 9.54725 11.5731 9.53928C11.0355 9.50693 10.5128 9.63678 10.0623 9.90865C9.92078 9.40381 9.62922 8.94818 9.21672 8.60318C9.11219 8.516 8.96031 8.516 8.85578 8.60318C8.44328 8.94818 8.15172 9.40381 8.01016 9.90865C7.55922 9.63725 7.03703 9.50693 6.49937 9.53928C6.36344 9.54725 6.25281 9.65178 6.23688 9.78678C6.145 10.5626 6.39906 11.3337 6.93484 11.9013C7.04266 12.0152 7.15937 12.1179 7.28312 12.2097H7.21891C7.12516 12.2097 7.0375 12.2566 6.985 12.3344C6.9325 12.4122 6.92313 12.5112 6.95875 12.5979L7.81938 14.6876H6.09156C5.93641 14.6876 5.81031 14.8137 5.81031 14.9688V20.2427H4.98438C4.82922 20.2427 4.70312 20.3688 4.70312 20.524V21.5805C4.70312 21.7357 4.82922 21.8618 4.98438 21.8618H27.0156C27.1708 21.8618 27.2969 21.7357 27.2969 21.5805V20.524C27.2969 20.3688 27.1708 20.2427 27.0156 20.2427ZM12.063 2.70115H14.3336L15.1436 6.29646H11.2525L12.063 2.70115ZM23.5136 20.2427H23.1034L22.413 19.2968H23.5141V20.2427H23.5136ZM21.7164 19.2968L22.4069 20.2427H16.6998L17.3903 19.2968H21.7164ZM15.4834 11.928H23.6238C24.1042 11.928 24.4956 12.319 24.4956 12.7999V13.983C23.8506 14.1138 23.3636 14.6852 23.3636 15.3682V16.4712H15.7436V15.3682C15.7436 14.6852 15.2566 14.1138 14.6116 13.983V12.7999C14.6116 12.319 15.0025 11.928 15.4834 11.928ZM13.4795 17.884V15.3677C13.4795 14.8985 13.8611 14.5169 14.3303 14.5169C14.7995 14.5169 15.1811 14.8985 15.1811 15.3677V16.7519C15.1811 16.9071 15.3072 17.0332 15.4623 17.0332H23.6448C23.8 17.0332 23.9261 16.9071 23.9261 16.7519V15.3677C23.9261 14.8985 24.3077 14.5169 24.7769 14.5169C25.2461 14.5169 25.6277 14.8985 25.6277 15.3677V17.884C25.6277 18.3532 25.2461 18.7347 24.7769 18.7347H14.3303C13.8611 18.7343 13.4795 18.3527 13.4795 17.884ZM15.5931 19.2968H16.6942L16.0037 20.2427H15.5936V19.2968H15.5931ZM11.2914 10.1004C11.2909 10.6244 11.0922 11.1297 10.7284 11.5155C10.4472 11.8137 10.0881 12.0171 9.69859 12.1085C9.99672 11.6754 10.1603 11.1583 10.1603 10.6202C10.1603 10.5879 10.1589 10.5555 10.1575 10.5237C10.4861 10.2705 10.8784 10.1243 11.2914 10.1004ZM9.03625 9.20459C9.39531 9.58615 9.59734 10.0896 9.59734 10.6202C9.59734 11.1504 9.39531 11.6543 9.03625 12.0358C8.67719 11.6543 8.47516 11.1508 8.47516 10.6202C8.47516 10.0896 8.67719 9.58615 9.03625 9.20459ZM6.78109 10.1004C7.19406 10.1243 7.58687 10.2705 7.915 10.5237C7.91359 10.556 7.91219 10.5879 7.91219 10.6202C7.91219 11.1588 8.07578 11.6754 8.37391 12.1085C7.98391 12.0171 7.62531 11.8137 7.34359 11.5151C6.98031 11.1293 6.78156 10.6244 6.78109 10.1004ZM7.63937 12.7722H10.4336L9.64469 14.688H8.42828L7.63937 12.7722ZM11.7002 15.2501V18.0565H6.37281V15.2501H11.7002ZM6.37281 18.619H11.7002V20.2427H6.37281V18.619ZM26.7344 21.2993H5.26562V20.8052H26.7344V21.2993ZM7.98531 16.6535C7.98531 16.4983 8.11141 16.3722 8.26656 16.3722H9.80594C9.96109 16.3722 10.0872 16.4983 10.0872 16.6535C10.0872 16.8087 9.96109 16.9347 9.80594 16.9347H8.26656C8.11141 16.9347 7.98531 16.8087 7.98531 16.6535Z"
+                      fill="#156E8A" />
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-[18px] lg:text-[20px] text-gray-900 dark:text-white font-normal mb-1">Living Room</h3>
+                  <p class="text-[13px] text-gray-400 font-light">Shared family space</p>
+                </div>
+                <div
+                  class="indicator-empty w-6 h-6 rounded-full border border-gray-300 dark:border-gray-600 shrink-0 ml-4 transition-all">
+                </div>
+                <div
+                  class="indicator-checked w-6 h-6 rounded-full bg-[#156E8A] hidden items-center justify-center shrink-0 ml-4 transition-all text-white">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                  </svg>
+                </div>
+              </label>
+              <label
+                class="concern-option flex items-center bg-white dark:bg-[#111a20] border border-gray-200 dark:border-gray-700 hover:border-[#156E8A] dark:hover:border-[#156E8A] rounded-[6px] p-3 lg:p-6 cursor-pointer transition-colors">
+                <input type="checkbox" name="concerns" value="kids" class="hidden">
+                <div class="text-[#156E8A] mr-4 shrink-0"><svg width="32" height="24" viewBox="0 0 32 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_236_9219)">
+                      <path
+                        d="M6.02483 15.0183H9.43658C9.64377 15.0183 9.80858 15.1884 9.80858 15.3957V23.6229C9.80858 23.8301 9.64377 24.0003 9.43658 24.0003H6.02483C5.81746 24.0003 5.65283 23.8302 5.65283 23.6229V15.3956C5.65283 15.1884 5.81746 15.0183 6.02483 15.0183ZM16.8876 15.0183H25.97C26.177 15.0183 26.3472 15.1884 26.3472 15.3957V23.6229C26.3472 23.8301 26.177 24.0003 25.97 24.0003H16.8876C16.6805 24.0003 16.51 23.8302 16.51 23.6229V15.3956C16.5102 15.1884 16.6805 15.0183 16.8876 15.0183ZM25.598 15.7677H17.2595V23.2509H25.5981L25.598 15.7677ZM9.05933 15.7677H6.40208V23.2509H9.05933V15.7677Z"
+                        fill="#00718D" />
+                      <path
+                        d="M18.9973 16.6021H23.8599C24.0671 16.6021 24.2533 16.687 24.3913 16.8199C24.3967 16.8306 24.4074 16.8411 24.4125 16.8518C24.5347 16.9847 24.6092 17.1602 24.6092 17.3515V19.4453C24.6092 19.6472 24.5242 19.8387 24.3913 19.9716H24.3862C24.2533 20.1098 24.062 20.1947 23.8599 20.1947H18.9973C18.7952 20.1947 18.6095 20.1098 18.471 19.9716C18.333 19.8387 18.248 19.6527 18.248 19.4453V17.3515C18.248 17.1443 18.333 16.9581 18.471 16.8199C18.6041 16.687 18.7952 16.6021 18.9973 16.6021ZM21.4312 18.0211C21.6384 18.0211 21.8032 18.1911 21.8032 18.3985C21.8032 18.6059 21.6384 18.7705 21.4312 18.7705C21.224 18.7705 21.054 18.6057 21.054 18.3985C21.054 18.1913 21.2239 18.0211 21.4312 18.0211ZM23.8599 17.3515H18.9973V19.4453H23.8599V17.3515ZM24.4125 16.8518C24.5347 16.9954 24.5242 17.2133 24.3913 17.3515L24.4125 16.8518Z"
+                        fill="#00718D" />
+                      <path
+                        d="M5.87076 2.90601H15.6281C15.9682 2.90601 16.2817 3.04419 16.5052 3.27276C16.7281 3.49588 16.8718 3.80413 16.8718 4.14951V9.18257V10.793C16.8718 11.1384 16.7281 11.4466 16.5052 11.6699C16.2819 11.8985 15.9682 12.0367 15.6281 12.0367H5.87076C5.53064 12.0367 5.22239 11.8985 4.99382 11.6699C4.7707 11.4468 4.63232 11.1386 4.63232 10.793V9.18257V4.14951C4.63232 3.80413 4.77051 3.49588 4.99382 3.27276C5.22239 3.04419 5.53064 2.90601 5.87076 2.90601ZM16.1223 9.56001H5.38195V10.793C5.38195 10.9312 5.43501 11.0534 5.52539 11.1438C5.61576 11.2289 5.73801 11.2873 5.87095 11.2873H15.6283C15.7664 11.2873 15.8887 11.2288 15.9738 11.1438C16.064 11.0534 16.1225 10.9312 16.1225 10.793L16.1223 9.56001ZM5.38195 8.81057H16.1225V4.14951C16.1225 4.01151 16.064 3.88926 15.9738 3.79888C15.8887 3.71376 15.7664 3.65526 15.6283 3.65526H5.87076C5.73801 3.65526 5.61557 3.71376 5.5252 3.79888C5.43501 3.88926 5.38176 4.01151 5.38176 4.14951L5.38195 8.81057ZM10.7495 10.0597C10.9567 10.0597 11.1268 10.2245 11.1268 10.4317C11.1268 10.6389 10.9567 10.8089 10.7495 10.8089C10.5423 10.8089 10.3775 10.6389 10.3775 10.4317C10.3775 10.2245 10.5421 10.0597 10.7495 10.0597Z"
+                        fill="#00718D" />
+                      <path
+                        d="M9.4843 11.2871H12.0141C12.2212 11.2871 12.3915 11.4519 12.3915 11.6591V13.7692C12.3915 13.9764 12.2214 14.1467 12.0141 14.1467H9.4843C9.27712 14.1467 9.1123 13.9766 9.1123 13.7692V11.6593C9.11249 11.4519 9.27712 11.2871 9.4843 11.2871ZM11.6421 12.0365H9.86174V13.3972H11.6421V12.0365Z"
+                        fill="#00718D" />
+                      <path
+                        d="M22.744 2.77303C22.6221 2.60841 22.6645 2.36916 22.8293 2.25216C22.9991 2.12991 23.2331 2.16703 23.35 2.33185L26.4906 6.66872C26.6128 6.83335 26.5759 7.06735 26.4111 7.1896C26.2408 7.31185 26.0072 7.27472 25.8848 7.10447L22.744 2.77303ZM25.9384 8.88497C26.0284 8.69897 26.2515 8.61929 26.4375 8.71491C26.6235 8.80528 26.698 9.0286 26.6078 9.2146L24.2695 13.9342C24.1738 14.1202 23.9505 14.2 23.7645 14.1042C23.5785 14.014 23.5041 13.7907 23.5946 13.6047L25.9384 8.88497Z"
+                        fill="#00718D" />
+                      <path
+                        d="M26.5066 7.21623C26.0974 7.21623 25.768 7.54586 25.768 7.95498C25.768 8.36955 26.0976 8.69898 26.5066 8.69898C26.9161 8.69898 27.2507 8.36955 27.2507 7.95498C27.2507 7.54586 26.9211 7.21623 26.5066 7.21623ZM26.5066 6.4668C27.3306 6.4668 28 7.13636 28 7.95498C28 8.77867 27.3306 9.44842 26.5066 9.44842C25.6881 9.44842 25.0186 8.77867 25.0186 7.95498C25.0187 7.13655 25.6831 6.4668 26.5066 6.4668Z"
+                        fill="#00718D" />
+                      <path
+                        d="M21.1497 1.06694L22.2074 0.237817C22.4572 0.0463795 22.7656 -0.0278705 23.0577 0.00925451C23.35 0.0411295 23.6317 0.189817 23.8338 0.434505L24.0674 0.726817C24.2641 0.981817 24.344 1.2955 24.3065 1.5985C24.2746 1.89607 24.1205 2.18313 23.8655 2.38507L22.8292 3.2035C22.8556 3.34694 22.8556 3.49582 22.8398 3.63925C22.7918 4.04313 22.5901 4.43107 22.25 4.70219L21.2986 5.44619C21.1338 5.57913 20.9002 5.54725 20.7727 5.38769L18.5455 2.55513C18.418 2.39575 18.4448 2.1565 18.6097 2.029L19.5607 1.27957C19.9008 1.01388 20.3206 0.907567 20.7245 0.955379C20.8732 0.971317 21.0168 1.00863 21.1497 1.06694ZM21.9258 2.93782L21.1923 2.00782C21.0648 1.83775 20.8522 1.72619 20.6397 1.69957C20.4218 1.67294 20.204 1.73144 20.0234 1.86944L19.3642 2.38507L21.1285 4.62775L21.7878 4.11213C21.9633 3.96869 22.0694 3.76675 22.0958 3.55413C22.1223 3.3205 22.0638 3.12382 21.9258 2.93782ZM22.6482 0.838567L21.7715 1.53475L21.7822 1.54544L22.5153 2.47544L22.526 2.49138L23.4031 1.79519C23.4987 1.72619 23.5522 1.61988 23.5628 1.50832C23.5786 1.39675 23.5522 1.285 23.4775 1.18938L23.2597 0.913005C23.1854 0.82263 23.0791 0.76413 22.9673 0.753442C22.8556 0.737505 22.7386 0.76938 22.6482 0.838567Z"
+                        fill="#00718D" />
+                      <path
+                        d="M18.7209 9.26758H21.1016C21.3194 9.26758 21.5111 9.35795 21.6545 9.49614C21.7925 9.63977 21.8774 9.83102 21.8774 10.0436V10.1074H22.2494C22.8712 10.1074 23.3707 10.6123 23.3707 11.2288V11.9623C23.3707 12.579 22.8658 13.0838 22.2494 13.0838H21.8774V13.7695C21.8774 13.9766 21.7126 14.1469 21.5054 14.1469H18.3224C18.1153 14.1469 17.9448 13.9768 17.9448 13.7695V10.0436C17.9448 9.61839 18.2956 9.26758 18.7209 9.26758ZM21.8776 10.8566V12.3341H22.2496C22.4568 12.3341 22.6216 12.1641 22.6216 11.9621V11.2286C22.6216 11.0215 22.4568 10.8566 22.2496 10.8566H21.8776ZM21.1016 10.017H18.7209C18.7051 10.017 18.6944 10.0277 18.6944 10.0436V13.3973H21.1282V12.7061V10.4794V10.0436C21.1284 10.033 21.1177 10.017 21.1016 10.017Z"
+                        fill="#00718D" />
+                      <path
+                        d="M4.74944 13.3972H27.2507C27.4525 13.3972 27.6441 13.4822 27.7771 13.6151C27.7878 13.6258 27.7983 13.6363 27.8035 13.6417C27.9258 13.7747 28.0002 13.9554 28.0002 14.1467V15.018C28.0002 15.2252 27.9152 15.4113 27.7772 15.5495C27.6389 15.6875 27.4529 15.7674 27.2509 15.7674H4.74944C4.5475 15.7674 4.35625 15.6875 4.22331 15.5495C4.08512 15.4168 4 15.2253 4 15.0182V14.1468C4 13.9395 4.08513 13.7535 4.22313 13.6153C4.35606 13.4822 4.54206 13.3972 4.74944 13.3972ZM27.2507 14.1467H4.74944V15.018H27.2507V14.1467ZM27.8033 13.6417C27.9256 13.7906 27.9151 14.0085 27.7769 14.1467L27.8033 13.6417Z"
+                        fill="#00718D" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_236_9219">
+                        <rect width="24" height="24" fill="white" transform="translate(4)" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-[18px] lg:text-[20px] text-gray-900 dark:text-white font-normal mb-1">Office / Study
+                  </h3>
+                  <p class="text-[13px] text-gray-400 font-light">Focus & calm</p>
+                </div>
+                <div
+                  class="indicator-empty w-6 h-6 rounded-full border border-gray-300 dark:border-gray-600 shrink-0 ml-4 transition-all">
+                </div>
+                <div
+                  class="indicator-checked w-6 h-6 rounded-full bg-[#156E8A] hidden items-center justify-center shrink-0 ml-4 transition-all text-white">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                  </svg>
+                </div>
+              </label>
+              <label
+                class="concern-option flex items-center bg-white dark:bg-[#111a20] border border-gray-200 dark:border-gray-700 hover:border-[#156E8A] dark:hover:border-[#156E8A] rounded-[6px] p-3 lg:p-6 cursor-pointer transition-colors">
+                <input type="checkbox" name="concerns" value="kids" class="hidden">
+                <div class="text-[#156E8A] mr-4 shrink-0"><svg width="32" height="24" viewBox="0 0 32 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_236_9237)">
+                      <path
+                        d="M6.02483 15.0183H9.43658C9.64377 15.0183 9.80858 15.1884 9.80858 15.3957V23.6229C9.80858 23.8301 9.64377 24.0003 9.43658 24.0003H6.02483C5.81746 24.0003 5.65283 23.8302 5.65283 23.6229V15.3956C5.65283 15.1884 5.81746 15.0183 6.02483 15.0183ZM16.8876 15.0183H25.97C26.177 15.0183 26.3472 15.1884 26.3472 15.3957V23.6229C26.3472 23.8301 26.177 24.0003 25.97 24.0003H16.8876C16.6805 24.0003 16.51 23.8302 16.51 23.6229V15.3956C16.5102 15.1884 16.6805 15.0183 16.8876 15.0183ZM25.598 15.7677H17.2595V23.2509H25.5981L25.598 15.7677ZM9.05933 15.7677H6.40208V23.2509H9.05933V15.7677Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M18.9973 16.6021H23.8599C24.0671 16.6021 24.2533 16.687 24.3913 16.8199C24.3967 16.8306 24.4074 16.8411 24.4125 16.8518C24.5347 16.9847 24.6092 17.1602 24.6092 17.3515V19.4453C24.6092 19.6472 24.5242 19.8387 24.3913 19.9716H24.3862C24.2533 20.1098 24.062 20.1947 23.8599 20.1947H18.9973C18.7952 20.1947 18.6095 20.1098 18.471 19.9716C18.333 19.8387 18.248 19.6527 18.248 19.4453V17.3515C18.248 17.1443 18.333 16.9581 18.471 16.8199C18.6041 16.687 18.7952 16.6021 18.9973 16.6021ZM21.4312 18.0211C21.6384 18.0211 21.8032 18.1911 21.8032 18.3985C21.8032 18.6059 21.6384 18.7705 21.4312 18.7705C21.224 18.7705 21.054 18.6057 21.054 18.3985C21.054 18.1913 21.2239 18.0211 21.4312 18.0211ZM23.8599 17.3515H18.9973V19.4453H23.8599V17.3515ZM24.4125 16.8518C24.5347 16.9954 24.5242 17.2133 24.3913 17.3515L24.4125 16.8518Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M5.87076 2.90601H15.6281C15.9682 2.90601 16.2817 3.04419 16.5052 3.27276C16.7281 3.49588 16.8718 3.80413 16.8718 4.14951V9.18257V10.793C16.8718 11.1384 16.7281 11.4466 16.5052 11.6699C16.2819 11.8985 15.9682 12.0367 15.6281 12.0367H5.87076C5.53064 12.0367 5.22239 11.8985 4.99382 11.6699C4.7707 11.4468 4.63232 11.1386 4.63232 10.793V9.18257V4.14951C4.63232 3.80413 4.77051 3.49588 4.99382 3.27276C5.22239 3.04419 5.53064 2.90601 5.87076 2.90601ZM16.1223 9.56001H5.38195V10.793C5.38195 10.9312 5.43501 11.0534 5.52539 11.1438C5.61576 11.2289 5.73801 11.2873 5.87095 11.2873H15.6283C15.7664 11.2873 15.8887 11.2288 15.9738 11.1438C16.064 11.0534 16.1225 10.9312 16.1225 10.793L16.1223 9.56001ZM5.38195 8.81057H16.1225V4.14951C16.1225 4.01151 16.064 3.88926 15.9738 3.79888C15.8887 3.71376 15.7664 3.65526 15.6283 3.65526H5.87076C5.73801 3.65526 5.61557 3.71376 5.5252 3.79888C5.43501 3.88926 5.38176 4.01151 5.38176 4.14951L5.38195 8.81057ZM10.7495 10.0597C10.9567 10.0597 11.1268 10.2245 11.1268 10.4317C11.1268 10.6389 10.9567 10.8089 10.7495 10.8089C10.5423 10.8089 10.3775 10.6389 10.3775 10.4317C10.3775 10.2245 10.5421 10.0597 10.7495 10.0597Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M9.4843 11.2871H12.0141C12.2212 11.2871 12.3915 11.4519 12.3915 11.6591V13.7692C12.3915 13.9764 12.2214 14.1467 12.0141 14.1467H9.4843C9.27712 14.1467 9.1123 13.9766 9.1123 13.7692V11.6593C9.11249 11.4519 9.27712 11.2871 9.4843 11.2871ZM11.6421 12.0365H9.86174V13.3972H11.6421V12.0365Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M22.7437 2.77303C22.6218 2.60841 22.6642 2.36916 22.829 2.25216C22.9989 2.12991 23.2329 2.16703 23.3497 2.33185L26.4903 6.66872C26.6126 6.83335 26.5756 7.06735 26.4108 7.1896C26.2406 7.31185 26.007 7.27472 25.8845 7.10447L22.7437 2.77303ZM25.9381 8.88497C26.0281 8.69897 26.2513 8.61929 26.4373 8.71491C26.6233 8.80528 26.6977 9.0286 26.6075 9.2146L24.2692 13.9342C24.1736 14.1202 23.9503 14.2 23.7643 14.1042C23.5783 14.014 23.5038 13.7907 23.5944 13.6047L25.9381 8.88497Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M26.5066 7.21623C26.0974 7.21623 25.768 7.54586 25.768 7.95498C25.768 8.36955 26.0976 8.69898 26.5066 8.69898C26.9161 8.69898 27.2507 8.36955 27.2507 7.95498C27.2507 7.54586 26.9211 7.21623 26.5066 7.21623ZM26.5066 6.4668C27.3306 6.4668 28 7.13636 28 7.95498C28 8.77867 27.3306 9.44842 26.5066 9.44842C25.6881 9.44842 25.0186 8.77867 25.0186 7.95498C25.0187 7.13655 25.6831 6.4668 26.5066 6.4668Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M21.1497 1.06694L22.2074 0.237817C22.4572 0.0463795 22.7656 -0.0278705 23.0577 0.00925451C23.35 0.0411295 23.6317 0.189817 23.8338 0.434505L24.0674 0.726817C24.2641 0.981817 24.344 1.2955 24.3065 1.5985C24.2746 1.89607 24.1205 2.18313 23.8655 2.38507L22.8292 3.2035C22.8556 3.34694 22.8556 3.49582 22.8398 3.63925C22.7918 4.04313 22.5901 4.43107 22.25 4.70219L21.2986 5.44619C21.1338 5.57913 20.9002 5.54725 20.7727 5.38769L18.5455 2.55513C18.418 2.39575 18.4448 2.1565 18.6097 2.029L19.5607 1.27957C19.9008 1.01388 20.3206 0.907567 20.7245 0.955379C20.8732 0.971317 21.0168 1.00863 21.1497 1.06694ZM21.9258 2.93782L21.1923 2.00782C21.0648 1.83775 20.8522 1.72619 20.6397 1.69957C20.4218 1.67294 20.204 1.73144 20.0234 1.86944L19.3642 2.38507L21.1285 4.62775L21.7878 4.11213C21.9633 3.96869 22.0694 3.76675 22.0958 3.55413C22.1223 3.3205 22.0638 3.12382 21.9258 2.93782ZM22.6482 0.838567L21.7715 1.53475L21.7822 1.54544L22.5153 2.47544L22.526 2.49138L23.4031 1.79519C23.4987 1.72619 23.5522 1.61988 23.5628 1.50832C23.5786 1.39675 23.5522 1.285 23.4775 1.18938L23.2597 0.913005C23.1854 0.82263 23.0791 0.76413 22.9673 0.753442C22.8556 0.737505 22.7386 0.76938 22.6482 0.838567Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M18.7209 9.26758H21.1016C21.3194 9.26758 21.5111 9.35795 21.6545 9.49614C21.7925 9.63977 21.8774 9.83102 21.8774 10.0436V10.1074H22.2494C22.8712 10.1074 23.3707 10.6123 23.3707 11.2288V11.9623C23.3707 12.579 22.8658 13.0838 22.2494 13.0838H21.8774V13.7695C21.8774 13.9766 21.7126 14.1469 21.5054 14.1469H18.3224C18.1153 14.1469 17.9448 13.9768 17.9448 13.7695V10.0436C17.9448 9.61839 18.2956 9.26758 18.7209 9.26758ZM21.8776 10.8566V12.3341H22.2496C22.4568 12.3341 22.6216 12.1641 22.6216 11.9621V11.2286C22.6216 11.0215 22.4568 10.8566 22.2496 10.8566H21.8776ZM21.1016 10.017H18.7209C18.7051 10.017 18.6944 10.0277 18.6944 10.0436V13.3973H21.1282V12.7061V10.4794V10.0436C21.1284 10.033 21.1177 10.017 21.1016 10.017Z"
+                        fill="#156E8A" />
+                      <path
+                        d="M4.74944 13.3972H27.2507C27.4525 13.3972 27.6441 13.4822 27.7771 13.6151C27.7878 13.6258 27.7983 13.6363 27.8035 13.6417C27.9258 13.7747 28.0002 13.9554 28.0002 14.1467V15.018C28.0002 15.2252 27.9152 15.4113 27.7772 15.5495C27.6389 15.6875 27.4529 15.7674 27.2509 15.7674H4.74944C4.5475 15.7674 4.35625 15.6875 4.22331 15.5495C4.08512 15.4168 4 15.2253 4 15.0182V14.1468C4 13.9395 4.08513 13.7535 4.22313 13.6153C4.35606 13.4822 4.54206 13.3972 4.74944 13.3972ZM27.2507 14.1467H4.74944V15.018H27.2507V14.1467ZM27.8033 13.6417C27.9256 13.7906 27.9151 14.0085 27.7769 14.1467L27.8033 13.6417Z"
+                        fill="#156E8A" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_236_9237">
+                        <rect width="24" height="24" fill="white" transform="translate(4)" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-[18px] lg:text-[20px] text-gray-900 dark:text-white font-normal mb-1">Whole Home</h3>
+                  <p class="text-[13px] text-gray-400 font-light">Maximum coverage</p>
+                </div>
+                <div
+                  class="indicator-empty w-6 h-6 rounded-full border border-gray-300 dark:border-gray-600 shrink-0 ml-4 transition-all">
+                </div>
+                <div
+                  class="indicator-checked w-6 h-6 rounded-full bg-[#156E8A] hidden items-center justify-center shrink-0 ml-4 transition-all text-white">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                  </svg>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- STEP 5: RESULTS SCREEN                     -->
+          <!-- ========================================== -->
+          <div id="wizard-step-5" class="wizard-step hidden px-6 py-10 lg:px-20 lg:py-16">
+
+            <!-- Recommendation Header -->
+            <div class="flex flex-col items-center mb-12 text-center">
+              <div class="flex items-center gap-2.5 mb-4">
+                <div class="w-3 h-3 rounded-full bg-[#10b981]"></div>
+                <span class="text-[#10b981] text-[13px] md:text-[15px] font-normal tracking-wide">Your
+                  Recommendation</span>
+              </div>
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 dark:text-white mb-4 tracking-tight">
+                Air Pro 2</h1>
+              <p class="text-gray-500 dark:text-gray-400 font-light text-[14px] md:text-[15px] max-w-lg">
+                7-in-1 filtration with built-in humidification for large living spaces.
+              </p>
+            </div>
+
+            <!-- Product Flex Layout -->
+            <div class="flex flex-col md:flex-row gap-12 lg:gap-20 items-center justify-between mb-12">
+
+              <!-- Left: Product Image -->
+              <div class="w-full md:w-[45%] flex justify-center">
+                <div
+                  class="w-[280px] h-[350px] bg-gray-100 dark:bg-gray-900 rounded-lg flex items-center justify-center text-gray-400 border border-gray-200 dark:border-gray-800">
+                  <img src="./assets/images/air-pro-2.png" alt="Air Pro 2" class="w-full h-full object-contain" />
+                </div>
+              </div>
+
+              <!-- Right: Details & Checklist -->
+              <div class="w-full md:w-[55%] flex flex-col">
+                <h4
+                  class="text-[12px] md:text-[13px] text-gray-600 dark:text-gray-400 uppercase tracking-[0.15em] mb-6">
+                  Why this one</h4>
+
+                <!-- Checklist -->
+                <ul class="space-y-5 mb-12">
+                  <li class="flex items-start gap-4">
+                    <svg class="w-5 h-5 text-[#10b981] shrink-0 mt-0.5" fill="none" stroke="currentColor"
+                      stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                    </svg>
+                    <span class="text-gray-600 dark:text-gray-300 font-light text-[15px] leading-relaxed">Sized for your
+                      600 sq ft space.</span>
+                  </li>
+                  <li class="flex items-start gap-4">
+                    <svg class="w-5 h-5 text-[#10b981] shrink-0 mt-0.5" fill="none" stroke="currentColor"
+                      stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                    </svg>
+                    <span class="text-gray-600 dark:text-gray-300 font-light text-[15px] leading-relaxed">Whisper-quiet
+                      24 dB sleep mode — ideal where you rest.</span>
+                  </li>
+                  <li class="flex items-start gap-4">
+                    <svg class="w-5 h-5 text-[#10b981] shrink-0 mt-0.5" fill="none" stroke="currentColor"
+                      stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                    </svg>
+                    <span class="text-gray-600 dark:text-gray-300 font-light text-[15px] leading-relaxed">Real-time air
+                      monitoring keeps the room consistently clean.</span>
+                  </li>
+                </ul>
+
+                <!-- Specs / Stats -->
+                <div class="flex justify-between items-start border-t border-gray-100 dark:border-gray-800 pt-8">
+                  <div class="flex flex-col">
+                    <div class="text-2xl md:text-[28px] text-gray-900 dark:text-white font-normal mb-1 leading-tight">
+                      860<br>sq ft</div>
+                    <div class="text-[9px] md:text-[10px] uppercase tracking-[0.15em] text-gray-400 font-bold mt-2">
+                      Coverage</div>
+                  </div>
+                  <div class="flex flex-col">
+                    <div class="text-2xl md:text-[28px] text-gray-900 dark:text-white font-normal mb-1 leading-tight">
+                      HEPA<br>H13</div>
+                    <div class="text-[9px] md:text-[10px] uppercase tracking-[0.15em] text-gray-400 font-bold mt-2">
+                      Filtration</div>
+                  </div>
+                  <div class="flex flex-col">
+                    <div class="text-2xl md:text-[28px] text-gray-900 dark:text-white font-normal mb-1 leading-tight">
+                      24<br>dB</div>
+                    <div class="text-[9px] md:text-[10px] uppercase tracking-[0.15em] text-gray-400 font-bold mt-2">
+                      Sleep Mode</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Custom Footer for Results Screen -->
+            <div
+              class="border-t border-gray-100 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+              <div class="text-center md:text-left">
+                <div class="text-[12px] md:text-[13px] text-gray-500 font-light mb-1">Starting from</div>
+                <div class="text-3xl md:text-4xl text-gray-900 dark:text-white font-normal">₹24,999</div>
+              </div>
+
+              <div class="flex flex-col md:flex-row items-center gap-6 w-full md:w-auto">
+                <button type="button" id="btn-back-results"
+                  class="text-gray-400 hover:text-gray-900 dark:hover:text-white text-[11px] font-bold uppercase tracking-[0.15em] transition-colors flex items-center gap-2">
+                  <span class="text-lg leading-none mb-[2px]">&larr;</span> Back
+                </button>
+                <button type="button"
+                  class="w-full md:w-auto bg-[#111111] dark:bg-white text-white dark:text-black px-10 py-4 uppercase text-[11px] tracking-[0.2em] font-bold flex justify-center items-center gap-3 hover:bg-[#156E8A] dark:hover:bg-gray-200 transition-colors rounded-sm shadow-lg shadow-black/10">
+                  VIEW AIR PRO <span class="text-lg leading-none mb-[2px]">&rarr;</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ========================================== -->
+          <!-- GLOBAL ACTION BAR (Hidden on Step 5)       -->
+          <!-- ========================================== -->
+          <div id="global-wizard-footer"
+            class="flex justify-between items-center px-6 lg:px-20 py-6 lg:py-8 bg-[#F9FAFB] dark:bg-[#06090b] border-t border-gray-100 dark:border-gray-900 mt-auto">
+            <button type="button" id="btn-back"
+              class="invisible text-gray-400 hover:text-gray-900 dark:hover:text-white text-[11px] font-bold uppercase tracking-[0.15em] transition-colors flex items-center gap-2">
+              <span class="text-lg leading-none mb-[2px]">&larr;</span> Back
             </button>
+            <button type="button" id="btn-next"
+              class="bg-[#111111] dark:bg-white text-white dark:text-black px-10 py-4 uppercase text-[11px] tracking-[0.2em] font-bold flex justify-center items-center gap-3 hover:bg-[#156E8A] dark:hover:bg-gray-200 transition-colors rounded-sm shadow-lg shadow-black/10">
+              <span id="btn-next-text">CONTINUE</span> <span class="text-lg leading-none mb-[2px]">&rarr;</span>
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- TRUST FOOTER                               -->
+      <!-- ========================================== -->
+      <div class="mt-8 flex items-center justify-center gap-2.5 text-center">
+        <svg class="w-4 h-4 text-[#156E8A]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z">
+          </path>
+        </svg>
+        <p class="text-[11px] md:text-[15px] text-gray-400 font-light">
+          Backed by a <span class="text-[#156E8A] font-bold">2-year warranty</span> &amp; free filter reminders on every
+          model.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- DARK CTA SECTION: EXPLORE / COMPARE        -->
+    <!-- ========================================== -->
+    <!-- <section class="w-full bg-[#0B1115] py-10 md:py-20 px-6 flex flex-col items-center justify-center text-center">
+      <h2 class="text-4xl md:text-5xl lg:text-[56px] font-light text-white mb-6 md:mb-8 tracking-tight">
+        Decided? <span class="text-[#156E8A]">Let's go.</span>
+      </h2>
+
+      <p class="text-gray-400 font-light text-[12px] md:text-[15px] max-w-2xl mx-auto mb-12 leading-relaxed">
+        Open the full collection to see each model in detail, or read how real
+        homes chose theirs.
+      </p>
+
+      <div class="flex flex-row items-center justify-center gap-6 sm:gap-10 w-full max-w-md sm:max-w-none">
+        <a href="#"
+          class="bg-white text-[#0B1115] px-4 py-4 md:py-4 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold flex items-center justify-center gap-3 hover:bg-gray-200 transition-colors rounded-sm w-full sm:w-auto">
+          <span>View the Collection</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+        <a href="#"
+          class="text-white border-b border-gray-700 pb-1 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold hover:text-[#156E8A] hover:border-[#156E8A] transition-colors w-full sm:w-auto text-center mt-2 sm:mt-0">
+          See Real Homes
+        </a>
+      </div>
+    </section> -->
+
+    <!-- ========================================== -->
+    <!-- SECTION 17: FOOTER                         -->
+    <!-- ========================================== -->
+    <footer class="w-full bg-[#0B1115] pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24">
+      <div class="max-w-[1400px] mx-auto">
+        <!-- Top Section: Brand & Links -->
+        <div class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-10 lg:mb-20">
+          <!-- Left: Brand, Bio & Buttons -->
+          <div class="flex flex-col lg:w-5/12">
+            <!-- Logo -->
+            <img src="./assets/images/logo.png" alt="Breathe In"
+              class="h-9 md:h-10 w-auto mb-6 object-contain object-left self-start" />
+
+            <!-- Bio -->
+            <!-- Mobile text and Desktop text swap seamlessly using hidden/inline classes -->
+            <p class="text-gray-400 text-[13px] md:text-[14px] font-light leading-[1.8] mb-8 max-w-sm">
+              <span class="hidden md:inline">
+                Clean air isn’t a luxury, it’s a necessity<br />
+                Sophisticated Japanese air-purification<br />
+                technology, at honest prices. The right air, for<br />
+                every Indian home.
+              </span>
+              <span class="md:hidden">
+                Clean air isn’t a luxury, it’s a necessity Sophisticated
+                Japanese air-purification technology, at honest prices.
+              </span>
+            </p>
+
+            <!-- Buttons (Side-by-Side) -->
+            <div class="flex flex-row items-center gap-3 md:gap-4 w-full max-w-[400px]">
+              <!-- Shop Now (Solid Teal on all screens) -->
+              <a href="#"
+                class="flex-1 bg-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] transition-colors whitespace-nowrap">
+                <span>SHOP NOW</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7">
+                  </path>
+                </svg>
+              </a>
+
+              <!-- Download Brochure (Solid Teal on Mobile, Ghost on Desktop) -->
+              <a href="#"
+                class="flex-1 bg-[#156E8A] md:bg-transparent border border-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] md:hover:bg-[#156E8A] hover:text-white transition-colors whitespace-nowrap">
+                <span>DOWNLOAD BROCHURE</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7">
+                  </path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Divider (Mobile Only) -->
+          <div class="w-full h-[1px] bg-gray-800/80 lg:hidden mt-2 mb-2"></div>
+
+          <!-- Right: Links Grid -->
+          <!-- 3 Cols on Mobile, 4 Cols on Desktop -->
+          <div class="lg:w-7/12 grid grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
+            <!-- Column 1: Collection -->
+            <div class="flex flex-col">
+              <h4 class="text-[11px] md:text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                Collection
+              </h4>
+              <ul class="flex flex-col gap-4">
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                    Pro</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                    Pro 1</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                    Pro 2</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                    Pro Max</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 2: Explore -->
+            <div class="flex flex-col">
+              <h4 class="text-[11px] md:text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                Explore
+              </h4>
+              <ul class="flex flex-col gap-4">
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Technology</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">The
+                    App</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Compare
+                    Models</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Filter
+                    Care</a>
+                </li>
+                <!-- Visible only on Desktop -->
+                <li class="hidden lg:block">
+                  <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Corporate
+                    Solutions</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 3: Support (Mobile) / Blank Header (Desktop) -->
+            <div class="flex flex-col">
+              <!-- Header visible only on mobile -->
+              <h4 class="text-[11px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6 lg:hidden">
+                Support
+              </h4>
+
+              <!-- Spacer to align links under the empty header space on desktop -->
+              <div class="hidden lg:block h-[34px]"></div>
+
+              <ul class="flex flex-col gap-4">
+                <!-- Visible only on Desktop -->
+                <li class="hidden lg:block">
+                  <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Book a
+                    Demo</a>
+                </li>
+                <li class="hidden lg:block">
+                  <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Case
+                    Studies</a>
+                </li>
+
+                <!-- Visible on Both -->
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">FAQ</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Support</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Contact</a>
+                </li>
+
+                <!-- Visible only on Mobile -->
+                <li class="lg:hidden">
+                  <a href="#"
+                    class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">WhatsApp</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 4: Contact (Desktop Only) -->
+            <div class="hidden lg:flex flex-col">
+              <h4 class="text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                Contact
+              </h4>
+              <ul class="flex flex-col gap-4">
+                <li>
+                  <a href="tel:+919076636639"
+                    class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">+91 90766 36639</a>
+                </li>
+                <li>
+                  <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">WhatsApp
+                    Support</a>
+                </li>
+                <li>
+                  <a href="mailto:enquiries@breathein.co.in"
+                    class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">enquiries@breathein.co.in</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">www.breathein.co.in</a>
+                </li>
+                <li class="text-[13px] text-gray-400 font-light mt-1">
+                  Whitefield, Bengaluru
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <!-- ========================================== -->
-        <!-- TRUST FOOTER                               -->
-        <!-- ========================================== -->
-        <div class="mt-8 flex items-center justify-center gap-2.5 text-center">
-          <!-- Shield Icon -->
-          <svg
-            class="w-4 h-4 text-[#156E8A]"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
-            ></path>
-          </svg>
+        <!-- Bottom Divider -->
+        <div class="w-full h-[1px] bg-gray-800/80 mb-6 lg:mb-8"></div>
 
-          <!-- Text -->
-          <p class="text-[11px] md:text-[15px] text-gray-400 font-light">
-            Backed by a
-            <span class="text-[#156E8A] font-bold">2-year warranty</span> &amp;
-            free filter reminders on every model.
+        <!-- Bottom Strip: Legal & Copyright -->
+        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+          <!-- Legal Links (Top on mobile, Right on desktop) -->
+          <div class="flex flex-wrap items-center gap-6 lg:order-2">
+            <a href="#"
+              class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Privacy
+              Policy</a>
+            <a href="#"
+              class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Terms of
+              Use</a>
+            <a href="#"
+              class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Cookie
+              Policy</a>
+          </div>
+
+          <!-- Copyright (Bottom on mobile, Left on desktop) -->
+          <p class="text-[11px] md:text-[13px] text-gray-500 font-light lg:order-1">
+            &copy; 2026 Breathe In &mdash; The Right Air. All rights reserved.
+            Made in India.
           </p>
         </div>
-      </section>
 
-      <!-- ========================================== -->
-      <!-- DARK CTA SECTION: EXPLORE / COMPARE        -->
-      <!-- ========================================== -->
-      <section
-        class="w-full bg-[#0B1115] py-10 md:py-20 px-6 flex flex-col items-center justify-center text-center"
-      >
-        <h2
-          class="text-4xl md:text-5xl lg:text-[56px] font-light text-white mb-6 md:mb-8 tracking-tight"
-        >
-          Decided? <span class="text-[#156E8A]">Let's go.</span>
-        </h2>
-
-        <p
-          class="text-gray-400 font-light text-[12px] md:text-[15px] max-w-2xl mx-auto mb-12 leading-relaxed"
-        >
-          Open the full collection to see each model in detail, or read how real
-          homes chose theirs.
-        </p>
-
-        <div
-          class="flex flex-row items-center justify-center gap-6 sm:gap-10 w-full max-w-md sm:max-w-none"
-        >
-          <!-- Primary Solid Button -->
-          <a
-            href="#"
-            class="bg-white text-[#0B1115] px-4 py-4 md:py-4 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold flex items-center justify-center gap-3 hover:bg-gray-200 transition-colors rounded-sm w-full sm:w-auto"
-          >
-            <span>View the Collection</span>
-            <svg
-              class="w-3.5 h-3.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
-          </a>
-
-          <!-- Secondary Ghost/Underline Button -->
-          <a
-            href="#"
-            class="text-white border-b border-gray-700 pb-1 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold hover:text-[#156E8A] hover:border-[#156E8A] transition-colors w-full sm:w-auto text-center mt-2 sm:mt-0"
-          >
-            See Real Homes
-          </a>
-        </div>
-      </section>
-
-      <!-- ========================================== -->
-      <!-- SECTION 17: FOOTER                         -->
-      <!-- ========================================== -->
-      <footer
-        class="w-full bg-[#0B1115] pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24"
-      >
-        <div class="max-w-[1400px] mx-auto">
-          <!-- Top Section: Brand & Links -->
-          <div
-            class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-10 lg:mb-20"
-          >
-            <!-- Left: Brand, Bio & Buttons -->
-            <div class="flex flex-col lg:w-5/12">
-              <!-- Logo -->
-              <img
-                src="./assets/images/logo.png"
-                alt="Breathe In"
-                class="h-9 md:h-10 w-auto mb-6 object-contain object-left self-start"
-              />
-
-              <!-- Bio -->
-              <!-- Mobile text and Desktop text swap seamlessly using hidden/inline classes -->
-              <p
-                class="text-gray-400 text-[13px] md:text-[14px] font-light leading-[1.8] mb-8 max-w-sm"
-              >
-                <span class="hidden md:inline">
-                  Clean air isn’t a luxury, it’s a necessity<br />
-                  Sophisticated Japanese air-purification<br />
-                  technology, at honest prices. The right air, for<br />
-                  every Indian home.
-                </span>
-                <span class="md:hidden">
-                  Clean air isn’t a luxury, it’s a necessity Sophisticated
-                  Japanese air-purification technology, at honest prices.
-                </span>
-              </p>
-
-              <!-- Buttons (Side-by-Side) -->
-              <div
-                class="flex flex-row items-center gap-3 md:gap-4 w-full max-w-[400px]"
-              >
-                <!-- Shop Now (Solid Teal on all screens) -->
-                <a
-                  href="#"
-                  class="flex-1 bg-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] transition-colors whitespace-nowrap"
-                >
-                  <span>SHOP NOW</span>
-                  <svg
-                    class="w-3.5 h-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 12h14M12 5l7 7-7 7"
-                    ></path>
-                  </svg>
-                </a>
-
-                <!-- Download Brochure (Solid Teal on Mobile, Ghost on Desktop) -->
-                <a
-                  href="#"
-                  class="flex-1 bg-[#156E8A] md:bg-transparent border border-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] md:hover:bg-[#156E8A] hover:text-white transition-colors whitespace-nowrap"
-                >
-                  <span>DOWNLOAD BROCHURE</span>
-                  <svg
-                    class="w-3.5 h-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 12h14M12 5l7 7-7 7"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            <!-- Divider (Mobile Only) -->
-            <div
-              class="w-full h-[1px] bg-gray-800/80 lg:hidden mt-2 mb-2"
-            ></div>
-
-            <!-- Right: Links Grid -->
-            <!-- 3 Cols on Mobile, 4 Cols on Desktop -->
-            <div
-              class="lg:w-7/12 grid grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8"
-            >
-              <!-- Column 1: Collection -->
-              <div class="flex flex-col">
-                <h4
-                  class="text-[11px] md:text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6"
-                >
-                  Collection
-                </h4>
-                <ul class="flex flex-col gap-4">
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Air Pro</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Air Pro 1</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Air Pro 2</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Air Pro Max</a
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Column 2: Explore -->
-              <div class="flex flex-col">
-                <h4
-                  class="text-[11px] md:text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6"
-                >
-                  Explore
-                </h4>
-                <ul class="flex flex-col gap-4">
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Technology</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >The App</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Compare Models</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Filter Care</a
-                    >
-                  </li>
-                  <!-- Visible only on Desktop -->
-                  <li class="hidden lg:block">
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Corporate Solutions</a
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Column 3: Support (Mobile) / Blank Header (Desktop) -->
-              <div class="flex flex-col">
-                <!-- Header visible only on mobile -->
-                <h4
-                  class="text-[11px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6 lg:hidden"
-                >
-                  Support
-                </h4>
-
-                <!-- Spacer to align links under the empty header space on desktop -->
-                <div class="hidden lg:block h-[34px]"></div>
-
-                <ul class="flex flex-col gap-4">
-                  <!-- Visible only on Desktop -->
-                  <li class="hidden lg:block">
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Book a Demo</a
-                    >
-                  </li>
-                  <li class="hidden lg:block">
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Case Studies</a
-                    >
-                  </li>
-
-                  <!-- Visible on Both -->
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >FAQ</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Support</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Contact</a
-                    >
-                  </li>
-
-                  <!-- Visible only on Mobile -->
-                  <li class="lg:hidden">
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >WhatsApp</a
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Column 4: Contact (Desktop Only) -->
-              <div class="hidden lg:flex flex-col">
-                <h4
-                  class="text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6"
-                >
-                  Contact
-                </h4>
-                <ul class="flex flex-col gap-4">
-                  <li>
-                    <a
-                      href="tel:+919076636639"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >+91 90766 36639</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >WhatsApp Support</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="mailto:enquiries@breathein.co.in"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >enquiries@breathein.co.in</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >www.breathein.co.in</a
-                    >
-                  </li>
-                  <li class="text-[13px] text-gray-400 font-light mt-1">
-                    Whitefield, Bengaluru
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bottom Divider -->
-          <div class="w-full h-[1px] bg-gray-800/80 mb-6 lg:mb-8"></div>
-
-          <!-- Bottom Strip: Legal & Copyright -->
-          <div
-            class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6"
-          >
-            <!-- Legal Links (Top on mobile, Right on desktop) -->
-            <div class="flex flex-wrap items-center gap-6 lg:order-2">
-              <a
-                href="#"
-                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light"
-                >Privacy Policy</a
-              >
-              <a
-                href="#"
-                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light"
-                >Terms of Use</a
-              >
-              <a
-                href="#"
-                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light"
-                >Cookie Policy</a
-              >
-            </div>
-
-            <!-- Copyright (Bottom on mobile, Left on desktop) -->
-            <p
-              class="text-[11px] md:text-[13px] text-gray-500 font-light lg:order-1"
-            >
-              &copy; 2026 Breathe In &mdash; The Right Air. All rights reserved.
-              Made in India.
-            </p>
-          </div>
-
-          <!-- 
+        <!-- 
                 <button id="backToTop"
                     class="flex absolute right-0 bottom-12 lg:static items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-gray-500 hover:text-white transition-colors font-bold group order-3">
                     Back to Top
@@ -1041,15 +1313,16 @@
                         </svg>
                     </span>
                 </button> -->
-        </div>
-      </footer>
-    </main>
+      </div>
+    </footer>
+  </main>
 
-    <!-- jQuery Core Library -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- jQuery Core Library -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Link to Custom JS -->
-    <script src="assets/js/main.js"></script>
-  </body>
+  <!-- Link to Custom JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+
 </html>
