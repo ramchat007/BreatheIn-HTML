@@ -328,7 +328,7 @@ function initPageScripts() {
     },
   });
 
-  // 1. Accordion Toggle Logic
+  // 1. ACCORDION TOGGLE LOGIC
   const faqButtons = document.querySelectorAll(".faq-toggle-btn");
 
   faqButtons.forEach((button) => {
@@ -336,7 +336,7 @@ function initPageScripts() {
       const content = button.nextElementSibling;
       const iconContainer = button.querySelector(".icon-container");
 
-      // Toggle Content
+      // Toggle Content visibility
       content.classList.toggle("hidden");
 
       // Rotate Chevron Icon
@@ -348,7 +348,7 @@ function initPageScripts() {
     });
   });
 
-  // 2. CATEGORY FILTER LOGIC
+  // 2. SYNCHRONIZED CATEGORY FILTER LOGIC
   const filterButtons = document.querySelectorAll(".faq-filter-btn");
   const faqItems = document.querySelectorAll(".faq-item");
 
@@ -356,16 +356,37 @@ function initPageScripts() {
     button.addEventListener("click", function () {
       const targetCategory = this.getAttribute("data-filter");
 
-      // A. Reset Sidebar Active Styles
+      // A. Reset styles for ALL buttons (Desktop & Mobile)
       filterButtons.forEach((btn) => {
-        btn.classList.remove("text-[#156E8A]", "dark:text-[#2094B6]");
+        // Remove active colors and borders
+        btn.classList.remove(
+          "text-[#156E8A]",
+          "dark:text-[#2094B6]",
+          "border-[#156E8A]",
+          "dark:border-[#2094B6]",
+        );
+        // Add inactive text
         btn.classList.add("text-gray-500");
+        // Add transparent border for mobile buttons
+        if (btn.classList.contains("mob-filter-btn")) {
+          btn.classList.add("border-transparent");
+        }
       });
-      // Apply Active Style to clicked button
-      this.classList.remove("text-gray-500");
-      this.classList.add("text-[#156E8A]", "dark:text-[#2094B6]");
 
-      // B. Filter FAQ Items
+      // B. Apply active style to the target category (syncs Mobile & Desktop)
+      const targetBtns = document.querySelectorAll(
+        `.faq-filter-btn[data-filter="${targetCategory}"]`,
+      );
+      targetBtns.forEach((btn) => {
+        btn.classList.remove("text-gray-500", "border-transparent");
+        btn.classList.add("text-[#156E8A]", "dark:text-[#2094B6]");
+
+        if (btn.classList.contains("mob-filter-btn")) {
+          btn.classList.add("border-[#156E8A]", "dark:border-[#2094B6]");
+        }
+      });
+
+      // C. Filter FAQ Items in the list
       faqItems.forEach((item) => {
         if (
           targetCategory === "all" ||
@@ -686,4 +707,67 @@ function initPageScripts() {
 
   // --- INITIALIZE UI STATE ---
   updateProgressBar();
+
+  const filterBtns = document.querySelectorAll(".order-filter-btn");
+  const orderItems = document.querySelectorAll(".order-item");
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      console.log(btn);
+      const targetFilter = btn.getAttribute("data-filter");
+
+      // 1. Reset all buttons to inactive styling
+      filterBtns.forEach((b) => {
+        b.classList.remove(
+          "bg-[#156E8A]",
+          "dark:bg-[#2094B6]",
+          "text-white",
+          "border-[#156E8A]",
+        );
+        b.classList.add(
+          "bg-white",
+          "dark:bg-[#111a20]",
+          "text-gray-400",
+          "border-gray-200",
+          "dark:border-gray-700",
+        );
+      });
+
+      // 2. Apply active styling to the clicked button
+      btn.classList.remove(
+        "bg-white",
+        "dark:bg-[#111a20]",
+        "text-gray-400",
+        "border-gray-200",
+        "dark:border-gray-700",
+      );
+      btn.classList.add(
+        "bg-[#156E8A]",
+        "dark:bg-[#2094B6]",
+        "text-white",
+        "border-[#156E8A]",
+      );
+
+      // 3. Instantly Show/Hide the corresponding orders
+      orderItems.forEach((item) => {
+        // Force opacity back to 1 just in case previous script got it stuck at 0
+        item.style.opacity = "1";
+
+        if (
+          targetFilter === "all" ||
+          item.getAttribute("data-status") === targetFilter
+        ) {
+          item.style.display = ""; // Reverts to default CSS (flex/grid)
+        } else {
+          item.style.display = "none"; // Completely hides the element
+        }
+      });
+    });
+  });
+
+  const activeMobileTab = document.querySelector('.active-mobile-tab');
+  if (activeMobileTab) {
+    // 'inline: center' ensures it scrolls to the middle of the screen
+    activeMobileTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }
 }

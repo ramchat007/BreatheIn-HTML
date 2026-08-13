@@ -1,0 +1,982 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BreatheIn - My Account</title>
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./assets/js/tailwind.config.js"></script>
+
+  <!-- Link to compiled CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="antialiased text-gray-900 selection:bg-brandTeal/20 relative">
+  <!-- ========================================== -->
+  <!-- FULL-SCREEN MOBILE NAVIGATION OVERLAY      -->
+  <!-- ========================================== -->
+  <div id="mobileNavOverlay"
+    class="fixed inset-0 z-[60] bg-white flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out hidden">
+    <button id="closeMobileNav" class="absolute top-6 right-8 p-2 rounded-full hover:bg-gray-100 transition-colors"
+      aria-label="Close Menu">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-8 h-8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <nav class="flex flex-col items-center gap-8 text-center">
+      <a href="./collection.html"
+        class="text-3xl text-[#156E8A] font-light tracking-wide hover:text-brandTeal transition-colors">COLLECTION</a>
+      <a href="./technology.html"
+        class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">TECHNOLOGY</a>
+      <a href="./app.html" class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">APP</a>
+      <a href="./real-homes.html" class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">REAL
+        HOMES</a>
+      <a href="./compare.html"
+        class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">COMPARE</a>
+      <div class="mt-8 pt-8 border-t border-gray-200 w-full flex flex-col items-center gap-4">
+        <a href="#" class="text-lg font-medium hover:text-brandTeal">My Account</a>
+        <a href="#" class="text-lg font-medium hover:text-brandTeal">Support</a>
+      </div>
+    </nav>
+  </div>
+  <!-- ========================================== -->
+
+  <!-- ========================================== -->
+  <!-- SMART STICKY HEADER                        -->
+  <!-- ========================================== -->
+  <div id="smart-header"
+    class="sticky top-0 z-50 w-full flex flex-col shadow-sm transition-transform duration-300 ease-in-out translate-y-0">
+    <!-- 1. TOP LIVE AQI TICKER BAR -->
+    <!-- Updated to match mobile design: unified dark background, teal dot, vertical separator -->
+    <div
+      class="w-full bg-tickerDark text-white flex items-center text-[11px] tracking-wider font-medium animate-fade-in-down overflow-hidden"
+      style="animation-delay: 100ms">
+      <div
+        class="bg-tickerDark md:bg-brandTeal px-4 md:px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative">
+        <!-- <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> -->
+        <span class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse"></span>
+        INDIA AQI TODAY
+      </div>
+
+      <!-- Separator Line -->
+      <div class="w-[1px] h-6 bg-gray-800 shrink-0 z-10 relative"></div>
+
+      <!-- Scrolling Content -->
+      <div class="flex flex-1 overflow-hidden relative bg-tickerDark">
+        <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
+          <!-- Ticker Items List 1 -->
+          <div class="flex items-center gap-6 pr-6">
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Delhi</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">392</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Ghaziabad</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">358</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Noida</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">311</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Patna</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">286</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Lucknow</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">242</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Kolkata</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">198</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Mumbai</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">164</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+          </div>
+
+          <!-- Ticker Items List 2 (Duplicated for seamless scrolling) -->
+          <div class="flex items-center gap-6 pr-6">
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Delhi</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">392</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Ghaziabad</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">358</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Noida</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">311</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Patna</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">286</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Lucknow</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">242</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Kolkata</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">198</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Mumbai</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">164</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop Info Banner -->
+      <div
+        class="px-6 py-3 shrink-0 font-medium text-gray-300 hidden lg:block bg-tickerDark z-10 relative shadow-[-10px_0_15px_-3px_rgba(13,20,24,1)]">
+        Indoors is often
+        <span class="text-sky-400 font-bold">5x worse</span> &middot;
+        <a href="#" class="hover:underline text-white inline-flex items-center gap-1">CHECK YOURS <span
+            class="text-[11px]">&darr;</span></a>
+      </div>
+    </div>
+
+    <!-- 2. MAIN NAVIGATION HEADER -->
+    <!-- Updated Mobile Layout: Logo Left, Cart+CTA+Hamburger Right -->
+    <header
+      class="w-full bg-[#FAFCFD] border-b border-gray-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between animate-fade-in-down"
+      style="animation-delay: 200ms">
+      <!-- Left: Logo -->
+      <div class="flex items-center">
+        <a href="/index.html" class="h-7 md:h-10 w-auto">
+          <img src="./assets/images/logo.png" alt="Breathe In" class="h-7 md:h-10 w-auto object-contain" />
+        </a>
+      </div>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="./collection.html"
+          class="text-[13px] text-[#156E8A] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COLLECTION</a>
+        <a href="./technology.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">TECHNOLOGY</a>
+        <a href="./app.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">APP</a>
+        <a href="./real-homes.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">REAL
+          HOMES</a>
+        <a href="./compare.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COMPARE</a>
+      </nav>
+
+      <!-- Right: Action Buttons & Hamburger -->
+      <div class="flex items-center gap-3 md:gap-5">
+        <!-- Cart Button with Notification Badge -->
+        <button id="cartBtn"
+          class="relative p-1.5 text-gray-900 hover:text-brandTeal transition-colors flex items-center justify-center">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1.5"></circle>
+            <circle cx="20" cy="21" r="1.5"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <!-- Teal Badge -->
+          <span
+            class="absolute -top-1.5 -right-1.5 bg-brandTeal text-white text-[11px] font-bold w-4 h-4 aspect-square rounded-full flex items-center justify-center border border-white">3</span>
+        </button>
+
+        <!-- Primary CTA (Now visible on mobile per design) -->
+        <a href="./find-my-purifier.html"
+          class="border border-black text-[11px] md:text-[13px] font-bold tracking-widest px-3 py-2 md:px-6 md:py-2.5 uppercase hover:bg-black hover:text-white transition-all duration-200">
+          FIND MY PURIFIER
+        </a>
+
+        <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
+        <button id="themeToggle"
+          class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-3.5 h-3.5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+          </svg>
+          <span class="text-[12px] font-bold tracking-widest">DARK</span>
+        </button>
+        <!-- Hamburger Menu Icon (Moved to right) -->
+        <button id="openMobileNav" class="lg:hidden p-1" aria-label="Open Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-7 h-7 text-gray-900">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <main>
+    <!-- ========================================== -->
+    <!-- MY ORDERS PAGE                             -->
+    <!-- ========================================== -->
+    <div
+      class="w-full min-h-screen bg-white dark:bg-[#050505] text-gray-900 dark:text-white font-sans flex flex-col transition-colors duration-300">
+
+      <!-- ========================================== -->
+      <!-- HEADER & BREADCRUMBS                       -->
+      <!-- ========================================== -->
+      <div class="hidden lg:block max-w-[1200px] mx-auto w-full px-6 pt-10 pb-6 md:pb-10">
+        <div class="text-[11px] text-gray-500 font-medium uppercase tracking-widest mb-6">
+          <a href="/" class="hover:text-gray-900 dark:hover:text-white transition-colors">Home</a>
+          <span class="mx-2">&gt;</span>
+          <span class="text-gray-900 dark:text-white">Account</span>
+        </div>
+        <div class="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold mb-2">Account Overview</div>
+        <h1 class="text-4xl md:text-5xl font-light tracking-tight">
+          Hello, <span class="text-[#156E8A] dark:text-[#2094B6] font-medium">Arjun.</span>
+        </h1>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- MOBILE PROFILE & TAB NAVIGATION (Hidden lg)-->
+      <!-- ========================================== -->
+      <div class="lg:hidden w-full flex flex-col items-center mb-8">
+
+        <!-- Mobile Profile Hero -->
+        <div class="flex flex-col items-center text-center w-full my-8">
+          <div
+            class="w-20 h-20 rounded-full bg-[#156E8A] text-white flex items-center justify-center text-2xl font-bold mb-4">
+            AS</div>
+          <h2 class="text-xl font-medium mb-1">Arjun Sharma</h2>
+          <p class="text-[13px] text-gray-400 font-light mb-4">arjun.sharma@gmail.com</p>
+          <div
+            class="bg-[#F0F5F7] dark:bg-[#0c1318] text-[#156E8A] dark:text-[#2094B6] px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em]">
+            Member since Jan 2025
+          </div>
+        </div>
+
+        <!-- Mobile Scrollable Tabs -->
+        <div class="w-full border-b border-gray-200 dark:border-gray-800">
+          <div
+            class="flex gap-3 overflow-x-auto text-[14px] font-medium text-gray-400 dark:text-gray-500 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+            <a href="./account-overview.html"
+              class="px-3 pb-3 whitespace-nowrap hover:text-gray-900 dark:hover:text-white transition-colors">Overview</a>
+            <a href="./my-orders.html"
+              class="active-mobile-tab text-[#156E8A] dark:text-[#2094B6] border-b-2 border-[#156E8A] dark:border-[#2094B6] px-3 pb-3 whitespace-nowrap transition-colors">My Orders</a>
+            <a href="./addresses.html"
+              class="px-3 pb-3 whitespace-nowrap hover:text-gray-900 dark:hover:text-white transition-colors">Addresses</a>
+            <a href="./wishlist.html"
+              class="px-3 pb-3 whitespace-nowrap hover:text-gray-900 dark:hover:text-white transition-colors">Wishlist</a>
+            <a href="./settings.html"
+              class="px-3 pb-3 whitespace-nowrap hover:text-gray-900 dark:hover:text-white transition-colors">Settings</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- MAIN CONTENT LAYOUT                        -->
+      <!-- ========================================== -->
+      <div class="max-w-[1200px] mx-auto w-full px-6 flex flex-col lg:flex-row gap-10 lg:gap-12 pb-24 flex-1">
+
+        <!-- ========================================== -->
+        <!-- DESKTOP SIDEBAR (Hidden on Mobile)         -->
+        <!-- ========================================== -->
+        <aside class="hidden lg:flex flex-col w-[260px] xl:w-[280px] shrink-0">
+
+          <!-- Desktop Profile Card -->
+          <div class="border border-gray-200 dark:border-gray-800 p-8 flex flex-col items-center text-center mb-6">
+            <div
+              class="w-[72px] h-[72px] rounded-full bg-[#156E8A] text-white flex items-center justify-center text-xl font-bold mb-4">
+              AS</div>
+            <h2 class="text-[17px] font-medium mb-1">Arjun Sharma</h2>
+            <p class="text-[13px] text-gray-400 font-light mb-5">arjun.sharma@gmail.com</p>
+            <div
+              class="bg-[#F0F5F7] dark:bg-[#0c1318] text-[#156E8A] dark:text-[#2094B6] px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.15em]">
+              Member since Jan 2025
+            </div>
+          </div>
+
+          <!-- Menu Links -->
+          <div class="border border-gray-200 dark:border-gray-800 flex flex-col mb-6">
+            <a href="./account-overview.html"
+              class="flex items-center gap-3 p-4 text-gray-600 dark:text-gray-400 text-[14px] border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask id="path-1-inside-1_911_778" fill="white">
+                  <path
+                    d="M0 7.5C0 3.35786 3.35786 0 7.5 0C11.6421 0 15 3.35786 15 7.5C15 11.6421 11.6421 15 7.5 15C3.35786 15 0 11.6421 0 7.5Z" />
+                </mask>
+                <path
+                  d="M0 7.5M15 7.5M15 7.5M0 7.5M7.5 0M15 7.5M7.5 15M0 7.5M7.5 15V13.125C4.3934 13.125 1.875 10.6066 1.875 7.5H0H-1.875C-1.875 12.6777 2.32233 16.875 7.5 16.875V15ZM15 7.5H13.125C13.125 10.6066 10.6066 13.125 7.5 13.125V15V16.875C12.6777 16.875 16.875 12.6777 16.875 7.5H15ZM7.5 0V1.875C10.6066 1.875 13.125 4.3934 13.125 7.5H15H16.875C16.875 2.32233 12.6777 -1.875 7.5 -1.875V0ZM7.5 0V-1.875C2.32233 -1.875 -1.875 2.32233 -1.875 7.5H0H1.875C1.875 4.3934 4.3934 1.875 7.5 1.875V0Z"
+                  fill="#929497" mask="url(#path-1-inside-1_911_778)" />
+              </svg>
+              Overview
+            </a>
+            <a href="#"
+              class="flex items-center justify-between p-4 bg-[#156E8A0F] dark:bg-[#0c1318] border-l-2 border border-l-[#156E8A] border-b-[#156E8A] dark:border-[#2094B6] transition-colors">
+              <div class="flex items-center gap-3 text-[#156E8A] dark:text-[#2094B6] text-[14px] font-medium">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_911_783)">
+                    <path
+                      d="M6.875 13.5809C7.06502 13.6907 7.28058 13.7484 7.5 13.7484C7.71942 13.7484 7.93498 13.6907 8.125 13.5809L12.5 11.0809C12.6898 10.9713 12.8475 10.8137 12.9572 10.624C13.0669 10.4342 13.1248 10.2189 13.125 9.9997V4.99969C13.1248 4.78049 13.0669 4.5652 12.9572 4.37542C12.8475 4.18564 12.6898 4.02805 12.5 3.91844L8.125 1.41844C7.93498 1.30873 7.71942 1.25098 7.5 1.25098C7.28058 1.25098 7.06502 1.30873 6.875 1.41844L2.5 3.91844C2.31016 4.02805 2.15249 4.18564 2.04279 4.37542C1.93309 4.5652 1.87522 4.78049 1.875 4.99969V9.9997C1.87522 10.2189 1.93309 10.4342 2.04279 10.624C2.15249 10.8137 2.31016 10.9713 2.5 11.0809L6.875 13.5809Z"
+                      stroke="#156E8A" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M7.5 13.75V7.5" stroke="#156E8A" stroke-width="1.25" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path d="M2.05664 4.375L7.50039 7.5L12.9441 4.375" stroke="#156E8A" stroke-width="1.25"
+                      stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M4.6875 2.66895L10.3125 5.8877" stroke="#156E8A" stroke-width="1.25" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_911_783">
+                      <rect width="15" height="15" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                My Orders
+              </div>
+              <svg class="w-4 h-4 text-[#156E8A] dark:text-[#2094B6]" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+              </svg>
+            </a>
+            <a href="./addresses.html"
+              class="flex items-center gap-3 p-4 text-gray-600 dark:text-gray-400 text-[14px] border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M7.87562 13.6244C9.03813 12.6206 12.5 9.37062 12.5 6.25C12.5 4.92392 11.9732 3.65215 11.0355 2.71447C10.0979 1.77678 8.82608 1.25 7.5 1.25C6.17392 1.25 4.90215 1.77678 3.96447 2.71447C3.02678 3.65215 2.5 4.92392 2.5 6.25C2.5 9.37062 5.96188 12.6206 7.12438 13.6244C7.23267 13.7058 7.3645 13.7498 7.5 13.7498C7.6355 13.7498 7.76733 13.7058 7.87562 13.6244Z"
+                  stroke="#929497" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M7.5 8.125C8.53553 8.125 9.375 7.28553 9.375 6.25C9.375 5.21447 8.53553 4.375 7.5 4.375C6.46447 4.375 5.625 5.21447 5.625 6.25C5.625 7.28553 6.46447 8.125 7.5 8.125Z"
+                  stroke="#929497" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+
+              Addresses
+            </a>
+            <a href="./wishlist.html"
+              class="flex items-center gap-3 p-4 text-gray-600 dark:text-gray-400 text-[14px] border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_911_359)">
+                  <path
+                    d="M11.875 8.75C12.8063 7.8375 13.75 6.74375 13.75 5.3125C13.75 4.40082 13.3878 3.52648 12.7432 2.88182C12.0985 2.23716 11.2242 1.875 10.3125 1.875C9.2125 1.875 8.4375 2.1875 7.5 3.125C6.5625 2.1875 5.7875 1.875 4.6875 1.875C3.77582 1.875 2.90148 2.23716 2.25682 2.88182C1.61216 3.52648 1.25 4.40082 1.25 5.3125C1.25 6.75 2.1875 7.84375 3.125 8.75L7.5 13.125L11.875 8.75Z"
+                    stroke="#929497" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_911_359">
+                    <rect width="15" height="15" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+
+              Wishlist
+            </a>
+            <a href="./settings.html"
+              class="flex items-center gap-3 p-4 text-gray-600 dark:text-gray-400 text-[14px] hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_911_365)">
+                  <path
+                    d="M7.63775 1.25H7.36275C7.03122 1.25 6.71328 1.3817 6.47886 1.61612C6.24444 1.85054 6.11275 2.16848 6.11275 2.5V2.6125C6.11252 2.8317 6.05466 3.04699 5.94496 3.23677C5.83526 3.42655 5.67758 3.58415 5.48775 3.69375L5.219 3.85C5.02897 3.95971 4.81342 4.01747 4.594 4.01747C4.37457 4.01747 4.15902 3.95971 3.969 3.85L3.87525 3.8C3.58841 3.63454 3.24764 3.58965 2.92775 3.67519C2.60785 3.76073 2.33496 3.96971 2.169 4.25625L2.0315 4.49375C1.86603 4.78058 1.82115 5.12135 1.90669 5.44125C1.99223 5.76115 2.20121 6.03403 2.48775 6.2L2.5815 6.2625C2.77042 6.37157 2.92751 6.52818 3.03715 6.71677C3.1468 6.90536 3.20518 7.11936 3.2065 7.3375V7.65625C3.20737 7.87651 3.15003 8.0931 3.04027 8.28407C2.93052 8.47504 2.77225 8.63362 2.5815 8.74375L2.48775 8.8C2.20121 8.96597 1.99223 9.23885 1.90669 9.55875C1.82115 9.87865 1.86603 10.2194 2.0315 10.5062L2.169 10.7438C2.33496 11.0303 2.60785 11.2393 2.92775 11.3248C3.24764 11.4103 3.58841 11.3655 3.87525 11.2L3.969 11.15C4.15902 11.0403 4.37457 10.9825 4.594 10.9825C4.81342 10.9825 5.02897 11.0403 5.219 11.15L5.48775 11.3063C5.67758 11.4159 5.83526 11.5734 5.94496 11.7632C6.05466 11.953 6.11252 12.1683 6.11275 12.3875V12.5C6.11275 12.8315 6.24444 13.1495 6.47886 13.3839C6.71328 13.6183 7.03122 13.75 7.36275 13.75H7.63775C7.96927 13.75 8.28721 13.6183 8.52163 13.3839C8.75605 13.1495 8.88775 12.8315 8.88775 12.5V12.3875C8.88797 12.1683 8.94583 11.953 9.05553 11.7632C9.16523 11.5734 9.32291 11.4159 9.51275 11.3063L9.7815 11.15C9.97152 11.0403 10.1871 10.9825 10.4065 10.9825C10.6259 10.9825 10.8415 11.0403 11.0315 11.15L11.1252 11.2C11.4121 11.3655 11.7528 11.4103 12.0727 11.3248C12.3926 11.2393 12.6655 11.0303 12.8315 10.7438L12.969 10.5C13.1345 10.2132 13.1793 9.8724 13.0938 9.5525C13.0083 9.2326 12.7993 8.95972 12.5127 8.79375L12.419 8.74375C12.2282 8.63362 12.07 8.47504 11.9602 8.28407C11.8505 8.0931 11.7931 7.87651 11.794 7.65625V7.34375C11.7931 7.12349 11.8505 6.9069 11.9602 6.71593C12.07 6.52496 12.2282 6.36638 12.419 6.25625L12.5127 6.2C12.7993 6.03403 13.0083 5.76115 13.0938 5.44125C13.1793 5.12135 13.1345 4.78058 12.969 4.49375L12.8315 4.25625C12.6655 3.96971 12.3926 3.76073 12.0727 3.67519C11.7528 3.58965 11.4121 3.63454 11.1252 3.8L11.0315 3.85C10.8415 3.95971 10.6259 4.01747 10.4065 4.01747C10.1871 4.01747 9.97152 3.95971 9.7815 3.85L9.51275 3.69375C9.32291 3.58415 9.16523 3.42655 9.05553 3.23677C8.94583 3.04699 8.88797 2.8317 8.88775 2.6125V2.5C8.88775 2.16848 8.75605 1.85054 8.52163 1.61612C8.28721 1.3817 7.96927 1.25 7.63775 1.25Z"
+                    stroke="#929497" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M7.5 9.375C8.53553 9.375 9.375 8.53553 9.375 7.5C9.375 6.46447 8.53553 5.625 7.5 5.625C6.46447 5.625 5.625 6.46447 5.625 7.5C5.625 8.53553 6.46447 9.375 7.5 9.375Z"
+                    stroke="#929497" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_911_365">
+                    <rect width="15" height="15" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+
+              Settings
+            </a>
+          </div>
+
+          <div class="border border-gray-200 dark:border-gray-800 flex flex-col">
+            <a href="#"
+              class="flex items-center gap-3 p-4 text-gray-600 dark:text-gray-400 text-[14px] hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75">
+                </path>
+              </svg>
+              Log Out
+            </a>
+          </div>
+        </aside>
+
+        <!-- ========================================== -->
+        <!-- CONTENT AREA: MY ORDERS                    -->
+        <!-- ========================================== -->
+        <div class="flex-1 flex flex-col w-full">
+          <h2 class="hidden lg:block text-[20px] font-medium tracking-tight mb-[12px]">My Orders</h2>
+
+
+          <!-- Filter Tabs -->
+          <div class="flex items-center gap-2 mb-6 lg:mb-8 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+            <button type="button" data-filter="all"
+              class="order-filter-btn active bg-[#156E8A] dark:bg-[#2094B6] text-white border border-[#156E8A] px-4 md:px-5 py-2 md:py-2.5 text-[10px] md:text-[11px] font-bold uppercase tracking-wider shrink-0 transition-colors">
+              <span class="md:hidden">All</span><span class="hidden md:inline">All Orders</span>
+            </button>
+            <button type="button" data-filter="delivered"
+              class="order-filter-btn bg-white dark:bg-[#111a20] text-gray-400 border border-gray-200 dark:border-gray-700 hover:text-gray-900 dark:hover:text-white px-4 md:px-5 py-2 md:py-2.5 text-[10px] md:text-[11px] font-bold uppercase tracking-wider shrink-0 transition-colors">
+              Delivered
+            </button>
+            <button type="button" data-filter="processing"
+              class="order-filter-btn bg-white dark:bg-[#111a20] text-gray-400 border border-gray-200 dark:border-gray-700 hover:text-gray-900 dark:hover:text-white px-4 md:px-5 py-2 md:py-2.5 text-[10px] md:text-[11px] font-bold uppercase tracking-wider shrink-0 transition-colors">
+              Processing
+            </button>
+          </div>
+
+          <!-- Orders Container -->
+          <!-- Mobile: No outer border, stacked cards. Desktop: Outer border, table view -->
+          <div class="flex flex-col gap-4 lg:gap-0 lg:border lg:border-gray-200 lg:dark:border-gray-800">
+
+            <!-- Desktop Table Header (Hidden on Mobile) -->
+            <div
+              class="hidden lg:grid grid-cols-12 items-center px-6 py-4 border-b border-gray-200 dark:border-gray-800 bg-[#F9FAFB] dark:bg-[#0c1318]">
+              <div class="col-span-4 text-[11px] text-gray-400 font-bold uppercase tracking-widest">Product</div>
+              <div class="col-span-3 text-[11px] text-gray-400 font-bold uppercase tracking-widest">Order ID</div>
+              <div class="col-span-2 text-[11px] text-gray-400 font-bold uppercase tracking-widest">Status</div>
+              <div class="col-span-3 text-[11px] text-gray-400 font-bold uppercase tracking-widest">Amount</div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- ORDER ITEM 1                               -->
+            <!-- ========================================== -->
+            <div data-status="delivered"
+              class="order-item flex flex-col lg:grid lg:grid-cols-12 lg:items-center bg-white dark:bg-[#0a0f12] border border-gray-200 dark:border-gray-800 lg:border-0 lg:border-b lg:border-gray-200 lg:dark:border-gray-800 p-0 lg:px-6 lg:py-5 lg:last:border-b-0 rounded-[2px] lg:rounded-none w-full">
+
+              <!-- Col 1: Product -->
+              <div class="flex items-center gap-4 lg:col-span-4 w-full pl-4 pt-4">
+                <div
+                  class="w-12 h-12 bg-[#F9FAFB] dark:bg-[#111a20] border border-gray-200 dark:border-gray-700 flex items-center justify-center shrink-0">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10.667 16.3335C10.8783 16.4919 11.1242 16.5979 11.3844 16.6427C11.6447 16.6875 11.9119 16.6698 12.1639 16.591C12.416 16.5123 12.6458 16.3748 12.8343 16.1898C13.0228 16.0048 13.1646 15.7777 13.2481 15.5272C13.3316 15.2767 13.3544 15.0099 13.3146 14.7488C13.2748 14.4877 13.1735 14.2399 13.0191 14.0256C12.8646 13.8114 12.6615 13.6369 12.4265 13.5166C12.1914 13.3963 11.9311 13.3335 11.667 13.3335H1.66699"
+                      stroke="#156E8A" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M14.5837 6.66683C14.7967 6.38274 15.0789 6.15782 15.4033 6.01345C15.7278 5.86907 16.0837 5.81002 16.4374 5.84191C16.7911 5.87381 17.1308 5.99558 17.4241 6.19566C17.7175 6.39575 17.9549 6.66751 18.1137 6.98513C18.2725 7.30276 18.3475 7.65571 18.3316 8.01047C18.3156 8.36523 18.2092 8.71002 18.0225 9.0121C17.8358 9.31418 17.575 9.56353 17.2648 9.73646C16.9547 9.90939 16.6054 10.0002 16.2503 10.0002H1.66699"
+                      stroke="#156E8A" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M8.16699 3.66683C8.37826 3.50838 8.62416 3.4024 8.88442 3.35762C9.14469 3.31285 9.41186 3.33056 9.66394 3.40931C9.91601 3.48805 10.1458 3.62556 10.3343 3.81052C10.5228 3.99548 10.6646 4.22258 10.7481 4.47312C10.8316 4.72365 10.8544 4.99044 10.8146 5.25151C10.7748 5.51258 10.6735 5.76044 10.5191 5.97468C10.3646 6.18892 10.1615 6.3634 9.92646 6.48374C9.69138 6.60407 9.43108 6.66683 9.16699 6.66683H1.66699"
+                      stroke="#156E8A" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="flex flex-col">
+                  <div class="text-[14px] lg:text-[15px] font-medium text-gray-900 dark:text-white">Air Pro Max 5</div>
+                  <div class="text-[12px] lg:text-[13px] text-gray-400 font-light">Moonstone White <span
+                      class="hidden lg:inline">&middot; 15 Jan 2026</span></div>
+                </div>
+              </div>
+
+              <!-- Mobile Lower Section (Hidden on Desktop) -->
+              <div
+                class="flex items-end justify-between w-full lg:hidden pt-4 mt-4 border-t border-gray-200 dark:border-gray-800/50 p-4">
+                <div class="flex flex-col gap-1">
+                  <div class="text-[12px] text-gray-400 font-light">15 Jan 2026</div>
+                  <div class="text-[10px] text-gray-400 uppercase tracking-widest">BIN-20260115</div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-[#E8F5E9] dark:bg-[#064E3B] text-[#10B981] dark:text-[#34D399] text-[9px] font-bold uppercase tracking-[0.1em] px-2 py-1 rounded-sm">
+                    Delivered</div>
+                  <div class="text-[14px] font-medium">Rs.24,999</div>
+                </div>
+              </div>
+
+              <!-- Desktop Only Columns -->
+              <div class="hidden lg:block lg:col-span-3 text-[13px] text-gray-400 font-light">BIN-20260115</div>
+              <div class="hidden lg:block lg:col-span-2">
+                <span
+                  class="bg-[#E8F5E9] dark:bg-[#064E3B] text-[#10B981] dark:text-[#34D399] text-[9px] font-bold uppercase tracking-[0.1em] px-2.5 py-1.5 rounded-sm">Delivered</span>
+              </div>
+              <div class="hidden lg:flex lg:col-span-3 items-center justify-between">
+                <span class="text-[15px] font-medium text-gray-900 dark:text-white">Rs. 24,999</span>
+                <a href="#"
+                  class="text-[#156E8A] dark:text-[#2094B6] text-[13px] font-medium hover:underline">Details</a>
+              </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- ORDER ITEM 2                               -->
+            <!-- ========================================== -->
+            <div data-status="processing"
+              class="order-item flex flex-col lg:grid lg:grid-cols-12 lg:items-center bg-white dark:bg-[#0a0f12] border border-gray-200 dark:border-gray-800 lg:border-0 lg:border-b lg:border-gray-200 lg:dark:border-gray-800 p-0 lg:px-6 lg:py-5 lg:last:border-b-0 rounded-[2px] lg:rounded-none w-full">
+
+              <div class="flex items-center gap-4 lg:col-span-4 w-full pl-4 pt-4">
+                <div
+                  class="w-12 h-12 bg-[#F9FAFB] dark:bg-[#111a20] border border-gray-200 dark:border-gray-700 flex items-center justify-center shrink-0">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10.667 16.3335C10.8783 16.4919 11.1242 16.5979 11.3844 16.6427C11.6447 16.6875 11.9119 16.6698 12.1639 16.591C12.416 16.5123 12.6458 16.3748 12.8343 16.1898C13.0228 16.0048 13.1646 15.7777 13.2481 15.5272C13.3316 15.2767 13.3544 15.0099 13.3146 14.7488C13.2748 14.4877 13.1735 14.2399 13.0191 14.0256C12.8646 13.8114 12.6615 13.6369 12.4265 13.5166C12.1914 13.3963 11.9311 13.3335 11.667 13.3335H1.66699"
+                      stroke="#156E8A" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M14.5837 6.66683C14.7967 6.38274 15.0789 6.15782 15.4033 6.01345C15.7278 5.86907 16.0837 5.81002 16.4374 5.84191C16.7911 5.87381 17.1308 5.99558 17.4241 6.19566C17.7175 6.39575 17.9549 6.66751 18.1137 6.98513C18.2725 7.30276 18.3475 7.65571 18.3316 8.01047C18.3156 8.36523 18.2092 8.71002 18.0225 9.0121C17.8358 9.31418 17.575 9.56353 17.2648 9.73646C16.9547 9.90939 16.6054 10.0002 16.2503 10.0002H1.66699"
+                      stroke="#156E8A" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M8.16699 3.66683C8.37826 3.50838 8.62416 3.4024 8.88442 3.35762C9.14469 3.31285 9.41186 3.33056 9.66394 3.40931C9.91601 3.48805 10.1458 3.62556 10.3343 3.81052C10.5228 3.99548 10.6646 4.22258 10.7481 4.47312C10.8316 4.72365 10.8544 4.99044 10.8146 5.25151C10.7748 5.51258 10.6735 5.76044 10.5191 5.97468C10.3646 6.18892 10.1615 6.3634 9.92646 6.48374C9.69138 6.60407 9.43108 6.66683 9.16699 6.66683H1.66699"
+                      stroke="#156E8A" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="flex flex-col">
+                  <div class="text-[14px] lg:text-[15px] font-medium text-gray-900 dark:text-white">Air Pro 2</div>
+                  <div class="text-[12px] lg:text-[13px] text-gray-400 font-light">Obsidian Black <span
+                      class="hidden lg:inline">&middot; 28 Dec 2025</span></div>
+                </div>
+              </div>
+
+              <div
+                class="flex items-end justify-between w-full lg:hidden pt-4 mt-4 border-t border-gray-200 dark:border-gray-800/50 p-4">
+                <div class="flex flex-col gap-1">
+                  <div class="text-[12px] text-gray-400 font-light">28 Dec 2025</div>
+                  <div class="text-[10px] text-gray-400 uppercase tracking-widest">BIN-20251228</div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-[#E0F2FE] dark:bg-[#075985] text-[#0284C7] dark:text-[#38BDF8] text-[9px] font-bold uppercase tracking-[0.1em] px-2 py-1 rounded-sm">
+                    Processing</div>
+                  <div class="text-[14px] font-medium">Rs.18,499</div>
+                </div>
+              </div>
+
+              <div class="hidden lg:block lg:col-span-3 text-[13px] text-gray-400 font-light">BIN-20251228</div>
+              <div class="hidden lg:block lg:col-span-2">
+                <span
+                  class="bg-[#E0F2FE] dark:bg-[#075985] text-[#0284C7] dark:text-[#38BDF8] text-[9px] font-bold uppercase tracking-[0.1em] px-2.5 py-1.5 rounded-sm">Processing</span>
+              </div>
+              <div class="hidden lg:flex lg:col-span-3 items-center justify-between">
+                <span class="text-[15px] font-medium text-gray-900 dark:text-white">Rs. 18,499</span>
+                <a href="#"
+                  class="text-[#156E8A] dark:text-[#2094B6] text-[13px] font-medium hover:underline">Details</a>
+              </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- ORDER ITEM 3                               -->
+            <!-- ========================================== -->
+            <div data-status="delivered"
+              class="order-item flex flex-col lg:grid lg:grid-cols-12 lg:items-center bg-white dark:bg-[#0a0f12] border border-gray-200 dark:border-gray-800 lg:border-0 lg:border-b lg:border-gray-200 lg:dark:border-gray-800 p-0 lg:px-6 lg:py-5 lg:last:border-b-0 rounded-[2px] lg:rounded-none w-full">
+
+              <!-- Col 1: Product -->
+              <div class="flex items-center gap-4 lg:col-span-4 w-full pl-4 pt-4">
+                <div
+                  class="w-12 h-12 bg-[#F9FAFB] dark:bg-[#111a20] border border-gray-200 dark:border-gray-700 flex items-center justify-center shrink-0">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10.667 16.3335C10.8783 16.4919 11.1242 16.5979 11.3844 16.6427C11.6447 16.6875 11.9119 16.6698 12.1639 16.591C12.416 16.5123 12.6458 16.3748 12.8343 16.1898C13.0228 16.0048 13.1646 15.7777 13.2481 15.5272C13.3316 15.2767 13.3544 15.0099 13.3146 14.7488C13.2748 14.4877 13.1735 14.2399 13.0191 14.0256C12.8646 13.8114 12.6615 13.6369 12.4265 13.5166C12.1914 13.3963 11.9311 13.3335 11.667 13.3335H1.66699"
+                      stroke="#156E8A" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M14.5837 6.66683C14.7967 6.38274 15.0789 6.15782 15.4033 6.01345C15.7278 5.86907 16.0837 5.81002 16.4374 5.84191C16.7911 5.87381 17.1308 5.99558 17.4241 6.19566C17.7175 6.39575 17.9549 6.66751 18.1137 6.98513C18.2725 7.30276 18.3475 7.65571 18.3316 8.01047C18.3156 8.36523 18.2092 8.71002 18.0225 9.0121C17.8358 9.31418 17.575 9.56353 17.2648 9.73646C16.9547 9.90939 16.6054 10.0002 16.2503 10.0002H1.66699"
+                      stroke="#156E8A" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M8.16699 3.66683C8.37826 3.50838 8.62416 3.4024 8.88442 3.35762C9.14469 3.31285 9.41186 3.33056 9.66394 3.40931C9.91601 3.48805 10.1458 3.62556 10.3343 3.81052C10.5228 3.99548 10.6646 4.22258 10.7481 4.47312C10.8316 4.72365 10.8544 4.99044 10.8146 5.25151C10.7748 5.51258 10.6735 5.76044 10.5191 5.97468C10.3646 6.18892 10.1615 6.3634 9.92646 6.48374C9.69138 6.60407 9.43108 6.66683 9.16699 6.66683H1.66699"
+                      stroke="#156E8A" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="flex flex-col">
+                  <div class="text-[14px] lg:text-[15px] font-medium text-gray-900 dark:text-white">Air Pro Max 5</div>
+                  <div class="text-[12px] lg:text-[13px] text-gray-400 font-light">Moonstone White <span
+                      class="hidden lg:inline">&middot; 15 Jan 2026</span></div>
+                </div>
+              </div>
+
+              <!-- Mobile Lower Section (Hidden on Desktop) -->
+              <div
+                class="flex items-end justify-between w-full lg:hidden pt-4 mt-4 border-t border-gray-200 dark:border-gray-800/50 p-4">
+                <div class="flex flex-col gap-1">
+                  <div class="text-[12px] text-gray-400 font-light">15 Jan 2026</div>
+                  <div class="text-[10px] text-gray-400 uppercase tracking-widest">BIN-20260115</div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-[#E8F5E9] dark:bg-[#064E3B] text-[#10B981] dark:text-[#34D399] text-[9px] font-bold uppercase tracking-[0.1em] px-2 py-1 rounded-sm">
+                    Delivered</div>
+                  <div class="text-[14px] font-medium">Rs.24,999</div>
+                </div>
+              </div>
+
+              <!-- Desktop Only Columns -->
+              <div class="hidden lg:block lg:col-span-3 text-[13px] text-gray-400 font-light">BIN-20260115</div>
+              <div class="hidden lg:block lg:col-span-2">
+                <span
+                  class="bg-[#E8F5E9] dark:bg-[#064E3B] text-[#10B981] dark:text-[#34D399] text-[9px] font-bold uppercase tracking-[0.1em] px-2.5 py-1.5 rounded-sm">Delivered</span>
+              </div>
+              <div class="hidden lg:flex lg:col-span-3 items-center justify-between">
+                <span class="text-[15px] font-medium text-gray-900 dark:text-white">Rs. 24,999</span>
+                <a href="#"
+                  class="text-[#156E8A] dark:text-[#2094B6] text-[13px] font-medium hover:underline">Details</a>
+              </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- ORDER ITEM 4                               -->
+            <!-- ========================================== -->
+            <div data-status="delivered"
+              class="order-item flex flex-col lg:grid lg:grid-cols-12 lg:items-center bg-white dark:bg-[#0a0f12] border border-gray-200 dark:border-gray-800 lg:border-0 lg:border-b lg:border-gray-200 lg:dark:border-gray-800 p-0 lg:px-6 lg:py-5 lg:last:border-b-0 rounded-[2px] lg:rounded-none w-full">
+
+              <!-- Col 1: Product -->
+              <div class="flex items-center gap-4 lg:col-span-4 w-full pl-4 pt-4">
+                <div
+                  class="w-12 h-12 bg-[#F9FAFB] dark:bg-[#111a20] border border-gray-200 dark:border-gray-700 flex items-center justify-center shrink-0">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10.667 16.3335C10.8783 16.4919 11.1242 16.5979 11.3844 16.6427C11.6447 16.6875 11.9119 16.6698 12.1639 16.591C12.416 16.5123 12.6458 16.3748 12.8343 16.1898C13.0228 16.0048 13.1646 15.7777 13.2481 15.5272C13.3316 15.2767 13.3544 15.0099 13.3146 14.7488C13.2748 14.4877 13.1735 14.2399 13.0191 14.0256C12.8646 13.8114 12.6615 13.6369 12.4265 13.5166C12.1914 13.3963 11.9311 13.3335 11.667 13.3335H1.66699"
+                      stroke="#156E8A" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M14.5837 6.66683C14.7967 6.38274 15.0789 6.15782 15.4033 6.01345C15.7278 5.86907 16.0837 5.81002 16.4374 5.84191C16.7911 5.87381 17.1308 5.99558 17.4241 6.19566C17.7175 6.39575 17.9549 6.66751 18.1137 6.98513C18.2725 7.30276 18.3475 7.65571 18.3316 8.01047C18.3156 8.36523 18.2092 8.71002 18.0225 9.0121C17.8358 9.31418 17.575 9.56353 17.2648 9.73646C16.9547 9.90939 16.6054 10.0002 16.2503 10.0002H1.66699"
+                      stroke="#156E8A" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M8.16699 3.66683C8.37826 3.50838 8.62416 3.4024 8.88442 3.35762C9.14469 3.31285 9.41186 3.33056 9.66394 3.40931C9.91601 3.48805 10.1458 3.62556 10.3343 3.81052C10.5228 3.99548 10.6646 4.22258 10.7481 4.47312C10.8316 4.72365 10.8544 4.99044 10.8146 5.25151C10.7748 5.51258 10.6735 5.76044 10.5191 5.97468C10.3646 6.18892 10.1615 6.3634 9.92646 6.48374C9.69138 6.60407 9.43108 6.66683 9.16699 6.66683H1.66699"
+                      stroke="#156E8A" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="flex flex-col">
+                  <div class="text-[14px] lg:text-[15px] font-medium text-gray-900 dark:text-white">Air Pro Max 5</div>
+                  <div class="text-[12px] lg:text-[13px] text-gray-400 font-light">Moonstone White <span
+                      class="hidden lg:inline">&middot; 15 Jan 2026</span></div>
+                </div>
+              </div>
+
+              <!-- Mobile Lower Section (Hidden on Desktop) -->
+              <div
+                class="flex items-end justify-between w-full lg:hidden pt-4 mt-4 border-t border-gray-200 dark:border-gray-800/50 p-4">
+                <div class="flex flex-col gap-1">
+                  <div class="text-[12px] text-gray-400 font-light">15 Jan 2026</div>
+                  <div class="text-[10px] text-gray-400 uppercase tracking-widest">BIN-20260115</div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-[#E8F5E9] dark:bg-[#064E3B] text-[#10B981] dark:text-[#34D399] text-[9px] font-bold uppercase tracking-[0.1em] px-2 py-1 rounded-sm">
+                    Delivered</div>
+                  <div class="text-[14px] font-medium">Rs.24,999</div>
+                </div>
+              </div>
+
+              <!-- Desktop Only Columns -->
+              <div class="hidden lg:block lg:col-span-3 text-[13px] text-gray-400 font-light">BIN-20260115</div>
+              <div class="hidden lg:block lg:col-span-2">
+                <span
+                  class="bg-[#E8F5E9] dark:bg-[#064E3B] text-[#10B981] dark:text-[#34D399] text-[9px] font-bold uppercase tracking-[0.1em] px-2.5 py-1.5 rounded-sm">Delivered</span>
+              </div>
+              <div class="hidden lg:flex lg:col-span-3 items-center justify-between">
+                <span class="text-[15px] font-medium text-gray-900 dark:text-white">Rs. 24,999</span>
+                <a href="#"
+                  class="text-[#156E8A] dark:text-[#2094B6] text-[13px] font-medium hover:underline">Details</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- CUSTOM FOOTER                              -->
+      <!-- ========================================== -->
+      <footer class="md:hidden w-full bg-[#0a0f12] text-white py-12 flex flex-col items-center justify-center mt-auto">
+
+        <!-- Animated Wave Logo Mockup -->
+        <div class="flex flex-col items-center gap-2 mb-8">
+          <svg class="w-[80px]" viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Top Wave (Green) -->
+            <path d="M10,20 C30,5 40,30 60,15 C70,7 80,12 90,20" stroke="#4ade80" stroke-width="4"
+              stroke-linecap="round" />
+            <!-- Middle Wave (Teal) -->
+            <path d="M15,25 C35,10 45,35 65,20 C75,12 85,17 95,25" stroke="#2dd4bf" stroke-width="4"
+              stroke-linecap="round" />
+            <!-- Bottom Wave (Blue) -->
+            <path d="M20,30 C40,15 50,40 70,25 C80,17 90,22 100,30" stroke="#38bdf8" stroke-width="4"
+              stroke-linecap="round" />
+          </svg>
+          <div class="text-[#38bdf8] text-[18px] font-medium tracking-tight">Breathe In</div>
+          <div class="text-[#38bdf8]/70 text-[9px] italic font-light">the right air</div>
+        </div>
+
+        <p class="text-[12px] text-gray-500 font-light mb-6 tracking-wide">
+          2026 Breathe In. All rights reserved. Made in India.
+        </p>
+
+        <div class="flex gap-6 text-[13px] text-gray-400 font-light">
+          <a href="#" class="hover:text-white transition-colors">Shipping</a>
+          <a href="#" class="hover:text-white transition-colors">Returns</a>
+          <a href="#" class="hover:text-white transition-colors">Warranty</a>
+        </div>
+      </footer>
+
+      <!-- ========================================== -->
+      <!-- SECTION 17: FOOTER                         -->
+      <!-- ========================================== -->
+      <footer class="hidden md:block w-full bg-[#0B1115] pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24">
+        <div class="max-w-[1400px] mx-auto">
+          <!-- Top Section: Brand & Links -->
+          <div class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-10 lg:mb-20">
+            <!-- Left: Brand, Bio & Buttons -->
+            <div class="flex flex-col lg:w-5/12">
+              <!-- Logo -->
+              <img src="./assets/images/logo.png" alt="Breathe In"
+                class="h-9 md:h-10 w-auto mb-6 object-contain object-left self-start" />
+
+              <!-- Bio -->
+              <!-- Mobile text and Desktop text swap seamlessly using hidden/inline classes -->
+              <p class="text-gray-400 text-[13px] md:text-[14px] font-light leading-[1.8] mb-8 max-w-sm">
+                <span class="hidden md:inline">
+                  Clean air isn’t a luxury, it’s a necessity<br />
+                  Sophisticated Japanese air-purification<br />
+                  technology, at honest prices. The right air, for<br />
+                  every Indian home.
+                </span>
+                <span class="md:hidden">
+                  Clean air isn’t a luxury, it’s a necessity Sophisticated
+                  Japanese air-purification technology, at honest prices.
+                </span>
+              </p>
+
+              <!-- Buttons (Side-by-Side) -->
+              <div class="flex flex-row items-center gap-3 md:gap-4 w-full max-w-[400px]">
+                <!-- Shop Now (Solid Teal on all screens) -->
+                <a href="#"
+                  class="flex-1 bg-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] transition-colors whitespace-nowrap">
+                  <span>SHOP NOW</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7">
+                    </path>
+                  </svg>
+                </a>
+
+                <!-- Download Brochure (Solid Teal on Mobile, Ghost on Desktop) -->
+                <a href="#"
+                  class="flex-1 bg-[#156E8A] md:bg-transparent border border-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] md:hover:bg-[#156E8A] hover:text-white transition-colors whitespace-nowrap">
+                  <span>DOWNLOAD BROCHURE</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7">
+                    </path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Divider (Mobile Only) -->
+            <div class="w-full h-[1px] bg-gray-800/80 lg:hidden mt-2 mb-2"></div>
+
+            <!-- Right: Links Grid -->
+            <!-- 3 Cols on Mobile, 4 Cols on Desktop -->
+            <div class="lg:w-7/12 grid grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
+              <!-- Column 1: Collection -->
+              <div class="flex flex-col">
+                <h4 class="text-[11px] md:text-[14px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                  Collection
+                </h4>
+                <ul class="flex flex-col gap-4">
+                  <li>
+                    <a href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                      Pro</a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                      Pro 1</a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                      Pro 2</a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                      Pro Max</a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Column 2: Explore -->
+              <div class="flex flex-col">
+                <h4 class="text-[11px] md:text-[14px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                  Explore
+                </h4>
+                <ul class="flex flex-col gap-4">
+                  <li>
+                    <a href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Technology</a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">The
+                      App</a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Compare
+                      Models</a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Filter
+                      Care</a>
+                  </li>
+                  <!-- Visible only on Desktop -->
+                  <li class="hidden lg:block">
+                    <a href="#"
+                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Corporate
+                      Solutions</a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Column 3: Support (Mobile) / Blank Header (Desktop) -->
+              <div class="flex flex-col">
+                <!-- Header visible only on mobile -->
+                <h4 class="text-[11px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6 lg:hidden">
+                  Support
+                </h4>
+
+                <!-- Spacer to align links under the empty header space on desktop -->
+                <div class="hidden lg:block h-[34px]"></div>
+
+                <ul class="flex flex-col gap-4">
+                  <!-- Visible only on Desktop -->
+                  <li class="hidden lg:block">
+                    <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Book a
+                      Demo</a>
+                  </li>
+                  <li class="hidden lg:block">
+                    <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Case
+                      Studies</a>
+                  </li>
+
+                  <!-- Visible on Both -->
+                  <li>
+                    <a href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">FAQ</a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Support</a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Contact</a>
+                  </li>
+
+                  <!-- Visible only on Mobile -->
+                  <li class="lg:hidden">
+                    <a href="#"
+                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">WhatsApp</a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Column 4: Contact (Desktop Only) -->
+              <div class="hidden lg:flex flex-col">
+                <h4 class="text-[14px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                  Contact
+                </h4>
+                <ul class="flex flex-col gap-4">
+                  <li>
+                    <a href="tel:+919076636639"
+                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">+91 90766
+                      36639</a>
+                  </li>
+                  <li>
+                    <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">WhatsApp
+                      Support</a>
+                  </li>
+                  <li>
+                    <a href="mailto:enquiries@breathein.co.in"
+                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">enquiries@breathein.co.in</a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">www.breathein.co.in</a>
+                  </li>
+                  <li class="text-[13px] text-gray-400 font-light mt-1">
+                    Whitefield, Bengaluru
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Divider -->
+          <div class="w-full h-[1px] bg-gray-800/80 mb-6 lg:mb-8"></div>
+
+          <!-- Bottom Strip: Legal & Copyright -->
+          <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+            <!-- Legal Links (Top on mobile, Right on desktop) -->
+            <div class="flex flex-wrap items-center gap-6 lg:order-2">
+              <a href="#"
+                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Privacy
+                Policy</a>
+              <a href="#"
+                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Terms
+                of
+                Use</a>
+              <a href="#"
+                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Cookie
+                Policy</a>
+            </div>
+
+            <!-- Copyright (Bottom on mobile, Left on desktop) -->
+            <p class="text-[11px] md:text-[13px] text-gray-500 font-light lg:order-1">
+              &copy; 2026 Breathe In &mdash; The Right Air. All rights reserved.
+              Made in India.
+            </p>
+          </div>
+
+          <!-- 
+                <button id="backToTop"
+                    class="flex absolute right-0 bottom-12 lg:static items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-gray-500 hover:text-white transition-colors font-bold group order-3">
+                    Back to Top
+                    <span
+                        class="w-7 h-7 rounded-full bg-gray-800/80 flex items-center justify-center group-hover:bg-[#156E8A] transition-colors">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7">
+                            </path>
+                        </svg>
+                    </span>
+                </button> -->
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- jQuery Core Library -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Link to Custom JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
