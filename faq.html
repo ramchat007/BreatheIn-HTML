@@ -279,273 +279,478 @@
 
           <!-- Subtext -->
           <p class="max-w-xl text-gray-500 text-sm md:text-base leading-relaxed font-light">
-            Clear, honest answers about choosing, owning and maintaining your Breathe In purifier. Can't find yours? <a href="#">Talk to an expert.</a>
+            Clear, honest answers about choosing, owning and maintaining your Breathe In purifier. Can't find yours? <a
+              href="#">Talk to an expert.</a>
           </p>
         </div>
       </div>
     </section>
 
     <!-- ========================================== -->
-<!-- FAQ SECTION                                -->
-<!-- ========================================== -->
-<section class="w-full bg-white dark:bg-black py-16 lg:py-24 px-6 md:px-10 lg:px-16 font-sans">
-    <div class="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
-        
+    <!-- FAQ SECTION    -->
+    <!-- ========================================== -->
+    <section
+      class="w-full bg-white dark:bg-[#050505] py-8 lg:py-24 px-6 md:px-10 lg:px-16 font-sans transition-colors duration-300">
+
+      <!-- ========================================== -->
+      <!-- MOBILE/TABLET NAVIGATION (Horizontal Tabs) -->
+      <!-- ========================================== -->
+      <!-- Using negative margins so the scrollable area bleeds to the edge of the screen -->
+      <div
+        class="lg:hidden w-full overflow-x-auto border-b border-gray-200 dark:border-gray-800 px-0 md:-mx-10 md:px-10 mb-8 sticky top-0 bg-white/95 dark:bg-[#050505]/95 backdrop-blur-sm z-20 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+        <div class="flex flex-row w-max gap-2">
+          <button type="button" data-filter="all"
+            class="mob-filter-btn faq-filter-btn border-b-2 border-[#156E8A] dark:border-[#2094B6] text-[#156E8A] dark:text-[#2094B6] px-4 py-4 text-[12px] font-bold uppercase tracking-[0.15em] shrink-0 transition-colors whitespace-nowrap -mb-px">
+            All
+          </button>
+          <button type="button" data-filter="the-app"
+            class="mob-filter-btn faq-filter-btn border-b-2 border-transparent text-gray-500 hover:text-gray-900 dark:hover:text-white px-3 py-4 text-[12px] font-bold uppercase tracking-[0.15em] shrink-0 transition-colors whitespace-nowrap -mb-px">
+            The App
+          </button>
+          <button type="button" data-filter="air-quality"
+            class="mob-filter-btn faq-filter-btn border-b-2 border-transparent text-gray-500 hover:text-gray-900 dark:hover:text-white px-3 py-4 text-[12px] font-bold uppercase tracking-[0.15em] shrink-0 transition-colors whitespace-nowrap -mb-px">
+            Air Quality
+          </button>
+          <button type="button" data-filter="filters-care"
+            class="mob-filter-btn faq-filter-btn border-b-2 border-transparent text-gray-500 hover:text-gray-900 dark:hover:text-white px-3 py-4 text-[12px] font-bold uppercase tracking-[0.15em] shrink-0 transition-colors whitespace-nowrap -mb-px">
+            Filters & Care
+          </button>
+          <button type="button" data-filter="technical"
+            class="mob-filter-btn faq-filter-btn border-b-2 border-transparent text-gray-500 hover:text-gray-900 dark:hover:text-white px-3 py-4 text-[12px] font-bold uppercase tracking-[0.15em] shrink-0 transition-colors whitespace-nowrap -mb-px">
+            Technical
+          </button>
+          <button type="button" data-filter="shipping-warranty"
+            class="mob-filter-btn faq-filter-btn border-b-2 border-transparent text-gray-500 hover:text-gray-900 dark:hover:text-white px-3 py-4 text-[12px] font-bold uppercase tracking-[0.15em] shrink-0 transition-colors whitespace-nowrap -mb-px">
+            Shipping & Warranty
+          </button>
+        </div>
+      </div>
+
+      <div class="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+
         <!-- ========================================== -->
-        <!-- LEFT SIDEBAR: CATEGORY NAVIGATION          -->
+        <!-- DESKTOP LEFT SIDEBAR: NAVIGATION           -->
         <!-- ========================================== -->
-        <div class="w-full lg:w-[25%] lg:sticky lg:top-32 hidden md:block">
-            <nav class="flex flex-col gap-5 text-[13px] font-medium tracking-wide">
-                <a href="#choosing-sizing" class="faq-nav-link border-l-2 border-[#156E8A] text-[#156E8A] pl-4 transition-colors">
-                    Choosing & Sizing
-                </a>
-                <a href="#filters-maintenance" class="faq-nav-link border-l-2 border-transparent text-gray-500 hover:text-gray-900 dark:hover:text-gray-300 pl-4 transition-colors">
-                    Filters & Maintenance
-                </a>
-                <a href="#performance-health" class="faq-nav-link border-l-2 border-transparent text-gray-500 hover:text-gray-900 dark:hover:text-gray-300 pl-4 transition-colors">
-                    Performance & Health
-                </a>
-                <a href="#orders-warranty" class="faq-nav-link border-l-2 border-transparent text-gray-500 hover:text-gray-900 dark:hover:text-gray-300 pl-4 transition-colors">
-                    Orders, Delivery & Warranty
-                </a>
+        <div class="hidden lg:block w-full lg:w-[28%] lg:sticky lg:top-32 shrink-0">
+
+          <div class="mb-12">
+            <h4 class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold mb-4">Browse by Topic</h4>
+            <nav class="flex flex-col border-t border-gray-100 dark:border-gray-900">
+              <button type="button" data-filter="all"
+                class="desk-filter-btn faq-filter-btn text-left py-4 border-b border-gray-100 dark:border-gray-900 text-[13px] font-medium text-[#156E8A] dark:text-[#2094B6] transition-colors">
+                All
+              </button>
+              <button type="button" data-filter="the-app"
+                class="desk-filter-btn faq-filter-btn text-left py-4 border-b border-gray-100 dark:border-gray-900 text-[13px] font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">
+                The App
+              </button>
+              <button type="button" data-filter="air-quality"
+                class="desk-filter-btn faq-filter-btn text-left py-4 border-b border-gray-100 dark:border-gray-900 text-[13px] font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">
+                Air Quality
+              </button>
+              <button type="button" data-filter="filters-care"
+                class="desk-filter-btn faq-filter-btn text-left py-4 border-b border-gray-100 dark:border-gray-900 text-[13px] font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">
+                Filters & Care
+              </button>
+              <button type="button" data-filter="technical"
+                class="desk-filter-btn faq-filter-btn text-left py-4 border-b border-gray-100 dark:border-gray-900 text-[13px] font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">
+                Technical
+              </button>
+              <button type="button" data-filter="shipping-warranty"
+                class="desk-filter-btn faq-filter-btn text-left py-4 border-b border-gray-100 dark:border-gray-900 text-[13px] font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">
+                Shipping & Warranty
+              </button>
             </nav>
+          </div>
+
+          <!-- Support CTA Block (Desktop Only) -->
+          <div>
+            <h4 class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold mb-2">Still have questions?</h4>
+            <p class="text-[12px] text-gray-500 font-light mb-6">Our team responds in minutes via WhatsApp.</p>
+
+            <a href="https://wa.me/919076636639" target="_blank"
+              class="w-full bg-[#156E8A] text-white px-5 py-4 rounded-[2px] text-[10px] font-bold uppercase tracking-[0.2em] flex items-center justify-between hover:bg-[#115a72] transition-colors mb-3">
+              <span>WhatsApp Us</span>
+              <span class="text-sm leading-none">&rarr;</span>
+            </a>
+
+            <a href="mailto:enquiries@breathein.co.in"
+              class="w-full bg-white dark:bg-[#111a20] border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white px-5 py-4 rounded-[2px] text-[10px] font-bold uppercase tracking-[0.2em] flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">
+              <span>Email Support</span>
+              <span class="text-sm leading-none">&rarr;</span>
+            </a>
+          </div>
+
         </div>
 
         <!-- ========================================== -->
-        <!-- RIGHT COLUMN: FAQ ACCORDION CONTENT        -->
+        <!-- RIGHT COLUMN: FAQ ACCORDION LIST           -->
         <!-- ========================================== -->
-        <div class="w-full lg:w-[75%] flex flex-col gap-16 lg:gap-20">
-                
-            <!-- Category 1: Choosing & Sizing -->
-            <div id="choosing-sizing" class="faq-section">
-                <h2 class="text-2xl font-light text-gray-900 dark:text-gray-400 mb-2">Choosing & Sizing</h2>
-                
-                <div class="flex flex-col border-t border-gray-200 dark:border-gray-800">
-                    
-                    <!-- Q1 (Expanded by default) -->
-                    <div class="faq-item border-b border-gray-200 dark:border-gray-800">
-                        <button type="button" class="faq-toggle-btn w-full flex justify-between items-center py-6 text-left group cursor-pointer">
-                            <span class="text-[15px] text-gray-900 dark:text-gray-300 group-hover:text-[#156E8A] transition-colors">How do I know which model fits my room?</span>
-                            <span class="text-[#156E8A] shrink-0 ml-4">
-                                <svg class="w-5 h-5 plus-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"></path></svg>
-                                <svg class="w-5 h-5 minus-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 12h-15"></path></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content pb-6">
-                            <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-500 font-light leading-relaxed">
-                                Use the Find My Purifier tool — it weighs your room size, ceiling height, concerns and placement to recommend the right model. As a quick guide, Air Pro suits bedrooms (35-40 m²), Air Pro 1 medium rooms (50-55 m²), Air Pro 2 large living spaces (75-80 m²), and Air Pro Max large or commercial spaces (120-150 m²).
-                            </p>
-                        </div>
-                    </div>
+        <div class="w-full lg:w-[72%] flex flex-col border-t border-gray-100 dark:border-gray-900" id="faq-list">
 
-                    <!-- Q2 (Collapsed) -->
-                    <div class="faq-item border-b border-gray-200 dark:border-gray-800">
-                        <button type="button" class="faq-toggle-btn w-full flex justify-between items-center py-6 text-left group cursor-pointer">
-                            <span class="text-[15px] text-gray-900 dark:text-gray-300 group-hover:text-[#156E8A] transition-colors">What is CADR and why does it matter?</span>
-                            <span class="text-[#156E8A] shrink-0 ml-4">
-                                <svg class="w-5 h-5 plus-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"></path></svg>
-                                <svg class="w-5 h-5 minus-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 12h-15"></path></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden pb-6">
-                            <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-500 font-light leading-relaxed">
-                                CADR (Clean Air Delivery Rate) measures how quickly a purifier cleans the air in a specific room size. A higher CADR means faster purification, which is essential during peak pollution hours or in larger spaces.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Q3 (Collapsed) -->
-                    <div class="faq-item border-b border-gray-200 dark:border-gray-800">
-                        <button type="button" class="faq-toggle-btn w-full flex justify-between items-center py-6 text-left group cursor-pointer">
-                            <span class="text-[15px] text-gray-900 dark:text-gray-300 group-hover:text-[#156E8A] transition-colors">Can one purifier cover my whole home?</span>
-                            <span class="text-[#156E8A] shrink-0 ml-4">
-                                <svg class="w-5 h-5 plus-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"></path></svg>
-                                <svg class="w-5 h-5 minus-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 12h-15"></path></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden pb-6">
-                            <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-500 font-light leading-relaxed">
-                                Purifiers work best in enclosed spaces. While a larger unit like the Air Pro Max can cover open-plan living areas, walls and closed doors block airflow. For optimal health benefits, we recommend placing a correctly sized unit in the rooms where you spend the most time, such as bedrooms and the living room.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+          <!-- [ THE APP ] -->
+          <div class="faq-item group cursor-pointer border-b border-gray-100 dark:border-gray-900"
+            data-category="the-app">
+            <button type="button" class="faq-toggle-btn w-full flex items-center py-5 md:py-6 text-left">
+              <div
+                class="w-8 h-8 rounded-full bg-[#F0F5F7] dark:bg-[#0c1318] flex items-center justify-center shrink-0 mr-5 text-[#156E8A] dark:text-[#2094B6] transition-transform duration-300 icon-container">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+              </div>
+              <span
+                class="text-[14px] md:text-[15px] text-gray-900 dark:text-gray-200 group-hover:text-[#156E8A] dark:group-hover:text-[#2094B6] transition-colors">Which
+                devices is the Breathe In app available on?</span>
+            </button>
+            <div class="faq-content hidden pb-6 pl-13 md:pl-[52px]">
+              <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+                The app is available for download on both iOS (App Store) and Android (Google Play Store) devices
+                running the latest software versions.
+              </p>
             </div>
+          </div>
 
-            <!-- Category 2: Filters & Maintenance -->
-            <div id="filters-maintenance" class="faq-section">
-                <h2 class="text-2xl font-light text-gray-900 dark:text-gray-400 mb-2">Filters & Maintenance</h2>
-                
-                <div class="flex flex-col border-t border-gray-200 dark:border-gray-800">
-                    <div class="faq-item border-b border-gray-200 dark:border-gray-800">
-                        <button type="button" class="faq-toggle-btn w-full flex justify-between items-center py-6 text-left group cursor-pointer">
-                            <span class="text-[15px] text-gray-900 dark:text-gray-300 group-hover:text-[#156E8A] transition-colors">How often do filters need replacing?</span>
-                            <span class="text-[#156E8A] shrink-0 ml-4">
-                                <svg class="w-5 h-5 plus-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"></path></svg>
-                                <svg class="w-5 h-5 minus-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 12h-15"></path></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden pb-6">
-                            <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-500 font-light leading-relaxed">
-                                Generally, every 8 to 12 months depending on usage and local air quality. Your purifier and the Smart Life app will alert you automatically when it's time for a replacement.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item border-b border-gray-200 dark:border-gray-800">
-                        <button type="button" class="faq-toggle-btn w-full flex justify-between items-center py-6 text-left group cursor-pointer">
-                            <span class="text-[15px] text-gray-900 dark:text-gray-300 group-hover:text-[#156E8A] transition-colors">Are genuine filters expensive?</span>
-                            <span class="text-[#156E8A] shrink-0 ml-4">
-                                <svg class="w-5 h-5 plus-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"></path></svg>
-                                <svg class="w-5 h-5 minus-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 12h-15"></path></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden pb-6">
-                            <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-500 font-light leading-relaxed">
-                                We price our replacement filters fairly to ensure you can maintain clean air year-round. Prices start at ₹1,499. Subscribing to filter replacements can save you an additional 15%.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item border-b border-gray-200 dark:border-gray-800">
-                        <button type="button" class="faq-toggle-btn w-full flex justify-between items-center py-6 text-left group cursor-pointer">
-                            <span class="text-[15px] text-gray-900 dark:text-gray-300 group-hover:text-[#156E8A] transition-colors">Can I wash the filter?</span>
-                            <span class="text-[#156E8A] shrink-0 ml-4">
-                                <svg class="w-5 h-5 plus-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"></path></svg>
-                                <svg class="w-5 h-5 minus-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 12h-15"></path></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden pb-6">
-                            <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-500 font-light leading-relaxed">
-                                You can gently vacuum or wipe the outer pre-filter layer, but the inner HEPA and Carbon layers are strictly non-washable. Washing a HEPA filter destroys its microscopic fibers and voids its performance.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+          <div class="faq-item group cursor-pointer border-b border-gray-100 dark:border-gray-900"
+            data-category="the-app">
+            <button type="button" class="faq-toggle-btn w-full flex items-center py-5 md:py-6 text-left">
+              <div
+                class="w-8 h-8 rounded-full bg-[#F0F5F7] dark:bg-[#0c1318] flex items-center justify-center shrink-0 mr-5 text-[#156E8A] dark:text-[#2094B6] transition-transform duration-300 icon-container">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+              </div>
+              <span
+                class="text-[14px] md:text-[15px] text-gray-900 dark:text-gray-200 group-hover:text-[#156E8A] transition-colors">How
+                many purifiers can I connect to one account?</span>
+            </button>
+            <div class="faq-content hidden pb-6 pl-13 md:pl-[52px]">
+              <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+                You can connect and manage up to 50 purifiers on a single account, making it ideal for both residential
+                and large commercial setups.
+              </p>
             </div>
+          </div>
 
-            <!-- Category 3: Performance & Health -->
-            <div id="performance-health" class="faq-section">
-                <h2 class="text-2xl font-light text-gray-900 dark:text-gray-400 mb-2">Performance & Health</h2>
-                
-                <div class="flex flex-col border-t border-gray-200 dark:border-gray-800">
-                    <div class="faq-item border-b border-gray-200 dark:border-gray-800">
-                        <button type="button" class="faq-toggle-btn w-full flex justify-between items-center py-6 text-left group cursor-pointer">
-                            <span class="text-[15px] text-gray-900 dark:text-gray-300 group-hover:text-[#156E8A] transition-colors">Do air purifiers really help?</span>
-                            <span class="text-[#156E8A] shrink-0 ml-4">
-                                <svg class="w-5 h-5 plus-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"></path></svg>
-                                <svg class="w-5 h-5 minus-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 12h-15"></path></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden pb-6">
-                            <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-500 font-light leading-relaxed">
-                                Yes. Air purifiers with true HEPA H13 filtration are scientifically proven to trap 99.97% of harmful particulate matter (PM2.5, PM10), lowering indoor pollution levels to safe, WHO-recommended limits within minutes.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item border-b border-gray-200 dark:border-gray-800">
-                        <button type="button" class="faq-toggle-btn w-full flex justify-between items-center py-6 text-left group cursor-pointer">
-                            <span class="text-[15px] text-gray-900 dark:text-gray-300 group-hover:text-[#156E8A] transition-colors">Will it help with allergies and asthma?</span>
-                            <span class="text-[#156E8A] shrink-0 ml-4">
-                                <svg class="w-5 h-5 plus-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"></path></svg>
-                                <svg class="w-5 h-5 minus-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 12h-15"></path></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden pb-6">
-                            <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-500 font-light leading-relaxed">
-                                Absolutely. By actively removing dust mites, pet dander, pollen, and mold spores from the air, many of our customers report a significant reduction in morning congestion, allergic rhinitis, and asthma triggers.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item border-b border-gray-200 dark:border-gray-800">
-                        <button type="button" class="faq-toggle-btn w-full flex justify-between items-center py-6 text-left group cursor-pointer">
-                            <span class="text-[15px] text-gray-900 dark:text-gray-300 group-hover:text-[#156E8A] transition-colors">Is it safe to run all night?</span>
-                            <span class="text-[#156E8A] shrink-0 ml-4">
-                                <svg class="w-5 h-5 plus-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"></path></svg>
-                                <svg class="w-5 h-5 minus-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 12h-15"></path></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden pb-6">
-                            <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-500 font-light leading-relaxed">
-                                Yes, it is recommended to run your purifier continuously while you are in the room. Our purifiers feature a 28dB Sleep Mode that turns off display lights and operates silently, consuming less electricity than a standard LED bulb.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+          <div class="faq-item group cursor-pointer border-b border-gray-100 dark:border-gray-900"
+            data-category="the-app">
+            <button type="button" class="faq-toggle-btn w-full flex items-center py-5 md:py-6 text-left">
+              <div
+                class="w-8 h-8 rounded-full bg-[#F0F5F7] dark:bg-[#0c1318] flex items-center justify-center shrink-0 mr-5 text-[#156E8A] dark:text-[#2094B6] transition-transform duration-300 icon-container">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+              </div>
+              <span
+                class="text-[14px] md:text-[15px] text-gray-900 dark:text-gray-200 group-hover:text-[#156E8A] transition-colors">Can
+                I share access with family members?</span>
+            </button>
+            <div class="faq-content hidden pb-6 pl-13 md:pl-[52px]">
+              <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+                Yes, using the "Home Management" feature in the app, you can invite family members to control the
+                purifiers without them needing to re-pair the devices.
+              </p>
             </div>
+          </div>
 
-            <!-- Category 4: Orders, Delivery & Warranty -->
-            <div id="orders-warranty" class="faq-section">
-                <h2 class="text-2xl font-light text-gray-900 dark:text-gray-400 mb-2">Orders, Delivery & Warranty</h2>
-                
-                <div class="flex flex-col border-t border-gray-200 dark:border-gray-800">
-                    <div class="faq-item border-b border-gray-200 dark:border-gray-800">
-                        <button type="button" class="faq-toggle-btn w-full flex justify-between items-center py-6 text-left group cursor-pointer">
-                            <span class="text-[15px] text-gray-900 dark:text-gray-300 group-hover:text-[#156E8A] transition-colors">What warranty do I get?</span>
-                            <span class="text-[#156E8A] shrink-0 ml-4">
-                                <svg class="w-5 h-5 plus-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"></path></svg>
-                                <svg class="w-5 h-5 minus-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 12h-15"></path></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden pb-6">
-                            <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-500 font-light leading-relaxed">
-                                All Breathe In purifiers come with an industry-leading 5-year comprehensive warranty covering the motor and internal electronics. Filters are consumables and are excluded from this warranty.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item border-b border-gray-200 dark:border-gray-800">
-                        <button type="button" class="faq-toggle-btn w-full flex justify-between items-center py-6 text-left group cursor-pointer">
-                            <span class="text-[15px] text-gray-900 dark:text-gray-300 group-hover:text-[#156E8A] transition-colors">How long does delivery take?</span>
-                            <span class="text-[#156E8A] shrink-0 ml-4">
-                                <svg class="w-5 h-5 plus-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"></path></svg>
-                                <svg class="w-5 h-5 minus-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 12h-15"></path></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden pb-6">
-                            <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-500 font-light leading-relaxed">
-                                Standard free shipping takes 3-5 business days to most metro locations across India. Expedited shipping is available at checkout for next-day delivery in select cities.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item border-b border-gray-200 dark:border-gray-800">
-                        <button type="button" class="faq-toggle-btn w-full flex justify-between items-center py-6 text-left group cursor-pointer">
-                            <span class="text-[15px] text-gray-900 dark:text-gray-300 group-hover:text-[#156E8A] transition-colors">What is your return policy?</span>
-                            <span class="text-[#156E8A] shrink-0 ml-4">
-                                <svg class="w-5 h-5 plus-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"></path></svg>
-                                <svg class="w-5 h-5 minus-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 12h-15"></path></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden pb-6">
-                            <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-500 font-light leading-relaxed">
-                                We offer a 14-day risk-free trial. If you are not completely satisfied, you can return the unit within 14 days of receipt for a full refund. The item must be in its original condition and packaging.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item border-b border-gray-200 dark:border-gray-800">
-                        <button type="button" class="faq-toggle-btn w-full flex justify-between items-center py-6 text-left group cursor-pointer">
-                            <span class="text-[15px] text-gray-900 dark:text-gray-300 group-hover:text-[#156E8A] transition-colors">Do you offer EMI or installation?</span>
-                            <span class="text-[#156E8A] shrink-0 ml-4">
-                                <svg class="w-5 h-5 plus-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"></path></svg>
-                                <svg class="w-5 h-5 minus-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 12h-15"></path></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden pb-6">
-                            <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-500 font-light leading-relaxed">
-                                Yes, No-Cost EMI options are available at checkout across major credit cards. Our purifiers are strictly plug-and-play and require no professional installation; you simply unbox, plug in, and breathe clean air.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+          <div class="faq-item group cursor-pointer border-b border-gray-100 dark:border-gray-900"
+            data-category="the-app">
+            <button type="button" class="faq-toggle-btn w-full flex items-center py-5 md:py-6 text-left">
+              <div
+                class="w-8 h-8 rounded-full bg-[#F0F5F7] dark:bg-[#0c1318] flex items-center justify-center shrink-0 mr-5 text-[#156E8A] dark:text-[#2094B6] transition-transform duration-300 icon-container">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+              </div>
+              <span
+                class="text-[14px] md:text-[15px] text-gray-900 dark:text-gray-200 group-hover:text-[#156E8A] transition-colors">Does
+                the app work without an internet connection?</span>
+            </button>
+            <div class="faq-content hidden pb-6 pl-13 md:pl-[52px]">
+              <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+                To use remote control features from your phone, an active Wi-Fi connection is required. However, the
+                physical touch panel on the purifier always works offline.
+              </p>
             </div>
+          </div>
+
+          <!-- [ AIR QUALITY ] -->
+          <div class="faq-item group cursor-pointer border-b border-gray-100 dark:border-gray-900"
+            data-category="air-quality">
+            <button type="button" class="faq-toggle-btn w-full flex items-center py-5 md:py-6 text-left">
+              <div
+                class="w-8 h-8 rounded-full bg-[#F0F5F7] dark:bg-[#0c1318] flex items-center justify-center shrink-0 mr-5 text-[#156E8A] dark:text-[#2094B6] transition-transform duration-300 icon-container">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+              </div>
+              <span
+                class="text-[14px] md:text-[15px] text-gray-900 dark:text-gray-200 group-hover:text-[#156E8A] transition-colors">What
+                does the AQI number actually mean?</span>
+            </button>
+            <div class="faq-content hidden pb-6 pl-13 md:pl-[52px]">
+              <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+                AQI stands for Air Quality Index. It is a standard scale used to communicate how polluted the air
+                currently is. Lower numbers (0-50) indicate excellent air quality, while higher numbers indicate unsafe
+                levels of particulate matter.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item group cursor-pointer border-b border-gray-100 dark:border-gray-900"
+            data-category="air-quality">
+            <button type="button" class="faq-toggle-btn w-full flex items-center py-5 md:py-6 text-left">
+              <div
+                class="w-8 h-8 rounded-full bg-[#F0F5F7] dark:bg-[#0c1318] flex items-center justify-center shrink-0 mr-5 text-[#156E8A] dark:text-[#2094B6] transition-transform duration-300 icon-container">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+              </div>
+              <span
+                class="text-[14px] md:text-[15px] text-gray-900 dark:text-gray-200 group-hover:text-[#156E8A] transition-colors">What
+                pollutants does the sensor measure?</span>
+            </button>
+            <div class="faq-content hidden pb-6 pl-13 md:pl-[52px]">
+              <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+                Our laser sensors actively scan the air for PM2.5 (fine inhalable particles) and PM10 (dust and pollen).
+                The Air Pro Max also includes a dedicated VOC sensor for harmful gases.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item group cursor-pointer border-b border-gray-100 dark:border-gray-900"
+            data-category="air-quality">
+            <button type="button" class="faq-toggle-btn w-full flex items-center py-5 md:py-6 text-left">
+              <div
+                class="w-8 h-8 rounded-full bg-[#F0F5F7] dark:bg-[#0c1318] flex items-center justify-center shrink-0 mr-5 text-[#156E8A] dark:text-[#2094B6] transition-transform duration-300 icon-container">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+              </div>
+              <span
+                class="text-[14px] md:text-[15px] text-gray-900 dark:text-gray-200 group-hover:text-[#156E8A] transition-colors">Why
+                is my indoor AQI sometimes higher than outdoor?</span>
+            </button>
+            <div class="faq-content hidden pb-6 pl-13 md:pl-[52px]">
+              <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+                Indoor activities like cooking, using aerosols, burning incense, or sweeping can quickly elevate indoor
+                pollution levels beyond outdoor levels due to poor ventilation.
+              </p>
+            </div>
+          </div>
+
+          <!-- [ FILTERS & CARE ] -->
+          <div class="faq-item group cursor-pointer border-b border-gray-100 dark:border-gray-900"
+            data-category="filters-care">
+            <button type="button" class="faq-toggle-btn w-full flex items-center py-5 md:py-6 text-left">
+              <div
+                class="w-8 h-8 rounded-full bg-[#F0F5F7] dark:bg-[#0c1318] flex items-center justify-center shrink-0 mr-5 text-[#156E8A] dark:text-[#2094B6] transition-transform duration-300 icon-container">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+              </div>
+              <span
+                class="text-[14px] md:text-[15px] text-gray-900 dark:text-gray-200 group-hover:text-[#156E8A] transition-colors">How
+                often do I need to replace the filter?</span>
+            </button>
+            <div class="faq-content hidden pb-6 pl-13 md:pl-[52px]">
+              <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+                Generally every 8 to 12 months, depending on usage and local air quality. The purifier and the app will
+                notify you when it's time to replace it.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item group cursor-pointer border-b border-gray-100 dark:border-gray-900"
+            data-category="filters-care">
+            <button type="button" class="faq-toggle-btn w-full flex items-center py-5 md:py-6 text-left">
+              <div
+                class="w-8 h-8 rounded-full bg-[#F0F5F7] dark:bg-[#0c1318] flex items-center justify-center shrink-0 mr-5 text-[#156E8A] dark:text-[#2094B6] transition-transform duration-300 icon-container">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+              </div>
+              <span
+                class="text-[14px] md:text-[15px] text-gray-900 dark:text-gray-200 group-hover:text-[#156E8A] transition-colors">Can
+                I wash and reuse the HEPA filter?</span>
+            </button>
+            <div class="faq-content hidden pb-6 pl-13 md:pl-[52px]">
+              <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+                No. Washing a HEPA filter destroys its delicate microscopic fibers. You can gently vacuum the outer
+                pre-filter layer, but the main filter block must be replaced.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item group cursor-pointer border-b border-gray-100 dark:border-gray-900"
+            data-category="filters-care">
+            <button type="button" class="faq-toggle-btn w-full flex items-center py-5 md:py-6 text-left">
+              <div
+                class="w-8 h-8 rounded-full bg-[#F0F5F7] dark:bg-[#0c1318] flex items-center justify-center shrink-0 mr-5 text-[#156E8A] dark:text-[#2094B6] transition-transform duration-300 icon-container">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+              </div>
+              <span
+                class="text-[14px] md:text-[15px] text-gray-900 dark:text-gray-200 group-hover:text-[#156E8A] transition-colors">Where
+                can I buy replacement filters?</span>
+            </button>
+            <div class="faq-content hidden pb-6 pl-13 md:pl-[52px]">
+              <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+                Genuine replacements are available directly on our website, through the Breathe In app, or via our
+                official Amazon storefront.
+              </p>
+            </div>
+          </div>
+
+          <!-- [ TECHNICAL ] -->
+          <div class="faq-item group cursor-pointer border-b border-gray-100 dark:border-gray-900"
+            data-category="technical">
+            <button type="button" class="faq-toggle-btn w-full flex items-center py-5 md:py-6 text-left">
+              <div
+                class="w-8 h-8 rounded-full bg-[#F0F5F7] dark:bg-[#0c1318] flex items-center justify-center shrink-0 mr-5 text-[#156E8A] dark:text-[#2094B6] transition-transform duration-300 icon-container">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+              </div>
+              <span
+                class="text-[14px] md:text-[15px] text-gray-900 dark:text-gray-200 group-hover:text-[#156E8A] transition-colors">What
+                Wi-Fi frequency does the purifier support?</span>
+            </button>
+            <div class="faq-content hidden pb-6 pl-13 md:pl-[52px]">
+              <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+                Our purifiers currently support standard 2.4GHz Wi-Fi networks (which offer better range through walls).
+                They will not connect to a 5GHz-only network.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item group cursor-pointer border-b border-gray-100 dark:border-gray-900"
+            data-category="technical">
+            <button type="button" class="faq-toggle-btn w-full flex items-center py-5 md:py-6 text-left">
+              <div
+                class="w-8 h-8 rounded-full bg-[#F0F5F7] dark:bg-[#0c1318] flex items-center justify-center shrink-0 mr-5 text-[#156E8A] dark:text-[#2094B6] transition-transform duration-300 icon-container">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+              </div>
+              <span
+                class="text-[14px] md:text-[15px] text-gray-900 dark:text-gray-200 group-hover:text-[#156E8A] transition-colors">My
+                purifier won't pair. What should I try?</span>
+            </button>
+            <div class="faq-content hidden pb-6 pl-13 md:pl-[52px]">
+              <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+                Ensure your phone is connected to a 2.4GHz network. Press and hold the Wi-Fi button on the purifier
+                panel for 5 seconds until it flashes rapidly, then retry the pairing process in the app.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item group cursor-pointer border-b border-gray-100 dark:border-gray-900"
+            data-category="technical">
+            <button type="button" class="faq-toggle-btn w-full flex items-center py-5 md:py-6 text-left">
+              <div
+                class="w-8 h-8 rounded-full bg-[#F0F5F7] dark:bg-[#0c1318] flex items-center justify-center shrink-0 mr-5 text-[#156E8A] dark:text-[#2094B6] transition-transform duration-300 icon-container">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+              </div>
+              <span
+                class="text-[14px] md:text-[15px] text-gray-900 dark:text-gray-200 group-hover:text-[#156E8A] transition-colors">How
+                loud is Sleep Mode?</span>
+            </button>
+            <div class="faq-content hidden pb-6 pl-13 md:pl-[52px]">
+              <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+                In Sleep Mode, the fan operates at a whisper-quiet 24 decibels — roughly the volume of rustling leaves,
+                making it perfect for uninterrupted sleep.
+              </p>
+            </div>
+          </div>
+
+          <!-- [ SHIPPING & WARRANTY ] -->
+          <div class="faq-item group cursor-pointer border-b border-gray-100 dark:border-gray-900"
+            data-category="shipping-warranty">
+            <button type="button" class="faq-toggle-btn w-full flex items-center py-5 md:py-6 text-left">
+              <div
+                class="w-8 h-8 rounded-full bg-[#F0F5F7] dark:bg-[#0c1318] flex items-center justify-center shrink-0 mr-5 text-[#156E8A] dark:text-[#2094B6] transition-transform duration-300 icon-container">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+              </div>
+              <span
+                class="text-[14px] md:text-[15px] text-gray-900 dark:text-gray-200 group-hover:text-[#156E8A] transition-colors">How
+                long does delivery take?</span>
+            </button>
+            <div class="faq-content hidden pb-6 pl-13 md:pl-[52px]">
+              <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+                Standard delivery takes 3-5 business days to most metro locations across India.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item group cursor-pointer border-b border-gray-100 dark:border-gray-900"
+            data-category="shipping-warranty">
+            <button type="button" class="faq-toggle-btn w-full flex items-center py-5 md:py-6 text-left">
+              <div
+                class="w-8 h-8 rounded-full bg-[#F0F5F7] dark:bg-[#0c1318] flex items-center justify-center shrink-0 mr-5 text-[#156E8A] dark:text-[#2094B6] transition-transform duration-300 icon-container">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+              </div>
+              <span
+                class="text-[14px] md:text-[15px] text-gray-900 dark:text-gray-200 group-hover:text-[#156E8A] transition-colors">What
+                does the warranty cover?</span>
+            </button>
+            <div class="faq-content hidden pb-6 pl-13 md:pl-[52px]">
+              <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+                We offer a comprehensive 2-year warranty that covers the motor and internal electronics. Physical damage
+                and consumable filters are not covered.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item group cursor-pointer border-b border-gray-100 dark:border-gray-900"
+            data-category="shipping-warranty">
+            <button type="button" class="faq-toggle-btn w-full flex items-center py-5 md:py-6 text-left">
+              <div
+                class="w-8 h-8 rounded-full bg-[#F0F5F7] dark:bg-[#0c1318] flex items-center justify-center shrink-0 mr-5 text-[#156E8A] dark:text-[#2094B6] transition-transform duration-300 icon-container">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+              </div>
+              <span
+                class="text-[14px] md:text-[15px] text-gray-900 dark:text-gray-200 group-hover:text-[#156E8A] transition-colors">Can
+                I return the purifier if I'm not satisfied?</span>
+            </button>
+            <div class="faq-content hidden pb-6 pl-13 md:pl-[52px]">
+              <p class="text-[13px] md:text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+                Yes, we offer a 14-day risk-free trial. If you are not completely satisfied, you can return the unit
+                within 14 days in its original condition and packaging.
+              </p>
+            </div>
+          </div>
 
         </div>
-    </div>
-</section>
+
+        <!-- Support CTA Block (Mobile Only - Placed at the bottom) -->
+        <div class="lg:hidden w-full mt-12 border-t border-gray-100 dark:border-gray-900 pt-8">
+          <h4 class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold mb-2">Still have questions?</h4>
+          <p class="text-[12px] text-gray-500 font-light mb-6">Our team responds in minutes via WhatsApp.</p>
+
+          <a href="https://wa.me/919076636639" target="_blank"
+            class="w-full bg-[#156E8A] text-white px-5 py-4 rounded-[2px] text-[10px] font-bold uppercase tracking-[0.2em] flex items-center justify-between hover:bg-[#115a72] transition-colors mb-3">
+            <span>WhatsApp Us</span>
+            <span class="text-sm leading-none">&rarr;</span>
+          </a>
+
+          <a href="mailto:enquiries@breathein.co.in"
+            class="w-full bg-white dark:bg-[#111a20] border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white px-5 py-4 rounded-[2px] text-[10px] font-bold uppercase tracking-[0.2em] flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">
+            <span>Email Support</span>
+            <span class="text-sm leading-none">&rarr;</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
 
     <!-- ========================================== -->
     <!-- DARK CTA SECTION: EXPLORE / COMPARE        -->

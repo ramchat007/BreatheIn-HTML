@@ -328,27 +328,54 @@ function initPageScripts() {
     },
   });
 
-  // 1. Accordion Toggle Logic (Event Listener based)
+  // 1. Accordion Toggle Logic
   const faqButtons = document.querySelectorAll(".faq-toggle-btn");
 
   faqButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      // Find the content and icons relative to the clicked button
       const content = button.nextElementSibling;
-      const plusIcon = button.querySelector(".plus-icon");
-      const minusIcon = button.querySelector(".minus-icon");
+      const iconContainer = button.querySelector(".icon-container");
 
-      // Toggle the hidden class on the content
+      // Toggle Content
       content.classList.toggle("hidden");
 
-      // Swap the icons
+      // Rotate Chevron Icon
       if (content.classList.contains("hidden")) {
-        plusIcon.classList.remove("hidden");
-        minusIcon.classList.add("hidden");
+        iconContainer.classList.remove("-rotate-180");
       } else {
-        plusIcon.classList.add("hidden");
-        minusIcon.classList.remove("hidden");
+        iconContainer.classList.add("-rotate-180");
       }
+    });
+  });
+
+  // 2. CATEGORY FILTER LOGIC
+  const filterButtons = document.querySelectorAll(".faq-filter-btn");
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const targetCategory = this.getAttribute("data-filter");
+
+      // A. Reset Sidebar Active Styles
+      filterButtons.forEach((btn) => {
+        btn.classList.remove("text-[#156E8A]", "dark:text-[#2094B6]");
+        btn.classList.add("text-gray-500");
+      });
+      // Apply Active Style to clicked button
+      this.classList.remove("text-gray-500");
+      this.classList.add("text-[#156E8A]", "dark:text-[#2094B6]");
+
+      // B. Filter FAQ Items
+      faqItems.forEach((item) => {
+        if (
+          targetCategory === "all" ||
+          item.getAttribute("data-category") === targetCategory
+        ) {
+          item.classList.remove("hidden");
+        } else {
+          item.classList.add("hidden");
+        }
+      });
     });
   });
 
@@ -441,162 +468,222 @@ function initPageScripts() {
   });
 
   let currentStep = 1;
-  const totalScreens = 5; 
+  const totalScreens = 5;
   const totalProgressSteps = 4; // Visual circles
 
   // --- BUTTON ELEMENTS ---
-  const btnBack = document.getElementById('btn-back');
-  const btnNext = document.getElementById('btn-next');
-  const btnBackResults = document.getElementById('btn-back-results');
-  const nextText = document.getElementById('btn-next-text');
-  const globalFooter = document.getElementById('global-wizard-footer');
+  const btnBack = document.getElementById("btn-back");
+  const btnNext = document.getElementById("btn-next");
+  const btnBackResults = document.getElementById("btn-back-results");
+  const nextText = document.getElementById("btn-next-text");
+  const globalFooter = document.getElementById("global-wizard-footer");
 
   // --- NAVIGATION LOGIC ---
   function navigateWizard(direction) {
-      if (currentStep + direction < 1 || currentStep + direction > totalScreens) return;
+    if (currentStep + direction < 1 || currentStep + direction > totalScreens)
+      return;
 
-      // Hide current step
-      document.getElementById(`wizard-step-${currentStep}`).classList.add('hidden');
-      document.getElementById(`wizard-step-${currentStep}`).classList.remove('block');
-      
-      currentStep += direction;
+    // Hide current step
+    document
+      .getElementById(`wizard-step-${currentStep}`)
+      .classList.add("hidden");
+    document
+      .getElementById(`wizard-step-${currentStep}`)
+      .classList.remove("block");
 
-      // Show new step
-      document.getElementById(`wizard-step-${currentStep}`).classList.remove('hidden');
-      document.getElementById(`wizard-step-${currentStep}`).classList.add('block');
+    currentStep += direction;
 
-      updateProgressBar();
+    // Show new step
+    document
+      .getElementById(`wizard-step-${currentStep}`)
+      .classList.remove("hidden");
+    document
+      .getElementById(`wizard-step-${currentStep}`)
+      .classList.add("block");
+
+    updateProgressBar();
   }
 
   // --- BIND CLICK EVENTS ---
-  if (btnBack) btnBack.addEventListener('click', () => navigateWizard(-1));
-  if (btnNext) btnNext.addEventListener('click', () => navigateWizard(1));
-  if (btnBackResults) btnBackResults.addEventListener('click', () => navigateWizard(-1));
+  if (btnBack) btnBack.addEventListener("click", () => navigateWizard(-1));
+  if (btnNext) btnNext.addEventListener("click", () => navigateWizard(1));
+  if (btnBackResults)
+    btnBackResults.addEventListener("click", () => navigateWizard(-1));
 
   // --- PROGRESS BAR LOGIC ---
   function updateProgressBar() {
-      
-      // Toggle Global Footer visibility (hide on Results screen)
-      if (currentStep === totalScreens) {
-          globalFooter.classList.add('hidden');
-          globalFooter.classList.remove('flex');
-      } else {
-          globalFooter.classList.remove('hidden');
-          globalFooter.classList.add('flex');
+    // Toggle Global Footer visibility (hide on Results screen)
+    if (currentStep === totalScreens) {
+      globalFooter.classList.add("hidden");
+      globalFooter.classList.remove("flex");
+    } else {
+      globalFooter.classList.remove("hidden");
+      globalFooter.classList.add("flex");
+    }
+
+    // Back button visibility
+    if (currentStep === 1) {
+      btnBack.classList.add("invisible");
+    } else {
+      btnBack.classList.remove("invisible");
+    }
+
+    // Next button text
+    if (currentStep === totalScreens - 1) {
+      nextText.innerText = "SEE RESULTS";
+    } else {
+      nextText.innerText = "CONTINUE";
+    }
+
+    // Calculate progress line width based on active step (max 4)
+    const activeLineStep = Math.min(currentStep, totalProgressSteps);
+    const linePercentage =
+      ((activeLineStep - 1) / (totalProgressSteps - 1)) * 80;
+    const deskLine = document.getElementById("desk-progress-line");
+    if (deskLine) deskLine.style.width = `${linePercentage}%`;
+
+    // Update Circles
+    for (let i = 1; i <= totalProgressSteps; i++) {
+      const deskCircle = document.getElementById(`desk-step-${i}`);
+      const mobCircle = document.getElementById(`mob-step-${i}`);
+
+      // STATE: COMPLETED (Filled Background, White Text, No Outline Offset)
+      if (i < currentStep) {
+        if (deskCircle)
+          deskCircle.className =
+            "relative z-10 w-10 h-10 rounded-full bg-[#156E8A] text-white flex items-center justify-center text-[15px] font-medium transition-colors duration-300";
+        if (mobCircle)
+          mobCircle.className =
+            "relative z-10 w-8 h-8 rounded-full bg-[#156E8A] text-white flex items-center justify-center text-[15px] font-medium transition-colors duration-300";
       }
-
-      // Back button visibility
-      if (currentStep === 1) {
-          btnBack.classList.add('invisible');
-      } else {
-          btnBack.classList.remove('invisible');
+      // STATE: CURRENT (White Background, Colored Border/Outline, Colored Text)
+      else if (i === currentStep) {
+        if (deskCircle)
+          deskCircle.className =
+            "relative z-10 w-10 h-10 rounded-full bg-white dark:bg-[#0a0f12] text-[#156E8A] dark:text-[#2094B6] border-2 border-[#156E8A] dark:border-[#2094B6] flex items-center justify-center text-[15px] font-medium outline outline-4 outline-white dark:outline-[#0a0f12] transition-colors duration-300";
+        if (mobCircle)
+          mobCircle.className =
+            "relative z-10 w-8 h-8 rounded-full bg-white dark:bg-[#0a0f12] text-[#156E8A] dark:text-[#2094B6] border-2 border-[#156E8A] dark:border-[#2094B6] flex items-center justify-center text-[15px] font-medium transition-colors duration-300 outline outline-4 outline-[#FAFCFD] dark:outline-black";
       }
-
-      // Next button text
-      if (currentStep === totalScreens - 1) {
-          nextText.innerText = "SEE RESULTS";
-      } else {
-          nextText.innerText = "CONTINUE";
+      // STATE: INACTIVE (White Background, Gray Border, Gray Text)
+      else {
+        if (deskCircle)
+          deskCircle.className =
+            "relative z-10 w-10 h-10 rounded-full bg-white dark:bg-[#0a0f12] text-gray-400 border border-gray-300 dark:border-gray-700 flex items-center justify-center text-[15px] font-medium outline outline-4 outline-white dark:outline-[#0a0f12] transition-colors duration-300";
+        if (mobCircle)
+          mobCircle.className =
+            "relative z-10 w-8 h-8 rounded-full bg-white dark:bg-[#111a20] text-gray-400 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-[15px] font-medium transition-colors duration-300 outline outline-4 outline-[#FAFCFD] dark:outline-black";
       }
-
-      // Calculate progress line width based on active step (max 4)
-      const activeLineStep = Math.min(currentStep, totalProgressSteps);
-      const linePercentage = ((activeLineStep - 1) / (totalProgressSteps - 1)) * 80;
-      const deskLine = document.getElementById('desk-progress-line');
-      if(deskLine) deskLine.style.width = `${linePercentage}%`;
-
-      // Update Circles
-      for (let i = 1; i <= totalProgressSteps; i++) {
-          const deskCircle = document.getElementById(`desk-step-${i}`);
-          const mobCircle = document.getElementById(`mob-step-${i}`);
-
-          // STATE: COMPLETED (Filled Background, White Text, No Outline Offset)
-          if (i < currentStep) {
-              if(deskCircle) deskCircle.className = "relative z-10 w-10 h-10 rounded-full bg-[#156E8A] text-white flex items-center justify-center text-[15px] font-medium transition-colors duration-300";
-              if(mobCircle) mobCircle.className = "relative z-10 w-8 h-8 rounded-full bg-[#156E8A] text-white flex items-center justify-center text-[15px] font-medium transition-colors duration-300";
-          } 
-          // STATE: CURRENT (White Background, Colored Border/Outline, Colored Text)
-          else if (i === currentStep) {
-              if(deskCircle) deskCircle.className = "relative z-10 w-10 h-10 rounded-full bg-white dark:bg-[#0a0f12] text-[#156E8A] dark:text-[#2094B6] border-2 border-[#156E8A] dark:border-[#2094B6] flex items-center justify-center text-[15px] font-medium outline outline-4 outline-white dark:outline-[#0a0f12] transition-colors duration-300";
-              if(mobCircle) mobCircle.className = "relative z-10 w-8 h-8 rounded-full bg-white dark:bg-[#0a0f12] text-[#156E8A] dark:text-[#2094B6] border-2 border-[#156E8A] dark:border-[#2094B6] flex items-center justify-center text-[15px] font-medium transition-colors duration-300 outline outline-4 outline-[#FAFCFD] dark:outline-black";
-          } 
-          // STATE: INACTIVE (White Background, Gray Border, Gray Text)
-          else {
-              if(deskCircle) deskCircle.className = "relative z-10 w-10 h-10 rounded-full bg-white dark:bg-[#0a0f12] text-gray-400 border border-gray-300 dark:border-gray-700 flex items-center justify-center text-[15px] font-medium outline outline-4 outline-white dark:outline-[#0a0f12] transition-colors duration-300";
-              if(mobCircle) mobCircle.className = "relative z-10 w-8 h-8 rounded-full bg-white dark:bg-[#111a20] text-gray-400 border border-gray-200 dark:border-gray-700 flex items-center justify-center text-[15px] font-medium transition-colors duration-300 outline outline-4 outline-[#FAFCFD] dark:outline-black";
-          }
-      }
+    }
   }
 
   // --- 1. SLIDER DYNAMIC UPDATE ---
-  const slider = document.getElementById('roomAreaSlider');
-  const valueDisplay = document.getElementById('roomAreaValue');
-  const labelDisplay = document.getElementById('roomAreaLabel');
-  
-  if(slider && valueDisplay) {
-      slider.addEventListener('input', function() {
-          valueDisplay.textContent = this.value;
-          
-          if (this.value < 300) {
-              labelDisplay.textContent = "About a small bedroom";
-          } else if (this.value < 600) {
-              labelDisplay.textContent = "About a medium living room";
-          } else if (this.value < 1000) {
-              labelDisplay.textContent = "About a large open-plan space";
-          } else {
-              labelDisplay.textContent = "About a very large or commercial space";
-          }
-      });
+  const slider = document.getElementById("roomAreaSlider");
+  const valueDisplay = document.getElementById("roomAreaValue");
+  const labelDisplay = document.getElementById("roomAreaLabel");
+
+  if (slider && valueDisplay) {
+    slider.addEventListener("input", function () {
+      valueDisplay.textContent = this.value;
+
+      if (this.value < 300) {
+        labelDisplay.textContent = "About a small bedroom";
+      } else if (this.value < 600) {
+        labelDisplay.textContent = "About a medium living room";
+      } else if (this.value < 1000) {
+        labelDisplay.textContent = "About a large open-plan space";
+      } else {
+        labelDisplay.textContent = "About a very large or commercial space";
+      }
+    });
   }
 
   // --- 2. HANDLE RADIO BUTTONS (Ceiling & Room Type) ---
   const radioInputs = document.querySelectorAll('input[type="radio"]');
-  radioInputs.forEach(radio => {
-      radio.addEventListener('change', function() {
-          const siblingRadios = document.querySelectorAll(`input[name="${this.name}"]`);
-          
-          siblingRadios.forEach(sibling => {
-              const label = sibling.closest('.radio-option');
-              if(label) {
-                  label.classList.remove('bg-[#EEF5F7]', 'dark:bg-[#0c1318]', 'border-[#156E8A]');
-                  label.classList.add('bg-white', 'dark:bg-[#111a20]', 'border-gray-200', 'dark:border-gray-700');
-              }
-          });
+  radioInputs.forEach((radio) => {
+    radio.addEventListener("change", function () {
+      const siblingRadios = document.querySelectorAll(
+        `input[name="${this.name}"]`,
+      );
 
-          const activeLabel = this.closest('.radio-option');
-          if(activeLabel) {
-              activeLabel.classList.remove('bg-white', 'dark:bg-[#111a20]', 'border-gray-200', 'dark:border-gray-700');
-              activeLabel.classList.add('bg-[#EEF5F7]', 'dark:bg-[#0c1318]', 'border-[#156E8A]');
-          }
+      siblingRadios.forEach((sibling) => {
+        const label = sibling.closest(".radio-option");
+        if (label) {
+          label.classList.remove(
+            "bg-[#EEF5F7]",
+            "dark:bg-[#0c1318]",
+            "border-[#156E8A]",
+          );
+          label.classList.add(
+            "bg-white",
+            "dark:bg-[#111a20]",
+            "border-gray-200",
+            "dark:border-gray-700",
+          );
+        }
       });
+
+      const activeLabel = this.closest(".radio-option");
+      if (activeLabel) {
+        activeLabel.classList.remove(
+          "bg-white",
+          "dark:bg-[#111a20]",
+          "border-gray-200",
+          "dark:border-gray-700",
+        );
+        activeLabel.classList.add(
+          "bg-[#EEF5F7]",
+          "dark:bg-[#0c1318]",
+          "border-[#156E8A]",
+        );
+      }
+    });
   });
 
   // --- 3. HANDLE CHECKBOXES (Concerns) ---
   const checkboxInputs = document.querySelectorAll('input[type="checkbox"]');
-  checkboxInputs.forEach(checkbox => {
-      checkbox.addEventListener('change', function() {
-          const label = this.closest('.concern-option');
-          const emptyIndicator = label.querySelector('.indicator-empty');
-          const checkedIndicator = label.querySelector('.indicator-checked');
+  checkboxInputs.forEach((checkbox) => {
+    checkbox.addEventListener("change", function () {
+      const label = this.closest(".concern-option");
+      const emptyIndicator = label.querySelector(".indicator-empty");
+      const checkedIndicator = label.querySelector(".indicator-checked");
 
-          if (this.checked) {
-              label.classList.remove('bg-white', 'dark:bg-[#111a20]', 'border-gray-200', 'dark:border-gray-700');
-              label.classList.add('bg-[#EEF5F7]', 'dark:bg-[#0c1318]', 'border-[#156E8A]');
-              
-              emptyIndicator.classList.add('hidden');
-              checkedIndicator.classList.remove('hidden');
-              checkedIndicator.classList.add('flex');
-          } else {
-              label.classList.remove('bg-[#EEF5F7]', 'dark:bg-[#0c1318]', 'border-[#156E8A]');
-              label.classList.add('bg-white', 'dark:bg-[#111a20]', 'border-gray-200', 'dark:border-gray-700');
-              
-              checkedIndicator.classList.add('hidden');
-              checkedIndicator.classList.remove('flex');
-              emptyIndicator.classList.remove('hidden');
-          }
-      });
+      if (this.checked) {
+        label.classList.remove(
+          "bg-white",
+          "dark:bg-[#111a20]",
+          "border-gray-200",
+          "dark:border-gray-700",
+        );
+        label.classList.add(
+          "bg-[#EEF5F7]",
+          "dark:bg-[#0c1318]",
+          "border-[#156E8A]",
+        );
+
+        emptyIndicator.classList.add("hidden");
+        checkedIndicator.classList.remove("hidden");
+        checkedIndicator.classList.add("flex");
+      } else {
+        label.classList.remove(
+          "bg-[#EEF5F7]",
+          "dark:bg-[#0c1318]",
+          "border-[#156E8A]",
+        );
+        label.classList.add(
+          "bg-white",
+          "dark:bg-[#111a20]",
+          "border-gray-200",
+          "dark:border-gray-700",
+        );
+
+        checkedIndicator.classList.add("hidden");
+        checkedIndicator.classList.remove("flex");
+        emptyIndicator.classList.remove("hidden");
+      }
+    });
   });
-  
+
   // --- INITIALIZE UI STATE ---
-  updateProgressBar(); 
+  updateProgressBar();
 }
