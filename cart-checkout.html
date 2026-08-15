@@ -1,614 +1,474 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BreatheIn - Redesign</title>
 
-    <!-- Tailwind CSS Play CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./assets/js/tailwind.config.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BreatheIn - Redesign</title>
 
-    <!-- Link to compiled CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./assets/js/tailwind.config.js"></script>
 
-  <body class="antialiased text-gray-900 selection:bg-brandTeal/20 relative">
-    <!-- ========================================== -->
-    <!-- FULL-SCREEN MOBILE NAVIGATION OVERLAY      -->
-    <!-- ========================================== -->
+  <!-- Link to compiled CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="antialiased text-gray-900 selection:bg-brandTeal/20 relative">
+  <!-- ========================================== -->
+  <!-- FULL-SCREEN MOBILE NAVIGATION OVERLAY      -->
+  <!-- ========================================== -->
+  <div id="mobileNavOverlay"
+    class="fixed inset-0 z-[60] bg-white flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out hidden">
+    <button id="closeMobileNav" class="absolute top-6 right-8 p-2 rounded-full hover:bg-gray-100 transition-colors"
+      aria-label="Close Menu">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-8 h-8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <nav class="flex flex-col items-center gap-8 text-center">
+      <a href="./collection.html"
+        class="text-3xl text-[#156E8A] font-light tracking-wide hover:text-brandTeal transition-colors">COLLECTION</a>
+      <a href="./technology.html"
+        class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">TECHNOLOGY</a>
+      <a href="./app.html" class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">APP</a>
+      <a href="./real-homes.html" class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">REAL
+        HOMES</a>
+      <a href="./compare.html"
+        class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">COMPARE</a>
+      <div class="mt-8 pt-8 border-t border-gray-200 w-full flex flex-col items-center gap-4">
+        <a href="#" class="text-lg font-medium hover:text-brandTeal">My Account</a>
+        <a href="#" class="text-lg font-medium hover:text-brandTeal">Support</a>
+      </div>
+    </nav>
+  </div>
+  <!-- ========================================== -->
+
+  <!-- ========================================== -->
+  <!-- SMART STICKY HEADER                        -->
+  <!-- ========================================== -->
+  <div id="smart-header"
+    class="sticky top-0 z-50 w-full flex flex-col shadow-sm transition-transform duration-300 ease-in-out translate-y-0">
+    <!-- 1. TOP LIVE AQI TICKER BAR -->
+    <!-- Updated to match mobile design: unified dark background, teal dot, vertical separator -->
     <div
-      id="mobileNavOverlay"
-      class="fixed inset-0 z-[60] bg-white flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out hidden"
-    >
-      <button
-        id="closeMobileNav"
-        class="absolute top-6 right-8 p-2 rounded-full hover:bg-gray-100 transition-colors"
-        aria-label="Close Menu"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-8 h-8"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
-      <nav class="flex flex-col items-center gap-8 text-center">
-        <a
-          href="./collection.html"
-          class="text-3xl text-[#156E8A] font-light tracking-wide hover:text-brandTeal transition-colors"
-          >COLLECTION</a
-        >
-        <a
-          href="./technology.html"
-          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
-          >TECHNOLOGY</a
-        >
-        <a
-          href="./app.html"
-          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
-          >APP</a
-        >
-        <a
-          href="./real-homes.html"
-          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
-          >REAL HOMES</a
-        >
-        <a
-          href="./compare.html"
-          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
-          >COMPARE</a
-        >
-        <div
-          class="mt-8 pt-8 border-t border-gray-200 w-full flex flex-col items-center gap-4"
-        >
-          <a href="#" class="text-lg font-medium hover:text-brandTeal"
-            >My Account</a
-          >
-          <a href="#" class="text-lg font-medium hover:text-brandTeal"
-            >Support</a
-          >
-        </div>
-      </nav>
-    </div>
-    <!-- ========================================== -->
-
-    <!-- ========================================== -->
-    <!-- SMART STICKY HEADER                        -->
-    <!-- ========================================== -->
-    <div
-      id="smart-header"
-      class="sticky top-0 z-50 w-full flex flex-col shadow-sm transition-transform duration-300 ease-in-out translate-y-0"
-    >
-      <!-- 1. TOP LIVE AQI TICKER BAR -->
-      <!-- Updated to match mobile design: unified dark background, teal dot, vertical separator -->
+      class="w-full bg-tickerDark text-white flex items-center text-[11px] tracking-wider font-medium animate-fade-in-down overflow-hidden"
+      style="animation-delay: 100ms">
       <div
-        class="w-full bg-tickerDark text-white flex items-center text-[11px] tracking-wider font-medium animate-fade-in-down overflow-hidden"
-        style="animation-delay: 100ms"
-      >
-        <div
-          class="bg-tickerDark md:bg-brandTeal px-4 md:px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative"
-        >
-          <!-- <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> -->
-          <span
-            class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse"
-          ></span>
-          INDIA AQI TODAY
-        </div>
+        class="bg-tickerDark md:bg-brandTeal px-4 md:px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative">
+        <!-- <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> -->
+        <span class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse"></span>
+        INDIA AQI TODAY
+      </div>
 
-        <!-- Separator Line -->
-        <div class="w-[1px] h-6 bg-gray-800 shrink-0 z-10 relative"></div>
+      <!-- Separator Line -->
+      <div class="w-[1px] h-6 bg-gray-800 shrink-0 z-10 relative"></div>
 
-        <!-- Scrolling Content -->
-        <div class="flex flex-1 overflow-hidden relative bg-tickerDark">
-          <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
-            <!-- Ticker Items List 1 -->
-            <div class="flex items-center gap-6 pr-6">
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Delhi</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[14px]"
-                  >392</span
-                >
-                <span class="text-textMuted text-[14px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Ghaziabad</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[14px]"
-                  >358</span
-                >
-                <span class="text-textMuted text-[14px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Noida</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[14px]"
-                  >311</span
-                >
-                <span class="text-textMuted text-[14px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Patna</span>
-                <span
-                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[14px]"
-                  >286</span
-                >
-                <span class="text-textMuted text-[14px]">Very Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Lucknow</span>
-                <span
-                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[14px]"
-                  >242</span
-                >
-                <span class="text-textMuted text-[14px]">Very Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Kolkata</span>
-                <span
-                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[14px]"
-                  >198</span
-                >
-                <span class="text-textMuted text-[14px]">Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Mumbai</span>
-                <span
-                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[14px]"
-                  >164</span
-                >
-                <span class="text-textMuted text-[14px]">Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
+      <!-- Scrolling Content -->
+      <div class="flex flex-1 overflow-hidden relative bg-tickerDark">
+        <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
+          <!-- Ticker Items List 1 -->
+          <div class="flex items-center gap-6 pr-6">
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Delhi</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[14px]">392</span>
+              <span class="text-textMuted text-[14px]">Hazardous</span>
             </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Ghaziabad</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[14px]">358</span>
+              <span class="text-textMuted text-[14px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Noida</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[14px]">311</span>
+              <span class="text-textMuted text-[14px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Patna</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[14px]">286</span>
+              <span class="text-textMuted text-[14px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Lucknow</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[14px]">242</span>
+              <span class="text-textMuted text-[14px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Kolkata</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[14px]">198</span>
+              <span class="text-textMuted text-[14px]">Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Mumbai</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[14px]">164</span>
+              <span class="text-textMuted text-[14px]">Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+          </div>
 
-            <!-- Ticker Items List 2 (Duplicated for seamless scrolling) -->
-            <div class="flex items-center gap-6 pr-6">
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Delhi</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[14px]"
-                  >392</span
-                >
-                <span class="text-textMuted text-[14px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Ghaziabad</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[14px]"
-                  >358</span
-                >
-                <span class="text-textMuted text-[14px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Noida</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >311</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Patna</span>
-                <span
-                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >286</span
-                >
-                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Lucknow</span>
-                <span
-                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >242</span
-                >
-                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Kolkata</span>
-                <span
-                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >198</span
-                >
-                <span class="text-textMuted text-[12px]">Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Mumbai</span>
-                <span
-                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >164</span
-                >
-                <span class="text-textMuted text-[12px]">Unhealthy</span>
-              </div>
+          <!-- Ticker Items List 2 (Duplicated for seamless scrolling) -->
+          <div class="flex items-center gap-6 pr-6">
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Delhi</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[14px]">392</span>
+              <span class="text-textMuted text-[14px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Ghaziabad</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[14px]">358</span>
+              <span class="text-textMuted text-[14px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Noida</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">311</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Patna</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">286</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Lucknow</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">242</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Kolkata</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">198</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Mumbai</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">164</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
             </div>
           </div>
         </div>
-
-        <!-- Desktop Info Banner -->
-        <div
-          class="px-6 py-3 shrink-0 font-medium text-gray-300 hidden lg:block bg-tickerDark z-10 relative shadow-[-10px_0_15px_-3px_rgba(13,20,24,1)]"
-        >
-          Indoors is often
-          <span class="text-sky-400 font-bold">5x worse</span> &middot;
-          <a
-            href="#"
-            class="hover:underline text-white inline-flex items-center gap-1"
-            >CHECK YOURS <span class="text-[11px]">&darr;</span></a
-          >
-        </div>
       </div>
 
-      <!-- 2. MAIN NAVIGATION HEADER -->
-      <!-- Updated Mobile Layout: Logo Left, Cart+CTA+Hamburger Right -->
-      <header
-        class="w-full bg-[#FAFCFD] border-b border-gray-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between animate-fade-in-down"
-        style="animation-delay: 200ms"
-      >
-        <!-- Left: Logo -->
-        <div class="flex items-center">
-          <a href="/index.html" class="h-7 md:h-10 w-auto">
-            <img
-              src="./assets/images/logo.png"
-              alt="Breathe In"
-              class="h-7 md:h-10 w-auto object-contain"
-            />
-          </a>
-        </div>
-
-        <!-- Desktop Nav Links -->
-        <nav class="hidden lg:flex items-center gap-8">
-          <a
-            href="./collection.html"
-            class="text-[13px] text-[#156E8A] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >COLLECTION</a
-          >
-          <a
-            href="./technology.html"
-            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >TECHNOLOGY</a
-          >
-          <a
-            href="./app.html"
-            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >APP</a
-          >
-          <a
-            href="./real-homes.html"
-            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >REAL HOMES</a
-          >
-          <a
-            href="./compare.html"
-            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >COMPARE</a
-          >
-        </nav>
-
-        <!-- Right: Action Buttons & Hamburger -->
-        <div class="flex items-center gap-3 md:gap-5">
-          <!-- Cart Button with Notification Badge -->
-          <button
-            id="cartBtn"
-            class="relative p-1.5 text-gray-900 hover:text-brandTeal transition-colors flex items-center justify-center"
-          >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="9" cy="21" r="1.5"></circle>
-              <circle cx="20" cy="21" r="1.5"></circle>
-              <path
-                d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-              ></path>
-            </svg>
-            <!-- Teal Badge -->
-            <span
-              class="absolute -top-1.5 -right-1.5 bg-brandTeal text-white text-[11px] font-bold w-4 h-4 aspect-square rounded-full flex items-center justify-center border border-white"
-              >3</span
-            >
-          </button>
-
-          <!-- Primary CTA (Now visible on mobile per design) -->
-          <a
-            href="./find-my-purifier.html"
-            class="border border-black text-[11px] md:text-[13px] font-bold tracking-widest px-3 py-2 md:px-6 md:py-2.5 uppercase hover:bg-black hover:text-white transition-all duration-200"
-          >
-            FIND MY PURIFIER
-          </a>
-
-          <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
-          <button
-            id="themeToggle"
-            class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-3.5 h-3.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-              />
-            </svg>
-            <span class="text-[12px] font-bold tracking-widest">DARK</span>
-          </button>
-          <!-- Hamburger Menu Icon (Moved to right) -->
-          <button
-            id="openMobileNav"
-            class="lg:hidden p-1"
-            aria-label="Open Menu"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-7 h-7 text-gray-900"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-          </button>
-        </div>
-      </header>
+      <!-- Desktop Info Banner -->
+      <div
+        class="px-6 py-3 shrink-0 font-medium text-gray-300 hidden lg:block bg-tickerDark z-10 relative shadow-[-10px_0_15px_-3px_rgba(13,20,24,1)]">
+        Indoors is often
+        <span class="text-sky-400 font-bold">5x worse</span> &middot;
+        <a href="#" class="hover:underline text-white inline-flex items-center gap-1">CHECK YOURS <span
+            class="text-[11px]">&darr;</span></a>
+      </div>
     </div>
 
-    <main>
-        <!-- Soft Radial Glow (Top Right) -->
-        <div
-          class="hidden md:block absolute inset-0 pointer-events-none"
-          style="
+    <!-- 2. MAIN NAVIGATION HEADER -->
+    <!-- Updated Mobile Layout: Logo Left, Cart+CTA+Hamburger Right -->
+    <header
+      class="w-full bg-[#FAFCFD] border-b border-gray-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between animate-fade-in-down"
+      style="animation-delay: 200ms">
+      <!-- Left: Logo -->
+      <div class="flex items-center">
+        <a href="/index.html" class="h-7 md:h-10 w-auto">
+          <img src="./assets/images/logo.png" alt="Breathe In" class="h-7 md:h-10 w-auto object-contain" />
+        </a>
+      </div>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="./collection.html"
+          class="text-[13px] text-[#156E8A] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COLLECTION</a>
+        <a href="./technology.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">TECHNOLOGY</a>
+        <a href="./app.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">APP</a>
+        <a href="./real-homes.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">REAL
+          HOMES</a>
+        <a href="./compare.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COMPARE</a>
+      </nav>
+
+      <!-- Right: Action Buttons & Hamburger -->
+      <div class="flex items-center gap-3 md:gap-5">
+        <!-- Cart Button with Notification Badge -->
+        <button id="cartBtn"
+          class="relative p-1.5 text-gray-900 hover:text-brandTeal transition-colors flex items-center justify-center">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1.5"></circle>
+            <circle cx="20" cy="21" r="1.5"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <!-- Teal Badge -->
+          <span
+            class="absolute -top-1.5 -right-1.5 bg-brandTeal text-white text-[11px] font-bold w-4 h-4 aspect-square rounded-full flex items-center justify-center border border-white">3</span>
+        </button>
+
+        <!-- Primary CTA (Now visible on mobile per design) -->
+        <a href="./find-my-purifier.html"
+          class="border border-black text-[11px] md:text-[13px] font-bold tracking-widest px-3 py-2 md:px-6 md:py-2.5 uppercase hover:bg-black hover:text-white transition-all duration-200">
+          FIND MY PURIFIER
+        </a>
+
+        <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
+        <button id="themeToggle"
+          class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-3.5 h-3.5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+          </svg>
+          <span class="text-[12px] font-bold tracking-widest">DARK</span>
+        </button>
+        <!-- Hamburger Menu Icon (Moved to right) -->
+        <button id="openMobileNav" class="lg:hidden p-1" aria-label="Open Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-7 h-7 text-gray-900">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <main>
+    <!-- Soft Radial Glow (Top Right) -->
+    <div class="hidden md:block absolute inset-0 pointer-events-none" style="
             background: radial-gradient(
               40% 60% at 90% 10%,
               rgba(21, 110, 138, 0.08) 0%,
               rgba(0, 0, 0, 0) 100%
             );
-          "
-        ></div>
-      <!-- ========================================== -->
-      <!-- HERO SECTION                    -->
-      <!-- ========================================== -->
-      <section class="relative flex items-center overflow-hidden">
+          "></div>
+    <!-- ========================================== -->
+    <!-- HERO SECTION                    -->
+    <!-- ========================================== -->
+    <section class="relative flex items-center overflow-hidden">
 
-        <div
-          class="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-20 pt-10 lg:pt-20 w-full relative z-10"
-        >
-          <div class="max-w-2xl">
-            <!-- Breadcrumb -->
-            <nav
-              class="uppercase tracking-[.25em] text-[12px] text-gray-400 mb-5"
-            >
-              HOME <span class="text-gray-300 px-2">/</span> Cart <span class="text-gray-300 px-2">/</span> Checkout
-            </nav>
+      <div class="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-20 pt-10 lg:pt-20 w-full relative z-10">
+        <div class="max-w-2xl">
+          <!-- Breadcrumb -->
+          <nav class="uppercase tracking-[.25em] text-[12px] text-gray-400 mb-5">
+            HOME <span class="text-gray-300 px-2">/</span> Cart <span class="text-gray-300 px-2">/</span> Checkout
+          </nav>
 
-            <!-- Eyebrow -->
-            <div class="flex items-center gap-4 mb-6">
-              <div class="w-8 h-px bg-[#156E8A]"></div>
-              <p
-                class="uppercase tracking-[.25em] text-[11px] text-[#156E8A] font-bold"
-              >
-                Secure Checkout
-              </p>
-            </div>
-
-            <!-- Headline -->
-            <h1
-              class="text-3xl md:text-6xl lg:text-[80px] font-light leading-tight tracking-tight text-gray-900 mb-5"
-            >
-              Almost 
-              <span class="font-medium text-[#156E8A]">there.</span>
-            </h1>
+          <!-- Eyebrow -->
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-8 h-px bg-[#156E8A]"></div>
+            <p class="uppercase tracking-[.25em] text-[11px] text-[#156E8A] font-bold">
+              Secure Checkout
+            </p>
           </div>
-        </div>
-      </section>
 
-      <!-- ========================================== -->
-<!-- CHECKOUT PAGE LAYOUT                       -->
-<!-- ========================================== -->
-<section class="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-12 lg:py-20  ">
-    
-    <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
-        
+          <!-- Headline -->
+          <h1 class="text-3xl md:text-6xl lg:text-[80px] font-light leading-tight tracking-tight text-gray-900 mb-5">
+            Almost
+            <span class="font-medium text-[#156E8A]">there.</span>
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- CHECKOUT PAGE LAYOUT                       -->
+    <!-- ========================================== -->
+    <section class="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-12 lg:py-20  ">
+
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+
         <!-- ========================================== -->
         <!-- LEFT COLUMN: CHECKOUT FORMS                -->
         <!-- ========================================== -->
         <div class="w-full lg:w-[60%] xl:w-[65%] flex flex-col gap-12">
-            
-            <!-- STEP 1: CONTACT -->
-            <section class="flex flex-col">
-                <!-- Step Header -->
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="w-8 h-8 rounded-full bg-[#156E8A] dark:bg-brandTeal text-white flex items-center justify-center text-[13px] font-medium shrink-0">
-                        1
-                    </div>
-                    <h2 class="text-xl md:text-2xl font-normal text-gray-900 dark:text-white">Contact</h2>
+
+          <!-- STEP 1: CONTACT -->
+          <section class="flex flex-col">
+            <!-- Step Header -->
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-8 h-8 rounded-full bg-[#156E8A] dark:bg-brandTeal text-white flex items-center justify-center text-[13px] font-medium shrink-0">
+                1
+              </div>
+              <h2 class="text-xl md:text-2xl font-normal text-gray-900 dark:text-white">Contact</h2>
+            </div>
+
+            <!-- Form Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5 ml-0 lg:ml-12">
+              <!-- Full Name (Spans full width) -->
+              <div class="flex flex-col md:col-span-2">
+                <label class="text-[14px] tracking-wide text-gray-500 dark:text-gray-400 mb-2">Full Name</label>
+                <input type="text" placeholder="Your name"
+                  class="border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark text-[13px] text-gray-900 dark:text-white rounded-[2px] px-4 py-3 outline-none focus:border-[#156E8A] transition-colors w-full">
+              </div>
+
+              <!-- Email -->
+              <div class="flex flex-col">
+                <label class="text-[14px] tracking-wide text-gray-500 dark:text-gray-400 mb-2">Email</label>
+                <input type="email" placeholder="you@email.com"
+                  class="border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark text-[13px] text-gray-900 dark:text-white rounded-[2px] px-4 py-3 outline-none focus:border-[#156E8A] transition-colors w-full">
+              </div>
+
+              <!-- Phone -->
+              <div class="flex flex-col">
+                <label class="text-[14px] tracking-wide text-gray-500 dark:text-gray-400 mb-2">Phone</label>
+                <input type="tel" placeholder="+91"
+                  class="border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark text-[13px] text-gray-900 dark:text-white rounded-[2px] px-4 py-3 outline-none focus:border-[#156E8A] transition-colors w-full">
+              </div>
+            </div>
+          </section>
+
+          <!-- STEP 2: DELIVERY ADDRESS -->
+          <section class="flex flex-col">
+            <!-- Step Header -->
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-8 h-8 rounded-full bg-[#156E8A] dark:bg-brandTeal text-white flex items-center justify-center text-[13px] font-medium shrink-0">
+                2
+              </div>
+              <h2 class="text-xl md:text-2xl font-normal text-gray-900 dark:text-white">Delivery Address</h2>
+            </div>
+
+            <!-- Form Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5 ml-0 lg:ml-12">
+              <!-- Address (Spans full width) -->
+              <div class="flex flex-col md:col-span-2">
+                <label class="text-[14px] tracking-wide text-gray-500 dark:text-gray-400 mb-2">Address</label>
+                <input type="text" placeholder="House no, Street, Area"
+                  class="border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark text-[13px] text-gray-900 dark:text-white rounded-[2px] px-4 py-3 outline-none focus:border-[#156E8A] transition-colors w-full">
+              </div>
+
+              <!-- City -->
+              <div class="flex flex-col">
+                <label class="text-[14px] tracking-wide text-gray-500 dark:text-gray-400 mb-2">City</label>
+                <input type="text" placeholder="City"
+                  class="border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark text-[13px] text-gray-900 dark:text-white rounded-[2px] px-4 py-3 outline-none focus:border-[#156E8A] transition-colors w-full">
+              </div>
+
+              <!-- State -->
+              <div class="flex flex-col">
+                <label class="text-[14px] tracking-wide text-gray-500 dark:text-gray-400 mb-2">State</label>
+                <input type="text" placeholder="State"
+                  class="border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark text-[13px] text-gray-900 dark:text-white rounded-[2px] px-4 py-3 outline-none focus:border-[#156E8A] transition-colors w-full">
+              </div>
+
+              <!-- PIN Code -->
+              <div class="flex flex-col">
+                <label class="text-[14px] tracking-wide text-gray-500 dark:text-gray-400 mb-2">PIN Code</label>
+                <input type="text" placeholder="560067"
+                  class="border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark text-[13px] text-gray-900 dark:text-white rounded-[2px] px-4 py-3 outline-none focus:border-[#156E8A] transition-colors w-full">
+              </div>
+
+              <!-- Landmark -->
+              <div class="flex flex-col">
+                <label class="text-[14px] tracking-wide text-gray-500 dark:text-gray-400 mb-2">Landmark
+                  (Optional)</label>
+                <input type="text" placeholder="Nearby"
+                  class="border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark text-[13px] text-gray-900 dark:text-white rounded-[2px] px-4 py-3 outline-none focus:border-[#156E8A] transition-colors w-full">
+              </div>
+            </div>
+          </section>
+
+          <!-- STEP 3: PAYMENT -->
+          <section class="flex flex-col">
+            <!-- Step Header -->
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-8 h-8 rounded-full bg-[#156E8A] dark:bg-brandTeal text-white flex items-center justify-center text-[13px] font-medium shrink-0">
+                3
+              </div>
+              <h2 class="text-xl md:text-2xl font-normal text-gray-900 dark:text-white">Payment</h2>
+            </div>
+
+            <!-- Payment Options List -->
+            <div class="flex flex-col gap-3 ml-0 lg:ml-12">
+
+              <!-- Option 1: Selected State -->
+              <label
+                class="payment-option flex items-center justify-between border border-[#156E8A] bg-[#EEF5F7] dark:bg-[#111a20] rounded-[4px] px-5 py-4 cursor-pointer transition-colors">
+                <div class="flex items-center gap-4">
+                  <!-- Custom Active Radio -->
+                  <div
+                    class="radio-outer w-4 h-4 rounded-full border border-[#156E8A] flex items-center justify-center shrink-0">
+                    <div class="radio-inner w-2 h-2 rounded-full bg-[#156E8A]"></div>
+                  </div>
+                  <input type="radio" name="payment_method" value="upi" class="hidden" checked>
+                  <span class="text-[14px] text-gray-900 dark:text-white font-medium">UPI / Google Pay / PhonePe</span>
                 </div>
+                <span class="text-[11px] text-gray-400">Instant</span>
+              </label>
 
-                <!-- Form Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5 ml-0 lg:ml-12">
-                    <!-- Full Name (Spans full width) -->
-                    <div class="flex flex-col md:col-span-2">
-                        <label class="text-[14px] tracking-wide text-gray-500 dark:text-gray-400 mb-2">Full Name</label>
-                        <input type="text" placeholder="Your name" class="border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark text-[13px] text-gray-900 dark:text-white rounded-[2px] px-4 py-3 outline-none focus:border-[#156E8A] transition-colors w-full">
-                    </div>
-                    
-                    <!-- Email -->
-                    <div class="flex flex-col">
-                        <label class="text-[14px] tracking-wide text-gray-500 dark:text-gray-400 mb-2">Email</label>
-                        <input type="email" placeholder="you@email.com" class="border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark text-[13px] text-gray-900 dark:text-white rounded-[2px] px-4 py-3 outline-none focus:border-[#156E8A] transition-colors w-full">
-                    </div>
-
-                    <!-- Phone -->
-                    <div class="flex flex-col">
-                        <label class="text-[14px] tracking-wide text-gray-500 dark:text-gray-400 mb-2">Phone</label>
-                        <input type="tel" placeholder="+91" class="border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark text-[13px] text-gray-900 dark:text-white rounded-[2px] px-4 py-3 outline-none focus:border-[#156E8A] transition-colors w-full">
-                    </div>
+              <!-- Option 2: Default State -->
+              <label
+                class="payment-option flex items-center justify-between border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark hover:border-gray-300 dark:hover:border-gray-600 rounded-[4px] px-5 py-4 cursor-pointer transition-colors">
+                <div class="flex items-center gap-4">
+                  <!-- Custom Inactive Radio -->
+                  <div
+                    class="radio-outer w-4 h-4 rounded-full border border-gray-200 dark:border-gray-600 flex items-center justify-center shrink-0">
+                    <div class="radio-inner w-2 h-2 rounded-full bg-[#156E8A] hidden"></div>
+                  </div>
+                  <input type="radio" name="payment_method" value="card" class="hidden">
+                  <span class="text-[14px] text-gray-900 dark:text-white font-medium">Credit / Debit Card</span>
                 </div>
-            </section>
+              </label>
 
-            <!-- STEP 2: DELIVERY ADDRESS -->
-            <section class="flex flex-col">
-                <!-- Step Header -->
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="w-8 h-8 rounded-full bg-[#156E8A] dark:bg-brandTeal text-white flex items-center justify-center text-[13px] font-medium shrink-0">
-                        2
-                    </div>
-                    <h2 class="text-xl md:text-2xl font-normal text-gray-900 dark:text-white">Delivery Address</h2>
+              <!-- Option 3 -->
+              <label
+                class="payment-option flex items-center justify-between border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark hover:border-gray-300 dark:hover:border-gray-600 rounded-[4px] px-5 py-4 cursor-pointer transition-colors">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="radio-outer w-4 h-4 rounded-full border border-gray-200 dark:border-gray-600 flex items-center justify-center shrink-0">
+                    <div class="radio-inner w-2 h-2 rounded-full bg-[#156E8A] hidden"></div>
+                  </div>
+                  <input type="radio" name="payment_method" value="netbanking" class="hidden">
+                  <span class="text-[14px] text-gray-900 dark:text-white font-medium">Net Banking</span>
                 </div>
+              </label>
 
-                <!-- Form Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5 ml-0 lg:ml-12">
-                    <!-- Address (Spans full width) -->
-                    <div class="flex flex-col md:col-span-2">
-                        <label class="text-[14px] tracking-wide text-gray-500 dark:text-gray-400 mb-2">Address</label>
-                        <input type="text" placeholder="House no, Street, Area" class="border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark text-[13px] text-gray-900 dark:text-white rounded-[2px] px-4 py-3 outline-none focus:border-[#156E8A] transition-colors w-full">
-                    </div>
-                    
-                    <!-- City -->
-                    <div class="flex flex-col">
-                        <label class="text-[14px] tracking-wide text-gray-500 dark:text-gray-400 mb-2">City</label>
-                        <input type="text" placeholder="City" class="border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark text-[13px] text-gray-900 dark:text-white rounded-[2px] px-4 py-3 outline-none focus:border-[#156E8A] transition-colors w-full">
-                    </div>
-
-                    <!-- State -->
-                    <div class="flex flex-col">
-                        <label class="text-[14px] tracking-wide text-gray-500 dark:text-gray-400 mb-2">State</label>
-                        <input type="text" placeholder="State" class="border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark text-[13px] text-gray-900 dark:text-white rounded-[2px] px-4 py-3 outline-none focus:border-[#156E8A] transition-colors w-full">
-                    </div>
-
-                    <!-- PIN Code -->
-                    <div class="flex flex-col">
-                        <label class="text-[14px] tracking-wide text-gray-500 dark:text-gray-400 mb-2">PIN Code</label>
-                        <input type="text" placeholder="560067" class="border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark text-[13px] text-gray-900 dark:text-white rounded-[2px] px-4 py-3 outline-none focus:border-[#156E8A] transition-colors w-full">
-                    </div>
-
-                    <!-- Landmark -->
-                    <div class="flex flex-col">
-                        <label class="text-[14px] tracking-wide text-gray-500 dark:text-gray-400 mb-2">Landmark (Optional)</label>
-                        <input type="text" placeholder="Nearby" class="border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark text-[13px] text-gray-900 dark:text-white rounded-[2px] px-4 py-3 outline-none focus:border-[#156E8A] transition-colors w-full">
-                    </div>
+              <!-- Option 4 -->
+              <label
+                class="payment-option flex items-center justify-between border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark hover:border-gray-300 dark:hover:border-gray-600 rounded-[4px] px-5 py-4 cursor-pointer transition-colors">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="radio-outer w-4 h-4 rounded-full border border-gray-200 dark:border-gray-600 flex items-center justify-center shrink-0">
+                    <div class="radio-inner w-2 h-2 rounded-full bg-[#156E8A] hidden"></div>
+                  </div>
+                  <input type="radio" name="payment_method" value="emi" class="hidden">
+                  <span class="text-[14px] text-gray-900 dark:text-white font-medium">EMI</span>
                 </div>
-            </section>
+                <span class="text-[11px] text-gray-400">options</span>
+              </label>
 
-            <!-- STEP 3: PAYMENT -->
-            <section class="flex flex-col">
-                <!-- Step Header -->
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="w-8 h-8 rounded-full bg-[#156E8A] dark:bg-brandTeal text-white flex items-center justify-center text-[13px] font-medium shrink-0">
-                        3
-                    </div>
-                    <h2 class="text-xl md:text-2xl font-normal text-gray-900 dark:text-white">Payment</h2>
+              <!-- Option 5 -->
+              <label
+                class="payment-option flex items-center justify-between border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark hover:border-gray-300 dark:hover:border-gray-600 rounded-[4px] px-5 py-4 cursor-pointer transition-colors">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="radio-outer w-4 h-4 rounded-full border border-gray-200 dark:border-gray-600 flex items-center justify-center shrink-0">
+                    <div class="radio-inner w-2 h-2 rounded-full bg-[#156E8A] hidden"></div>
+                  </div>
+                  <input type="radio" name="payment_method" value="cod" class="hidden">
+                  <span class="text-[14px] text-gray-900 dark:text-white font-medium">Cash on Delivery</span>
                 </div>
+              </label>
 
-                <!-- Payment Options List -->
-                <div class="flex flex-col gap-3 ml-0 lg:ml-12">
-                    
-                    <!-- Option 1: Selected State -->
-                    <label class="payment-option flex items-center justify-between border border-[#156E8A] bg-[#EEF5F7] dark:bg-[#111a20] rounded-[4px] px-5 py-4 cursor-pointer transition-colors">
-                        <div class="flex items-center gap-4">
-                            <!-- Custom Active Radio -->
-                            <div class="radio-outer w-4 h-4 rounded-full border border-[#156E8A] flex items-center justify-center shrink-0">
-                                <div class="radio-inner w-2 h-2 rounded-full bg-[#156E8A]"></div>
-                            </div>
-                            <input type="radio" name="payment_method" value="upi" class="hidden" checked>
-                            <span class="text-[14px] text-gray-900 dark:text-white font-medium">UPI / Google Pay / PhonePe</span>
-                        </div>
-                        <span class="text-[11px] text-gray-400">Instant</span>
-                    </label>
+            </div>
 
-                    <!-- Option 2: Default State -->
-                    <label class="payment-option flex items-center justify-between border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark hover:border-gray-300 dark:hover:border-gray-600 rounded-[4px] px-5 py-4 cursor-pointer transition-colors">
-                        <div class="flex items-center gap-4">
-                            <!-- Custom Inactive Radio -->
-                            <div class="radio-outer w-4 h-4 rounded-full border border-gray-200 dark:border-gray-600 flex items-center justify-center shrink-0">
-                                <div class="radio-inner w-2 h-2 rounded-full bg-[#156E8A] hidden"></div>
-                            </div>
-                            <input type="radio" name="payment_method" value="card" class="hidden">
-                            <span class="text-[14px] text-gray-900 dark:text-white font-medium">Credit / Debit Card</span>
-                        </div>
-                    </label>
-
-                    <!-- Option 3 -->
-                    <label class="payment-option flex items-center justify-between border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark hover:border-gray-300 dark:hover:border-gray-600 rounded-[4px] px-5 py-4 cursor-pointer transition-colors">
-                        <div class="flex items-center gap-4">
-                            <div class="radio-outer w-4 h-4 rounded-full border border-gray-200 dark:border-gray-600 flex items-center justify-center shrink-0">
-                                <div class="radio-inner w-2 h-2 rounded-full bg-[#156E8A] hidden"></div>
-                            </div>
-                            <input type="radio" name="payment_method" value="netbanking" class="hidden">
-                            <span class="text-[14px] text-gray-900 dark:text-white font-medium">Net Banking</span>
-                        </div>
-                    </label>
-
-                    <!-- Option 4 -->
-                    <label class="payment-option flex items-center justify-between border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark hover:border-gray-300 dark:hover:border-gray-600 rounded-[4px] px-5 py-4 cursor-pointer transition-colors">
-                        <div class="flex items-center gap-4">
-                            <div class="radio-outer w-4 h-4 rounded-full border border-gray-200 dark:border-gray-600 flex items-center justify-center shrink-0">
-                                <div class="radio-inner w-2 h-2 rounded-full bg-[#156E8A] hidden"></div>
-                            </div>
-                            <input type="radio" name="payment_method" value="emi" class="hidden">
-                            <span class="text-[14px] text-gray-900 dark:text-white font-medium">EMI</span>
-                        </div>
-                        <span class="text-[11px] text-gray-400">options</span>
-                    </label>
-
-                    <!-- Option 5 -->
-                    <label class="payment-option flex items-center justify-between border border-gray-200 dark:border-gray-700 bg-white dark:bg-tickerDark hover:border-gray-300 dark:hover:border-gray-600 rounded-[4px] px-5 py-4 cursor-pointer transition-colors">
-                        <div class="flex items-center gap-4">
-                            <div class="radio-outer w-4 h-4 rounded-full border border-gray-200 dark:border-gray-600 flex items-center justify-center shrink-0">
-                                <div class="radio-inner w-2 h-2 rounded-full bg-[#156E8A] hidden"></div>
-                            </div>
-                            <input type="radio" name="payment_method" value="cod" class="hidden">
-                            <span class="text-[14px] text-gray-900 dark:text-white font-medium">Cash on Delivery</span>
-                        </div>
-                    </label>
-
-                </div>
-                
-                <!-- Gateway Placeholder Note -->
-                <p class="text-[13px] text-gray-600 dark:text-gray-400 mt-6 ml-0 lg:ml-12">
-                    Placeholder — connect to your payment gateway (Razorpay / PayU / Stripe).
-                </p>
-            </section>
+            <!-- Gateway Placeholder Note -->
+            <p class="text-[13px] text-gray-600 dark:text-gray-400 mt-6 ml-0 lg:ml-12">
+              Placeholder — connect to your payment gateway (Razorpay / PayU / Stripe).
+            </p>
+          </section>
 
         </div>
 
@@ -616,395 +476,298 @@
         <!-- RIGHT COLUMN: ORDER SUMMARY                -->
         <!-- ========================================== -->
         <div class="w-full md:min-w-[400px] lg:w-[40%] xl:w-[35%] lg:sticky lg:top-24 mt-8 lg:mt-0">
-            
-            <div class="border border-gray-200 dark:border-gray-800 bg-white dark:bg-tickerDark p-6 md:p-8 rounded-[2px] shadow-sm lg:shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
-                
-                <h2 class="text-xl md:text-2xl font-normal text-gray-900 dark:text-white mb-8">Order Summary</h2>
-                
-                <!-- Line Items -->
-                <div class="flex flex-col gap-6 mb-8">
-                    <!-- Item 1 -->
-                    <div class="flex justify-between items-start text-[13px] md:text-[14px]">
-                        <span class="text-gray-600 dark:text-gray-300">Air Pro 1 &times; 1</span>
-                        <span class="text-gray-900 dark:text-white">₹11499</span>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="flex justify-between items-start text-[13px] md:text-[14px]">
-                        <span class="text-gray-600 dark:text-gray-300">Air Pro &times; 1</span>
-                        <div class="flex flex-col items-end">
-                            <span class="text-gray-900 dark:text-white leading-none">₹9,999</span>
-                            <span class="text-gray-900 dark:text-white leading-none mt-1">.00</span>
-                        </div>
-                    </div>
+
+          <div
+            class="border border-gray-200 dark:border-gray-800 bg-white dark:bg-tickerDark p-6 md:p-8 rounded-[2px] shadow-sm lg:shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+
+            <h2 class="text-xl md:text-2xl font-normal text-gray-900 dark:text-white mb-8">Order Summary</h2>
+
+            <!-- Line Items -->
+            <div class="flex flex-col gap-6 mb-8">
+              <!-- Item 1 -->
+              <div class="flex justify-between items-start text-[13px] md:text-[14px]">
+                <span class="text-gray-600 dark:text-gray-300">Air Pro 1 &times; 1</span>
+                <span class="text-gray-900 dark:text-white">₹11499</span>
+              </div>
+              <!-- Item 2 -->
+              <div class="flex justify-between items-start text-[13px] md:text-[14px]">
+                <span class="text-gray-600 dark:text-gray-300">Air Pro &times; 1</span>
+                <div class="flex flex-col items-end">
+                  <span class="text-gray-900 dark:text-white leading-none">₹9,999</span>
+                  <span class="text-gray-900 dark:text-white leading-none mt-1">.00</span>
                 </div>
-
-                <!-- Thin Divider -->
-                <div class="w-full h-px bg-gray-100 dark:bg-gray-800 mb-6"></div>
-
-                <!-- Breakdown -->
-                <div class="flex flex-col gap-5 mb-6">
-                    <div class="flex justify-between items-center text-[13px] md:text-[14px]">
-                        <span class="text-gray-600 dark:text-gray-300">Subtotal</span>
-                        <span class="text-gray-900 dark:text-white font-medium">₹29,998</span>
-                    </div>
-                    <div class="flex justify-between items-center text-[13px] md:text-[14px]">
-                        <span class="text-gray-600 dark:text-gray-300">Shipping</span>
-                        <span class="text-[#2C7A53] dark:text-[#4ADE80]">Free</span>
-                    </div>
-                </div>
-
-                <!-- Thicker Divider -->
-                <div class="w-full h-[2px] bg-gray-100 dark:bg-gray-800 mb-6"></div>
-
-                <!-- Total -->
-                <div class="flex justify-between items-end mb-8">
-                    <span class="text-[17px] font-medium text-gray-900 dark:text-white">Total</span>
-                    <span class="text-[22px] font-medium text-gray-900 dark:text-white tracking-tight leading-none">₹29,998</span>
-                </div>
-
-                <!-- Checkout Button -->
-                <button class="w-full bg-[#111111] dark:bg-white text-white dark:text-black py-4 flex items-center justify-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] rounded-[2px] hover:bg-black dark:hover:bg-gray-200 transition-colors">
-                    Place Order <span class="text-lg leading-none mb-[2px]">&rarr;</span>
-                </button>
-
-                <!-- Trust Points -->
-                <div class="flex items-center justify-center gap-1 text-[10px] md:text-[11px] text-gray-400 mt-6 tracking-wide">
-                    <svg class="w-3 h-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
-                    <span>Secure checkout &middot; Genuine warranty &middot; Free delivery</span>
-                </div>
-
+              </div>
             </div>
+
+            <!-- Thin Divider -->
+            <div class="w-full h-px bg-gray-100 dark:bg-gray-800 mb-6"></div>
+
+            <!-- Breakdown -->
+            <div class="flex flex-col gap-5 mb-6">
+              <div class="flex justify-between items-center text-[13px] md:text-[14px]">
+                <span class="text-gray-600 dark:text-gray-300">Subtotal</span>
+                <span class="text-gray-900 dark:text-white font-medium">₹29,998</span>
+              </div>
+              <div class="flex justify-between items-center text-[13px] md:text-[14px]">
+                <span class="text-gray-600 dark:text-gray-300">Shipping</span>
+                <span class="text-[#2C7A53] dark:text-[#4ADE80]">Free</span>
+              </div>
+            </div>
+
+            <!-- Thicker Divider -->
+            <div class="w-full h-[2px] bg-gray-100 dark:bg-gray-800 mb-6"></div>
+
+            <!-- Total -->
+            <div class="flex justify-between items-end mb-8">
+              <span class="text-[17px] font-medium text-gray-900 dark:text-white">Total</span>
+              <span
+                class="text-[22px] font-medium text-gray-900 dark:text-white tracking-tight leading-none">₹29,998</span>
+            </div>
+
+            <!-- Checkout Button -->
+            <button
+              class="w-full bg-[#111111] dark:bg-white text-white dark:text-black py-4 flex items-center justify-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] rounded-[2px] hover:bg-black dark:hover:bg-gray-200 transition-colors">
+              Place Order <span class="text-lg leading-none mb-[2px]">&rarr;</span>
+            </button>
+
+            <!-- Trust Points -->
+            <div
+              class="flex items-center justify-center gap-1 text-[10px] md:text-[11px] text-gray-400 mt-6 tracking-wide">
+              <svg class="w-3 h-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <span>Secure checkout &middot; Genuine warranty &middot; Free delivery</span>
+            </div>
+
+          </div>
         </div>
 
-    </div>
-  </section>
+      </div>
+    </section>
 
-      <!-- ========================================== -->
-      <!-- SECTION 17: FOOTER                         -->
-      <!-- ========================================== -->
-      <footer
-        class="w-full bg-[#0B1115] pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24"
-      >
-        <div class="max-w-[1400px] mx-auto">
-          <!-- Top Section: Brand & Links -->
-          <div
-            class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-10 lg:mb-20"
-          >
-            <!-- Left: Brand, Bio & Buttons -->
-            <div class="flex flex-col lg:w-5/12">
-              <!-- Logo -->
-              <img
-                src="./assets/images/logo.png"
-                alt="Breathe In"
-                class="h-9 md:h-10 w-auto mb-6 object-contain object-left self-start"
-              />
+    <!-- ========================================== -->
+    <!-- SECTION 17: FOOTER                         -->
+    <!-- ========================================== -->
+    <footer class="w-full bg-[#0B1115] pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24">
+      <div class="max-w-[1400px] mx-auto">
+        <!-- Top Section: Brand & Links -->
+        <div class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-10 lg:mb-20">
+          <!-- Left: Brand, Bio & Buttons -->
+          <div class="flex flex-col lg:w-5/12">
+            <!-- Logo -->
+            <img src="./assets/images/logo.png" alt="Breathe In"
+              class="h-9 md:h-10 w-auto mb-6 object-contain object-left self-start" />
 
-              <!-- Bio -->
-              <!-- Mobile text and Desktop text swap seamlessly using hidden/inline classes -->
-              <p
-                class="text-gray-400 text-[13px] md:text-[14px] font-light leading-[1.8] mb-8 max-w-sm"
-              >
-                <span class="hidden md:inline">
-                  Clean air isn’t a luxury, it’s a necessity<br />
-                  Sophisticated Japanese air-purification<br />
-                  technology, at honest prices. The right air, for<br />
-                  every Indian home.
-                </span>
-                <span class="md:hidden">
-                  Clean air isn’t a luxury, it’s a necessity Sophisticated
-                  Japanese air-purification technology, at honest prices.
-                </span>
-              </p>
-
-              <!-- Buttons (Side-by-Side) -->
-              <div
-                class="flex flex-row items-center gap-3 md:gap-4 w-full max-w-[400px]"
-              >
-                <!-- Shop Now (Solid Teal on all screens) -->
-                <a
-                  href="#"
-                  class="flex-1 bg-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] transition-colors whitespace-nowrap"
-                >
-                  <span>SHOP NOW</span>
-                  <svg
-                    class="w-3.5 h-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 12h14M12 5l7 7-7 7"
-                    ></path>
-                  </svg>
-                </a>
-
-                <!-- Download Brochure (Solid Teal on Mobile, Ghost on Desktop) -->
-                <a
-                  href="#"
-                  class="flex-1 bg-[#156E8A] md:bg-transparent border border-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] md:hover:bg-[#156E8A] hover:text-white transition-colors whitespace-nowrap"
-                >
-                  <span>DOWNLOAD BROCHURE</span>
-                  <svg
-                    class="w-3.5 h-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 12h14M12 5l7 7-7 7"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            <!-- Divider (Mobile Only) -->
-            <div
-              class="w-full h-[1px] bg-gray-800/80 lg:hidden mt-2 mb-2"
-            ></div>
-
-            <!-- Right: Links Grid -->
-            <!-- 3 Cols on Mobile, 4 Cols on Desktop -->
-            <div
-              class="lg:w-7/12 grid grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8"
-            >
-              <!-- Column 1: Collection -->
-              <div class="flex flex-col">
-                <h4
-                  class="text-[11px] md:text-[14px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6"
-                >
-                  Collection
-                </h4>
-                <ul class="flex flex-col gap-4">
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Air Pro</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Air Pro 1</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Air Pro 2</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Air Pro Max</a
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Column 2: Explore -->
-              <div class="flex flex-col">
-                <h4
-                  class="text-[11px] md:text-[14px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6"
-                >
-                  Explore
-                </h4>
-                <ul class="flex flex-col gap-4">
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Technology</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >The App</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Compare Models</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Filter Care</a
-                    >
-                  </li>
-                  <!-- Visible only on Desktop -->
-                  <li class="hidden lg:block">
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Corporate Solutions</a
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Column 3: Support (Mobile) / Blank Header (Desktop) -->
-              <div class="flex flex-col">
-                <!-- Header visible only on mobile -->
-                <h4
-                  class="text-[11px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6 lg:hidden"
-                >
-                  Support
-                </h4>
-
-                <!-- Spacer to align links under the empty header space on desktop -->
-                <div class="hidden lg:block h-[34px]"></div>
-
-                <ul class="flex flex-col gap-4">
-                  <!-- Visible only on Desktop -->
-                  <li class="hidden lg:block">
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Book a Demo</a
-                    >
-                  </li>
-                  <li class="hidden lg:block">
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Case Studies</a
-                    >
-                  </li>
-
-                  <!-- Visible on Both -->
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >FAQ</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Support</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Contact</a
-                    >
-                  </li>
-
-                  <!-- Visible only on Mobile -->
-                  <li class="lg:hidden">
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >WhatsApp</a
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Column 4: Contact (Desktop Only) -->
-              <div class="hidden lg:flex flex-col">
-                <h4
-                  class="text-[14px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6"
-                >
-                  Contact
-                </h4>
-                <ul class="flex flex-col gap-4">
-                  <li>
-                    <a
-                      href="tel:+919076636639"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >+91 90766 36639</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >WhatsApp Support</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="mailto:enquiries@breathein.co.in"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >enquiries@breathein.co.in</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >www.breathein.co.in</a
-                    >
-                  </li>
-                  <li class="text-[13px] text-gray-400 font-light mt-1">
-                    Whitefield, Bengaluru
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bottom Divider -->
-          <div class="w-full h-[1px] bg-gray-800/80 mb-6 lg:mb-8"></div>
-
-          <!-- Bottom Strip: Legal & Copyright -->
-          <div
-            class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6"
-          >
-            <!-- Legal Links (Top on mobile, Right on desktop) -->
-            <div class="flex flex-wrap items-center gap-6 lg:order-2">
-              <a
-                href="#"
-                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light"
-                >Privacy Policy</a
-              >
-              <a
-                href="#"
-                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light"
-                >Terms of Use</a
-              >
-              <a
-                href="#"
-                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light"
-                >Cookie Policy</a
-              >
-            </div>
-
-            <!-- Copyright (Bottom on mobile, Left on desktop) -->
-            <p
-              class="text-[11px] md:text-[13px] text-gray-500 font-light lg:order-1"
-            >
-              &copy; 2026 Breathe In &mdash; The Right Air. All rights reserved.
-              Made in India.
+            <!-- Bio -->
+            <!-- Mobile text and Desktop text swap seamlessly using hidden/inline classes -->
+            <p class="text-gray-400 text-[13px] md:text-[14px] font-light leading-[1.8] mb-8 max-w-sm">
+              <span class="hidden md:inline">
+                Clean air isn’t a luxury, it’s a necessity<br />
+                Sophisticated Japanese air-purification<br />
+                technology, at honest prices. The right air, for<br />
+                every Indian home.
+              </span>
+              <span class="md:hidden">
+                Clean air isn’t a luxury, it’s a necessity Sophisticated
+                Japanese air-purification technology, at honest prices.
+              </span>
             </p>
+
+            <!-- Buttons (Side-by-Side) -->
+            <div class="flex flex-row items-center gap-3 md:gap-4 w-full max-w-[400px]">
+              <!-- Shop Now (Solid Teal on all screens) -->
+              <a href="#"
+                class="flex-1 bg-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] transition-colors whitespace-nowrap">
+                <span>SHOP NOW</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7">
+                  </path>
+                </svg>
+              </a>
+
+              <!-- Download Brochure (Solid Teal on Mobile, Ghost on Desktop) -->
+              <a href="#"
+                class="flex-1 bg-[#156E8A] md:bg-transparent border border-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] md:hover:bg-[#156E8A] hover:text-white transition-colors whitespace-nowrap">
+                <span>DOWNLOAD BROCHURE</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7">
+                  </path>
+                </svg>
+              </a>
+            </div>
           </div>
 
-          <!-- 
+          <!-- Divider (Mobile Only) -->
+          <div class="w-full h-[1px] bg-gray-800/80 lg:hidden mt-2 mb-2"></div>
+
+          <!-- Right: Links Grid -->
+          <!-- 3 Cols on Mobile, 4 Cols on Desktop -->
+          <div class="lg:w-7/12 grid grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
+            <!-- Column 1: Collection -->
+            <div class="flex flex-col">
+              <h4 class="text-[11px] md:text-[14px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                Collection
+              </h4>
+              <ul class="flex flex-col gap-4">
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                    Pro</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                    Pro 1</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                    Pro 2</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                    Pro Max</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 2: Explore -->
+            <div class="flex flex-col">
+              <h4 class="text-[11px] md:text-[14px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                Explore
+              </h4>
+              <ul class="flex flex-col gap-4">
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Technology</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">The
+                    App</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Compare
+                    Models</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Filter
+                    Care</a>
+                </li>
+                <!-- Visible only on Desktop -->
+                <li class="hidden lg:block">
+                  <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Corporate
+                    Solutions</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 3: Support (Mobile) / Blank Header (Desktop) -->
+            <div class="flex flex-col">
+              <!-- Header visible only on mobile -->
+              <h4 class="text-[11px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6 lg:hidden">
+                Support
+              </h4>
+
+              <!-- Spacer to align links under the empty header space on desktop -->
+              <div class="hidden lg:block h-[34px]"></div>
+
+              <ul class="flex flex-col gap-4">
+                <!-- Visible only on Desktop -->
+                <li class="hidden lg:block">
+                  <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Book a
+                    Demo</a>
+                </li>
+                <li class="hidden lg:block">
+                  <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Case
+                    Studies</a>
+                </li>
+
+                <!-- Visible on Both -->
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">FAQ</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Support</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Contact</a>
+                </li>
+
+                <!-- Visible only on Mobile -->
+                <li class="lg:hidden">
+                  <a href="#"
+                    class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">WhatsApp</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 4: Contact (Desktop Only) -->
+            <div class="hidden lg:flex flex-col">
+              <h4 class="text-[14px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                Contact
+              </h4>
+              <ul class="flex flex-col gap-4">
+                <li>
+                  <a href="tel:+919076636639"
+                    class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">+91 90766 36639</a>
+                </li>
+                <li>
+                  <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">WhatsApp
+                    Support</a>
+                </li>
+                <li>
+                  <a href="mailto:enquiries@breathein.co.in"
+                    class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">enquiries@breathein.co.in</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">www.breathein.co.in</a>
+                </li>
+                <li class="text-[13px] text-gray-400 font-light mt-1">
+                  Whitefield, Bengaluru
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Divider -->
+        <div class="w-full h-[1px] bg-gray-800/80 mb-6 lg:mb-8"></div>
+
+        <!-- Bottom Strip: Legal & Copyright -->
+        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+          <!-- Legal Links (Top on mobile, Right on desktop) -->
+          <div class="flex flex-wrap items-center gap-6 lg:order-2">
+            <a href="#"
+              class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Privacy
+              Policy</a>
+            <a href="#"
+              class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Terms of
+              Use</a>
+            <a href="#"
+              class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Cookie
+              Policy</a>
+          </div>
+
+          <!-- Copyright (Bottom on mobile, Left on desktop) -->
+          <p class="text-[11px] md:text-[13px] text-gray-500 font-light lg:order-1">
+            &copy; 2026 Breathe In &mdash; The Right Air. All rights reserved.
+            Made in India.
+          </p>
+        </div>
+
+        <!-- 
                 <button id="backToTop"
                     class="flex absolute right-0 bottom-12 lg:static items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-gray-500 hover:text-white transition-colors font-bold group order-3">
                     Back to Top
@@ -1016,8 +779,8 @@
                         </svg>
                     </span>
                 </button> -->
-        </div>
-      </footer>
+      </div>
+    </footer>
     </section>
 
     <!-- jQuery Core Library -->
@@ -1026,5 +789,6 @@
 
     <!-- Link to Custom JS -->
     <script src="assets/js/main.js"></script>
-  </body>
+</body>
+
 </html>

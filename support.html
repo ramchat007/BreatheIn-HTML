@@ -223,13 +223,13 @@
 
         <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
         <button id="themeToggle"
-          class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors">
+          class="flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-3.5 h-3.5">
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
           </svg>
-          <span class="text-[12px] font-bold tracking-widest">DARK</span>
+          <span class="hidden lg:block text-[12px] font-bold tracking-widest">DARK</span>
         </button>
         <!-- Hamburger Menu Icon (Moved to right) -->
         <button id="openMobileNav" class="lg:hidden p-1" aria-label="Open Menu">
@@ -243,17 +243,14 @@
   </div>
 
   <main class="bg-[#F7F9FA]">
-        <!-- Soft Radial Glow (Top Right) -->
-        <div
-          class="hidden md:block absolute inset-0 pointer-events-none"
-          style="
+    <!-- Soft Radial Glow (Top Right) -->
+    <div class="hidden md:block absolute inset-0 pointer-events-none" style="
             background: radial-gradient(
               40% 60% at 90% 10%,
               rgba(21, 110, 138, 0.08) 0%,
               rgba(0, 0, 0, 0) 100%
             );
-          "
-        ></div>
+          "></div>
     <!-- ========================================== -->
     <!-- HERO SECTION                    -->
     <!-- ========================================== -->
@@ -276,11 +273,12 @@
 
           <!-- Headline -->
           <h1 class="text-3xl md:text-6xl lg:text-[80px] font-light leading-tight tracking-tight text-gray-900 mb-5">
-            Support, when you 
+            Support, when you
             <span class="font-medium text-[#156E8A]">need it.</span>
           </h1>
           <p class="max-w-xl text-gray-500 text-sm md:text-base leading-relaxed font-light">
-            From choosing a model to caring for your filters, our team is here six days a week — in English, Hindi and Kannada. Find quick answers below, or reach out directly.
+            From choosing a model to caring for your filters, our team is here six days a week — in English, Hindi and
+            Kannada. Find quick answers below, or reach out directly.
           </p>
         </div>
       </div>
@@ -290,313 +288,344 @@
     <!-- QUICK HELP SECTION                         -->
     <!-- ========================================== -->
     <section class="max-w-[1300px] mx-auto px-6 md:px-10 lg:px-20 pt-10 lg:pt-20 w-full relative">
-        
-        <!-- Section Header -->
-        <div class="mb-10 lg:mb-16">
-            <!-- Eyebrow -->
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-8 h-px bg-[#156E8A]"></div>
-                <p class="uppercase tracking-[0.2em] text-[10px] text-[#156E8A] font-bold">
-                    Quick Help
-                </p>
-            </div>
-            <!-- Headline -->
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 dark:text-white tracking-tight">
-                What can we help with?
-            </h2>
+
+      <!-- Section Header -->
+      <div class="mb-10 lg:mb-16">
+        <!-- Eyebrow -->
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-8 h-px bg-[#156E8A]"></div>
+          <p class="uppercase tracking-[0.2em] text-[10px] text-[#156E8A] font-bold">
+            Quick Help
+          </p>
         </div>
+        <!-- Headline -->
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 dark:text-white tracking-tight">
+          What can we help with?
+        </h2>
+      </div>
 
-        <!-- Help Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            
-            <!-- Card 1: Choosing a Purifier -->
-            <a href="#" class="group flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-5 lg:p-10 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none">
-                <!-- Icon -->
-                <div class="w-14 h-14 rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-4 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
-                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M10 17C13.866 17 17 13.866 17 10C17 6.13401 13.866 3 10 3C6.13401 3 3 6.13401 3 10C3 13.866 6.13401 17 10 17Z" stroke="black" stroke-width="1.4"/>
-                      <path d="M15 15L19 19" stroke="black" stroke-width="1.4" stroke-linecap="round"/>
-                    </svg>
+      <!-- Help Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
-                </div>
-                <!-- Content -->
-                <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">
-                    Choosing a Purifier
-                </h3>
-                <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
-                    Not sure which model fits your room? Our finder recommends the right one in under a minute.
-                </p>
-                <!-- Link -->
-                <div class="flex items-center gap-2 text-[11px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] group-hover:gap-3 transition-all">
-                    Find My Purifier <span class="text-sm leading-none mb-[2px]">&rarr;</span>
-                </div>
-            </a>
+        <!-- Card 1: Choosing a Purifier -->
+        <a href="#"
+          class="group flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-5 lg:p-10 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none">
+          <!-- Icon -->
+          <div
+            class="w-14 h-14 rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-4 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 17C13.866 17 17 13.866 17 10C17 6.13401 13.866 3 10 3C6.13401 3 3 6.13401 3 10C3 13.866 6.13401 17 10 17Z"
+                stroke="black" stroke-width="1.4" />
+              <path d="M15 15L19 19" stroke="black" stroke-width="1.4" stroke-linecap="round" />
+            </svg>
 
-            <!-- Card 2: Filters & Maintenance -->
-            <a href="#" class="group flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-5 lg:p-10 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none">
-                <!-- Icon -->
-                <div class="w-14 h-14 rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-4 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
-                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M16 3H6C4.89543 3 4 3.89543 4 5V17C4 18.1046 4.89543 19 6 19H16C17.1046 19 18 18.1046 18 17V5C18 3.89543 17.1046 3 16 3Z" stroke="black" stroke-width="1.4"/>
-<path d="M8 8H14M8 11H14M8 14H12" stroke="black" stroke-width="1.4" stroke-linecap="round"/>
-</svg>
+          </div>
+          <!-- Content -->
+          <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">
+            Choosing a Purifier
+          </h3>
+          <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
+            Not sure which model fits your room? Our finder recommends the right one in under a minute.
+          </p>
+          <!-- Link -->
+          <div
+            class="flex items-center gap-2 text-[11px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] group-hover:gap-3 transition-all">
+            Find My Purifier <span class="text-sm leading-none mb-[2px]">&rarr;</span>
+          </div>
+        </a>
 
-
-                </div>
-                <!-- Content -->
-                <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">
-                    Filters & Maintenance
-                </h3>
-                <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
-                    Filter life, replacement reminders, and how to keep your purifier performing at its best.
-                </p>
-                <!-- Link -->
-                <div class="flex items-center gap-2 text-[11px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] group-hover:gap-3 transition-all">
-                    Filter Care Guide <span class="text-sm leading-none mb-[2px]">&rarr;</span>
-                </div>
-            </a>
-
-            <!-- Card 3: Orders & Delivery -->
-            <a href="#" class="group flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-5 lg:p-10 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none">
-                <!-- Icon -->
-                <div class="w-14 h-14 rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-4 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
-                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M3 5H19L17.8 15.5C17.7523 15.7825 17.6051 16.0386 17.385 16.222C17.1649 16.4054 16.8865 16.504 16.6 16.5H5.4C5.11354 16.504 4.8351 16.4054 4.61501 16.222C4.39493 16.0386 4.24772 15.7825 4.2 15.5L3 5Z" stroke="black" stroke-width="1.4" stroke-linejoin="round"/>
-<path d="M7.5 5C7.5 4.07174 7.86875 3.1815 8.52513 2.52513C9.1815 1.86875 10.0717 1.5 11 1.5C11.9283 1.5 12.8185 1.86875 13.4749 2.52513C14.1313 3.1815 14.5 4.07174 14.5 5" stroke="black" stroke-width="1.4"/>
-</svg>
+        <!-- Card 2: Filters & Maintenance -->
+        <a href="#"
+          class="group flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-5 lg:p-10 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none">
+          <!-- Icon -->
+          <div
+            class="w-14 h-14 rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-4 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16 3H6C4.89543 3 4 3.89543 4 5V17C4 18.1046 4.89543 19 6 19H16C17.1046 19 18 18.1046 18 17V5C18 3.89543 17.1046 3 16 3Z"
+                stroke="black" stroke-width="1.4" />
+              <path d="M8 8H14M8 11H14M8 14H12" stroke="black" stroke-width="1.4" stroke-linecap="round" />
+            </svg>
 
 
-                </div>
-                <!-- Content -->
-                <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">
-                    Orders & Delivery
-                </h3>
-                <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
-                    Track an order, download an invoice, or check delivery status from your account.
-                </p>
-                <!-- Link -->
-                <div class="flex items-center gap-2 text-[11px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] group-hover:gap-3 transition-all">
-                    View My Orders <span class="text-sm leading-none mb-[2px]">&rarr;</span>
-                </div>
-            </a>
+          </div>
+          <!-- Content -->
+          <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">
+            Filters & Maintenance
+          </h3>
+          <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
+            Filter life, replacement reminders, and how to keep your purifier performing at its best.
+          </p>
+          <!-- Link -->
+          <div
+            class="flex items-center gap-2 text-[11px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] group-hover:gap-3 transition-all">
+            Filter Care Guide <span class="text-sm leading-none mb-[2px]">&rarr;</span>
+          </div>
+        </a>
 
-            <!-- Card 4: Frequently Asked -->
-            <a href="#" class="group flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-5 lg:p-10 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none">
-                <!-- Icon -->
-                <div class="w-14 h-14 rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-4 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
-                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M11 19.5C15.6944 19.5 19.5 15.6944 19.5 11C19.5 6.30558 15.6944 2.5 11 2.5C6.30558 2.5 2.5 6.30558 2.5 11C2.5 15.6944 6.30558 19.5 11 19.5Z" stroke="black" stroke-width="1.4"/>
-<path d="M8.5 8.50006C8.84378 8.14329 9.28581 7.89671 9.76999 7.79162C10.2542 7.68654 10.7586 7.72768 11.2194 7.90984C11.6801 8.092 12.0764 8.40695 12.3578 8.81471C12.6392 9.22247 12.7931 9.70466 12.8 10.2001C12.8 11.9001 10.5 12.1001 10.5 13.5001M11 16.5001V16.6001" stroke="black" stroke-width="1.4" stroke-linecap="round"/>
-</svg>
+        <!-- Card 3: Orders & Delivery -->
+        <a href="#"
+          class="group flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-5 lg:p-10 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none">
+          <!-- Icon -->
+          <div
+            class="w-14 h-14 rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-4 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M3 5H19L17.8 15.5C17.7523 15.7825 17.6051 16.0386 17.385 16.222C17.1649 16.4054 16.8865 16.504 16.6 16.5H5.4C5.11354 16.504 4.8351 16.4054 4.61501 16.222C4.39493 16.0386 4.24772 15.7825 4.2 15.5L3 5Z"
+                stroke="black" stroke-width="1.4" stroke-linejoin="round" />
+              <path
+                d="M7.5 5C7.5 4.07174 7.86875 3.1815 8.52513 2.52513C9.1815 1.86875 10.0717 1.5 11 1.5C11.9283 1.5 12.8185 1.86875 13.4749 2.52513C14.1313 3.1815 14.5 4.07174 14.5 5"
+                stroke="black" stroke-width="1.4" />
+            </svg>
 
-                </div>
-                <!-- Content -->
-                <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">
-                    Frequently Asked
-                </h3>
-                <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
-                    Answers to the most common questions about performance, health, warranty and setup.
-                </p>
-                <!-- Link -->
-                <div class="flex items-center gap-2 text-[11px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] group-hover:gap-3 transition-all">
-                    Browse the FAQ <span class="text-sm leading-none mb-[2px]">&rarr;</span>
-                </div>
-            </a>
 
-            <!-- Card 5: App & Setup -->
-            <a href="#" class="group flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-5 lg:p-10 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none">
-                <!-- Icon -->
-                <div class="w-14 h-14 rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-4 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
-                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M14 2.5H8C6.89543 2.5 6 3.39543 6 4.5V17.5C6 18.6046 6.89543 19.5 8 19.5H14C15.1046 19.5 16 18.6046 16 17.5V4.5C16 3.39543 15.1046 2.5 14 2.5Z" stroke="black" stroke-width="1.4"/>
-                      <path d="M9.5 16.5H12.5" stroke="black" stroke-width="1.4" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <!-- Content -->
-                <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">
-                    App & Setup
-                </h3>
-                <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
-                    Pairing your purifier, using the Smart Life app, schedules, and troubleshooting.
-                </p>
-                <!-- Link -->
-                <div class="flex items-center gap-2 text-[11px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] group-hover:gap-3 transition-all">
-                    App Guide <span class="text-sm leading-none mb-[2px]">&rarr;</span>
-                </div>
-            </a>
+          </div>
+          <!-- Content -->
+          <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">
+            Orders & Delivery
+          </h3>
+          <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
+            Track an order, download an invoice, or check delivery status from your account.
+          </p>
+          <!-- Link -->
+          <div
+            class="flex items-center gap-2 text-[11px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] group-hover:gap-3 transition-all">
+            View My Orders <span class="text-sm leading-none mb-[2px]">&rarr;</span>
+          </div>
+        </a>
 
-            <!-- Card 6: Business & Bulk -->
-            <a href="#" class="group flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-5 lg:p-10 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none">
-                <!-- Icon -->
-                <div class="w-14 h-14 rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-4 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
-                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M17.5 3H4.5C3.67157 3 3 3.67157 3 4.5V17.5C3 18.3284 3.67157 19 4.5 19H17.5C18.3284 19 19 18.3284 19 17.5V4.5C19 3.67157 18.3284 3 17.5 3Z" stroke="black" stroke-width="1.4"/>
-<path d="M7 8H15M7 11H15M7 14H12" stroke="black" stroke-width="1.4" stroke-linecap="round"/>
-</svg>
+        <!-- Card 4: Frequently Asked -->
+        <a href="#"
+          class="group flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-5 lg:p-10 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none">
+          <!-- Icon -->
+          <div
+            class="w-14 h-14 rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-4 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11 19.5C15.6944 19.5 19.5 15.6944 19.5 11C19.5 6.30558 15.6944 2.5 11 2.5C6.30558 2.5 2.5 6.30558 2.5 11C2.5 15.6944 6.30558 19.5 11 19.5Z"
+                stroke="black" stroke-width="1.4" />
+              <path
+                d="M8.5 8.50006C8.84378 8.14329 9.28581 7.89671 9.76999 7.79162C10.2542 7.68654 10.7586 7.72768 11.2194 7.90984C11.6801 8.092 12.0764 8.40695 12.3578 8.81471C12.6392 9.22247 12.7931 9.70466 12.8 10.2001C12.8 11.9001 10.5 12.1001 10.5 13.5001M11 16.5001V16.6001"
+                stroke="black" stroke-width="1.4" stroke-linecap="round" />
+            </svg>
 
-                </div>
-                <!-- Content -->
-                <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">
-                    Business & Bulk
-                </h3>
-                <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
-                    Multiple units for an office, clinic or facility? Our B2B team can help you plan.
-                </p>
-                <!-- Link -->
-                <div class="flex items-center gap-2 text-[11px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] group-hover:gap-3 transition-all">
-                    Corporate Solutions <span class="text-sm leading-none mb-[2px]">&rarr;</span>
-                </div>
-            </a>
+          </div>
+          <!-- Content -->
+          <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">
+            Frequently Asked
+          </h3>
+          <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
+            Answers to the most common questions about performance, health, warranty and setup.
+          </p>
+          <!-- Link -->
+          <div
+            class="flex items-center gap-2 text-[11px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] group-hover:gap-3 transition-all">
+            Browse the FAQ <span class="text-sm leading-none mb-[2px]">&rarr;</span>
+          </div>
+        </a>
 
-        </div>
+        <!-- Card 5: App & Setup -->
+        <a href="#"
+          class="group flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-5 lg:p-10 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none">
+          <!-- Icon -->
+          <div
+            class="w-14 h-14 rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-4 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M14 2.5H8C6.89543 2.5 6 3.39543 6 4.5V17.5C6 18.6046 6.89543 19.5 8 19.5H14C15.1046 19.5 16 18.6046 16 17.5V4.5C16 3.39543 15.1046 2.5 14 2.5Z"
+                stroke="black" stroke-width="1.4" />
+              <path d="M9.5 16.5H12.5" stroke="black" stroke-width="1.4" stroke-linecap="round" />
+            </svg>
+          </div>
+          <!-- Content -->
+          <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">
+            App & Setup
+          </h3>
+          <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
+            Pairing your purifier, using the Smart Life app, schedules, and troubleshooting.
+          </p>
+          <!-- Link -->
+          <div
+            class="flex items-center gap-2 text-[11px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] group-hover:gap-3 transition-all">
+            App Guide <span class="text-sm leading-none mb-[2px]">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- Card 6: Business & Bulk -->
+        <a href="#"
+          class="group flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-5 lg:p-10 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none">
+          <!-- Icon -->
+          <div
+            class="w-14 h-14 rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-4 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M17.5 3H4.5C3.67157 3 3 3.67157 3 4.5V17.5C3 18.3284 3.67157 19 4.5 19H17.5C18.3284 19 19 18.3284 19 17.5V4.5C19 3.67157 18.3284 3 17.5 3Z"
+                stroke="black" stroke-width="1.4" />
+              <path d="M7 8H15M7 11H15M7 14H12" stroke="black" stroke-width="1.4" stroke-linecap="round" />
+            </svg>
+
+          </div>
+          <!-- Content -->
+          <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">
+            Business & Bulk
+          </h3>
+          <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
+            Multiple units for an office, clinic or facility? Our B2B team can help you plan.
+          </p>
+          <!-- Link -->
+          <div
+            class="flex items-center gap-2 text-[11px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] group-hover:gap-3 transition-all">
+            Corporate Solutions <span class="text-sm leading-none mb-[2px]">&rarr;</span>
+          </div>
+        </a>
+
+      </div>
     </section>
 
     <!-- ========================================== -->
     <!-- TALK TO US / CONTACT SUPPORT SECTION       -->
     <!-- ========================================== -->
     <section class="max-w-[1300px] mx-auto px-6 md:px-10 lg:px-20 pt-10 lg:pt-20 py-10 lg:py-20">
-        
-        <!-- Section Header -->
-        <div class="mb-12 lg:mb-16">
-            <!-- Eyebrow -->
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-8 h-px bg-[#156E8A]"></div>
-                <p class="uppercase tracking-[0.2em] text-[10px] text-[#156E8A] font-bold">
-                    Talk To Us
-                </p>
-            </div>
-            <!-- Headline -->
-            <h2 class="text-3xl md:text-4xl lg:text-[42px] font-light text-gray-900 dark:text-white tracking-tight mb-4 leading-tight">
-                Reach our care team directly
-            </h2>
-            <!-- Subtitle -->
-            <p class="text-[15px] text-gray-500 dark:text-gray-400 font-light">
-                Available Monday to Saturday, 10:00 AM – 6:00 PM IST.
-            </p>
+
+      <!-- Section Header -->
+      <div class="mb-12 lg:mb-16">
+        <!-- Eyebrow -->
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-8 h-px bg-[#156E8A]"></div>
+          <p class="uppercase tracking-[0.2em] text-[10px] text-[#156E8A] font-bold">
+            Talk To Us
+          </p>
+        </div>
+        <!-- Headline -->
+        <h2
+          class="text-3xl md:text-4xl lg:text-[42px] font-light text-gray-900 dark:text-white tracking-tight mb-4 leading-tight">
+          Reach our care team directly
+        </h2>
+        <!-- Subtitle -->
+        <p class="text-[15px] text-gray-500 dark:text-gray-400 font-light">
+          Available Monday to Saturday, 10:00 AM – 6:00 PM IST.
+        </p>
+      </div>
+
+      <!-- Contact Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+
+        <!-- Card 1: Call Us -->
+        <div
+          class="flex flex-col items-center text-center bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-8 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none group">
+          <!-- Icon -->
+          <div
+            class="w-[60px] h-[60px] rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-8 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.896-1.596-5.48-4.18-7.076-7.076l1.293-.97c.362-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z">
+              </path>
+            </svg>
+          </div>
+          <!-- Title & Description -->
+          <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">Call Us
+          </h3>
+          <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
+            Speak with our support team directly.
+          </p>
+          <!-- Contact Link -->
+          <a href="tel:+919076636639"
+            class="text-[16px] text-[#156E8A] dark:text-brandTeal font-medium mb-2 hover:opacity-80 transition-opacity">
+            +91 90766 36639
+          </a>
+          <!-- Subtext -->
+          <span class="text-[11px] text-gray-400 font-light">Mon–Sat &middot; 10AM–6PM IST</span>
         </div>
 
-        <!-- Contact Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            
-            <!-- Card 1: Call Us -->
-            <div class="flex flex-col items-center text-center bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-8 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none group">
-                <!-- Icon -->
-                <div class="w-[60px] h-[60px] rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-8 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.896-1.596-5.48-4.18-7.076-7.076l1.293-.97c.362-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"></path>
-                    </svg>
-                </div>
-                <!-- Title & Description -->
-                <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">Call Us</h3>
-                <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
-                    Speak with our support team directly.
-                </p>
-                <!-- Contact Link -->
-                <a href="tel:+919076636639" class="text-[16px] text-[#156E8A] dark:text-brandTeal font-medium mb-2 hover:opacity-80 transition-opacity">
-                    +91 90766 36639
-                </a>
-                <!-- Subtext -->
-                <span class="text-[11px] text-gray-400 font-light">Mon–Sat &middot; 10AM–6PM IST</span>
-            </div>
-
-            <!-- Card 2: WhatsApp -->
-            <div class="flex flex-col items-center text-center bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-8 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none group">
-                <!-- Icon -->
-                <div class="w-[60px] h-[60px] rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-8 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z"></path>
-                    </svg>
-                </div>
-                <!-- Title & Description -->
-                <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">WhatsApp</h3>
-                <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
-                    Send photos or videos for quick troubleshooting.
-                </p>
-                <!-- Contact Link -->
-                <a href="https://wa.me/919076636639" target="_blank" rel="noopener noreferrer" class="text-[16px] text-[#156E8A] dark:text-brandTeal font-medium mb-2 hover:opacity-80 transition-opacity">
-                    +91 90766 36639
-                </a>
-                <!-- Subtext -->
-                <span class="text-[11px] text-gray-400 font-light">Fastest for product queries</span>
-            </div>
-
-            <!-- Card 3: Email -->
-            <div class="flex flex-col items-center text-center bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-8 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none group">
-                <!-- Icon -->
-                <div class="w-[60px] h-[60px] rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-8 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.909A2.25 2.25 0 012.25 6.993V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25"></path>
-                    </svg>
-                </div>
-                <!-- Title & Description -->
-                <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">Email</h3>
-                <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
-                    Detailed help for technical questions.
-                </p>
-                <!-- Contact Link -->
-                <a href="mailto:enquiries@breathein.co.in" class="text-[16px] text-[#156E8A] dark:text-brandTeal font-medium mb-2 hover:opacity-80 transition-opacity">
-                    enquiries@breathein.co.in
-                </a>
-                <!-- Subtext -->
-                <span class="text-[11px] text-gray-400 font-light">Replies within 24 hours</span>
-            </div>
-
+        <!-- Card 2: WhatsApp -->
+        <div
+          class="flex flex-col items-center text-center bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-8 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none group">
+          <!-- Icon -->
+          <div
+            class="w-[60px] h-[60px] rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-8 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z">
+              </path>
+            </svg>
+          </div>
+          <!-- Title & Description -->
+          <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">WhatsApp
+          </h3>
+          <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
+            Send photos or videos for quick troubleshooting.
+          </p>
+          <!-- Contact Link -->
+          <a href="https://wa.me/919076636639" target="_blank" rel="noopener noreferrer"
+            class="text-[16px] text-[#156E8A] dark:text-brandTeal font-medium mb-2 hover:opacity-80 transition-opacity">
+            +91 90766 36639
+          </a>
+          <!-- Subtext -->
+          <span class="text-[11px] text-gray-400 font-light">Fastest for product queries</span>
         </div>
+
+        <!-- Card 3: Email -->
+        <div
+          class="flex flex-col items-center text-center bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 rounded-[8px] p-8 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors shadow-sm lg:shadow-none hover:shadow-md dark:hover:shadow-none group">
+          <!-- Icon -->
+          <div
+            class="w-[60px] h-[60px] rounded-full bg-[#F0F5F7] dark:bg-[#111a20] flex items-center justify-center mb-8 text-gray-900 dark:text-gray-200 transition-colors group-hover:bg-[#E5F0F4] dark:group-hover:bg-gray-800">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.909A2.25 2.25 0 012.25 6.993V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25">
+              </path>
+            </svg>
+          </div>
+          <!-- Title & Description -->
+          <h3 class="text-[18px] md:text-[20px] text-gray-900 dark:text-white font-normal mb-3 tracking-tight">Email
+          </h3>
+          <p class="text-[14px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-4 flex-1">
+            Detailed help for technical questions.
+          </p>
+          <!-- Contact Link -->
+          <a href="mailto:enquiries@breathein.co.in"
+            class="text-[16px] text-[#156E8A] dark:text-brandTeal font-medium mb-2 hover:opacity-80 transition-opacity">
+            enquiries@breathein.co.in
+          </a>
+          <!-- Subtext -->
+          <span class="text-[11px] text-gray-400 font-light">Replies within 24 hours</span>
+        </div>
+
+      </div>
     </section>
 
     <!-- ========================================== -->
-      <!-- DARK CTA SECTION: EXPLORE / COMPARE        -->
-      <!-- ========================================== -->
-      <section
-        class="w-full bg-[#0B1115] py-10 md:py-20 px-6 flex flex-col items-center justify-center text-center"
-      >
-        <h2
-          class="text-4xl md:text-5xl lg:text-[56px] font-light text-white mb-6 md:mb-8 tracking-tight"
-        >
-          Not ready to talk? <span class="text-[#156E8A]">Find your match first.</span>
-        </h2>
+    <!-- DARK CTA SECTION: EXPLORE / COMPARE        -->
+    <!-- ========================================== -->
+    <section class="w-full bg-[#0B1115] py-10 md:py-20 px-6 flex flex-col items-center justify-center text-center">
+      <h2 class="text-4xl md:text-5xl lg:text-[56px] font-light text-white mb-6 md:mb-8 tracking-tight">
+        Not ready to talk? <span class="text-[#156E8A]">Find your match first.</span>
+      </h2>
 
-        <p
-          class="text-gray-400 font-light text-[12px] md:text-[15px] max-w-2xl mx-auto mb-12 leading-relaxed"
-        >
-          Use the room finder to get an instant recommendation, then book a <br>
-demo when you're ready.
-        </p>
+      <p class="text-gray-400 font-light text-[12px] md:text-[15px] max-w-2xl mx-auto mb-12 leading-relaxed">
+        Use the room finder to get an instant recommendation, then book a <br>
+        demo when you're ready.
+      </p>
 
-        <div
-          class="flex flex-row items-center justify-center gap-6 sm:gap-10 w-full max-w-md sm:max-w-none"
-        >
-          <!-- Primary Solid Button -->
-          <a
-            href="#"
-            class="bg-white text-[#0B1115] px-4 py-4 md:py-4 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold flex items-center justify-center gap-3 hover:bg-gray-200 transition-colors rounded-sm w-full sm:w-auto"
-          >
-            <span>Find My Purifier</span>
-            <svg
-              class="w-3.5 h-3.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
-          </a>
+      <div class="flex flex-row items-center justify-center gap-6 sm:gap-10 w-full max-w-md sm:max-w-none">
+        <!-- Primary Solid Button -->
+        <a href="#"
+          class="bg-white text-[#0B1115] px-4 py-4 md:py-4 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold flex items-center justify-center gap-3 hover:bg-gray-200 transition-colors rounded-sm w-full sm:w-auto">
+          <span>Find My Purifier</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
 
-          <!-- Secondary Ghost/Underline Button -->
-          <a
-            href="#"
-            class="text-white border-b border-gray-700 pb-1 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold hover:text-[#156E8A] hover:border-[#156E8A] transition-colors w-full sm:w-auto text-center mt-2 sm:mt-0"
-          >
-            Browse the Collection
-          </a>
-        </div>
-      </section>
+        <!-- Secondary Ghost/Underline Button -->
+        <a href="#"
+          class="text-white border-b border-gray-700 pb-1 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold hover:text-[#156E8A] hover:border-[#156E8A] transition-colors w-full sm:w-auto text-center mt-2 sm:mt-0">
+          Browse the Collection
+        </a>
+      </div>
+    </section>
 
     <!-- ========================================== -->
     <!-- SECTION 17: FOOTER                         -->

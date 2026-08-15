@@ -223,13 +223,13 @@
 
         <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
         <button id="themeToggle"
-          class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors">
+          class="flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-3.5 h-3.5">
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
           </svg>
-          <span class="text-[12px] font-bold tracking-widest">DARK</span>
+          <span class="hidden lg:block text-[12px] font-bold tracking-widest">DARK</span>
         </button>
         <!-- Hamburger Menu Icon (Moved to right) -->
         <button id="openMobileNav" class="lg:hidden p-1" aria-label="Open Menu">
@@ -289,7 +289,8 @@
             <a href="./account-overview.html"
               class="active-mobile-tab text-[#156E8A] dark:text-[#2094B6] border-b-2 border-[#156E8A] dark:border-[#2094B6] px-3 pb-3 whitespace-nowrap transition-colors">Overview</a>
             <a href="./my-orders.html"
-              class="px-3 pb-3 whitespace-nowrap hover:text-gray-900 dark:hover:text-white transition-colors">My Orders</a>
+              class="px-3 pb-3 whitespace-nowrap hover:text-gray-900 dark:hover:text-white transition-colors">My
+              Orders</a>
             <a href="./addresses.html"
               class="px-3 pb-3 whitespace-nowrap hover:text-gray-900 dark:hover:text-white transition-colors">Addresses</a>
             <a href="./wishlist.html"

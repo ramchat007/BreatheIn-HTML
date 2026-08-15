@@ -223,13 +223,13 @@
 
         <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
         <button id="themeToggle"
-          class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors">
+          class="flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-3.5 h-3.5">
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
           </svg>
-          <span class="text-[12px] font-bold tracking-widest">DARK</span>
+          <span class="hidden lg:block text-[12px] font-bold tracking-widest">DARK</span>
         </button>
         <!-- Hamburger Menu Icon (Moved to right) -->
         <button id="openMobileNav" class="lg:hidden p-1" aria-label="Open Menu">
@@ -439,16 +439,19 @@
           </div>
 
           <!-- Wishlist Container -->
-          <div class="flex flex-col gap-4 lg:gap-0 lg:border lg:border-gray-200 lg:dark:border-gray-800 rounded-[2px] lg:rounded-none">
+          <div
+            class="flex flex-col gap-4 lg:gap-0 lg:border lg:border-gray-200 lg:dark:border-gray-800 rounded-[2px] lg:rounded-none">
 
             <!-- ========================================== -->
             <!-- WISHLIST ITEM 1                            -->
             <!-- ========================================== -->
-            <div class="flex flex-col lg:flex-row lg:items-center justify-between bg-white dark:bg-[#0a0f12] border border-gray-200 dark:border-gray-800 lg:border-0 lg:border-b lg:border-gray-200 lg:dark:border-gray-800 rounded-[2px] lg:rounded-none w-full transition-colors duration-300 hover:bg-gray-50 dark:hover:bg-[#111a20]/30 overflow-hidden lg:overflow-visible">
-              
+            <div
+              class="flex flex-col lg:flex-row lg:items-center justify-between bg-white dark:bg-[#0a0f12] border border-gray-200 dark:border-gray-800 lg:border-0 lg:border-b lg:border-gray-200 lg:dark:border-gray-800 rounded-[2px] lg:rounded-none w-full transition-colors duration-300 hover:bg-gray-50 dark:hover:bg-[#111a20]/30 overflow-hidden lg:overflow-visible">
+
               <!-- Left Side (Mobile Top): Icon + Details -->
               <div class="flex items-center gap-4 lg:gap-6 w-full lg:w-auto p-4 md:p-5 lg:p-6">
-                <div class="w-16 h-16 bg-[#F9FAFB] dark:bg-[#111a20] border border-gray-100 dark:border-gray-700 flex items-center justify-center shrink-0">
+                <div
+                  class="w-16 h-16 bg-[#F9FAFB] dark:bg-[#111a20] border border-gray-100 dark:border-gray-700 flex items-center justify-center shrink-0">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M10.667 16.3335C10.8783 16.4919 11.1242 16.5979 11.3844 16.6427C11.6447 16.6875 11.9119 16.6698 12.1639 16.591C12.416 16.5123 12.6458 16.3748 12.8343 16.1898C13.0228 16.0048 13.1646 15.7777 13.2481 15.5272C13.3316 15.2767 13.3544 15.0099 13.3146 14.7488C13.2748 14.4877 13.1735 14.2399 13.0191 14.0256C12.8646 13.8114 12.6615 13.6369 12.4265 13.5166C12.1914 13.3963 11.9311 13.3335 11.667 13.3335H1.66699"
@@ -464,7 +467,8 @@
                 <div class="flex flex-col">
                   <div class="flex items-center gap-3 mb-1">
                     <h3 class="text-[15px] lg:text-[16px] font-medium text-gray-900 dark:text-white">Air Pro Max 5</h3>
-                    <span class="bg-[#E0F2FE] dark:bg-[#075985] text-[#0284C7] dark:text-[#38BDF8] text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-[2px]">Bestseller</span>
+                    <span
+                      class="bg-[#E0F2FE] dark:bg-[#075985] text-[#0284C7] dark:text-[#38BDF8] text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-[2px]">Bestseller</span>
                   </div>
                   <div class="text-[13px] text-gray-400 font-light">Moonstone White</div>
                 </div>
@@ -474,13 +478,16 @@
               <div class="block lg:hidden w-full h-px bg-gray-200 dark:bg-gray-800"></div>
 
               <!-- Right Side (Mobile Bottom): Price + Actions -->
-              <div class="flex items-center justify-between lg:justify-end w-full lg:w-auto p-4 md:p-5 lg:p-6 gap-4 lg:gap-8">
+              <div
+                class="flex items-center justify-between lg:justify-end w-full lg:w-auto p-4 md:p-5 lg:p-6 gap-4 lg:gap-8">
                 <!-- Price -->
                 <span class="text-[16px] lg:text-[18px] font-medium text-gray-900 dark:text-white">Rs. 24,999</span>
-                
+
                 <!-- Action Buttons -->
                 <div class="flex items-center gap-4 lg:gap-5">
-                  <button class="bg-[#156E8A] dark:bg-[#2094B6] text-white px-5 lg:px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.1em] hover:bg-[#115a72] transition-colors rounded-[2px]">ADD TO CART</button>
+                  <button
+                    class="bg-[#156E8A] dark:bg-[#2094B6] text-white px-5 lg:px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.1em] hover:bg-[#115a72] transition-colors rounded-[2px]">ADD
+                    TO CART</button>
                   <button class="text-[13px] text-gray-400 hover:text-[#EF4444] transition-colors">Remove</button>
                 </div>
               </div>
@@ -490,11 +497,13 @@
             <!-- ========================================== -->
             <!-- WISHLIST ITEM 2                            -->
             <!-- ========================================== -->
-            <div class="flex flex-col lg:flex-row lg:items-center justify-between bg-white dark:bg-[#0a0f12] border border-gray-200 dark:border-gray-800 lg:border-0 lg:border-b lg:border-gray-200 lg:dark:border-gray-800 rounded-[2px] lg:rounded-none w-full transition-colors duration-300 hover:bg-gray-50 dark:hover:bg-[#111a20]/30 overflow-hidden lg:overflow-visible">
-              
+            <div
+              class="flex flex-col lg:flex-row lg:items-center justify-between bg-white dark:bg-[#0a0f12] border border-gray-200 dark:border-gray-800 lg:border-0 lg:border-b lg:border-gray-200 lg:dark:border-gray-800 rounded-[2px] lg:rounded-none w-full transition-colors duration-300 hover:bg-gray-50 dark:hover:bg-[#111a20]/30 overflow-hidden lg:overflow-visible">
+
               <!-- Left Side (Mobile Top): Icon + Details -->
               <div class="flex items-center gap-4 lg:gap-6 w-full lg:w-auto p-4 md:p-5 lg:p-6">
-                <div class="w-16 h-16 bg-[#F9FAFB] dark:bg-[#111a20] border border-gray-100 dark:border-gray-700 flex items-center justify-center shrink-0">
+                <div
+                  class="w-16 h-16 bg-[#F9FAFB] dark:bg-[#111a20] border border-gray-100 dark:border-gray-700 flex items-center justify-center shrink-0">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M10.667 16.3335C10.8783 16.4919 11.1242 16.5979 11.3844 16.6427C11.6447 16.6875 11.9119 16.6698 12.1639 16.591C12.416 16.5123 12.6458 16.3748 12.8343 16.1898C13.0228 16.0048 13.1646 15.7777 13.2481 15.5272C13.3316 15.2767 13.3544 15.0099 13.3146 14.7488C13.2748 14.4877 13.1735 14.2399 13.0191 14.0256C12.8646 13.8114 12.6615 13.6369 12.4265 13.5166C12.1914 13.3963 11.9311 13.3335 11.667 13.3335H1.66699"
@@ -509,8 +518,10 @@
                 </div>
                 <div class="flex flex-col">
                   <div class="flex items-center gap-3 mb-1">
-                    <h3 class="text-[15px] lg:text-[16px] font-medium text-gray-900 dark:text-white">HEPA Filter Replacement Kit</h3>
-                    <span class="bg-[#E0F2FE] dark:bg-[#075985] text-[#0284C7] dark:text-[#38BDF8] text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-[2px]">Sale</span>
+                    <h3 class="text-[15px] lg:text-[16px] font-medium text-gray-900 dark:text-white">HEPA Filter
+                      Replacement Kit</h3>
+                    <span
+                      class="bg-[#E0F2FE] dark:bg-[#075985] text-[#0284C7] dark:text-[#38BDF8] text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-[2px]">Sale</span>
                   </div>
                   <div class="text-[13px] text-gray-400 font-light">12-month supply</div>
                 </div>
@@ -520,13 +531,16 @@
               <div class="block lg:hidden w-full h-px bg-gray-200 dark:bg-gray-800"></div>
 
               <!-- Right Side (Mobile Bottom): Price + Actions -->
-              <div class="flex items-center justify-between lg:justify-end w-full lg:w-auto p-4 md:p-5 lg:p-6 gap-4 lg:gap-8">
+              <div
+                class="flex items-center justify-between lg:justify-end w-full lg:w-auto p-4 md:p-5 lg:p-6 gap-4 lg:gap-8">
                 <!-- Price -->
                 <span class="text-[16px] lg:text-[18px] font-medium text-gray-900 dark:text-white">Rs. 1,499</span>
-                
+
                 <!-- Action Buttons -->
                 <div class="flex items-center gap-4 lg:gap-5">
-                  <button class="bg-[#156E8A] dark:bg-[#2094B6] text-white px-5 lg:px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.1em] hover:bg-[#115a72] transition-colors rounded-[2px]">ADD TO CART</button>
+                  <button
+                    class="bg-[#156E8A] dark:bg-[#2094B6] text-white px-5 lg:px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.1em] hover:bg-[#115a72] transition-colors rounded-[2px]">ADD
+                    TO CART</button>
                   <button class="text-[13px] text-gray-400 hover:text-[#EF4444] transition-colors">Remove</button>
                 </div>
               </div>
@@ -536,11 +550,13 @@
             <!-- ========================================== -->
             <!-- WISHLIST ITEM 3                            -->
             <!-- ========================================== -->
-            <div class="flex flex-col lg:flex-row lg:items-center justify-between bg-white dark:bg-[#0a0f12] border border-gray-200 dark:border-gray-800 lg:border-0 lg:border-b lg:border-gray-200 lg:dark:border-gray-800 rounded-[2px] lg:rounded-none w-full transition-colors duration-300 hover:bg-gray-50 dark:hover:bg-[#111a20]/30 overflow-hidden lg:overflow-visible lg:last:border-b-0">
-              
+            <div
+              class="flex flex-col lg:flex-row lg:items-center justify-between bg-white dark:bg-[#0a0f12] border border-gray-200 dark:border-gray-800 lg:border-0 lg:border-b lg:border-gray-200 lg:dark:border-gray-800 rounded-[2px] lg:rounded-none w-full transition-colors duration-300 hover:bg-gray-50 dark:hover:bg-[#111a20]/30 overflow-hidden lg:overflow-visible lg:last:border-b-0">
+
               <!-- Left Side (Mobile Top): Icon + Details -->
               <div class="flex items-center gap-4 lg:gap-6 w-full lg:w-auto p-4 md:p-5 lg:p-6">
-                <div class="w-16 h-16 bg-[#F9FAFB] dark:bg-[#111a20] border border-gray-100 dark:border-gray-700 flex items-center justify-center shrink-0">
+                <div
+                  class="w-16 h-16 bg-[#F9FAFB] dark:bg-[#111a20] border border-gray-100 dark:border-gray-700 flex items-center justify-center shrink-0">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M10.667 16.3335C10.8783 16.4919 11.1242 16.5979 11.3844 16.6427C11.6447 16.6875 11.9119 16.6698 12.1639 16.591C12.416 16.5123 12.6458 16.3748 12.8343 16.1898C13.0228 16.0048 13.1646 15.7777 13.2481 15.5272C13.3316 15.2767 13.3544 15.0099 13.3146 14.7488C13.2748 14.4877 13.1735 14.2399 13.0191 14.0256C12.8646 13.8114 12.6615 13.6369 12.4265 13.5166C12.1914 13.3963 11.9311 13.3335 11.667 13.3335H1.66699"
@@ -565,13 +581,16 @@
               <div class="block lg:hidden w-full h-px bg-gray-200 dark:bg-gray-800"></div>
 
               <!-- Right Side (Mobile Bottom): Price + Actions -->
-              <div class="flex items-center justify-between lg:justify-end w-full lg:w-auto p-4 md:p-5 lg:p-6 gap-4 lg:gap-8">
+              <div
+                class="flex items-center justify-between lg:justify-end w-full lg:w-auto p-4 md:p-5 lg:p-6 gap-4 lg:gap-8">
                 <!-- Price -->
                 <span class="text-[16px] lg:text-[18px] font-medium text-gray-900 dark:text-white">Rs. 18,499</span>
-                
+
                 <!-- Action Buttons -->
                 <div class="flex items-center gap-4 lg:gap-5">
-                  <button class="bg-[#156E8A] dark:bg-[#2094B6] text-white px-5 lg:px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.1em] hover:bg-[#115a72] transition-colors rounded-[2px]">ADD TO CART</button>
+                  <button
+                    class="bg-[#156E8A] dark:bg-[#2094B6] text-white px-5 lg:px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.1em] hover:bg-[#115a72] transition-colors rounded-[2px]">ADD
+                    TO CART</button>
                   <button class="text-[13px] text-gray-400 hover:text-[#EF4444] transition-colors">Remove</button>
                 </div>
               </div>

@@ -1,1431 +1,920 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BreatheIn - Redesign</title>
 
-    <!-- Tailwind CSS Play CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./assets/js/tailwind.config.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BreatheIn - Redesign</title>
 
-    <!-- Link to compiled CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./assets/js/tailwind.config.js"></script>
 
-  <body class="antialiased text-gray-900 selection:bg-brandTeal/20 relative">
-    <!-- ========================================== -->
-    <!-- FULL-SCREEN MOBILE NAVIGATION OVERLAY      -->
-    <!-- ========================================== -->
+  <!-- Link to compiled CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="antialiased text-gray-900 selection:bg-brandTeal/20 relative">
+  <!-- ========================================== -->
+  <!-- FULL-SCREEN MOBILE NAVIGATION OVERLAY      -->
+  <!-- ========================================== -->
+  <div id="mobileNavOverlay"
+    class="fixed inset-0 z-[60] bg-white flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out hidden">
+    <button id="closeMobileNav" class="absolute top-6 right-8 p-2 rounded-full hover:bg-gray-100 transition-colors"
+      aria-label="Close Menu">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-8 h-8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <nav class="flex flex-col items-center gap-8 text-center">
+      <a href="./collection.html"
+        class="text-3xl text-[#156E8A] font-light tracking-wide hover:text-brandTeal transition-colors">COLLECTION</a>
+      <a href="./technology.html"
+        class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">TECHNOLOGY</a>
+      <a href="./app.html" class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">APP</a>
+      <a href="./real-homes.html" class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">REAL
+        HOMES</a>
+      <a href="./compare.html"
+        class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">COMPARE</a>
+      <div class="mt-8 pt-8 border-t border-gray-200 w-full flex flex-col items-center gap-4">
+        <a href="#" class="text-lg font-medium hover:text-brandTeal">My Account</a>
+        <a href="#" class="text-lg font-medium hover:text-brandTeal">Support</a>
+      </div>
+    </nav>
+  </div>
+  <!-- ========================================== -->
+
+  <!-- ========================================== -->
+  <!-- SMART STICKY HEADER                        -->
+  <!-- ========================================== -->
+  <div id="smart-header"
+    class="sticky top-0 z-50 w-full flex flex-col shadow-sm transition-transform duration-300 ease-in-out translate-y-0">
+    <!-- 1. TOP LIVE AQI TICKER BAR -->
+    <!-- Updated to match mobile design: unified dark background, teal dot, vertical separator -->
     <div
-      id="mobileNavOverlay"
-      class="fixed inset-0 z-[60] bg-white flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out hidden"
-    >
-      <button
-        id="closeMobileNav"
-        class="absolute top-6 right-8 p-2 rounded-full hover:bg-gray-100 transition-colors"
-        aria-label="Close Menu"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-8 h-8"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
-      <nav class="flex flex-col items-center gap-8 text-center">
-        <a
-          href="./collection.html"
-          class="text-3xl text-[#156E8A] font-light tracking-wide hover:text-brandTeal transition-colors"
-          >COLLECTION</a
-        >
-        <a
-          href="./technology.html"
-          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
-          >TECHNOLOGY</a
-        >
-        <a
-          href="./app.html"
-          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
-          >APP</a
-        >
-        <a
-          href="./real-homes.html"
-          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
-          >REAL HOMES</a
-        >
-        <a
-          href="./compare.html"
-          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
-          >COMPARE</a
-        >
-        <div
-          class="mt-8 pt-8 border-t border-gray-200 w-full flex flex-col items-center gap-4"
-        >
-          <a href="#" class="text-lg font-medium hover:text-brandTeal"
-            >My Account</a
-          >
-          <a href="#" class="text-lg font-medium hover:text-brandTeal"
-            >Support</a
-          >
-        </div>
-      </nav>
-    </div>
-    <!-- ========================================== -->
-
-    <!-- ========================================== -->
-    <!-- SMART STICKY HEADER                        -->
-    <!-- ========================================== -->
-    <div
-      id="smart-header"
-      class="sticky top-0 z-50 w-full flex flex-col shadow-sm transition-transform duration-300 ease-in-out translate-y-0"
-    >
-      <!-- 1. TOP LIVE AQI TICKER BAR -->
-      <!-- Updated to match mobile design: unified dark background, teal dot, vertical separator -->
+      class="w-full bg-tickerDark text-white flex items-center text-[11px] tracking-wider font-medium animate-fade-in-down overflow-hidden"
+      style="animation-delay: 100ms">
       <div
-        class="w-full bg-tickerDark text-white flex items-center text-[11px] tracking-wider font-medium animate-fade-in-down overflow-hidden"
-        style="animation-delay: 100ms"
-      >
-        <div
-          class="bg-tickerDark md:bg-brandTeal px-4 md:px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative"
-        >
-          <!-- <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> -->
-          <span
-            class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse"
-          ></span>
-          INDIA AQI TODAY
-        </div>
+        class="bg-tickerDark md:bg-brandTeal px-4 md:px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative">
+        <!-- <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> -->
+        <span class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse"></span>
+        INDIA AQI TODAY
+      </div>
 
-        <!-- Separator Line -->
-        <div class="w-[1px] h-6 bg-gray-800 shrink-0 z-10 relative"></div>
+      <!-- Separator Line -->
+      <div class="w-[1px] h-6 bg-gray-800 shrink-0 z-10 relative"></div>
 
-        <!-- Scrolling Content -->
-        <div class="flex flex-1 overflow-hidden relative bg-tickerDark">
-          <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
-            <!-- Ticker Items List 1 -->
-            <div class="flex items-center gap-6 pr-6">
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Delhi</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >392</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Ghaziabad</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >358</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Noida</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >311</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Patna</span>
-                <span
-                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >286</span
-                >
-                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Lucknow</span>
-                <span
-                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >242</span
-                >
-                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Kolkata</span>
-                <span
-                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >198</span
-                >
-                <span class="text-textMuted text-[12px]">Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Mumbai</span>
-                <span
-                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >164</span
-                >
-                <span class="text-textMuted text-[12px]">Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
+      <!-- Scrolling Content -->
+      <div class="flex flex-1 overflow-hidden relative bg-tickerDark">
+        <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
+          <!-- Ticker Items List 1 -->
+          <div class="flex items-center gap-6 pr-6">
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Delhi</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">392</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
             </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Ghaziabad</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">358</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Noida</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">311</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Patna</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">286</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Lucknow</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">242</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Kolkata</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">198</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Mumbai</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">164</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+          </div>
 
-            <!-- Ticker Items List 2 (Duplicated for seamless scrolling) -->
-            <div class="flex items-center gap-6 pr-6">
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Delhi</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >392</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Ghaziabad</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >358</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Noida</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >311</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Patna</span>
-                <span
-                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >286</span
-                >
-                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Lucknow</span>
-                <span
-                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >242</span
-                >
-                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Kolkata</span>
-                <span
-                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >198</span
-                >
-                <span class="text-textMuted text-[12px]">Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Mumbai</span>
-                <span
-                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >164</span
-                >
-                <span class="text-textMuted text-[12px]">Unhealthy</span>
-              </div>
+          <!-- Ticker Items List 2 (Duplicated for seamless scrolling) -->
+          <div class="flex items-center gap-6 pr-6">
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Delhi</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">392</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Ghaziabad</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">358</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Noida</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">311</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Patna</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">286</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Lucknow</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">242</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Kolkata</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">198</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Mumbai</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">164</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
             </div>
           </div>
         </div>
-
-        <!-- Desktop Info Banner -->
-        <div
-          class="px-6 py-3 shrink-0 font-medium text-gray-300 hidden lg:block bg-tickerDark z-10 relative shadow-[-10px_0_15px_-3px_rgba(13,20,24,1)]"
-        >
-          Indoors is often
-          <span class="text-sky-400 font-bold">5x worse</span> &middot;
-          <a
-            href="#"
-            class="hover:underline text-white inline-flex items-center gap-1"
-            >CHECK YOURS <span class="text-[11px]">&darr;</span></a
-          >
-        </div>
       </div>
 
-      <!-- 2. MAIN NAVIGATION HEADER -->
-      <!-- Updated Mobile Layout: Logo Left, Cart+CTA+Hamburger Right -->
-      <header
-        class="w-full bg-[#FAFCFD] border-b border-gray-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between animate-fade-in-down"
-        style="animation-delay: 200ms"
-      >
-        <!-- Left: Logo -->
-        <div class="flex items-center">
-          <a href="/index.html" class="h-7 md:h-10 w-auto">
-            <img
-              src="./assets/images/logo.png"
-              alt="Breathe In"
-              class="h-7 md:h-10 w-auto object-contain"
-            />
-          </a>
-        </div>
-
-        <!-- Desktop Nav Links -->
-        <nav class="hidden lg:flex items-center gap-8">
-          <a
-            href="./collection.html"
-            class="text-[13px] text-[#156E8A] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >COLLECTION</a
-          >
-          <a
-            href="./technology.html"
-            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >TECHNOLOGY</a
-          >
-          <a
-            href="./app.html"
-            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >APP</a
-          >
-          <a
-            href="./real-homes.html"
-            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >REAL HOMES</a
-          >
-          <a
-            href="./compare.html"
-            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >COMPARE</a
-          >
-        </nav>
-
-        <!-- Right: Action Buttons & Hamburger -->
-        <div class="flex items-center gap-3 md:gap-5">
-          <!-- Cart Button with Notification Badge -->
-          <button
-            id="cartBtn"
-            class="relative p-1.5 text-gray-900 hover:text-brandTeal transition-colors flex items-center justify-center"
-          >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="9" cy="21" r="1.5"></circle>
-              <circle cx="20" cy="21" r="1.5"></circle>
-              <path
-                d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-              ></path>
-            </svg>
-            <!-- Teal Badge -->
-            <span
-              class="absolute -top-1.5 -right-1.5 bg-brandTeal text-white text-[11px] font-bold w-4 h-4 aspect-square rounded-full flex items-center justify-center border border-white"
-              >3</span
-            >
-          </button>
-
-          <!-- Primary CTA (Now visible on mobile per design) -->
-          <a
-            href="./find-my-purifier.html"
-            class="border border-black text-[11px] md:text-[13px] font-bold tracking-widest px-3 py-2 md:px-6 md:py-2.5 uppercase hover:bg-black hover:text-white transition-all duration-200"
-          >
-            FIND MY PURIFIER
-          </a>
-
-          <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
-          <button
-            id="themeToggle"
-            class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-3.5 h-3.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-              />
-            </svg>
-            <span class="text-[12px] font-bold tracking-widest">DARK</span>
-          </button>
-          <!-- Hamburger Menu Icon (Moved to right) -->
-          <button
-            id="openMobileNav"
-            class="lg:hidden p-1"
-            aria-label="Open Menu"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-7 h-7 text-gray-900"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-          </button>
-        </div>
-      </header>
+      <!-- Desktop Info Banner -->
+      <div
+        class="px-6 py-3 shrink-0 font-medium text-gray-300 hidden lg:block bg-tickerDark z-10 relative shadow-[-10px_0_15px_-3px_rgba(13,20,24,1)]">
+        Indoors is often
+        <span class="text-sky-400 font-bold">5x worse</span> &middot;
+        <a href="#" class="hover:underline text-white inline-flex items-center gap-1">CHECK YOURS <span
+            class="text-[11px]">&darr;</span></a>
+      </div>
     </div>
 
-    <main>
-      <!-- ========================================== -->
-      <!-- HERO SECTION                    -->
-      <!-- ========================================== -->
-      <section class="relative flex items-center overflow-hidden bg-[#FAFCFD]">
-        <!-- Soft Radial Glow (Top Right) -->
-        <div
-          class="hidden md:block absolute inset-0 pointer-events-none"
-          style="
+    <!-- 2. MAIN NAVIGATION HEADER -->
+    <!-- Updated Mobile Layout: Logo Left, Cart+CTA+Hamburger Right -->
+    <header
+      class="w-full bg-[#FAFCFD] border-b border-gray-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between animate-fade-in-down"
+      style="animation-delay: 200ms">
+      <!-- Left: Logo -->
+      <div class="flex items-center">
+        <a href="/index.html" class="h-7 md:h-10 w-auto">
+          <img src="./assets/images/logo.png" alt="Breathe In" class="h-7 md:h-10 w-auto object-contain" />
+        </a>
+      </div>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="./collection.html"
+          class="text-[13px] text-[#156E8A] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COLLECTION</a>
+        <a href="./technology.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">TECHNOLOGY</a>
+        <a href="./app.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">APP</a>
+        <a href="./real-homes.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">REAL
+          HOMES</a>
+        <a href="./compare.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COMPARE</a>
+      </nav>
+
+      <!-- Right: Action Buttons & Hamburger -->
+      <div class="flex items-center gap-3 md:gap-5">
+        <!-- Cart Button with Notification Badge -->
+        <button id="cartBtn"
+          class="relative p-1.5 text-gray-900 hover:text-brandTeal transition-colors flex items-center justify-center">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1.5"></circle>
+            <circle cx="20" cy="21" r="1.5"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <!-- Teal Badge -->
+          <span
+            class="absolute -top-1.5 -right-1.5 bg-brandTeal text-white text-[11px] font-bold w-4 h-4 aspect-square rounded-full flex items-center justify-center border border-white">3</span>
+        </button>
+
+        <!-- Primary CTA (Now visible on mobile per design) -->
+        <a href="./find-my-purifier.html"
+          class="border border-black text-[11px] md:text-[13px] font-bold tracking-widest px-3 py-2 md:px-6 md:py-2.5 uppercase hover:bg-black hover:text-white transition-all duration-200">
+          FIND MY PURIFIER
+        </a>
+
+        <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
+        <button id="themeToggle"
+          class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-3.5 h-3.5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+          </svg>
+          <span class="text-[12px] font-bold tracking-widest">DARK</span>
+        </button>
+        <!-- Hamburger Menu Icon (Moved to right) -->
+        <button id="openMobileNav" class="lg:hidden p-1" aria-label="Open Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-7 h-7 text-gray-900">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <main>
+    <!-- ========================================== -->
+    <!-- HERO SECTION                    -->
+    <!-- ========================================== -->
+    <section class="relative flex items-center overflow-hidden bg-[#FAFCFD]">
+      <!-- Soft Radial Glow (Top Right) -->
+      <div class="hidden md:block absolute inset-0 pointer-events-none" style="
             background: radial-gradient(
               40% 60% at 90% 10%,
               rgba(21, 110, 138, 0.08) 0%,
               rgba(0, 0, 0, 0) 100%
             );
-          "
-        ></div>
+          "></div>
 
-        <div
-          class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-20 py-10 lg:py-20 w-full relative z-10"
-        >
-          <div class="max-w-2xl">
-            <!-- Breadcrumb -->
-            <nav
-              class="uppercase tracking-[.25em] text-[12px] text-gray-400 mb-5"
-            >
-              HOME <span class="text-gray-300 px-2">/</span> TECHNOLOGY
-            </nav>
+      <div class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-20 py-10 lg:py-20 w-full relative z-10">
+        <div class="max-w-2xl">
+          <!-- Breadcrumb -->
+          <nav class="uppercase tracking-[.25em] text-[12px] text-gray-400 mb-5">
+            HOME <span class="text-gray-300 px-2">/</span> TECHNOLOGY
+          </nav>
 
-            <!-- Eyebrow -->
-            <div class="flex items-center gap-4 mb-6">
-              <div class="w-8 h-px bg-[#156E8A]"></div>
-              <p
-                class="uppercase tracking-[.25em] text-[11px] text-[#156E8A] font-bold"
-              >
-                BreathePure™ Technology
-              </p>
-            </div>
-
-            <!-- Headline -->
-            <h1
-              class="text-5xl md:text-6xl lg:text-[80px] font-light leading-tight tracking-tight text-gray-900 mb-5"
-            >
-              Engineered to be
-              <span class="font-medium text-[#156E8A]">felt,</span> not heard.
-            </h1>
-
-            <!-- Subtext -->
-            <p
-              class="max-w-xl text-gray-500 text-sm md:text-base leading-relaxed font-light"
-            >
-              Four stages of Japanese-grade air engineering, working in silence.
-              The result isn't a list of features — it's a room that simply
-              feels different.
+          <!-- Eyebrow -->
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-8 h-px bg-[#156E8A]"></div>
+            <p class="uppercase tracking-[.25em] text-[11px] text-[#156E8A] font-bold">
+              BreathePure™ Technology
             </p>
           </div>
-        </div>
-      </section>
-
-      <!-- ========================================== -->
-      <!-- BREATHEPURE™ SYSTEM FEATURE BREAKDOWN       -->
-      <!-- ========================================== -->
-      <section
-        class="w-full py-10 md:py-20 px-6 md:px-10 lg:px-20 bg-[#FAFCFD]"
-      >
-        <div class="max-w-[1400px] mx-auto flex flex-col gap-5 lg:gap-20">
-          <!-- FEATURE 1: Real-Time Air Intelligence -->
-          <div
-            class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 items-center md:border-b md:border-gray-200/60 md:pb-10 lg:pb-20 bg-white md:bg-transparent"
-          >
-            <!-- Text Content -->
-            <div class="flex flex-col justify-center order-2 lg:order-1 p-5">
-              <span
-                class="text-[11px] uppercase tracking-[0.25em] text-[#156E8A] font-bold mb-4 block"
-              >
-                BREATHEPURE&trade; SYSTEM
-              </span>
-              <h2
-                class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight mb-6"
-              >
-                Real-Time
-                <span class="font-medium text-[#156E8A]">Air Intelligence</span>
-              </h2>
-              <p
-                class="text-gray-500 font-light text-[15px] md:text-sm leading-relaxed mb-8"
-              >
-                Laser particle sensors read your air every second and adapt
-                purification before you notice a change. The display dims itself
-                at night.
-              </p>
-
-              <!-- Bullet Points -->
-              <ul class="flex flex-col gap-3.5">
-                <li
-                  class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light"
-                >
-                  <span
-                    class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold"
-                    >&check;</span
-                  >
-                  Laser PM2.5 sensing
-                </li>
-                <li
-                  class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light"
-                >
-                  <span
-                    class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold"
-                    >&check;</span
-                  >
-                  CO₂, humidity & temperature
-                </li>
-                <li
-                  class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light"
-                >
-                  <span
-                    class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold"
-                    >&check;</span
-                  >
-                  Auto-adjusting fan speed
-                </li>
-              </ul>
-            </div>
-
-            <!-- Image with Badge Overlay (Shadow removed) -->
-            <div
-              class="relative rounded-sm overflow-hidden h-[215px] md:h-[350px] lg:h-[450px] order-1 lg:order-2"
-            >
-              <img
-                src="./assets/images/feature-air-intelligence.jpg"
-                alt="Real-Time Air Intelligence"
-                class="absolute inset-0 w-full h-full object-cover"
-              />
-              <!-- Floating Badge -->
-              <div
-                class="absolute bottom-6 right-6 md:right-auto md:left-6 bg-white/95 backdrop-blur-md px-5 py-3 shadow-md rounded-sm border border-gray-100 flex flex-col"
-              >
-                <span
-                  class="text-xl md:text-2xl font-light text-gray-900 tracking-tight leading-none mb-1"
-                  >1s</span
-                >
-                <span
-                  class="text-[8px] uppercase tracking-[0.2em] text-gray-400 font-bold"
-                  >Sensor Refresh</span
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- FEATURE 2: Medical-Grade HEPA H13 -->
-          <div
-            class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 items-center md:border-b md:border-gray-200/60 md:pb-10 lg:pb-20 bg-white md:bg-transparent"
-          >
-            <!-- Image with Badge Overlay (Shadow removed) -->
-            <div
-              class="relative rounded-sm overflow-hidden h-[215px] md:h-[350px] lg:h-[450px] order-1"
-            >
-              <img
-                src="./assets/images/feature-hepa.jpg"
-                alt="Medical-Grade HEPA H13"
-                class="absolute inset-0 w-full h-full object-cover"
-              />
-              <!-- Floating Badge -->
-              <div
-                class="absolute bottom-6 right-6 md:right-auto md:left-6 bg-white/95 backdrop-blur-md px-5 py-3 shadow-md rounded-sm border border-gray-100 flex flex-col"
-              >
-                <span
-                  class="text-xl md:text-2xl font-light text-gray-900 tracking-tight leading-none mb-1"
-                  >99.97%</span
-                >
-                <span
-                  class="text-[8px] uppercase tracking-[0.2em] text-gray-400 font-bold"
-                  >Particle Capture</span
-                >
-              </div>
-            </div>
-
-            <!-- Text Content -->
-            <div class="flex flex-col justify-center order-2 p-5">
-              <span
-                class="text-[11px] uppercase tracking-[0.25em] text-[#156E8A] font-bold mb-4 block"
-              >
-                BREATHEPURE&trade; SYSTEM
-              </span>
-              <h2
-                class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight mb-6"
-              >
-                Medical-Grade
-                <span class="font-medium text-[#156E8A]">HEPA H13</span>
-              </h2>
-              <p
-                class="text-gray-500 font-light text-[15px] md:text-sm leading-relaxed mb-8"
-              >
-                The same filtration standard trusted in hospital operating
-                theatres and pharmaceutical cleanrooms &mdash; now in your
-                living room, without compromise.
-              </p>
-
-              <!-- Bullet Points -->
-              <ul class="flex flex-col gap-3.5">
-                <li
-                  class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light"
-                >
-                  <span
-                    class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold"
-                    >&check;</span
-                  >
-                  Captures particles to 0.3 microns
-                </li>
-                <li
-                  class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light"
-                >
-                  <span
-                    class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold"
-                    >&check;</span
-                  >
-                  Bacteria, pollen & smoke
-                </li>
-                <li
-                  class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light"
-                >
-                  <span
-                    class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold"
-                    >&check;</span
-                  >
-                  Sealed filtration housing
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- FEATURE 3: Activated Carbon Neutralising -->
-          <div
-            class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 items-center md:border-b md:border-gray-200/60 md:pb-10 lg:pb-20 bg-white md:bg-transparent"
-          >
-            <!-- Text Content -->
-            <div class="flex flex-col justify-center order-2 lg:order-1 p-5">
-              <span
-                class="text-[11px] uppercase tracking-[0.25em] text-[#156E8A] font-bold mb-4 block"
-              >
-                BREATHEPURE&trade; SYSTEM
-              </span>
-              <h2
-                class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight mb-6"
-              >
-                Activated
-                <span class="font-medium text-[#156E8A]"
-                  >Carbon Neutralising</span
-                >
-              </h2>
-              <p
-                class="text-gray-500 font-light text-[15px] md:text-sm leading-relaxed mb-8"
-              >
-                A dense carbon matrix adsorbs VOCs, cooking odours, smoke and
-                formaldehyde at the molecular level &mdash; so what returns to
-                the room is chemically neutral.
-              </p>
-
-              <!-- Bullet Points -->
-              <ul class="flex flex-col gap-3.5">
-                <li
-                  class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light"
-                >
-                  <span
-                    class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold"
-                    >&check;</span
-                  >
-                  Adsorbs VOCs & formaldehyde
-                </li>
-                <li
-                  class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light"
-                >
-                  <span
-                    class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold"
-                    >&check;</span
-                  >
-                  Removes cooking & pet odours
-                </li>
-                <li
-                  class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light"
-                >
-                  <span
-                    class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold"
-                    >&check;</span
-                  >
-                  Long-life carbon bed
-                </li>
-              </ul>
-            </div>
-
-            <!-- Image with Badge Overlay (Shadow removed) -->
-            <div
-              class="relative rounded-sm overflow-hidden h-[215px] md:h-[350px] lg:h-[450px] order-1 lg:order-2"
-            >
-              <img
-                src="./assets/images/feature-carbon.jpg"
-                alt="Activated Carbon Neutralising"
-                class="absolute inset-0 w-full h-full object-cover"
-              />
-              <!-- Floating Badge -->
-              <div
-                class="absolute bottom-6 right-6 md:right-auto md:left-6 bg-white/95 backdrop-blur-md px-5 py-3 shadow-md rounded-sm border border-gray-100 flex flex-col"
-              >
-                <span
-                  class="text-xl md:text-2xl font-light text-gray-900 tracking-tight leading-none mb-1"
-                  >4-Stage</span
-                >
-                <span
-                  class="text-[8px] uppercase tracking-[0.2em] text-gray-400 font-bold"
-                  >Purification Path</span
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- FEATURE 4: Ultra-Silent Sleep Mode (No border on the last item) -->
-          <div
-            class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-16 items-center bg-white md:bg-transparent"
-          >
-            <!-- Image with Badge Overlay (Shadow removed) -->
-            <div
-              class="relative rounded-sm overflow-hidden h-[215px] md:h-[350px] lg:h-[450px] order-1"
-            >
-              <img
-                src="./assets/images/feature-sleep.jpg"
-                alt="Ultra-Silent Sleep Mode"
-                class="absolute inset-0 w-full h-full object-cover"
-              />
-              <!-- Floating Badge -->
-              <div
-                class="absolute bottom-6 right-6 md:right-auto md:left-6 bg-white/95 backdrop-blur-md px-5 py-3 shadow-md rounded-sm border border-gray-100 flex flex-col"
-              >
-                <span
-                  class="text-xl md:text-2xl font-light text-gray-900 tracking-tight leading-none mb-1"
-                  >18 dB</span
-                >
-                <span
-                  class="text-[8px] uppercase tracking-[0.2em] text-gray-400 font-bold"
-                  >In Sleep Mode</span
-                >
-              </div>
-            </div>
-
-            <!-- Text Content -->
-            <div class="flex flex-col justify-center order-2 p-5">
-              <span
-                class="text-[11px] uppercase tracking-[0.25em] text-[#156E8A] font-bold mb-4 block"
-              >
-                BREATHEPURE&trade; SYSTEM
-              </span>
-              <h2
-                class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight mb-6"
-              >
-                Ultra-Silent
-                <span class="font-medium text-[#156E8A]">Sleep Mode</span>
-              </h2>
-              <p
-                class="text-gray-500 font-light text-[15px] md:text-sm leading-relaxed mb-8"
-              >
-                At 18 decibels &mdash; quieter than a whisper &mdash;
-                purification continues through the night while the display fades
-                to black. Your home rests; the air does not.
-              </p>
-
-              <!-- Bullet Points -->
-              <ul class="flex flex-col gap-3.5">
-                <li
-                  class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light"
-                >
-                  <span
-                    class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold"
-                    >&check;</span
-                  >
-                  18 dB whisper operation
-                </li>
-                <li
-                  class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light"
-                >
-                  <span
-                    class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold"
-                    >&check;</span
-                  >
-                  Auto-dimming display
-                </li>
-                <li
-                  class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light"
-                >
-                  <span
-                    class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold"
-                    >&check;</span
-                  >
-                  Scheduled night cycles
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="w-full bg-[#FAFCFD] py-10 md:py-32 px-6 md:px-10 lg:px-20"
-      >
-        <!-- Header Section (Responsive Alignment) -->
-        <div
-          class="max-w-3xl mx-0 md:mx-auto text-left md:text-center mb-10 md:mb-24 scroll-reveal opacity-0 translate-y-6 transition-all duration-700 ease-out"
-        >
-          <!-- Eyebrow -->
-          <span
-            class="text-[11px] md:text-[8px] uppercase tracking-[0.25em] text-[#156E8A] font-bold mb-4 md:mb-6 block"
-          >
-            Inside Every Unit
-          </span>
 
           <!-- Headline -->
-          <h2
-            class="text-[32px] md:text-5xl font-light tracking-tight text-gray-900 leading-[1.15] md:leading-[1.2] mb-4 md:mb-6"
-          >
-            BreathePure&trade; Technology
-          </h2>
+          <h1 class="text-5xl md:text-6xl lg:text-[80px] font-light leading-tight tracking-tight text-gray-900 mb-5">
+            Engineered to be
+            <span class="font-medium text-[#156E8A]">felt,</span> not heard.
+          </h1>
 
           <!-- Subtext -->
-          <p
-            class="text-gray-500 text-[12px] md:text-[15px] font-light leading-relaxed max-w-xl mx-0 md:mx-auto pr-4 md:pr-0"
-          >
-            A four-stage air intelligence system, engineered to eliminate what
-            you cannot see. No gimmicks. No compromises.
+          <p class="max-w-xl text-gray-500 text-sm md:text-base leading-relaxed font-light">
+            Four stages of Japanese-grade air engineering, working in silence.
+            The result isn't a list of features — it's a room that simply
+            feels different.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- BREATHEPURE™ SYSTEM FEATURE BREAKDOWN       -->
+    <!-- ========================================== -->
+    <section class="w-full py-10 md:py-20 px-6 md:px-10 lg:px-20 bg-[#FAFCFD]">
+      <div class="max-w-[1400px] mx-auto flex flex-col gap-5 lg:gap-20">
+        <!-- FEATURE 1: Real-Time Air Intelligence -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 items-center md:border-b md:border-gray-200/60 md:pb-10 lg:pb-20 bg-white md:bg-transparent">
+          <!-- Text Content -->
+          <div class="flex flex-col justify-center order-2 lg:order-1 p-5">
+            <span class="text-[11px] uppercase tracking-[0.25em] text-[#156E8A] font-bold mb-4 block">
+              BREATHEPURE&trade; SYSTEM
+            </span>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight mb-6">
+              Real-Time
+              <span class="font-medium text-[#156E8A]">Air Intelligence</span>
+            </h2>
+            <p class="text-gray-500 font-light text-[15px] md:text-sm leading-relaxed mb-8">
+              Laser particle sensors read your air every second and adapt
+              purification before you notice a change. The display dims itself
+              at night.
+            </p>
+
+            <!-- Bullet Points -->
+            <ul class="flex flex-col gap-3.5">
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span
+                  class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold">&check;</span>
+                Laser PM2.5 sensing
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span
+                  class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold">&check;</span>
+                CO₂, humidity & temperature
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span
+                  class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold">&check;</span>
+                Auto-adjusting fan speed
+              </li>
+            </ul>
+          </div>
+
+          <!-- Image with Badge Overlay (Shadow removed) -->
+          <div class="relative rounded-sm overflow-hidden h-[215px] md:h-[350px] lg:h-[450px] order-1 lg:order-2">
+            <img src="./assets/images/feature-air-intelligence.jpg" alt="Real-Time Air Intelligence"
+              class="absolute inset-0 w-full h-full object-cover" />
+            <!-- Floating Badge -->
+            <div
+              class="absolute bottom-6 right-6 md:right-auto md:left-6 bg-white/95 backdrop-blur-md px-5 py-3 shadow-md rounded-sm border border-gray-100 flex flex-col">
+              <span class="text-xl md:text-2xl font-light text-gray-900 tracking-tight leading-none mb-1">1s</span>
+              <span class="text-[8px] uppercase tracking-[0.2em] text-gray-400 font-bold">Sensor Refresh</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FEATURE 2: Medical-Grade HEPA H13 -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 items-center md:border-b md:border-gray-200/60 md:pb-10 lg:pb-20 bg-white md:bg-transparent">
+          <!-- Image with Badge Overlay (Shadow removed) -->
+          <div class="relative rounded-sm overflow-hidden h-[215px] md:h-[350px] lg:h-[450px] order-1">
+            <img src="./assets/images/feature-hepa.jpg" alt="Medical-Grade HEPA H13"
+              class="absolute inset-0 w-full h-full object-cover" />
+            <!-- Floating Badge -->
+            <div
+              class="absolute bottom-6 right-6 md:right-auto md:left-6 bg-white/95 backdrop-blur-md px-5 py-3 shadow-md rounded-sm border border-gray-100 flex flex-col">
+              <span class="text-xl md:text-2xl font-light text-gray-900 tracking-tight leading-none mb-1">99.97%</span>
+              <span class="text-[8px] uppercase tracking-[0.2em] text-gray-400 font-bold">Particle Capture</span>
+            </div>
+          </div>
+
+          <!-- Text Content -->
+          <div class="flex flex-col justify-center order-2 p-5">
+            <span class="text-[11px] uppercase tracking-[0.25em] text-[#156E8A] font-bold mb-4 block">
+              BREATHEPURE&trade; SYSTEM
+            </span>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight mb-6">
+              Medical-Grade
+              <span class="font-medium text-[#156E8A]">HEPA H13</span>
+            </h2>
+            <p class="text-gray-500 font-light text-[15px] md:text-sm leading-relaxed mb-8">
+              The same filtration standard trusted in hospital operating
+              theatres and pharmaceutical cleanrooms &mdash; now in your
+              living room, without compromise.
+            </p>
+
+            <!-- Bullet Points -->
+            <ul class="flex flex-col gap-3.5">
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span
+                  class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold">&check;</span>
+                Captures particles to 0.3 microns
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span
+                  class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold">&check;</span>
+                Bacteria, pollen & smoke
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span
+                  class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold">&check;</span>
+                Sealed filtration housing
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- FEATURE 3: Activated Carbon Neutralising -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 items-center md:border-b md:border-gray-200/60 md:pb-10 lg:pb-20 bg-white md:bg-transparent">
+          <!-- Text Content -->
+          <div class="flex flex-col justify-center order-2 lg:order-1 p-5">
+            <span class="text-[11px] uppercase tracking-[0.25em] text-[#156E8A] font-bold mb-4 block">
+              BREATHEPURE&trade; SYSTEM
+            </span>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight mb-6">
+              Activated
+              <span class="font-medium text-[#156E8A]">Carbon Neutralising</span>
+            </h2>
+            <p class="text-gray-500 font-light text-[15px] md:text-sm leading-relaxed mb-8">
+              A dense carbon matrix adsorbs VOCs, cooking odours, smoke and
+              formaldehyde at the molecular level &mdash; so what returns to
+              the room is chemically neutral.
+            </p>
+
+            <!-- Bullet Points -->
+            <ul class="flex flex-col gap-3.5">
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span
+                  class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold">&check;</span>
+                Adsorbs VOCs & formaldehyde
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span
+                  class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold">&check;</span>
+                Removes cooking & pet odours
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span
+                  class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold">&check;</span>
+                Long-life carbon bed
+              </li>
+            </ul>
+          </div>
+
+          <!-- Image with Badge Overlay (Shadow removed) -->
+          <div class="relative rounded-sm overflow-hidden h-[215px] md:h-[350px] lg:h-[450px] order-1 lg:order-2">
+            <img src="./assets/images/feature-carbon.jpg" alt="Activated Carbon Neutralising"
+              class="absolute inset-0 w-full h-full object-cover" />
+            <!-- Floating Badge -->
+            <div
+              class="absolute bottom-6 right-6 md:right-auto md:left-6 bg-white/95 backdrop-blur-md px-5 py-3 shadow-md rounded-sm border border-gray-100 flex flex-col">
+              <span class="text-xl md:text-2xl font-light text-gray-900 tracking-tight leading-none mb-1">4-Stage</span>
+              <span class="text-[8px] uppercase tracking-[0.2em] text-gray-400 font-bold">Purification Path</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FEATURE 4: Ultra-Silent Sleep Mode (No border on the last item) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-16 items-center bg-white md:bg-transparent">
+          <!-- Image with Badge Overlay (Shadow removed) -->
+          <div class="relative rounded-sm overflow-hidden h-[215px] md:h-[350px] lg:h-[450px] order-1">
+            <img src="./assets/images/feature-sleep.jpg" alt="Ultra-Silent Sleep Mode"
+              class="absolute inset-0 w-full h-full object-cover" />
+            <!-- Floating Badge -->
+            <div
+              class="absolute bottom-6 right-6 md:right-auto md:left-6 bg-white/95 backdrop-blur-md px-5 py-3 shadow-md rounded-sm border border-gray-100 flex flex-col">
+              <span class="text-xl md:text-2xl font-light text-gray-900 tracking-tight leading-none mb-1">18 dB</span>
+              <span class="text-[8px] uppercase tracking-[0.2em] text-gray-400 font-bold">In Sleep Mode</span>
+            </div>
+          </div>
+
+          <!-- Text Content -->
+          <div class="flex flex-col justify-center order-2 p-5">
+            <span class="text-[11px] uppercase tracking-[0.25em] text-[#156E8A] font-bold mb-4 block">
+              BREATHEPURE&trade; SYSTEM
+            </span>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight mb-6">
+              Ultra-Silent
+              <span class="font-medium text-[#156E8A]">Sleep Mode</span>
+            </h2>
+            <p class="text-gray-500 font-light text-[15px] md:text-sm leading-relaxed mb-8">
+              At 18 decibels &mdash; quieter than a whisper &mdash;
+              purification continues through the night while the display fades
+              to black. Your home rests; the air does not.
+            </p>
+
+            <!-- Bullet Points -->
+            <ul class="flex flex-col gap-3.5">
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span
+                  class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold">&check;</span>
+                18 dB whisper operation
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span
+                  class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold">&check;</span>
+                Auto-dimming display
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span
+                  class="w-4 h-4 rounded-full bg-sky-50 text-[#156E8A] flex items-center justify-center text-[12px] shrink-0 font-bold">&check;</span>
+                Scheduled night cycles
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full bg-[#FAFCFD] py-10 md:py-32 px-6 md:px-10 lg:px-20">
+      <!-- Header Section (Responsive Alignment) -->
+      <div
+        class="max-w-3xl mx-0 md:mx-auto text-left md:text-center mb-10 md:mb-24 scroll-reveal opacity-0 translate-y-6 transition-all duration-700 ease-out">
+        <!-- Eyebrow -->
+        <span class="text-[11px] md:text-[8px] uppercase tracking-[0.25em] text-[#156E8A] font-bold mb-4 md:mb-6 block">
+          Inside Every Unit
+        </span>
+
+        <!-- Headline -->
+        <h2
+          class="text-[32px] md:text-5xl font-light tracking-tight text-gray-900 leading-[1.15] md:leading-[1.2] mb-4 md:mb-6">
+          BreathePure&trade; Technology
+        </h2>
+
+        <!-- Subtext -->
+        <p
+          class="text-gray-500 text-[12px] md:text-[15px] font-light leading-relaxed max-w-xl mx-0 md:mx-auto pr-4 md:pr-0">
+          A four-stage air intelligence system, engineered to eliminate what
+          you cannot see. No gimmicks. No compromises.
+        </p>
+      </div>
+
+      <!-- 4-Stage Technology Grid/List -->
+      <!-- Mobile: Transparent background, divided list. Desktop: White card, shadow, side-by-side grid -->
+      <div
+        class="max-w-6xl mx-auto bg-transparent md:bg-white border-0 md:border md:border-gray-100 md:shadow-[0_4px_20px_rgb(0,0,0,0.02)] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y divide-gray-200/80 md:divide-y-0 md:divide-x md:divide-gray-100 mb-12 scroll-reveal opacity-0 translate-y-6 transition-all duration-700 delay-100">
+        <!-- Stage 01: Capture -->
+        <div class="py-6 md:p-10 flex flex-col h-full lg:border-b-0 border-gray-100 md:border-b">
+          <!-- Header Row: Flex on mobile to align number/title, Block on desktop -->
+          <div class="flex items-start md:block mb-1.5 md:mb-4">
+            <span
+              class="text-[15px] md:text-[12px] text-[#156E8A] font-medium tracking-widest w-10 shrink-0 md:w-auto md:mb-5 block mt-0.5 md:mt-0">01</span>
+
+            <!-- Simple Intake SVG Icon (Hidden on Mobile) -->
+            <svg class="hidden md:block mb-4" width="44" height="44" viewBox="0 0 44 44" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 14H36M12 22H32M16 30H28" stroke="#141414" stroke-width="1.4" stroke-linecap="round" />
+            </svg>
+
+            <h3 class="text-[17px] font-normal text-gray-900">Capture</h3>
+          </div>
+
+          <!-- Description: Indented on mobile to align with title, standard on desktop -->
+          <p class="text-[15px] md:text-xs text-gray-500 font-light leading-relaxed ml-10 md:ml-0 pr-4 md:pr-0">
+            A 360&deg; air intake draws the full room volume through the unit
+            up to 5 times per hour, leaving no corner untouched.
           </p>
         </div>
 
-        <!-- 4-Stage Technology Grid/List -->
-        <!-- Mobile: Transparent background, divided list. Desktop: White card, shadow, side-by-side grid -->
+        <!-- Stage 02: Filter -->
+        <div class="py-6 md:p-10 flex flex-col h-full lg:border-b-0 border-gray-100 md:border-b">
+          <div class="flex items-start md:block mb-1.5 md:mb-4">
+            <span
+              class="text-[15px] md:text-[12px] text-[#156E8A] font-medium tracking-widest w-10 shrink-0 md:w-auto md:mb-5 block mt-0.5 md:mt-0">02</span>
+
+            <!-- Simple Filter Layers SVG Icon (Hidden on Mobile) -->
+            <svg class="hidden md:block mb-4" width="44" height="44" viewBox="0 0 44 44" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M34 10H10C8.89543 10 8 10.8954 8 12V13C8 14.1046 8.89543 15 10 15H34C35.1046 15 36 14.1046 36 13V12C36 10.8954 35.1046 10 34 10Z"
+                stroke="#141414" stroke-width="1.4" />
+              <path
+                d="M34 19H10C8.89543 19 8 19.8954 8 21V22C8 23.1046 8.89543 24 10 24H34C35.1046 24 36 23.1046 36 22V21C36 19.8954 35.1046 19 34 19Z"
+                stroke="#141414" stroke-width="1.4" />
+              <path
+                d="M34 28H10C8.89543 28 8 28.8954 8 30V31C8 32.1046 8.89543 33 10 33H34C35.1046 33 36 32.1046 36 31V30C36 28.8954 35.1046 28 34 28Z"
+                stroke="#141414" stroke-width="1.4" />
+            </svg>
+
+            <h3 class="text-[17px] font-normal text-gray-900">Filter</h3>
+          </div>
+          <p class="text-[15px] md:text-xs text-gray-500 font-light leading-relaxed ml-10 md:ml-0 pr-4 md:pr-0">
+            True HEPA H13 filtration captures 99.97% of particles as small as
+            0.3 microns &mdash; including PM2.5, pollen, and bacteria.
+          </p>
+        </div>
+
+        <!-- Stage 03: Neutralise -->
+        <div class="py-6 md:p-10 flex flex-col h-full lg:border-t-0 lg:border-b-0 border-gray-100 border-t">
+          <div class="flex items-start md:block mb-1.5 md:mb-4">
+            <span
+              class="text-[15px] md:text-[12px] text-[#156E8A] font-medium tracking-widest w-10 shrink-0 md:w-auto md:mb-5 block mt-0.5 md:mt-0">03</span>
+
+            <svg class="hidden md:block mb-4" width="44" height="44" viewBox="0 0 44 44" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 8V16M16 11L20 15M28 11L24 15M12 22H8M22 36V28M32 22H36M16 33L20 29M28 33L24 29"
+                stroke="#141414" stroke-width="1.4" stroke-linecap="round" />
+              <path
+                d="M22 27C24.7614 27 27 24.7614 27 22C27 19.2386 24.7614 17 22 17C19.2386 17 17 19.2386 17 22C17 24.7614 19.2386 27 22 27Z"
+                stroke="#141414" stroke-width="1.4" />
+            </svg>
+
+            <h3 class="text-[17px] font-normal text-gray-900">Neutralise</h3>
+          </div>
+          <p class="text-[15px] md:text-xs text-gray-500 font-light leading-relaxed ml-10 md:ml-0 pr-4 md:pr-0">
+            An activated carbon layer absorbs VOCs, cooking odours, smoke, and
+            formaldehyde. What passes through is chemically neutral.
+          </p>
+        </div>
+
+        <!-- Stage 04: Monitor -->
+        <div class="py-6 md:p-10 flex flex-col h-full lg:border-t-0 border-gray-100 border-t">
+          <div class="flex items-start md:block mb-1.5 md:mb-4">
+            <span
+              class="text-[15px] md:text-[12px] text-[#156E8A] font-medium tracking-widest w-10 shrink-0 md:w-auto md:mb-5 block mt-0.5 md:mt-0">04</span>
+
+            <!-- Simple Sensor/Clock SVG Icon (Hidden on Mobile) -->
+            <svg class="hidden md:block mb-4" width="44" height="44" viewBox="0 0 44 44" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M22 34C28.6274 34 34 28.6274 34 22C34 15.3726 28.6274 10 22 10C15.3726 10 10 15.3726 10 22C10 28.6274 15.3726 34 22 34Z"
+                stroke="#141414" stroke-width="1.4" />
+              <path d="M22 14V22L27 25" stroke="#141414" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+
+            <h3 class="text-[17px] font-normal text-gray-900">Monitor</h3>
+          </div>
+          <p class="text-[15px] md:text-xs text-gray-500 font-light leading-relaxed ml-10 md:ml-0 pr-4 md:pr-0">
+            Real-time laser sensors track PM2.5, CO&sub2;, humidity, and
+            temperature &mdash; displayed instantly on the unit and the app.
+          </p>
+        </div>
+      </div>
+
+      <!-- Medical Grade Authority Banner -->
+      <div
+        class="max-w-6xl mx-auto bg-[#0C1216] text-white p-8 md:p-16 lg:px-20 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-16 scroll-reveal opacity-0 translate-y-6 transition-all duration-700 delay-200 mt-16 md:mt-0">
+        <!-- Desktop Circular Badge (Hidden on Mobile) -->
         <div
-          class="max-w-6xl mx-auto bg-transparent md:bg-white border-0 md:border md:border-gray-100 md:shadow-[0_4px_20px_rgb(0,0,0,0.02)] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y divide-gray-200/80 md:divide-y-0 md:divide-x md:divide-gray-100 mb-12 scroll-reveal opacity-0 translate-y-6 transition-all duration-700 delay-100"
-        >
-          <!-- Stage 01: Capture -->
+          class="hidden md:flex flex-shrink-0 w-[120px] h-[120px] rounded-full border border-gray-700/60 flex-col items-center justify-center text-center shadow-inner">
+          <span class="text-3xl font-light text-[#156E8A] mb-1">H13</span>
+          <span class="text-[6px] uppercase tracking-[0.25em] text-gray-400 font-bold leading-tight">
+            True Hepa<br />Certified
+          </span>
+        </div>
+
+        <!-- Banner Content -->
+        <!-- Mobile: Flex to place badge left of the text group. Desktop: Block layout -->
+        <div class="text-left md:pr-[20%] w-full flex items-start md:block gap-4">
+          <!-- Mobile-Only Square Tag (Hidden on Desktop) -->
           <div
-            class="py-6 md:p-10 flex flex-col h-full lg:border-b-0 border-gray-100 md:border-b"
-          >
-            <!-- Header Row: Flex on mobile to align number/title, Block on desktop -->
-            <div class="flex items-start md:block mb-1.5 md:mb-4">
-              <span
-                class="text-[15px] md:text-[12px] text-[#156E8A] font-medium tracking-widest w-10 shrink-0 md:w-auto md:mb-5 block mt-0.5 md:mt-0"
-                >01</span
-              >
-
-              <!-- Simple Intake SVG Icon (Hidden on Mobile) -->
-              <svg
-                class="hidden md:block mb-4"
-                width="44"
-                height="44"
-                viewBox="0 0 44 44"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8 14H36M12 22H32M16 30H28"
-                  stroke="#141414"
-                  stroke-width="1.4"
-                  stroke-linecap="round"
-                />
-              </svg>
-
-              <h3 class="text-[17px] font-normal text-gray-900">Capture</h3>
-            </div>
-
-            <!-- Description: Indented on mobile to align with title, standard on desktop -->
-            <p
-              class="text-[15px] md:text-xs text-gray-500 font-light leading-relaxed ml-10 md:ml-0 pr-4 md:pr-0"
-            >
-              A 360&deg; air intake draws the full room volume through the unit
-              up to 5 times per hour, leaving no corner untouched.
-            </p>
+            class="md:hidden bg-[#0A1F26] text-[#156E8A] font-semibold px-2.5 py-1 text-[11px] tracking-wider rounded-sm shrink-0 mt-0.5">
+            H13
           </div>
 
-          <!-- Stage 02: Filter -->
-          <div
-            class="py-6 md:p-10 flex flex-col h-full lg:border-b-0 border-gray-100 md:border-b"
-          >
-            <div class="flex items-start md:block mb-1.5 md:mb-4">
-              <span
-                class="text-[15px] md:text-[12px] text-[#156E8A] font-medium tracking-widest w-10 shrink-0 md:w-auto md:mb-5 block mt-0.5 md:mt-0"
-                >02</span
-              >
+          <!-- Text Group: Headline and Paragraph are grouped so they align perfectly -->
+          <div>
+            <h4 class="text-[17px] md:text-2xl font-light tracking-wide leading-snug md:leading-normal mb-3 md:mb-5">
+              Medical-Grade Filtration, In Your Living Room
+            </h4>
 
-              <!-- Simple Filter Layers SVG Icon (Hidden on Mobile) -->
-              <svg
-                class="hidden md:block mb-4"
-                width="44"
-                height="44"
-                viewBox="0 0 44 44"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M34 10H10C8.89543 10 8 10.8954 8 12V13C8 14.1046 8.89543 15 10 15H34C35.1046 15 36 14.1046 36 13V12C36 10.8954 35.1046 10 34 10Z"
-                  stroke="#141414"
-                  stroke-width="1.4"
-                />
-                <path
-                  d="M34 19H10C8.89543 19 8 19.8954 8 21V22C8 23.1046 8.89543 24 10 24H34C35.1046 24 36 23.1046 36 22V21C36 19.8954 35.1046 19 34 19Z"
-                  stroke="#141414"
-                  stroke-width="1.4"
-                />
-                <path
-                  d="M34 28H10C8.89543 28 8 28.8954 8 30V31C8 32.1046 8.89543 33 10 33H34C35.1046 33 36 32.1046 36 31V30C36 28.8954 35.1046 28 34 28Z"
-                  stroke="#141414"
-                  stroke-width="1.4"
-                />
-              </svg>
-
-              <h3 class="text-[17px] font-normal text-gray-900">Filter</h3>
-            </div>
-            <p
-              class="text-[15px] md:text-xs text-gray-500 font-light leading-relaxed ml-10 md:ml-0 pr-4 md:pr-0"
-            >
-              True HEPA H13 filtration captures 99.97% of particles as small as
-              0.3 microns &mdash; including PM2.5, pollen, and bacteria.
-            </p>
-          </div>
-
-          <!-- Stage 03: Neutralise -->
-          <div
-            class="py-6 md:p-10 flex flex-col h-full lg:border-t-0 lg:border-b-0 border-gray-100 border-t"
-          >
-            <div class="flex items-start md:block mb-1.5 md:mb-4">
-              <span
-                class="text-[15px] md:text-[12px] text-[#156E8A] font-medium tracking-widest w-10 shrink-0 md:w-auto md:mb-5 block mt-0.5 md:mt-0"
-                >03</span
-              >
-
-              <svg
-                class="hidden md:block mb-4"
-                width="44"
-                height="44"
-                viewBox="0 0 44 44"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M22 8V16M16 11L20 15M28 11L24 15M12 22H8M22 36V28M32 22H36M16 33L20 29M28 33L24 29"
-                  stroke="#141414"
-                  stroke-width="1.4"
-                  stroke-linecap="round"
-                />
-                <path
-                  d="M22 27C24.7614 27 27 24.7614 27 22C27 19.2386 24.7614 17 22 17C19.2386 17 17 19.2386 17 22C17 24.7614 19.2386 27 22 27Z"
-                  stroke="#141414"
-                  stroke-width="1.4"
-                />
-              </svg>
-
-              <h3 class="text-[17px] font-normal text-gray-900">Neutralise</h3>
-            </div>
-            <p
-              class="text-[15px] md:text-xs text-gray-500 font-light leading-relaxed ml-10 md:ml-0 pr-4 md:pr-0"
-            >
-              An activated carbon layer absorbs VOCs, cooking odours, smoke, and
-              formaldehyde. What passes through is chemically neutral.
-            </p>
-          </div>
-
-          <!-- Stage 04: Monitor -->
-          <div
-            class="py-6 md:p-10 flex flex-col h-full lg:border-t-0 border-gray-100 border-t"
-          >
-            <div class="flex items-start md:block mb-1.5 md:mb-4">
-              <span
-                class="text-[15px] md:text-[12px] text-[#156E8A] font-medium tracking-widest w-10 shrink-0 md:w-auto md:mb-5 block mt-0.5 md:mt-0"
-                >04</span
-              >
-
-              <!-- Simple Sensor/Clock SVG Icon (Hidden on Mobile) -->
-              <svg
-                class="hidden md:block mb-4"
-                width="44"
-                height="44"
-                viewBox="0 0 44 44"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M22 34C28.6274 34 34 28.6274 34 22C34 15.3726 28.6274 10 22 10C15.3726 10 10 15.3726 10 22C10 28.6274 15.3726 34 22 34Z"
-                  stroke="#141414"
-                  stroke-width="1.4"
-                />
-                <path
-                  d="M22 14V22L27 25"
-                  stroke="#141414"
-                  stroke-width="1.4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-
-              <h3 class="text-[17px] font-normal text-gray-900">Monitor</h3>
-            </div>
-            <p
-              class="text-[15px] md:text-xs text-gray-500 font-light leading-relaxed ml-10 md:ml-0 pr-4 md:pr-0"
-            >
-              Real-time laser sensors track PM2.5, CO&sub2;, humidity, and
-              temperature &mdash; displayed instantly on the unit and the app.
+            <p class="text-[15px] text-gray-400 font-light leading-relaxed max-w-3xl pr-2 md:pr-0">
+              HEPA H13 is the same standard used in hospital operating
+              theatres and pharmaceutical cleanrooms. Breathe In brings this
+              standard into your home without compromise &mdash; removing
+              particles invisible to the human eye, every hour, every day.
             </p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Medical Grade Authority Banner -->
-        <div
-          class="max-w-6xl mx-auto bg-[#0C1216] text-white p-8 md:p-16 lg:px-20 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-16 scroll-reveal opacity-0 translate-y-6 transition-all duration-700 delay-200 mt-16 md:mt-0"
-        >
-          <!-- Desktop Circular Badge (Hidden on Mobile) -->
-          <div
-            class="hidden md:flex flex-shrink-0 w-[120px] h-[120px] rounded-full border border-gray-700/60 flex-col items-center justify-center text-center shadow-inner"
-          >
-            <span class="text-3xl font-light text-[#156E8A] mb-1">H13</span>
-            <span
-              class="text-[6px] uppercase tracking-[0.25em] text-gray-400 font-bold leading-tight"
-            >
-              True Hepa<br />Certified
-            </span>
+    <!-- ========================================== -->
+    <!-- DARK CTA SECTION: EXPLORE / COMPARE        -->
+    <!-- ========================================== -->
+    <section class="w-full bg-[#0B1115] py-10 md:py-20 px-6 flex flex-col items-center justify-center text-center">
+      <h2 class="text-4xl md:text-5xl lg:text-[56px] font-light text-white mb-6 md:mb-8 tracking-tight">
+        Technology you can <span class="text-[#156E8A]">live with.</span>
+      </h2>
+
+      <p class="text-gray-400 font-light text-[12px] md:text-[15px] max-w-2xl mx-auto mb-12 leading-relaxed">
+        Every model in the collection runs on the same BreathePure&trade;
+        system.<br class="hidden md:block" />
+        Choose the one sized for your space.
+      </p>
+
+      <div class="flex flex-row items-center justify-center gap-6 sm:gap-10 w-full max-w-md sm:max-w-none">
+        <!-- Primary Solid Button -->
+        <a href="#"
+          class="bg-white text-[#0B1115] px-4 py-4 md:py-4 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold flex items-center justify-center gap-3 hover:bg-gray-200 transition-colors rounded-sm w-full sm:w-auto">
+          <span>Find My Purifier</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+
+        <!-- Secondary Ghost/Underline Button -->
+        <a href="#"
+          class="text-white border-b border-gray-700 pb-1 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold hover:text-[#156E8A] hover:border-[#156E8A] transition-colors w-full sm:w-auto text-center mt-2 sm:mt-0">
+          COMPARE MODELS
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 17: FOOTER                         -->
+    <!-- ========================================== -->
+    <footer class="w-full bg-[#0B1115] pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24">
+      <div class="max-w-[1400px] mx-auto">
+        <!-- Top Section: Brand & Links -->
+        <div class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-10 lg:mb-20">
+          <!-- Left: Brand, Bio & Buttons -->
+          <div class="flex flex-col lg:w-5/12">
+            <!-- Logo -->
+            <img src="./assets/images/logo.png" alt="Breathe In"
+              class="h-9 md:h-10 w-auto mb-6 object-contain object-left self-start" />
+
+            <!-- Bio -->
+            <!-- Mobile text and Desktop text swap seamlessly using hidden/inline classes -->
+            <p class="text-gray-400 text-[13px] md:text-[14px] font-light leading-[1.8] mb-8 max-w-sm">
+              <span class="hidden md:inline">
+                Clean air isn’t a luxury, it’s a necessity<br />
+                Sophisticated Japanese air-purification<br />
+                technology, at honest prices. The right air, for<br />
+                every Indian home.
+              </span>
+              <span class="md:hidden">
+                Clean air isn’t a luxury, it’s a necessity Sophisticated
+                Japanese air-purification technology, at honest prices.
+              </span>
+            </p>
+
+            <!-- Buttons (Side-by-Side) -->
+            <div class="flex flex-row items-center gap-3 md:gap-4 w-full max-w-[400px]">
+              <!-- Shop Now (Solid Teal on all screens) -->
+              <a href="#"
+                class="flex-1 bg-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] transition-colors whitespace-nowrap">
+                <span>SHOP NOW</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7">
+                  </path>
+                </svg>
+              </a>
+
+              <!-- Download Brochure (Solid Teal on Mobile, Ghost on Desktop) -->
+              <a href="#"
+                class="flex-1 bg-[#156E8A] md:bg-transparent border border-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] md:hover:bg-[#156E8A] hover:text-white transition-colors whitespace-nowrap">
+                <span>DOWNLOAD BROCHURE</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7">
+                  </path>
+                </svg>
+              </a>
+            </div>
           </div>
 
-          <!-- Banner Content -->
-          <!-- Mobile: Flex to place badge left of the text group. Desktop: Block layout -->
-          <div
-            class="text-left md:pr-[20%] w-full flex items-start md:block gap-4"
-          >
-            <!-- Mobile-Only Square Tag (Hidden on Desktop) -->
-            <div
-              class="md:hidden bg-[#0A1F26] text-[#156E8A] font-semibold px-2.5 py-1 text-[11px] tracking-wider rounded-sm shrink-0 mt-0.5"
-            >
-              H13
+          <!-- Divider (Mobile Only) -->
+          <div class="w-full h-[1px] bg-gray-800/80 lg:hidden mt-2 mb-2"></div>
+
+          <!-- Right: Links Grid -->
+          <!-- 3 Cols on Mobile, 4 Cols on Desktop -->
+          <div class="lg:w-7/12 grid grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
+            <!-- Column 1: Collection -->
+            <div class="flex flex-col">
+              <h4 class="text-[11px] md:text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                Collection
+              </h4>
+              <ul class="flex flex-col gap-4">
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                    Pro</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                    Pro 1</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                    Pro 2</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                    Pro Max</a>
+                </li>
+              </ul>
             </div>
 
-            <!-- Text Group: Headline and Paragraph are grouped so they align perfectly -->
-            <div>
-              <h4
-                class="text-[17px] md:text-2xl font-light tracking-wide leading-snug md:leading-normal mb-3 md:mb-5"
-              >
-                Medical-Grade Filtration, In Your Living Room
+            <!-- Column 2: Explore -->
+            <div class="flex flex-col">
+              <h4 class="text-[11px] md:text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                Explore
+              </h4>
+              <ul class="flex flex-col gap-4">
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Technology</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">The
+                    App</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Compare
+                    Models</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Filter
+                    Care</a>
+                </li>
+                <!-- Visible only on Desktop -->
+                <li class="hidden lg:block">
+                  <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Corporate
+                    Solutions</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 3: Support (Mobile) / Blank Header (Desktop) -->
+            <div class="flex flex-col">
+              <!-- Header visible only on mobile -->
+              <h4 class="text-[11px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6 lg:hidden">
+                Support
               </h4>
 
-              <p
-                class="text-[15px] text-gray-400 font-light leading-relaxed max-w-3xl pr-2 md:pr-0"
-              >
-                HEPA H13 is the same standard used in hospital operating
-                theatres and pharmaceutical cleanrooms. Breathe In brings this
-                standard into your home without compromise &mdash; removing
-                particles invisible to the human eye, every hour, every day.
-              </p>
+              <!-- Spacer to align links under the empty header space on desktop -->
+              <div class="hidden lg:block h-[34px]"></div>
+
+              <ul class="flex flex-col gap-4">
+                <!-- Visible only on Desktop -->
+                <li class="hidden lg:block">
+                  <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Book a
+                    Demo</a>
+                </li>
+                <li class="hidden lg:block">
+                  <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Case
+                    Studies</a>
+                </li>
+
+                <!-- Visible on Both -->
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">FAQ</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Support</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Contact</a>
+                </li>
+
+                <!-- Visible only on Mobile -->
+                <li class="lg:hidden">
+                  <a href="#"
+                    class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">WhatsApp</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 4: Contact (Desktop Only) -->
+            <div class="hidden lg:flex flex-col">
+              <h4 class="text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                Contact
+              </h4>
+              <ul class="flex flex-col gap-4">
+                <li>
+                  <a href="tel:+919076636639"
+                    class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">+91 90766 36639</a>
+                </li>
+                <li>
+                  <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">WhatsApp
+                    Support</a>
+                </li>
+                <li>
+                  <a href="mailto:enquiries@breathein.co.in"
+                    class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">enquiries@breathein.co.in</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">www.breathein.co.in</a>
+                </li>
+                <li class="text-[13px] text-gray-400 font-light mt-1">
+                  Whitefield, Bengaluru
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </section>
 
-      <!-- ========================================== -->
-      <!-- DARK CTA SECTION: EXPLORE / COMPARE        -->
-      <!-- ========================================== -->
-      <section
-        class="w-full bg-[#0B1115] py-10 md:py-20 px-6 flex flex-col items-center justify-center text-center"
-      >
-        <h2
-          class="text-4xl md:text-5xl lg:text-[56px] font-light text-white mb-6 md:mb-8 tracking-tight"
-        >
-          Technology you can <span class="text-[#156E8A]">live with.</span>
-        </h2>
+        <!-- Bottom Divider -->
+        <div class="w-full h-[1px] bg-gray-800/80 mb-6 lg:mb-8"></div>
 
-        <p
-          class="text-gray-400 font-light text-[12px] md:text-[15px] max-w-2xl mx-auto mb-12 leading-relaxed"
-        >
-          Every model in the collection runs on the same BreathePure&trade;
-          system.<br class="hidden md:block" />
-          Choose the one sized for your space.
-        </p>
+        <!-- Bottom Strip: Legal & Copyright -->
+        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+          <!-- Legal Links (Top on mobile, Right on desktop) -->
+          <div class="flex flex-wrap items-center gap-6 lg:order-2">
+            <a href="#"
+              class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Privacy
+              Policy</a>
+            <a href="#"
+              class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Terms of
+              Use</a>
+            <a href="#"
+              class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Cookie
+              Policy</a>
+          </div>
 
-        <div
-          class="flex flex-row items-center justify-center gap-6 sm:gap-10 w-full max-w-md sm:max-w-none"
-        >
-          <!-- Primary Solid Button -->
-          <a
-            href="#"
-            class="bg-white text-[#0B1115] px-4 py-4 md:py-4 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold flex items-center justify-center gap-3 hover:bg-gray-200 transition-colors rounded-sm w-full sm:w-auto"
-          >
-            <span>Find My Purifier</span>
-            <svg
-              class="w-3.5 h-3.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
-          </a>
-
-          <!-- Secondary Ghost/Underline Button -->
-          <a
-            href="#"
-            class="text-white border-b border-gray-700 pb-1 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold hover:text-[#156E8A] hover:border-[#156E8A] transition-colors w-full sm:w-auto text-center mt-2 sm:mt-0"
-          >
-            COMPARE MODELS
-          </a>
+          <!-- Copyright (Bottom on mobile, Left on desktop) -->
+          <p class="text-[11px] md:text-[13px] text-gray-500 font-light lg:order-1">
+            &copy; 2026 Breathe In &mdash; The Right Air. All rights reserved.
+            Made in India.
+          </p>
         </div>
-      </section>
 
-      <!-- ========================================== -->
-      <!-- SECTION 17: FOOTER                         -->
-      <!-- ========================================== -->
-      <footer
-        class="w-full bg-[#0B1115] pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24"
-      >
-        <div class="max-w-[1400px] mx-auto">
-          <!-- Top Section: Brand & Links -->
-          <div
-            class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-10 lg:mb-20"
-          >
-            <!-- Left: Brand, Bio & Buttons -->
-            <div class="flex flex-col lg:w-5/12">
-              <!-- Logo -->
-              <img
-                src="./assets/images/logo.png"
-                alt="Breathe In"
-                class="h-9 md:h-10 w-auto mb-6 object-contain object-left self-start"
-              />
-
-              <!-- Bio -->
-              <!-- Mobile text and Desktop text swap seamlessly using hidden/inline classes -->
-              <p
-                class="text-gray-400 text-[13px] md:text-[14px] font-light leading-[1.8] mb-8 max-w-sm"
-              >
-                <span class="hidden md:inline">
-                  Clean air isn’t a luxury, it’s a necessity<br />
-                  Sophisticated Japanese air-purification<br />
-                  technology, at honest prices. The right air, for<br />
-                  every Indian home.
-                </span>
-                <span class="md:hidden">
-                  Clean air isn’t a luxury, it’s a necessity Sophisticated
-                  Japanese air-purification technology, at honest prices.
-                </span>
-              </p>
-
-              <!-- Buttons (Side-by-Side) -->
-              <div
-                class="flex flex-row items-center gap-3 md:gap-4 w-full max-w-[400px]"
-              >
-                <!-- Shop Now (Solid Teal on all screens) -->
-                <a
-                  href="#"
-                  class="flex-1 bg-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] transition-colors whitespace-nowrap"
-                >
-                  <span>SHOP NOW</span>
-                  <svg
-                    class="w-3.5 h-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 12h14M12 5l7 7-7 7"
-                    ></path>
-                  </svg>
-                </a>
-
-                <!-- Download Brochure (Solid Teal on Mobile, Ghost on Desktop) -->
-                <a
-                  href="#"
-                  class="flex-1 bg-[#156E8A] md:bg-transparent border border-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] md:hover:bg-[#156E8A] hover:text-white transition-colors whitespace-nowrap"
-                >
-                  <span>DOWNLOAD BROCHURE</span>
-                  <svg
-                    class="w-3.5 h-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 12h14M12 5l7 7-7 7"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            <!-- Divider (Mobile Only) -->
-            <div
-              class="w-full h-[1px] bg-gray-800/80 lg:hidden mt-2 mb-2"
-            ></div>
-
-            <!-- Right: Links Grid -->
-            <!-- 3 Cols on Mobile, 4 Cols on Desktop -->
-            <div
-              class="lg:w-7/12 grid grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8"
-            >
-              <!-- Column 1: Collection -->
-              <div class="flex flex-col">
-                <h4
-                  class="text-[11px] md:text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6"
-                >
-                  Collection
-                </h4>
-                <ul class="flex flex-col gap-4">
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Air Pro</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Air Pro 1</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Air Pro 2</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Air Pro Max</a
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Column 2: Explore -->
-              <div class="flex flex-col">
-                <h4
-                  class="text-[11px] md:text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6"
-                >
-                  Explore
-                </h4>
-                <ul class="flex flex-col gap-4">
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Technology</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >The App</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Compare Models</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Filter Care</a
-                    >
-                  </li>
-                  <!-- Visible only on Desktop -->
-                  <li class="hidden lg:block">
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Corporate Solutions</a
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Column 3: Support (Mobile) / Blank Header (Desktop) -->
-              <div class="flex flex-col">
-                <!-- Header visible only on mobile -->
-                <h4
-                  class="text-[11px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6 lg:hidden"
-                >
-                  Support
-                </h4>
-
-                <!-- Spacer to align links under the empty header space on desktop -->
-                <div class="hidden lg:block h-[34px]"></div>
-
-                <ul class="flex flex-col gap-4">
-                  <!-- Visible only on Desktop -->
-                  <li class="hidden lg:block">
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Book a Demo</a
-                    >
-                  </li>
-                  <li class="hidden lg:block">
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Case Studies</a
-                    >
-                  </li>
-
-                  <!-- Visible on Both -->
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >FAQ</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Support</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Contact</a
-                    >
-                  </li>
-
-                  <!-- Visible only on Mobile -->
-                  <li class="lg:hidden">
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >WhatsApp</a
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Column 4: Contact (Desktop Only) -->
-              <div class="hidden lg:flex flex-col">
-                <h4
-                  class="text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6"
-                >
-                  Contact
-                </h4>
-                <ul class="flex flex-col gap-4">
-                  <li>
-                    <a
-                      href="tel:+919076636639"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >+91 90766 36639</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >WhatsApp Support</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="mailto:enquiries@breathein.co.in"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >enquiries@breathein.co.in</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >www.breathein.co.in</a
-                    >
-                  </li>
-                  <li class="text-[13px] text-gray-400 font-light mt-1">
-                    Whitefield, Bengaluru
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bottom Divider -->
-          <div class="w-full h-[1px] bg-gray-800/80 mb-6 lg:mb-8"></div>
-
-          <!-- Bottom Strip: Legal & Copyright -->
-          <div
-            class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6"
-          >
-            <!-- Legal Links (Top on mobile, Right on desktop) -->
-            <div class="flex flex-wrap items-center gap-6 lg:order-2">
-              <a
-                href="#"
-                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light"
-                >Privacy Policy</a
-              >
-              <a
-                href="#"
-                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light"
-                >Terms of Use</a
-              >
-              <a
-                href="#"
-                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light"
-                >Cookie Policy</a
-              >
-            </div>
-
-            <!-- Copyright (Bottom on mobile, Left on desktop) -->
-            <p
-              class="text-[11px] md:text-[13px] text-gray-500 font-light lg:order-1"
-            >
-              &copy; 2026 Breathe In &mdash; The Right Air. All rights reserved.
-              Made in India.
-            </p>
-          </div>
-
-          <!-- 
+        <!-- 
                 <button id="backToTop"
                     class="flex absolute right-0 bottom-12 lg:static items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-gray-500 hover:text-white transition-colors font-bold group order-3">
                     Back to Top
@@ -1437,15 +926,16 @@
                         </svg>
                     </span>
                 </button> -->
-        </div>
-      </footer>
-    </main>
+      </div>
+    </footer>
+  </main>
 
-    <!-- jQuery Core Library -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- jQuery Core Library -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Link to Custom JS -->
-    <script src="assets/js/main.js"></script>
-  </body>
+  <!-- Link to Custom JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+
 </html>

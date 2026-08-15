@@ -1,1066 +1,523 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BreatheIn - Redesign</title>
 
-    <!-- Tailwind CSS Play CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./assets/js/tailwind.config.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BreatheIn - Redesign</title>
 
-    <!-- Link to compiled CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./assets/js/tailwind.config.js"></script>
 
-  <body class="antialiased text-gray-900 selection:bg-brandTeal/20 relative">
-    <!-- ========================================== -->
-    <!-- FULL-SCREEN MOBILE NAVIGATION OVERLAY      -->
-    <!-- ========================================== -->
+  <!-- Link to compiled CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="antialiased text-gray-900 selection:bg-brandTeal/20 relative">
+  <!-- ========================================== -->
+  <!-- FULL-SCREEN MOBILE NAVIGATION OVERLAY      -->
+  <!-- ========================================== -->
+  <div id="mobileNavOverlay"
+    class="fixed inset-0 z-[60] bg-white flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out hidden">
+    <button id="closeMobileNav" class="absolute top-6 right-8 p-2 rounded-full hover:bg-gray-100 transition-colors"
+      aria-label="Close Menu">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-8 h-8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <nav class="flex flex-col items-center gap-8 text-center">
+      <a href="./collection.html"
+        class="text-3xl text-[#156E8A] font-light tracking-wide hover:text-brandTeal transition-colors">COLLECTION</a>
+      <a href="./technology.html"
+        class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">TECHNOLOGY</a>
+      <a href="./app.html" class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">APP</a>
+      <a href="./real-homes.html" class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">REAL
+        HOMES</a>
+      <a href="./compare.html"
+        class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">COMPARE</a>
+      <div class="mt-8 pt-8 border-t border-gray-200 w-full flex flex-col items-center gap-4">
+        <a href="#" class="text-lg font-medium hover:text-brandTeal">My Account</a>
+        <a href="#" class="text-lg font-medium hover:text-brandTeal">Support</a>
+      </div>
+    </nav>
+  </div>
+  <!-- ========================================== -->
+
+  <!-- ========================================== -->
+  <!-- SMART STICKY HEADER                        -->
+  <!-- ========================================== -->
+  <div id="smart-header"
+    class="sticky top-0 z-50 w-full flex flex-col shadow-sm transition-transform duration-300 ease-in-out translate-y-0">
+    <!-- 1. TOP LIVE AQI TICKER BAR -->
+    <!-- Updated to match mobile design: unified dark background, teal dot, vertical separator -->
     <div
-      id="mobileNavOverlay"
-      class="fixed inset-0 z-[60] bg-white flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out hidden"
-    >
-      <button
-        id="closeMobileNav"
-        class="absolute top-6 right-8 p-2 rounded-full hover:bg-gray-100 transition-colors"
-        aria-label="Close Menu"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-8 h-8"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
-      <nav class="flex flex-col items-center gap-8 text-center">
-        <a
-          href="./collection.html"
-          class="text-3xl text-[#156E8A] font-light tracking-wide hover:text-brandTeal transition-colors"
-          >COLLECTION</a
-        >
-        <a
-          href="./technology.html"
-          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
-          >TECHNOLOGY</a
-        >
-        <a
-          href="./app.html"
-          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
-          >APP</a
-        >
-        <a
-          href="./real-homes.html"
-          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
-          >REAL HOMES</a
-        >
-        <a
-          href="./compare.html"
-          class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors"
-          >COMPARE</a
-        >
-        <div
-          class="mt-8 pt-8 border-t border-gray-200 w-full flex flex-col items-center gap-4"
-        >
-          <a href="#" class="text-lg font-medium hover:text-brandTeal"
-            >My Account</a
-          >
-          <a href="#" class="text-lg font-medium hover:text-brandTeal"
-            >Support</a
-          >
-        </div>
-      </nav>
-    </div>
-    <!-- ========================================== -->
-
-    <!-- ========================================== -->
-    <!-- SMART STICKY HEADER                        -->
-    <!-- ========================================== -->
-    <div
-      id="smart-header"
-      class="sticky top-0 z-50 w-full flex flex-col shadow-sm transition-transform duration-300 ease-in-out translate-y-0"
-    >
-      <!-- 1. TOP LIVE AQI TICKER BAR -->
-      <!-- Updated to match mobile design: unified dark background, teal dot, vertical separator -->
+      class="w-full bg-tickerDark text-white flex items-center text-[11px] tracking-wider font-medium animate-fade-in-down overflow-hidden"
+      style="animation-delay: 100ms">
       <div
-        class="w-full bg-tickerDark text-white flex items-center text-[11px] tracking-wider font-medium animate-fade-in-down overflow-hidden"
-        style="animation-delay: 100ms"
-      >
-        <div
-          class="bg-tickerDark md:bg-brandTeal px-4 md:px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative"
-        >
-          <!-- <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> -->
-          <span
-            class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse"
-          ></span>
-          INDIA AQI TODAY
-        </div>
+        class="bg-tickerDark md:bg-brandTeal px-4 md:px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative">
+        <!-- <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> -->
+        <span class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse"></span>
+        INDIA AQI TODAY
+      </div>
 
-        <!-- Separator Line -->
-        <div class="w-[1px] h-6 bg-gray-800 shrink-0 z-10 relative"></div>
+      <!-- Separator Line -->
+      <div class="w-[1px] h-6 bg-gray-800 shrink-0 z-10 relative"></div>
 
-        <!-- Scrolling Content -->
-        <div class="flex flex-1 overflow-hidden relative bg-tickerDark">
-          <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
-            <!-- Ticker Items List 1 -->
-            <div class="flex items-center gap-6 pr-6">
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Delhi</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >392</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Ghaziabad</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >358</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Noida</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >311</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Patna</span>
-                <span
-                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >286</span
-                >
-                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Lucknow</span>
-                <span
-                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >242</span
-                >
-                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Kolkata</span>
-                <span
-                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >198</span
-                >
-                <span class="text-textMuted text-[12px]">Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Mumbai</span>
-                <span
-                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >164</span
-                >
-                <span class="text-textMuted text-[12px]">Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
+      <!-- Scrolling Content -->
+      <div class="flex flex-1 overflow-hidden relative bg-tickerDark">
+        <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
+          <!-- Ticker Items List 1 -->
+          <div class="flex items-center gap-6 pr-6">
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Delhi</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">392</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
             </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Ghaziabad</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">358</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Noida</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">311</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Patna</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">286</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Lucknow</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">242</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Kolkata</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">198</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Mumbai</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">164</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+          </div>
 
-            <!-- Ticker Items List 2 (Duplicated for seamless scrolling) -->
-            <div class="flex items-center gap-6 pr-6">
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Delhi</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >392</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Ghaziabad</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >358</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Noida</span>
-                <span
-                  class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >311</span
-                >
-                <span class="text-textMuted text-[12px]">Hazardous</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Patna</span>
-                <span
-                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >286</span
-                >
-                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Lucknow</span>
-                <span
-                  class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >242</span
-                >
-                <span class="text-textMuted text-[12px]">Very Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Kolkata</span>
-                <span
-                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >198</span
-                >
-                <span class="text-textMuted text-[12px]">Unhealthy</span>
-              </div>
-              <span class="text-gray-700">|</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-gray-200">Mumbai</span>
-                <span
-                  class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]"
-                  >164</span
-                >
-                <span class="text-textMuted text-[12px]">Unhealthy</span>
-              </div>
+          <!-- Ticker Items List 2 (Duplicated for seamless scrolling) -->
+          <div class="flex items-center gap-6 pr-6">
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Delhi</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">392</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Ghaziabad</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">358</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Noida</span>
+              <span class="bg-badgeHazardous text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">311</span>
+              <span class="text-textMuted text-[12px]">Hazardous</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Patna</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">286</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Lucknow</span>
+              <span class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">242</span>
+              <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Kolkata</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">198</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
+            </div>
+            <span class="text-gray-700">|</span>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-200">Mumbai</span>
+              <span class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-sm font-bold text-[12px]">164</span>
+              <span class="text-textMuted text-[12px]">Unhealthy</span>
             </div>
           </div>
         </div>
-
-        <!-- Desktop Info Banner -->
-        <div
-          class="px-6 py-3 shrink-0 font-medium text-gray-300 hidden lg:block bg-tickerDark z-10 relative shadow-[-10px_0_15px_-3px_rgba(13,20,24,1)]"
-        >
-          Indoors is often
-          <span class="text-sky-400 font-bold">5x worse</span> &middot;
-          <a
-            href="#"
-            class="hover:underline text-white inline-flex items-center gap-1"
-            >CHECK YOURS <span class="text-[11px]">&darr;</span></a
-          >
-        </div>
       </div>
 
-      <!-- 2. MAIN NAVIGATION HEADER -->
-      <!-- Updated Mobile Layout: Logo Left, Cart+CTA+Hamburger Right -->
-      <header
-        class="w-full bg-[#FAFCFD] border-b border-gray-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between animate-fade-in-down"
-        style="animation-delay: 200ms"
-      >
-        <!-- Left: Logo -->
-        <div class="flex items-center">
-          <a href="/index.html" class="h-7 md:h-10 w-auto">
-            <img
-              src="./assets/images/logo.png"
-              alt="Breathe In"
-              class="h-7 md:h-10 w-auto object-contain"
-            />
-          </a>
-        </div>
-
-        <!-- Desktop Nav Links -->
-        <nav class="hidden lg:flex items-center gap-8">
-          <a
-            href="./collection.html"
-            class="text-[13px] text-[#156E8A] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >COLLECTION</a
-          >
-          <a
-            href="./technology.html"
-            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >TECHNOLOGY</a
-          >
-          <a
-            href="./app.html"
-            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >APP</a
-          >
-          <a
-            href="./real-homes.html"
-            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >REAL HOMES</a
-          >
-          <a
-            href="./compare.html"
-            class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors"
-            >COMPARE</a
-          >
-        </nav>
-
-        <!-- Right: Action Buttons & Hamburger -->
-        <div class="flex items-center gap-3 md:gap-5">
-          <!-- Cart Button with Notification Badge -->
-          <button
-            id="cartBtn"
-            class="relative p-1.5 text-gray-900 hover:text-brandTeal transition-colors flex items-center justify-center"
-          >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="9" cy="21" r="1.5"></circle>
-              <circle cx="20" cy="21" r="1.5"></circle>
-              <path
-                d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-              ></path>
-            </svg>
-            <!-- Teal Badge -->
-            <span
-              class="absolute -top-1.5 -right-1.5 bg-brandTeal text-white text-[11px] font-bold w-4 h-4 aspect-square rounded-full flex items-center justify-center border border-white"
-              >3</span
-            >
-          </button>
-
-          <!-- Primary CTA (Now visible on mobile per design) -->
-          <a
-            href="./find-my-purifier.html"
-            class="border border-black text-[11px] md:text-[13px] font-bold tracking-widest px-3 py-2 md:px-6 md:py-2.5 uppercase hover:bg-black hover:text-white transition-all duration-200"
-          >
-            FIND MY PURIFIER
-          </a>
-
-          <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
-          <button
-            id="themeToggle"
-            class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-3.5 h-3.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-              />
-            </svg>
-            <span class="text-[12px] font-bold tracking-widest">DARK</span>
-          </button>
-          <!-- Hamburger Menu Icon (Moved to right) -->
-          <button
-            id="openMobileNav"
-            class="lg:hidden p-1"
-            aria-label="Open Menu"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-7 h-7 text-gray-900"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-          </button>
-        </div>
-      </header>
+      <!-- Desktop Info Banner -->
+      <div
+        class="px-6 py-3 shrink-0 font-medium text-gray-300 hidden lg:block bg-tickerDark z-10 relative shadow-[-10px_0_15px_-3px_rgba(13,20,24,1)]">
+        Indoors is often
+        <span class="text-sky-400 font-bold">5x worse</span> &middot;
+        <a href="#" class="hover:underline text-white inline-flex items-center gap-1">CHECK YOURS <span
+            class="text-[11px]">&darr;</span></a>
+      </div>
     </div>
 
-    <main>
-      <!-- ========================================== -->
-      <!-- HERO SECTION                    -->
-      <!-- ========================================== -->
-      <section class="relative flex items-center overflow-hidden bg-[#FAFCFD]">
-        <!-- Soft Radial Glow (Top Right) -->
-        <div
-          class="hidden md:block absolute inset-0 pointer-events-none"
-          style="
+    <!-- 2. MAIN NAVIGATION HEADER -->
+    <!-- Updated Mobile Layout: Logo Left, Cart+CTA+Hamburger Right -->
+    <header
+      class="w-full bg-[#FAFCFD] border-b border-gray-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between animate-fade-in-down"
+      style="animation-delay: 200ms">
+      <!-- Left: Logo -->
+      <div class="flex items-center">
+        <a href="/index.html" class="h-7 md:h-10 w-auto">
+          <img src="./assets/images/logo.png" alt="Breathe In" class="h-7 md:h-10 w-auto object-contain" />
+        </a>
+      </div>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="./collection.html"
+          class="text-[13px] text-[#156E8A] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COLLECTION</a>
+        <a href="./technology.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">TECHNOLOGY</a>
+        <a href="./app.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">APP</a>
+        <a href="./real-homes.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">REAL
+          HOMES</a>
+        <a href="./compare.html"
+          class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COMPARE</a>
+      </nav>
+
+      <!-- Right: Action Buttons & Hamburger -->
+      <div class="flex items-center gap-3 md:gap-5">
+        <!-- Cart Button with Notification Badge -->
+        <button id="cartBtn"
+          class="relative p-1.5 text-gray-900 hover:text-brandTeal transition-colors flex items-center justify-center">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1.5"></circle>
+            <circle cx="20" cy="21" r="1.5"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <!-- Teal Badge -->
+          <span
+            class="absolute -top-1.5 -right-1.5 bg-brandTeal text-white text-[11px] font-bold w-4 h-4 aspect-square rounded-full flex items-center justify-center border border-white">3</span>
+        </button>
+
+        <!-- Primary CTA (Now visible on mobile per design) -->
+        <a href="./find-my-purifier.html"
+          class="border border-black text-[11px] md:text-[13px] font-bold tracking-widest px-3 py-2 md:px-6 md:py-2.5 uppercase hover:bg-black hover:text-white transition-all duration-200">
+          FIND MY PURIFIER
+        </a>
+
+        <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
+        <button id="themeToggle"
+          class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-3.5 h-3.5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+          </svg>
+          <span class="text-[12px] font-bold tracking-widest">DARK</span>
+        </button>
+        <!-- Hamburger Menu Icon (Moved to right) -->
+        <button id="openMobileNav" class="lg:hidden p-1" aria-label="Open Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-7 h-7 text-gray-900">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <main>
+    <!-- ========================================== -->
+    <!-- HERO SECTION                    -->
+    <!-- ========================================== -->
+    <section class="relative flex items-center overflow-hidden bg-[#FAFCFD]">
+      <!-- Soft Radial Glow (Top Right) -->
+      <div class="hidden md:block absolute inset-0 pointer-events-none" style="
             background: radial-gradient(
               40% 60% at 90% 10%,
               rgba(21, 110, 138, 0.08) 0%,
               rgba(0, 0, 0, 0) 100%
             );
-          "
-        ></div>
+          "></div>
 
-        <div
-          class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-20 py-10 lg:py-20 w-full relative z-10"
-        >
-          <div class="max-w-2xl">
-            <!-- Breadcrumb -->
-            <nav
-              class="uppercase tracking-[.25em] text-[12px] text-gray-400 mb-5"
-            >
-              HOME <span class="text-gray-300 px-2">/</span> Real Homes
-            </nav>
+      <div class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-20 py-10 lg:py-20 w-full relative z-10">
+        <div class="max-w-2xl">
+          <!-- Breadcrumb -->
+          <nav class="uppercase tracking-[.25em] text-[12px] text-gray-400 mb-5">
+            HOME <span class="text-gray-300 px-2">/</span> Real Homes
+          </nav>
 
-            <!-- Eyebrow -->
-            <div class="flex items-center gap-4 mb-6">
-              <div class="w-8 h-px bg-[#156E8A]"></div>
-              <p
-                class="uppercase tracking-[.25em] text-[11px] text-[#156E8A] font-bold"
-              >
-                As Lived In
-              </p>
-            </div>
-
-            <!-- Headline -->
-            <h1
-              class="text-5xl md:text-6xl lg:text-[80px] font-light leading-tight tracking-tight text-gray-900 mb-5"
-            >
-              Homes that breathe
-              <span class="font-medium text-[#156E8A]">differently.</span>
-            </h1>
-
-            <!-- Subtext -->
-            <p
-              class="max-w-xl text-gray-500 text-sm md:text-base leading-relaxed font-light"
-            >
-              Real installations across India. Measured results in the homes of
-              people who decided clean air wasn't optional.
+          <!-- Eyebrow -->
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-8 h-px bg-[#156E8A]"></div>
+            <p class="uppercase tracking-[.25em] text-[11px] text-[#156E8A] font-bold">
+              As Lived In
             </p>
           </div>
-        </div>
-      </section>
-
-      <!-- ========================================== -->
-      <!-- STATS / METRICS BANNER                     -->
-      <!-- ========================================== -->
-      <section class="w-full bg-white border-y border-gray-200/60">
-        <div
-          class="flex flex-row md:grid md:grid-cols-4 items-center lg:min-w-0 py-4 lg:py-0 divide-x divide-gray-200/60 lg:px-0"
-        >
-          <!-- Stat 1: Homes Protected -->
-          <div
-            class="flex flex-col items-center justify-center text-center px-6 lg:px-0 lg:py-16 w-[160px] lg:w-auto"
-          >
-            <!-- Mobile text is dark gray, Desktop text is Teal -->
-            <h3
-              class="text-3xl lg:text-6xl font-light text-gray-900 lg:text-[#156E8A] mb-1 lg:mb-4 tracking-tight"
-            >
-              75,000+
-            </h3>
-            <span
-              class="text-[11px] lg:text-[12px] uppercase tracking-[0.1em] lg:tracking-[0.2em] text-gray-400 font-medium"
-            >
-              Homes Protected
-            </span>
-          </div>
-
-          <!-- Stat 2: Avg PM2.5 Drop -->
-          <div
-            class="flex flex-col items-center justify-center text-center px-6 lg:px-0 lg:py-16 w-[160px] lg:w-auto"
-          >
-            <h3
-              class="text-3xl lg:text-6xl font-light text-gray-900 lg:text-[#156E8A] mb-1 lg:mb-4 tracking-tight"
-            >
-              94%
-            </h3>
-            <span
-              class="text-[11px] lg:text-[12px] uppercase tracking-[0.1em] lg:tracking-[0.2em] text-gray-400 font-medium"
-            >
-              Avg. PM2.5 Drop
-            </span>
-          </div>
-
-          <!-- Stat 3: Owner Rating -->
-          <div
-            class="flex flex-col items-center justify-center text-center px-6 lg:px-0 lg:py-16 w-[160px] lg:w-auto"
-          >
-            <h3
-              class="flex items-center text-3xl lg:text-6xl font-light text-gray-900 lg:text-[#156E8A] mb-1 lg:mb-4 tracking-tight"
-            >
-              4.8
-              <!-- Star scales down for mobile and matches text color -->
-              <svg
-                class="w-5 h-5 lg:w-10 lg:h-10 ml-1.5 pb-0.5 lg:pb-1 text-gray-900 lg:text-[#156E8A]"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
-            </h3>
-            <span
-              class="text-[11px] lg:text-[12px] uppercase tracking-[0.1em] lg:tracking-[0.2em] text-gray-400 font-medium"
-            >
-              Owner Rating
-            </span>
-          </div>
-
-          <!-- Stat 4: Cities Across India -->
-          <div
-            class="flex flex-col items-center justify-center text-center px-6 lg:px-0 lg:py-16 w-[160px] lg:w-auto"
-          >
-            <h3
-              class="text-3xl lg:text-6xl font-light text-gray-900 lg:text-[#156E8A] mb-1 lg:mb-4 tracking-tight"
-            >
-              22
-            </h3>
-            <span
-              class="text-[11px] lg:text-[12px] uppercase tracking-[0.1em] lg:tracking-[0.2em] text-gray-400 font-medium"
-            >
-              Cities Across India
-            </span>
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="w-full bg-[#FAFCFD] py-10 md:py-20 px-6 md:px-16 lg:px-24 overflow-hidden"
-      >
-        <!-- Header Section (Responsive Alignment) -->
-        <div
-          class="max-w-3xl mx-0 md:mx-auto text-left md:text-center mb-10 md:mb-20 scroll-reveal opacity-0 translate-y-6 transition-all duration-700 ease-out"
-        >
-          <!-- Eyebrow -->
-          <span
-            class="text-[11px] md:text-[12px] uppercase tracking-[0.25em] text-[#156E8A] font-bold mb-4 md:mb-6 block"
-          >
-            As Lived In
-          </span>
 
           <!-- Headline -->
-          <h2
-            class="text-[32px] md:text-5xl font-light tracking-tight text-gray-900 leading-[1.15] md:leading-[1.2] mb-4 md:mb-6"
-          >
-            Homes that breathe differently.
-          </h2>
+          <h1 class="text-5xl md:text-6xl lg:text-[80px] font-light leading-tight tracking-tight text-gray-900 mb-5">
+            Homes that breathe
+            <span class="font-medium text-[#156E8A]">differently.</span>
+          </h1>
 
           <!-- Subtext -->
-          <p
-            class="text-gray-500 text-[12px] md:text-[15px] font-light leading-relaxed max-w-xl mx-0 md:mx-auto pr-4 md:pr-0"
-          >
-            Real installations. Real results. Measured improvements in the homes
-            of those who chose to live better.
+          <p class="max-w-xl text-gray-500 text-sm md:text-base leading-relaxed font-light">
+            Real installations across India. Measured results in the homes of
+            people who decided clean air wasn't optional.
           </p>
         </div>
+      </div>
+    </section>
 
-        <!-- Carousel/Checkerboard Wrapper -->
-        <!-- Mobile: Transparent wrapper for Swiper. Desktop: White box with shadow for the whole grid -->
-        <div
-          class="max-w-6xl mx-auto bg-transparent md:bg-white md:border md:border-gray-100 md:shadow-[0_4px_30px_rgb(0,0,0,0.03)] relative"
-        >
-          <!-- Swiper Container -->
-          <div
-            class="swiper caseStudiesSwiper pb-12 md:pb-0 overflow-visible md:overflow-hidden w-full"
-          >
-            <!-- Swiper Wrapper overrides Swiper's horizontal flex on desktop -->
-            <div
-              class="swiper-wrapper md:!flex md:!flex-col md:!transform-none md:!w-full md:!h-auto"
-            >
-              <!-- ================= SLIDE / ROW 1 ================= -->
-              <div class="swiper-slide h-auto md:!h-auto">
-                <!-- Card Styling on Mobile, Grid Row on Desktop -->
-                <div
-                  class="grid grid-cols-1 md:grid-cols-2 h-full bg-white border border-gray-200 md:border-0 rounded-xl md:rounded-none overflow-hidden"
-                >
-                  <!-- Image (Always top on mobile, left on desktop) -->
-                  <div
-                    class="relative w-full h-[240px] sm:h-[300px] md:h-auto md:min-h-[400px] order-1"
-                  >
-                    <img
-                      src="./assets/images/case-study-1.png"
-                      alt="South Mumbai Penthouse"
-                      class="absolute inset-0 w-full h-full object-cover"
-                    />
-                  </div>
-
-                  <!-- Text Content -->
-                  <div class="p-6 md:p-16 flex flex-col justify-center order-2">
-                    <span
-                      class="text-[11px] uppercase tracking-[0.2em] text-[#156E8A] font-bold mb-4 md:mb-6 block"
-                    >
-                      South Mumbai Penthouse
-                    </span>
-
-                    <h3
-                      class="text-[17px] md:text-xl lg:text-[25px] font-medium md:font-light text-gray-900 leading-snug mb-4 md:mb-6"
-                    >
-                      "I didn't realise how much better sleep could feel until
-                      my daughter stopped waking up with a blocked nose every
-                      morning."
-                    </h3>
-
-                    <p
-                      class="text-[11px] md:text-[12px] text-gray-400 font-light mb-8 md:mb-10 lg:uppercase tracking-wide"
-                    >
-                      Priya Mehta, Homeowner &mdash; 3,420 sq ft residence, Air
-                      Pro Max model
-                    </p>
-
-                    <!-- Stats Grid -->
-                    <div class="grid grid-cols-2 gap-3 md:gap-4">
-                      <div
-                        class="bg-[#F8FAFC] border-l-[2px] border-[#156E8A] p-4 flex flex-col justify-center"
-                      >
-                        <span
-                          class="text-[7px] md:text-[8px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-1"
-                          >PM2.5 Reduction</span
-                        >
-                        <span
-                          class="text-xl md:text-2xl font-normal text-gray-900"
-                          >94%</span
-                        >
-                      </div>
-                      <div
-                        class="bg-[#F8FAFC] border-l-[2px] border-[#156E8A] p-4 flex flex-col justify-center"
-                      >
-                        <span
-                          class="text-[7px] md:text-[8px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-1"
-                          >Sleep Quality Score</span
-                        >
-                        <span
-                          class="text-xl md:text-2xl font-normal text-gray-900"
-                          >+38%</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ================= SLIDE / ROW 2 ================= -->
-              <div class="swiper-slide h-auto md:!h-auto">
-                <div
-                  class="grid grid-cols-1 md:grid-cols-2 h-full bg-white border border-gray-200 md:border-0 md:border-t border-gray-100 rounded-xl md:rounded-none overflow-hidden"
-                >
-                  <!-- Image (Top on mobile, Right on desktop) -->
-                  <!-- order-1 on mobile, md:order-2 shifts it to the right on desktop -->
-                  <div
-                    class="relative w-full h-[240px] sm:h-[300px] md:h-auto md:min-h-[400px] order-1 md:order-2"
-                  >
-                    <img
-                      src="./assets/images/case-study-2.png"
-                      alt="Whitefield Villa"
-                      class="absolute inset-0 w-full h-full object-cover"
-                    />
-                  </div>
-
-                  <!-- Text Content (Bottom on mobile, Left on desktop) -->
-                  <div
-                    class="p-6 md:p-16 flex flex-col justify-center order-2 md:order-1"
-                  >
-                    <span
-                      class="text-[11px] uppercase tracking-[0.2em] text-[#156E8A] font-bold mb-4 md:mb-6 block"
-                    >
-                      Whitefield Villa, Bengaluru
-                    </span>
-
-                    <h3
-                      class="text-[17px] md:text-xl lg:text-[25px] font-medium md:font-light text-gray-900 leading-snug mb-4 md:mb-6"
-                    >
-                      "As a cardiologist, I was already aware of what indoor
-                      pollution does. Now my home reflects those values."
-                    </h3>
-
-                    <p
-                      class="text-[11px] md:text-[12px] text-gray-400 font-light mb-8 md:mb-10 lg:uppercase tracking-wide"
-                    >
-                      Dr. Ananya Krishnan &mdash; 5,000 sq ft villa, 2&times;
-                      Air Pro 2 models
-                    </p>
-
-                    <div class="grid grid-cols-2 gap-3 md:gap-4">
-                      <div
-                        class="bg-[#F8FAFC] border-l-[2px] border-[#156E8A] p-4 flex flex-col justify-center"
-                      >
-                        <span
-                          class="text-[7px] md:text-[8px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-1"
-                          >VOC Removal</span
-                        >
-                        <span
-                          class="text-xl md:text-2xl font-normal text-gray-900"
-                          >99%</span
-                        >
-                      </div>
-                      <div
-                        class="bg-[#F8FAFC] border-l-[2px] border-[#156E8A] p-4 flex flex-col justify-center"
-                      >
-                        <span
-                          class="text-[7px] md:text-[8px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-1"
-                          >Allergy Incidents</span
-                        >
-                        <span
-                          class="text-xl md:text-2xl font-normal text-gray-900"
-                          >&minus;81%</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ================= SLIDE / ROW 3 ================= -->
-              <div class="swiper-slide h-auto md:!h-auto">
-                <div
-                  class="grid grid-cols-1 md:grid-cols-2 h-full bg-white border border-gray-200 md:border-0 md:border-t border-gray-100 rounded-xl md:rounded-none overflow-hidden"
-                >
-                  <!-- Image (Always top on mobile, left on desktop) -->
-                  <div
-                    class="relative w-full h-[240px] sm:h-[300px] md:h-auto md:min-h-[400px] order-1"
-                  >
-                    <img
-                      src="./assets/images/case-study-3.png"
-                      alt="Aerocity Residence"
-                      class="absolute inset-0 w-full h-full object-cover"
-                    />
-                  </div>
-
-                  <!-- Text Content -->
-                  <div class="p-6 md:p-16 flex flex-col justify-center order-2">
-                    <span
-                      class="text-[11px] uppercase tracking-[0.2em] text-[#156E8A] font-bold mb-4 md:mb-6 block"
-                    >
-                      Aerocity Residence, New Delhi
-                    </span>
-
-                    <h3
-                      class="text-[17px] md:text-xl lg:text-[25px] font-medium md:font-light text-gray-900 leading-snug mb-4 md:mb-6"
-                    >
-                      "Our senior team noticed the difference within two days.
-                      The air feels lighter. Focus is tangibly sharper."
-                    </h3>
-
-                    <p
-                      class="text-[11px] md:text-[12px] text-gray-400 font-light mb-8 md:mb-10 lg:uppercase tracking-wide"
-                    >
-                      Vikram Anand, Facilities Director &mdash; 8,000 sq ft
-                      workspace, Air Pro 1 models
-                    </p>
-
-                    <div class="grid grid-cols-2 gap-3 md:gap-4">
-                      <div
-                        class="bg-[#F8FAFC] border-l-[2px] border-[#156E8A] p-4 flex flex-col justify-center"
-                      >
-                        <span
-                          class="text-[7px] md:text-[8px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-1"
-                          >Dust Reduction</span
-                        >
-                        <span
-                          class="text-xl md:text-2xl font-normal text-gray-900"
-                          >97%</span
-                        >
-                      </div>
-                      <div
-                        class="bg-[#F8FAFC] border-l-[2px] border-[#156E8A] p-4 flex flex-col justify-center"
-                      >
-                        <span
-                          class="text-[7px] md:text-[8px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-1"
-                          >Team Focus Rating</span
-                        >
-                        <span
-                          class="text-xl md:text-2xl font-normal text-gray-900"
-                          >+29%</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Swiper Pagination (Mobile Only) -->
-            <div class="swiper-pagination md:hidden !bottom-0"></div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="w-full bg-[#FAFCFD] md:bg-[#0B1115] py-10 md:py-20 px-6 md:px-16 lg:px-24 overflow-hidden"
-      >
-        <!-- Header Section (Responsive Alignment & Colors) -->
-        <div
-          class="max-w-4xl mx-0 md:mx-auto text-left md:text-center mb-10 md:mb-24 scroll-reveal opacity-0 translate-y-6 transition-all duration-700 ease-out"
-        >
-          <!-- Eyebrow -->
+    <!-- ========================================== -->
+    <!-- STATS / METRICS BANNER                     -->
+    <!-- ========================================== -->
+    <section class="w-full bg-white border-y border-gray-200/60">
+      <div
+        class="flex flex-row md:grid md:grid-cols-4 items-center lg:min-w-0 py-4 lg:py-0 divide-x divide-gray-200/60 lg:px-0">
+        <!-- Stat 1: Homes Protected -->
+        <div class="flex flex-col items-center justify-center text-center px-6 lg:px-0 lg:py-16 w-[160px] lg:w-auto">
+          <!-- Mobile text is dark gray, Desktop text is Teal -->
+          <h3 class="text-3xl lg:text-6xl font-light text-gray-900 lg:text-[#156E8A] mb-1 lg:mb-4 tracking-tight">
+            75,000+
+          </h3>
           <span
-            class="text-[11px] uppercase tracking-[0.25em] text-[#156E8A] md:text-[#4A99B2] font-bold mb-4 md:mb-6 block"
-          >
-            The Breathe In Experience
+            class="text-[11px] lg:text-[12px] uppercase tracking-[0.1em] lg:tracking-[0.2em] text-gray-400 font-medium">
+            Homes Protected
           </span>
-
-          <!-- Headline -->
-          <h2
-            class="text-[32px] md:text-5xl font-light tracking-tight text-gray-900 md:text-white leading-[1.15] md:leading-[1.2] mb-4 md:mb-6"
-          >
-            Ownership as it should be.
-          </h2>
-
-          <!-- Subtext -->
-          <p
-            class="text-gray-500 md:text-gray-400 text-[12px] md:text-[15px] font-light leading-relaxed max-w-2xl mx-0 md:mx-auto pr-4 md:pr-0"
-          >
-            Acquiring a Breathe In is the beginning of a relationship, not a
-            transaction.
-          </p>
         </div>
 
-        <!-- Carousel/Grid Wrapper -->
-        <div
-          class="swiper ownershipSwiper max-w-[1400px] mx-auto md:border md:border-gray-800/60 pb-12 md:pb-0 overflow-visible md:overflow-hidden w-full scroll-reveal opacity-0 translate-y-6 transition-all duration-700 delay-100"
-        >
-          <!-- Swiper Wrapper overrides Swiper's horizontal flex on desktop to use CSS Grid -->
-          <!-- md:!divide-y lg:!divide-y-0 perfectly matches your original border logic -->
-          <div
-            class="swiper-wrapper md:!grid md:!grid-cols-3 lg:!grid-cols-5 md:!divide-x md:!divide-y lg:!divide-y-0 md:!divide-gray-800/60 md:!transform-none md:!w-full md:!h-auto"
-          >
-            <!-- ================= COLUMN 01 ================= -->
-            <!-- md:!w-auto md:!m-0 strips Swiper's inline width/margin so the grid works perfectly -->
-            <div class="swiper-slide h-auto md:!w-auto md:!m-0">
-              <div
-                class="p-6 md:p-10 flex flex-col h-full bg-white md:bg-[#0B1115] shadow-sm md:shadow-none rounded-xl md:rounded-none hover:md:bg-[#0F171C] transition-colors duration-300"
-              >
-                <span
-                  class="hidden md:block text-[11px] text-[#4A99B2] font-medium tracking-widest mb-6"
-                  >01</span
-                >
+        <!-- Stat 2: Avg PM2.5 Drop -->
+        <div class="flex flex-col items-center justify-center text-center px-6 lg:px-0 lg:py-16 w-[160px] lg:w-auto">
+          <h3 class="text-3xl lg:text-6xl font-light text-gray-900 lg:text-[#156E8A] mb-1 lg:mb-4 tracking-tight">
+            94%
+          </h3>
+          <span
+            class="text-[11px] lg:text-[12px] uppercase tracking-[0.1em] lg:tracking-[0.2em] text-gray-400 font-medium">
+            Avg. PM2.5 Drop
+          </span>
+        </div>
 
-                <div
-                  class="flex items-center md:items-start md:flex-col mb-3 md:mb-0"
-                >
-                  <div
-                    class="w-12 h-12 md:w-auto md:h-auto rounded-full md:rounded-none bg-[#EDF3F6] md:bg-transparent flex items-center justify-center shrink-0 mr-4 md:mr-0 md:mb-8 text-[#156E8A] md:text-[#4A99B2]"
-                  >
-                    <svg
-                      class="w-6 h-6 stroke-[1.5px]"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  </div>
-                  <h3
-                    class="text-[17px] md:text-lg font-medium md:font-normal text-gray-900 md:text-white mb-0 md:mb-4"
-                  >
-                    White Glove Setup
-                  </h3>
+        <!-- Stat 3: Owner Rating -->
+        <div class="flex flex-col items-center justify-center text-center px-6 lg:px-0 lg:py-16 w-[160px] lg:w-auto">
+          <h3
+            class="flex items-center text-3xl lg:text-6xl font-light text-gray-900 lg:text-[#156E8A] mb-1 lg:mb-4 tracking-tight">
+            4.8
+            <!-- Star scales down for mobile and matches text color -->
+            <svg class="w-5 h-5 lg:w-10 lg:h-10 ml-1.5 pb-0.5 lg:pb-1 text-gray-900 lg:text-[#156E8A]"
+              fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+              </path>
+            </svg>
+          </h3>
+          <span
+            class="text-[11px] lg:text-[12px] uppercase tracking-[0.1em] lg:tracking-[0.2em] text-gray-400 font-medium">
+            Owner Rating
+          </span>
+        </div>
+
+        <!-- Stat 4: Cities Across India -->
+        <div class="flex flex-col items-center justify-center text-center px-6 lg:px-0 lg:py-16 w-[160px] lg:w-auto">
+          <h3 class="text-3xl lg:text-6xl font-light text-gray-900 lg:text-[#156E8A] mb-1 lg:mb-4 tracking-tight">
+            22
+          </h3>
+          <span
+            class="text-[11px] lg:text-[12px] uppercase tracking-[0.1em] lg:tracking-[0.2em] text-gray-400 font-medium">
+            Cities Across India
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full bg-[#FAFCFD] py-10 md:py-20 px-6 md:px-16 lg:px-24 overflow-hidden">
+      <!-- Header Section (Responsive Alignment) -->
+      <div
+        class="max-w-3xl mx-0 md:mx-auto text-left md:text-center mb-10 md:mb-20 scroll-reveal opacity-0 translate-y-6 transition-all duration-700 ease-out">
+        <!-- Eyebrow -->
+        <span
+          class="text-[11px] md:text-[12px] uppercase tracking-[0.25em] text-[#156E8A] font-bold mb-4 md:mb-6 block">
+          As Lived In
+        </span>
+
+        <!-- Headline -->
+        <h2
+          class="text-[32px] md:text-5xl font-light tracking-tight text-gray-900 leading-[1.15] md:leading-[1.2] mb-4 md:mb-6">
+          Homes that breathe differently.
+        </h2>
+
+        <!-- Subtext -->
+        <p
+          class="text-gray-500 text-[12px] md:text-[15px] font-light leading-relaxed max-w-xl mx-0 md:mx-auto pr-4 md:pr-0">
+          Real installations. Real results. Measured improvements in the homes
+          of those who chose to live better.
+        </p>
+      </div>
+
+      <!-- Carousel/Checkerboard Wrapper -->
+      <!-- Mobile: Transparent wrapper for Swiper. Desktop: White box with shadow for the whole grid -->
+      <div
+        class="max-w-6xl mx-auto bg-transparent md:bg-white md:border md:border-gray-100 md:shadow-[0_4px_30px_rgb(0,0,0,0.03)] relative">
+        <!-- Swiper Container -->
+        <div class="swiper caseStudiesSwiper pb-12 md:pb-0 overflow-visible md:overflow-hidden w-full">
+          <!-- Swiper Wrapper overrides Swiper's horizontal flex on desktop -->
+          <div class="swiper-wrapper md:!flex md:!flex-col md:!transform-none md:!w-full md:!h-auto">
+            <!-- ================= SLIDE / ROW 1 ================= -->
+            <div class="swiper-slide h-auto md:!h-auto">
+              <!-- Card Styling on Mobile, Grid Row on Desktop -->
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 h-full bg-white border border-gray-200 md:border-0 rounded-xl md:rounded-none overflow-hidden">
+                <!-- Image (Always top on mobile, left on desktop) -->
+                <div class="relative w-full h-[240px] sm:h-[300px] md:h-auto md:min-h-[400px] order-1">
+                  <img src="./assets/images/case-study-1.png" alt="South Mumbai Penthouse"
+                    class="absolute inset-0 w-full h-full object-cover" />
                 </div>
 
-                <p
-                  class="text-[15px] md:text-xs text-gray-500 md:text-gray-400 font-light leading-relaxed pr-2 md:pr-0"
-                >
-                  A certified air specialist visits your home, positions your
-                  unit for maximum coverage, and configures it to your
-                  lifestyle.
-                </p>
+                <!-- Text Content -->
+                <div class="p-6 md:p-16 flex flex-col justify-center order-2">
+                  <span class="text-[11px] uppercase tracking-[0.2em] text-[#156E8A] font-bold mb-4 md:mb-6 block">
+                    South Mumbai Penthouse
+                  </span>
+
+                  <h3
+                    class="text-[17px] md:text-xl lg:text-[25px] font-medium md:font-light text-gray-900 leading-snug mb-4 md:mb-6">
+                    "I didn't realise how much better sleep could feel until
+                    my daughter stopped waking up with a blocked nose every
+                    morning."
+                  </h3>
+
+                  <p
+                    class="text-[11px] md:text-[12px] text-gray-400 font-light mb-8 md:mb-10 lg:uppercase tracking-wide">
+                    Priya Mehta, Homeowner &mdash; 3,420 sq ft residence, Air
+                    Pro Max model
+                  </p>
+
+                  <!-- Stats Grid -->
+                  <div class="grid grid-cols-2 gap-3 md:gap-4">
+                    <div class="bg-[#F8FAFC] border-l-[2px] border-[#156E8A] p-4 flex flex-col justify-center">
+                      <span
+                        class="text-[7px] md:text-[8px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-1">PM2.5
+                        Reduction</span>
+                      <span class="text-xl md:text-2xl font-normal text-gray-900">94%</span>
+                    </div>
+                    <div class="bg-[#F8FAFC] border-l-[2px] border-[#156E8A] p-4 flex flex-col justify-center">
+                      <span
+                        class="text-[7px] md:text-[8px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-1">Sleep
+                        Quality Score</span>
+                      <span class="text-xl md:text-2xl font-normal text-gray-900">+38%</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <!-- ================= COLUMN 02 ================= -->
-            <div class="swiper-slide h-auto md:!w-auto md:!m-0">
+            <!-- ================= SLIDE / ROW 2 ================= -->
+            <div class="swiper-slide h-auto md:!h-auto">
               <div
-                class="p-6 md:p-10 flex flex-col h-full bg-white md:bg-[#0B1115] shadow-sm md:shadow-none rounded-xl md:rounded-none hover:md:bg-[#0F171C] transition-colors duration-300"
-              >
-                <span
-                  class="hidden md:block text-[11px] text-[#4A99B2] font-medium tracking-widest mb-6"
-                  >02</span
-                >
-
-                <div
-                  class="flex items-center md:items-start md:flex-col mb-3 md:mb-0"
-                >
-                  <div
-                    class="w-12 h-12 md:w-auto md:h-auto rounded-full md:rounded-none bg-[#EDF3F6] md:bg-transparent flex items-center justify-center shrink-0 mr-4 md:mr-0 md:mb-8 text-[#156E8A] md:text-[#4A99B2]"
-                  >
-                    <svg
-                      class="w-6 h-6 stroke-[1.5px]"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                      />
-                    </svg>
-                  </div>
-                  <h3
-                    class="text-[17px] md:text-lg font-medium md:font-normal text-gray-900 md:text-white mb-0 md:mb-4"
-                  >
-                    Filter Assistance
-                  </h3>
+                class="grid grid-cols-1 md:grid-cols-2 h-full bg-white border border-gray-200 md:border-0 md:border-t border-gray-100 rounded-xl md:rounded-none overflow-hidden">
+                <!-- Image (Top on mobile, Right on desktop) -->
+                <!-- order-1 on mobile, md:order-2 shifts it to the right on desktop -->
+                <div class="relative w-full h-[240px] sm:h-[300px] md:h-auto md:min-h-[400px] order-1 md:order-2">
+                  <img src="./assets/images/case-study-2.png" alt="Whitefield Villa"
+                    class="absolute inset-0 w-full h-full object-cover" />
                 </div>
 
-                <p
-                  class="text-[15px] md:text-xs text-gray-500 md:text-gray-400 font-light leading-relaxed pr-2 md:pr-0"
-                >
-                  We track your filter life remotely and deliver genuine
-                  replacements to your door before you ever need to think about
-                  it.
-                </p>
+                <!-- Text Content (Bottom on mobile, Left on desktop) -->
+                <div class="p-6 md:p-16 flex flex-col justify-center order-2 md:order-1">
+                  <span class="text-[11px] uppercase tracking-[0.2em] text-[#156E8A] font-bold mb-4 md:mb-6 block">
+                    Whitefield Villa, Bengaluru
+                  </span>
+
+                  <h3
+                    class="text-[17px] md:text-xl lg:text-[25px] font-medium md:font-light text-gray-900 leading-snug mb-4 md:mb-6">
+                    "As a cardiologist, I was already aware of what indoor
+                    pollution does. Now my home reflects those values."
+                  </h3>
+
+                  <p
+                    class="text-[11px] md:text-[12px] text-gray-400 font-light mb-8 md:mb-10 lg:uppercase tracking-wide">
+                    Dr. Ananya Krishnan &mdash; 5,000 sq ft villa, 2&times;
+                    Air Pro 2 models
+                  </p>
+
+                  <div class="grid grid-cols-2 gap-3 md:gap-4">
+                    <div class="bg-[#F8FAFC] border-l-[2px] border-[#156E8A] p-4 flex flex-col justify-center">
+                      <span
+                        class="text-[7px] md:text-[8px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-1">VOC
+                        Removal</span>
+                      <span class="text-xl md:text-2xl font-normal text-gray-900">99%</span>
+                    </div>
+                    <div class="bg-[#F8FAFC] border-l-[2px] border-[#156E8A] p-4 flex flex-col justify-center">
+                      <span
+                        class="text-[7px] md:text-[8px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-1">Allergy
+                        Incidents</span>
+                      <span class="text-xl md:text-2xl font-normal text-gray-900">&minus;81%</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <!-- ================= COLUMN 03 ================= -->
-            <div class="swiper-slide h-auto md:!w-auto md:!m-0">
+            <!-- ================= SLIDE / ROW 3 ================= -->
+            <div class="swiper-slide h-auto md:!h-auto">
               <div
-                class="p-6 md:p-10 flex flex-col h-full bg-white md:bg-[#0B1115] shadow-sm md:shadow-none rounded-xl md:rounded-none hover:md:bg-[#0F171C] transition-colors duration-300"
-              >
-                <span
-                  class="hidden md:block text-[11px] text-[#4A99B2] font-medium tracking-widest mb-6"
-                  >03</span
-                >
-
-                <div
-                  class="flex items-center md:items-start md:flex-col mb-3 md:mb-0"
-                >
-                  <div
-                    class="w-12 h-12 md:w-auto md:h-auto rounded-full md:rounded-none bg-[#EDF3F6] md:bg-transparent flex items-center justify-center shrink-0 mr-4 md:mr-0 md:mb-8 text-[#156E8A] md:text-[#4A99B2]"
-                  >
-                    <svg
-                      class="w-6 h-6 stroke-[1.5px]"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-                      />
-                    </svg>
-                  </div>
-                  <h3
-                    class="text-[17px] md:text-lg font-medium md:font-normal text-gray-900 md:text-white mb-0 md:mb-4"
-                  >
-                    Priority Support
-                  </h3>
+                class="grid grid-cols-1 md:grid-cols-2 h-full bg-white border border-gray-200 md:border-0 md:border-t border-gray-100 rounded-xl md:rounded-none overflow-hidden">
+                <!-- Image (Always top on mobile, left on desktop) -->
+                <div class="relative w-full h-[240px] sm:h-[300px] md:h-auto md:min-h-[400px] order-1">
+                  <img src="./assets/images/case-study-3.png" alt="Aerocity Residence"
+                    class="absolute inset-0 w-full h-full object-cover" />
                 </div>
 
-                <p
-                  class="text-[15px] md:text-xs text-gray-500 md:text-gray-400 font-light leading-relaxed pr-2 md:pr-0"
-                >
-                  A dedicated air wellness advisor, available by call or
-                  message. Your questions answered within the hour, always.
-                </p>
-              </div>
-            </div>
+                <!-- Text Content -->
+                <div class="p-6 md:p-16 flex flex-col justify-center order-2">
+                  <span class="text-[11px] uppercase tracking-[0.2em] text-[#156E8A] font-bold mb-4 md:mb-6 block">
+                    Aerocity Residence, New Delhi
+                  </span>
 
-            <!-- ================= COLUMN 04 ================= -->
-            <div class="swiper-slide h-auto md:!w-auto md:!m-0">
-              <div
-                class="p-6 md:p-10 flex flex-col h-full bg-white md:bg-[#0B1115] shadow-sm md:shadow-none rounded-xl md:rounded-none hover:md:bg-[#0F171C] transition-colors duration-300"
-              >
-                <span
-                  class="hidden md:block text-[11px] text-[#4A99B2] font-medium tracking-widest mb-6"
-                  >04</span
-                >
-
-                <div
-                  class="flex items-center md:items-start md:flex-col mb-3 md:mb-0"
-                >
-                  <div
-                    class="w-12 h-12 md:w-auto md:h-auto rounded-full md:rounded-none bg-[#EDF3F6] md:bg-transparent flex items-center justify-center shrink-0 mr-4 md:mr-0 md:mb-8 text-[#156E8A] md:text-[#4A99B2]"
-                  >
-                    <svg
-                      class="w-6 h-6 stroke-[1.5px]"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                      />
-                    </svg>
-                  </div>
                   <h3
-                    class="text-[17px] md:text-lg font-medium md:font-normal text-gray-900 md:text-white mb-0 md:mb-4"
-                  >
-                    Genuine Parts
+                    class="text-[17px] md:text-xl lg:text-[25px] font-medium md:font-light text-gray-900 leading-snug mb-4 md:mb-6">
+                    "Our senior team noticed the difference within two days.
+                    The air feels lighter. Focus is tangibly sharper."
                   </h3>
-                </div>
 
-                <p
-                  class="text-[15px] md:text-xs text-gray-500 md:text-gray-400 font-light leading-relaxed pr-2 md:pr-0"
-                >
-                  Only certified Breathe In HEPA H13 filters will ever enter
-                  your unit. No substitutions. No compromise on what you
-                  breathe.
-                </p>
-              </div>
-            </div>
+                  <p
+                    class="text-[11px] md:text-[12px] text-gray-400 font-light mb-8 md:mb-10 lg:uppercase tracking-wide">
+                    Vikram Anand, Facilities Director &mdash; 8,000 sq ft
+                    workspace, Air Pro 1 models
+                  </p>
 
-            <!-- ================= COLUMN 05 ================= -->
-            <div class="swiper-slide h-auto md:!w-auto md:!m-0">
-              <div
-                class="p-6 md:p-10 flex flex-col h-full bg-white md:bg-[#0B1115] shadow-sm md:shadow-none rounded-xl md:rounded-none hover:md:bg-[#0F171C] transition-colors duration-300"
-              >
-                <span
-                  class="hidden md:block text-[11px] text-[#4A99B2] font-medium tracking-widest mb-6"
-                  >05</span
-                >
-
-                <div
-                  class="flex items-center md:items-start md:flex-col mb-3 md:mb-0"
-                >
-                  <div
-                    class="w-12 h-12 md:w-auto md:h-auto rounded-full md:rounded-none bg-[#EDF3F6] md:bg-transparent flex items-center justify-center shrink-0 mr-4 md:mr-0 md:mb-8 text-[#156E8A] md:text-[#4A99B2]"
-                  >
-                    <svg
-                      class="w-6 h-6 stroke-[1.5px]"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"
-                      />
-                    </svg>
+                  <div class="grid grid-cols-2 gap-3 md:gap-4">
+                    <div class="bg-[#F8FAFC] border-l-[2px] border-[#156E8A] p-4 flex flex-col justify-center">
+                      <span
+                        class="text-[7px] md:text-[8px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-1">Dust
+                        Reduction</span>
+                      <span class="text-xl md:text-2xl font-normal text-gray-900">97%</span>
+                    </div>
+                    <div class="bg-[#F8FAFC] border-l-[2px] border-[#156E8A] p-4 flex flex-col justify-center">
+                      <span
+                        class="text-[7px] md:text-[8px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-1">Team
+                        Focus Rating</span>
+                      <span class="text-xl md:text-2xl font-normal text-gray-900">+29%</span>
+                    </div>
                   </div>
-                  <h3
-                    class="text-[17px] md:text-lg font-medium md:font-normal text-gray-900 md:text-white mb-0 md:mb-4"
-                  >
-                    Extended Warranty
-                  </h3>
                 </div>
-
-                <p
-                  class="text-[15px] md:text-xs text-gray-500 md:text-gray-400 font-light leading-relaxed pr-2 md:pr-0"
-                >
-                  Up to three years of complete coverage &mdash; parts, labour,
-                  and remote diagnostics &mdash; at no additional charge on
-                  select models.
-                </p>
               </div>
             </div>
           </div>
@@ -1068,388 +525,433 @@
           <!-- Swiper Pagination (Mobile Only) -->
           <div class="swiper-pagination md:hidden !bottom-0"></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- ========================================== -->
-      <!-- DARK CTA SECTION: EXPLORE / COMPARE        -->
-      <!-- ========================================== -->
-      <section
-        class="w-full bg-[#0B1115] py-10 md:py-20 px-6 flex flex-col items-center justify-center text-center"
-      >
+    <section class="w-full bg-[#FAFCFD] md:bg-[#0B1115] py-10 md:py-20 px-6 md:px-16 lg:px-24 overflow-hidden">
+      <!-- Header Section (Responsive Alignment & Colors) -->
+      <div
+        class="max-w-4xl mx-0 md:mx-auto text-left md:text-center mb-10 md:mb-24 scroll-reveal opacity-0 translate-y-6 transition-all duration-700 ease-out">
+        <!-- Eyebrow -->
+        <span
+          class="text-[11px] uppercase tracking-[0.25em] text-[#156E8A] md:text-[#4A99B2] font-bold mb-4 md:mb-6 block">
+          The Breathe In Experience
+        </span>
+
+        <!-- Headline -->
         <h2
-          class="text-4xl md:text-5xl lg:text-[56px] font-light text-white mb-6 md:mb-8 tracking-tight"
-        >
-          Your home could be <span class="text-[#156E8A]">next.</span>
+          class="text-[32px] md:text-5xl font-light tracking-tight text-gray-900 md:text-white leading-[1.15] md:leading-[1.2] mb-4 md:mb-6">
+          Ownership as it should be.
         </h2>
 
+        <!-- Subtext -->
         <p
-          class="text-gray-400 font-light text-[12px] md:text-[15px] max-w-2xl mx-auto mb-12 leading-relaxed"
-        >
-          Find the model sized for your space, or talk to an air specialist
-          about a whole-home setup.
+          class="text-gray-500 md:text-gray-400 text-[12px] md:text-[15px] font-light leading-relaxed max-w-2xl mx-0 md:mx-auto pr-4 md:pr-0">
+          Acquiring a Breathe In is the beginning of a relationship, not a
+          transaction.
         </p>
+      </div>
 
+      <!-- Carousel/Grid Wrapper -->
+      <div
+        class="swiper ownershipSwiper max-w-[1400px] mx-auto md:border md:border-gray-800/60 pb-12 md:pb-0 overflow-visible md:overflow-hidden w-full scroll-reveal opacity-0 translate-y-6 transition-all duration-700 delay-100">
+        <!-- Swiper Wrapper overrides Swiper's horizontal flex on desktop to use CSS Grid -->
+        <!-- md:!divide-y lg:!divide-y-0 perfectly matches your original border logic -->
         <div
-          class="flex flex-row items-center justify-center gap-6 sm:gap-10 w-full max-w-md sm:max-w-none"
-        >
-          <!-- Primary Solid Button -->
-          <a
-            href="#"
-            class="bg-white text-[#0B1115] px-4 py-4 md:py-4 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold flex items-center justify-center gap-3 hover:bg-gray-200 transition-colors rounded-sm w-full sm:w-auto"
-          >
-            <span>Explore the Collection</span>
-            <svg
-              class="w-3.5 h-3.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
-          </a>
+          class="swiper-wrapper md:!grid md:!grid-cols-3 lg:!grid-cols-5 md:!divide-x md:!divide-y lg:!divide-y-0 md:!divide-gray-800/60 md:!transform-none md:!w-full md:!h-auto">
+          <!-- ================= COLUMN 01 ================= -->
+          <!-- md:!w-auto md:!m-0 strips Swiper's inline width/margin so the grid works perfectly -->
+          <div class="swiper-slide h-auto md:!w-auto md:!m-0">
+            <div
+              class="p-6 md:p-10 flex flex-col h-full bg-white md:bg-[#0B1115] shadow-sm md:shadow-none rounded-xl md:rounded-none hover:md:bg-[#0F171C] transition-colors duration-300">
+              <span class="hidden md:block text-[11px] text-[#4A99B2] font-medium tracking-widest mb-6">01</span>
 
-          <!-- Secondary Ghost/Underline Button -->
-          <a
-            href="#"
-            class="text-white border-b border-gray-700 pb-1 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold hover:text-[#156E8A] hover:border-[#156E8A] transition-colors w-full sm:w-auto text-center mt-2 sm:mt-0"
-          >
-            See the App
-          </a>
-        </div>
-      </section>
+              <div class="flex items-center md:items-start md:flex-col mb-3 md:mb-0">
+                <div
+                  class="w-12 h-12 md:w-auto md:h-auto rounded-full md:rounded-none bg-[#EDF3F6] md:bg-transparent flex items-center justify-center shrink-0 mr-4 md:mr-0 md:mb-8 text-[#156E8A] md:text-[#4A99B2]">
+                  <svg class="w-6 h-6 stroke-[1.5px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 class="text-[17px] md:text-lg font-medium md:font-normal text-gray-900 md:text-white mb-0 md:mb-4">
+                  White Glove Setup
+                </h3>
+              </div>
 
-      <!-- ========================================== -->
-      <!-- SECTION 17: FOOTER                         -->
-      <!-- ========================================== -->
-      <footer
-        class="w-full bg-[#0B1115] pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24"
-      >
-        <div class="max-w-[1400px] mx-auto">
-          <!-- Top Section: Brand & Links -->
-          <div
-            class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-10 lg:mb-20"
-          >
-            <!-- Left: Brand, Bio & Buttons -->
-            <div class="flex flex-col lg:w-5/12">
-              <!-- Logo -->
-              <img
-                src="./assets/images/logo.png"
-                alt="Breathe In"
-                class="h-9 md:h-10 w-auto mb-6 object-contain object-left self-start"
-              />
-
-              <!-- Bio -->
-              <!-- Mobile text and Desktop text swap seamlessly using hidden/inline classes -->
-              <p
-                class="text-gray-400 text-[13px] md:text-[14px] font-light leading-[1.8] mb-8 max-w-sm"
-              >
-                <span class="hidden md:inline">
-                  Clean air isn’t a luxury, it’s a necessity<br />
-                  Sophisticated Japanese air-purification<br />
-                  technology, at honest prices. The right air, for<br />
-                  every Indian home.
-                </span>
-                <span class="md:hidden">
-                  Clean air isn’t a luxury, it’s a necessity Sophisticated
-                  Japanese air-purification technology, at honest prices.
-                </span>
+              <p class="text-[15px] md:text-xs text-gray-500 md:text-gray-400 font-light leading-relaxed pr-2 md:pr-0">
+                A certified air specialist visits your home, positions your
+                unit for maximum coverage, and configures it to your
+                lifestyle.
               </p>
-
-              <!-- Buttons (Side-by-Side) -->
-              <div
-                class="flex flex-row items-center gap-3 md:gap-4 w-full max-w-[400px]"
-              >
-                <!-- Shop Now (Solid Teal on all screens) -->
-                <a
-                  href="#"
-                  class="flex-1 bg-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] transition-colors whitespace-nowrap"
-                >
-                  <span>SHOP NOW</span>
-                  <svg
-                    class="w-3.5 h-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 12h14M12 5l7 7-7 7"
-                    ></path>
-                  </svg>
-                </a>
-
-                <!-- Download Brochure (Solid Teal on Mobile, Ghost on Desktop) -->
-                <a
-                  href="#"
-                  class="flex-1 bg-[#156E8A] md:bg-transparent border border-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] md:hover:bg-[#156E8A] hover:text-white transition-colors whitespace-nowrap"
-                >
-                  <span>DOWNLOAD BROCHURE</span>
-                  <svg
-                    class="w-3.5 h-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 12h14M12 5l7 7-7 7"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            <!-- Divider (Mobile Only) -->
-            <div
-              class="w-full h-[1px] bg-gray-800/80 lg:hidden mt-2 mb-2"
-            ></div>
-
-            <!-- Right: Links Grid -->
-            <!-- 3 Cols on Mobile, 4 Cols on Desktop -->
-            <div
-              class="lg:w-7/12 grid grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8"
-            >
-              <!-- Column 1: Collection -->
-              <div class="flex flex-col">
-                <h4
-                  class="text-[11px] md:text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6"
-                >
-                  Collection
-                </h4>
-                <ul class="flex flex-col gap-4">
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Air Pro</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Air Pro 1</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Air Pro 2</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Air Pro Max</a
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Column 2: Explore -->
-              <div class="flex flex-col">
-                <h4
-                  class="text-[11px] md:text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6"
-                >
-                  Explore
-                </h4>
-                <ul class="flex flex-col gap-4">
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Technology</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >The App</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Compare Models</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Filter Care</a
-                    >
-                  </li>
-                  <!-- Visible only on Desktop -->
-                  <li class="hidden lg:block">
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Corporate Solutions</a
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Column 3: Support (Mobile) / Blank Header (Desktop) -->
-              <div class="flex flex-col">
-                <!-- Header visible only on mobile -->
-                <h4
-                  class="text-[11px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6 lg:hidden"
-                >
-                  Support
-                </h4>
-
-                <!-- Spacer to align links under the empty header space on desktop -->
-                <div class="hidden lg:block h-[34px]"></div>
-
-                <ul class="flex flex-col gap-4">
-                  <!-- Visible only on Desktop -->
-                  <li class="hidden lg:block">
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Book a Demo</a
-                    >
-                  </li>
-                  <li class="hidden lg:block">
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Case Studies</a
-                    >
-                  </li>
-
-                  <!-- Visible on Both -->
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >FAQ</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Support</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >Contact</a
-                    >
-                  </li>
-
-                  <!-- Visible only on Mobile -->
-                  <li class="lg:hidden">
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >WhatsApp</a
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Column 4: Contact (Desktop Only) -->
-              <div class="hidden lg:flex flex-col">
-                <h4
-                  class="text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6"
-                >
-                  Contact
-                </h4>
-                <ul class="flex flex-col gap-4">
-                  <li>
-                    <a
-                      href="tel:+919076636639"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >+91 90766 36639</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >WhatsApp Support</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="mailto:enquiries@breathein.co.in"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >enquiries@breathein.co.in</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-[13px] text-gray-400 hover:text-white transition-colors font-light"
-                      >www.breathein.co.in</a
-                    >
-                  </li>
-                  <li class="text-[13px] text-gray-400 font-light mt-1">
-                    Whitefield, Bengaluru
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
 
-          <!-- Bottom Divider -->
-          <div class="w-full h-[1px] bg-gray-800/80 mb-6 lg:mb-8"></div>
+          <!-- ================= COLUMN 02 ================= -->
+          <div class="swiper-slide h-auto md:!w-auto md:!m-0">
+            <div
+              class="p-6 md:p-10 flex flex-col h-full bg-white md:bg-[#0B1115] shadow-sm md:shadow-none rounded-xl md:rounded-none hover:md:bg-[#0F171C] transition-colors duration-300">
+              <span class="hidden md:block text-[11px] text-[#4A99B2] font-medium tracking-widest mb-6">02</span>
 
-          <!-- Bottom Strip: Legal & Copyright -->
-          <div
-            class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6"
-          >
-            <!-- Legal Links (Top on mobile, Right on desktop) -->
-            <div class="flex flex-wrap items-center gap-6 lg:order-2">
-              <a
-                href="#"
-                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light"
-                >Privacy Policy</a
-              >
-              <a
-                href="#"
-                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light"
-                >Terms of Use</a
-              >
-              <a
-                href="#"
-                class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light"
-                >Cookie Policy</a
-              >
+              <div class="flex items-center md:items-start md:flex-col mb-3 md:mb-0">
+                <div
+                  class="w-12 h-12 md:w-auto md:h-auto rounded-full md:rounded-none bg-[#EDF3F6] md:bg-transparent flex items-center justify-center shrink-0 mr-4 md:mr-0 md:mb-8 text-[#156E8A] md:text-[#4A99B2]">
+                  <svg class="w-6 h-6 stroke-[1.5px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                </div>
+                <h3 class="text-[17px] md:text-lg font-medium md:font-normal text-gray-900 md:text-white mb-0 md:mb-4">
+                  Filter Assistance
+                </h3>
+              </div>
+
+              <p class="text-[15px] md:text-xs text-gray-500 md:text-gray-400 font-light leading-relaxed pr-2 md:pr-0">
+                We track your filter life remotely and deliver genuine
+                replacements to your door before you ever need to think about
+                it.
+              </p>
             </div>
+          </div>
 
-            <!-- Copyright (Bottom on mobile, Left on desktop) -->
-            <p
-              class="text-[11px] md:text-[13px] text-gray-500 font-light lg:order-1"
-            >
-              &copy; 2026 Breathe In &mdash; The Right Air. All rights reserved.
-              Made in India.
+          <!-- ================= COLUMN 03 ================= -->
+          <div class="swiper-slide h-auto md:!w-auto md:!m-0">
+            <div
+              class="p-6 md:p-10 flex flex-col h-full bg-white md:bg-[#0B1115] shadow-sm md:shadow-none rounded-xl md:rounded-none hover:md:bg-[#0F171C] transition-colors duration-300">
+              <span class="hidden md:block text-[11px] text-[#4A99B2] font-medium tracking-widest mb-6">03</span>
+
+              <div class="flex items-center md:items-start md:flex-col mb-3 md:mb-0">
+                <div
+                  class="w-12 h-12 md:w-auto md:h-auto rounded-full md:rounded-none bg-[#EDF3F6] md:bg-transparent flex items-center justify-center shrink-0 mr-4 md:mr-0 md:mb-8 text-[#156E8A] md:text-[#4A99B2]">
+                  <svg class="w-6 h-6 stroke-[1.5px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                </div>
+                <h3 class="text-[17px] md:text-lg font-medium md:font-normal text-gray-900 md:text-white mb-0 md:mb-4">
+                  Priority Support
+                </h3>
+              </div>
+
+              <p class="text-[15px] md:text-xs text-gray-500 md:text-gray-400 font-light leading-relaxed pr-2 md:pr-0">
+                A dedicated air wellness advisor, available by call or
+                message. Your questions answered within the hour, always.
+              </p>
+            </div>
+          </div>
+
+          <!-- ================= COLUMN 04 ================= -->
+          <div class="swiper-slide h-auto md:!w-auto md:!m-0">
+            <div
+              class="p-6 md:p-10 flex flex-col h-full bg-white md:bg-[#0B1115] shadow-sm md:shadow-none rounded-xl md:rounded-none hover:md:bg-[#0F171C] transition-colors duration-300">
+              <span class="hidden md:block text-[11px] text-[#4A99B2] font-medium tracking-widest mb-6">04</span>
+
+              <div class="flex items-center md:items-start md:flex-col mb-3 md:mb-0">
+                <div
+                  class="w-12 h-12 md:w-auto md:h-auto rounded-full md:rounded-none bg-[#EDF3F6] md:bg-transparent flex items-center justify-center shrink-0 mr-4 md:mr-0 md:mb-8 text-[#156E8A] md:text-[#4A99B2]">
+                  <svg class="w-6 h-6 stroke-[1.5px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <h3 class="text-[17px] md:text-lg font-medium md:font-normal text-gray-900 md:text-white mb-0 md:mb-4">
+                  Genuine Parts
+                </h3>
+              </div>
+
+              <p class="text-[15px] md:text-xs text-gray-500 md:text-gray-400 font-light leading-relaxed pr-2 md:pr-0">
+                Only certified Breathe In HEPA H13 filters will ever enter
+                your unit. No substitutions. No compromise on what you
+                breathe.
+              </p>
+            </div>
+          </div>
+
+          <!-- ================= COLUMN 05 ================= -->
+          <div class="swiper-slide h-auto md:!w-auto md:!m-0">
+            <div
+              class="p-6 md:p-10 flex flex-col h-full bg-white md:bg-[#0B1115] shadow-sm md:shadow-none rounded-xl md:rounded-none hover:md:bg-[#0F171C] transition-colors duration-300">
+              <span class="hidden md:block text-[11px] text-[#4A99B2] font-medium tracking-widest mb-6">05</span>
+
+              <div class="flex items-center md:items-start md:flex-col mb-3 md:mb-0">
+                <div
+                  class="w-12 h-12 md:w-auto md:h-auto rounded-full md:rounded-none bg-[#EDF3F6] md:bg-transparent flex items-center justify-center shrink-0 mr-4 md:mr-0 md:mb-8 text-[#156E8A] md:text-[#4A99B2]">
+                  <svg class="w-6 h-6 stroke-[1.5px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01" />
+                  </svg>
+                </div>
+                <h3 class="text-[17px] md:text-lg font-medium md:font-normal text-gray-900 md:text-white mb-0 md:mb-4">
+                  Extended Warranty
+                </h3>
+              </div>
+
+              <p class="text-[15px] md:text-xs text-gray-500 md:text-gray-400 font-light leading-relaxed pr-2 md:pr-0">
+                Up to three years of complete coverage &mdash; parts, labour,
+                and remote diagnostics &mdash; at no additional charge on
+                select models.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Swiper Pagination (Mobile Only) -->
+        <div class="swiper-pagination md:hidden !bottom-0"></div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- DARK CTA SECTION: EXPLORE / COMPARE        -->
+    <!-- ========================================== -->
+    <section class="w-full bg-[#0B1115] py-10 md:py-20 px-6 flex flex-col items-center justify-center text-center">
+      <h2 class="text-4xl md:text-5xl lg:text-[56px] font-light text-white mb-6 md:mb-8 tracking-tight">
+        Your home could be <span class="text-[#156E8A]">next.</span>
+      </h2>
+
+      <p class="text-gray-400 font-light text-[12px] md:text-[15px] max-w-2xl mx-auto mb-12 leading-relaxed">
+        Find the model sized for your space, or talk to an air specialist
+        about a whole-home setup.
+      </p>
+
+      <div class="flex flex-row items-center justify-center gap-6 sm:gap-10 w-full max-w-md sm:max-w-none">
+        <!-- Primary Solid Button -->
+        <a href="#"
+          class="bg-white text-[#0B1115] px-4 py-4 md:py-4 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold flex items-center justify-center gap-3 hover:bg-gray-200 transition-colors rounded-sm w-full sm:w-auto">
+          <span>Explore the Collection</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+
+        <!-- Secondary Ghost/Underline Button -->
+        <a href="#"
+          class="text-white border-b border-gray-700 pb-1 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold hover:text-[#156E8A] hover:border-[#156E8A] transition-colors w-full sm:w-auto text-center mt-2 sm:mt-0">
+          See the App
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 17: FOOTER                         -->
+    <!-- ========================================== -->
+    <footer class="w-full bg-[#0B1115] pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24">
+      <div class="max-w-[1400px] mx-auto">
+        <!-- Top Section: Brand & Links -->
+        <div class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-10 lg:mb-20">
+          <!-- Left: Brand, Bio & Buttons -->
+          <div class="flex flex-col lg:w-5/12">
+            <!-- Logo -->
+            <img src="./assets/images/logo.png" alt="Breathe In"
+              class="h-9 md:h-10 w-auto mb-6 object-contain object-left self-start" />
+
+            <!-- Bio -->
+            <!-- Mobile text and Desktop text swap seamlessly using hidden/inline classes -->
+            <p class="text-gray-400 text-[13px] md:text-[14px] font-light leading-[1.8] mb-8 max-w-sm">
+              <span class="hidden md:inline">
+                Clean air isn’t a luxury, it’s a necessity<br />
+                Sophisticated Japanese air-purification<br />
+                technology, at honest prices. The right air, for<br />
+                every Indian home.
+              </span>
+              <span class="md:hidden">
+                Clean air isn’t a luxury, it’s a necessity Sophisticated
+                Japanese air-purification technology, at honest prices.
+              </span>
             </p>
+
+            <!-- Buttons (Side-by-Side) -->
+            <div class="flex flex-row items-center gap-3 md:gap-4 w-full max-w-[400px]">
+              <!-- Shop Now (Solid Teal on all screens) -->
+              <a href="#"
+                class="flex-1 bg-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] transition-colors whitespace-nowrap">
+                <span>SHOP NOW</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7">
+                  </path>
+                </svg>
+              </a>
+
+              <!-- Download Brochure (Solid Teal on Mobile, Ghost on Desktop) -->
+              <a href="#"
+                class="flex-1 bg-[#156E8A] md:bg-transparent border border-[#156E8A] text-white text-[11px] md:text-[13px] tracking-[0.15em] font-bold uppercase py-4 px-2 flex items-center justify-center gap-2 rounded-sm hover:bg-[#11576E] md:hover:bg-[#156E8A] hover:text-white transition-colors whitespace-nowrap">
+                <span>DOWNLOAD BROCHURE</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7">
+                  </path>
+                </svg>
+              </a>
+            </div>
           </div>
 
-          <!-- 
+          <!-- Divider (Mobile Only) -->
+          <div class="w-full h-[1px] bg-gray-800/80 lg:hidden mt-2 mb-2"></div>
+
+          <!-- Right: Links Grid -->
+          <!-- 3 Cols on Mobile, 4 Cols on Desktop -->
+          <div class="lg:w-7/12 grid grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
+            <!-- Column 1: Collection -->
+            <div class="flex flex-col">
+              <h4 class="text-[11px] md:text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                Collection
+              </h4>
+              <ul class="flex flex-col gap-4">
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                    Pro</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                    Pro 1</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                    Pro 2</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Air
+                    Pro Max</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 2: Explore -->
+            <div class="flex flex-col">
+              <h4 class="text-[11px] md:text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                Explore
+              </h4>
+              <ul class="flex flex-col gap-4">
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Technology</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">The
+                    App</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Compare
+                    Models</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Filter
+                    Care</a>
+                </li>
+                <!-- Visible only on Desktop -->
+                <li class="hidden lg:block">
+                  <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Corporate
+                    Solutions</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 3: Support (Mobile) / Blank Header (Desktop) -->
+            <div class="flex flex-col">
+              <!-- Header visible only on mobile -->
+              <h4 class="text-[11px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6 lg:hidden">
+                Support
+              </h4>
+
+              <!-- Spacer to align links under the empty header space on desktop -->
+              <div class="hidden lg:block h-[34px]"></div>
+
+              <ul class="flex flex-col gap-4">
+                <!-- Visible only on Desktop -->
+                <li class="hidden lg:block">
+                  <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Book a
+                    Demo</a>
+                </li>
+                <li class="hidden lg:block">
+                  <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">Case
+                    Studies</a>
+                </li>
+
+                <!-- Visible on Both -->
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">FAQ</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Support</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] md:text-[13px] text-gray-400 hover:text-white transition-colors font-light">Contact</a>
+                </li>
+
+                <!-- Visible only on Mobile -->
+                <li class="lg:hidden">
+                  <a href="#"
+                    class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">WhatsApp</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 4: Contact (Desktop Only) -->
+            <div class="hidden lg:flex flex-col">
+              <h4 class="text-[12px] uppercase tracking-[0.2em] text-gray-500 font-medium mb-6">
+                Contact
+              </h4>
+              <ul class="flex flex-col gap-4">
+                <li>
+                  <a href="tel:+919076636639"
+                    class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">+91 90766 36639</a>
+                </li>
+                <li>
+                  <a href="#" class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">WhatsApp
+                    Support</a>
+                </li>
+                <li>
+                  <a href="mailto:enquiries@breathein.co.in"
+                    class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">enquiries@breathein.co.in</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="text-[13px] text-gray-400 hover:text-white transition-colors font-light">www.breathein.co.in</a>
+                </li>
+                <li class="text-[13px] text-gray-400 font-light mt-1">
+                  Whitefield, Bengaluru
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Divider -->
+        <div class="w-full h-[1px] bg-gray-800/80 mb-6 lg:mb-8"></div>
+
+        <!-- Bottom Strip: Legal & Copyright -->
+        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+          <!-- Legal Links (Top on mobile, Right on desktop) -->
+          <div class="flex flex-wrap items-center gap-6 lg:order-2">
+            <a href="#"
+              class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Privacy
+              Policy</a>
+            <a href="#"
+              class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Terms of
+              Use</a>
+            <a href="#"
+              class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Cookie
+              Policy</a>
+          </div>
+
+          <!-- Copyright (Bottom on mobile, Left on desktop) -->
+          <p class="text-[11px] md:text-[13px] text-gray-500 font-light lg:order-1">
+            &copy; 2026 Breathe In &mdash; The Right Air. All rights reserved.
+            Made in India.
+          </p>
+        </div>
+
+        <!-- 
                 <button id="backToTop"
                     class="flex absolute right-0 bottom-12 lg:static items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-gray-500 hover:text-white transition-colors font-bold group order-3">
                     Back to Top
@@ -1461,15 +963,16 @@
                         </svg>
                     </span>
                 </button> -->
-        </div>
-      </footer>
-    </main>
+      </div>
+    </footer>
+  </main>
 
-    <!-- jQuery Core Library -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- jQuery Core Library -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Link to Custom JS -->
-    <script src="assets/js/main.js"></script>
-  </body>
+  <!-- Link to Custom JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+
 </html>

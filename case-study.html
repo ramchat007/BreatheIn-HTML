@@ -223,13 +223,13 @@
 
         <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
         <button id="themeToggle"
-          class="hidden lg:flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors">
+          class="flex items-center gap-1.5 border border-gray-200 rounded-full px-4 py-2 hover:border-black transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-3.5 h-3.5">
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
           </svg>
-          <span class="text-[12px] font-bold tracking-widest">DARK</span>
+          <span class="hidden lg:block text-[12px] font-bold tracking-widest">DARK</span>
         </button>
         <!-- Hamburger Menu Icon (Moved to right) -->
         <button id="openMobileNav" class="lg:hidden p-1" aria-label="Open Menu">
@@ -279,7 +279,8 @@
 
           <!-- Subtext -->
           <p class="max-w-xl text-gray-500 text-sm md:text-base leading-relaxed font-light">
-            From family homes to clinics and studios — see how Breathe In measurably changed the air in spaces like yours.
+            From family homes to clinics and studios — see how Breathe In measurably changed the air in spaces like
+            yours.
           </p>
         </div>
       </div>
@@ -289,130 +290,145 @@
     <!-- CASE STUDIES CAROUSEL SECTION              -->
     <!-- ========================================== -->
     <section class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-16 lg:py-24 font-sans overflow-hidden">
-        
-        <!-- Section Header (Optional, adjust as needed) -->
-        <div class="mb-10 lg:mb-12">
-            <h2 class="text-3xl md:text-4xl font-light text-gray-900 dark:text-white tracking-tight">
-                Case <span class="font-medium text-[#156E8A]">Studies</span>
-            </h2>
-        </div>
 
-        <!-- Swiper Container -->
-        <div class="swiper caseStudySwiper !overflow-visible lg:!overflow-hidden">
-            <div class="swiper-wrapper">
+      <!-- Section Header (Optional, adjust as needed) -->
+      <div class="mb-10 lg:mb-12">
+        <h2 class="text-3xl md:text-4xl font-light text-gray-900 dark:text-white tracking-tight">
+          Case <span class="font-medium text-[#156E8A]">Studies</span>
+        </h2>
+      </div>
 
-                <!-- Case Study Card 1 -->
-                <!-- The 'a' tag makes the entire card clickable. Update href to your routing path. -->
-                <a href="/case-study-details.html" class="swiper-slide flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors group cursor-pointer h-auto">
-                    
-                    <!-- Image Header -->
-                    <div class="relative w-full h-[220px] md:h-[240px] bg-gray-100 dark:bg-gray-900 overflow-hidden shrink-0">
-                        <img src="./assets/images/case-study-1.png" alt="South Mumbai Apartment" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <!-- Overlay Tag -->
-                        <div class="absolute top-0 left-0 bg-white/95 dark:bg-tickerDark/95 backdrop-blur-sm px-4 py-2 text-[9px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.2em]">
-                            Residential - Mumbai
-                        </div>
-                    </div>
+      <!-- Swiper Container -->
+      <div class="swiper caseStudySwiper !overflow-visible lg:!overflow-hidden">
+        <div class="swiper-wrapper">
 
-                    <!-- Card Content -->
-                    <div class="p-4 md:p-6 flex flex-col flex-1">
-                        <p class="text-[11px] text-gray-600 dark:text-gray-400 mb-2 font-normal">Residential &middot; Mumbai</p>
-                        <h3 class="text-[20px] lg:text-[22px] text-gray-900 dark:text-white font-normal mb-3 leading-snug tracking-tight">
-                            A South Mumbai family cuts indoor PM2.5 by 94%
-                        </h3>
-                        <p class="text-[13px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-8">
-                            How a sea-facing apartment overcame coastal humidity and traffic pollution with two Air Pro 2 units.
-                        </p>
+          <!-- Case Study Card 1 -->
+          <!-- The 'a' tag makes the entire card clickable. Update href to your routing path. -->
+          <a href="/case-study-details.html"
+            class="swiper-slide flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors group cursor-pointer h-auto">
 
-                        <!-- Stats & Link (Pushed to bottom) -->
-                        <div class="border-t border-gray-100 dark:border-gray-800 pt-6 mt-auto">
-                            <div class="flex gap-8 mb-6">
-                                <div class="flex flex-col">
-                                    <span class="text-xl text-gray-900 dark:text-white font-medium mb-0.5">94%</span>
-                                    <span class="text-[9px] uppercase tracking-[0.15em] text-gray-400 font-medium">PM2.5 Drop</span>
-                                </div>
-                                <div class="flex flex-col">
-                                    <span class="text-xl text-gray-900 dark:text-white font-medium mb-0.5">2</span>
-                                    <span class="text-[9px] uppercase tracking-[0.15em] text-gray-400 font-medium">AirPro 2 Units</span>
-                                </div>
-                            </div>
-                            <div class="text-[10px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] flex items-center gap-2 group-hover:gap-3 transition-all">
-                                Read the story <span class="text-sm leading-none mb-[2px]">&rarr;</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Case Study Card 2 -->
-                <a href="/case-study-detailst.html" class="swiper-slide flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors group cursor-pointer h-auto">
-                    <div class="relative w-full h-[220px] md:h-[240px] bg-gray-100 dark:bg-gray-900 overflow-hidden shrink-0">
-                        <img src="./assets/images/case-study-2.png" alt="South Mumbai Apartment" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute top-0 left-0 bg-white/95 dark:bg-tickerDark/95 backdrop-blur-sm px-4 py-2 text-[9px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.2em]">
-                            Residential - Mumbai
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6 flex flex-col flex-1">
-                        <p class="text-[11px] text-gray-600 dark:text-gray-400 mb-2 font-normal">Residential &middot; Mumbai</p>
-                        <h3 class="text-[20px] lg:text-[22px] text-gray-900 dark:text-white font-normal mb-3 leading-snug tracking-tight">
-                            A South Mumbai family cuts indoor PM2.5 by 94%
-                        </h3>
-                        <p class="text-[13px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-8">
-                            How a sea-facing apartment overcame coastal humidity and traffic pollution with two Air Pro 2 units.
-                        </p>
-                        <div class="border-t border-gray-100 dark:border-gray-800 pt-6 mt-auto">
-                            <div class="flex gap-8 mb-6">
-                                <div class="flex flex-col">
-                                    <span class="text-xl text-gray-900 dark:text-white font-medium mb-0.5">94%</span>
-                                    <span class="text-[9px] uppercase tracking-[0.15em] text-gray-400 font-medium">PM2.5 Drop</span>
-                                </div>
-                                <div class="flex flex-col">
-                                    <span class="text-xl text-gray-900 dark:text-white font-medium mb-0.5">2</span>
-                                    <span class="text-[9px] uppercase tracking-[0.15em] text-gray-400 font-medium">AirPro 2 Units</span>
-                                </div>
-                            </div>
-                            <div class="text-[10px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] flex items-center gap-2 group-hover:gap-3 transition-all">
-                                Read the story <span class="text-sm leading-none mb-[2px]">&rarr;</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Case Study Card 3 -->
-                <a href="/case-study-details.html" class="swiper-slide flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors group cursor-pointer h-auto">
-                    <div class="relative w-full h-[220px] md:h-[240px] bg-gray-100 dark:bg-gray-900 overflow-hidden shrink-0">
-                        <img src="./assets/images/case-study-3.png" alt="South Mumbai Apartment" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute top-0 left-0 bg-white/95 dark:bg-tickerDark/95 backdrop-blur-sm px-4 py-2 text-[9px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.2em]">
-                            Residential - Mumbai
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6 flex flex-col flex-1">
-                        <p class="text-[11px] text-gray-600 dark:text-gray-400 mb-2 font-normal">Residential &middot; Mumbai</p>
-                        <h3 class="text-[20px] lg:text-[22px] text-gray-900 dark:text-white font-normal mb-3 leading-snug tracking-tight">
-                            A South Mumbai family cuts indoor PM2.5 by 94%
-                        </h3>
-                        <p class="text-[13px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-8">
-                            How a sea-facing apartment overcame coastal humidity and traffic pollution with two Air Pro 2 units.
-                        </p>
-                        <div class="border-t border-gray-100 dark:border-gray-800 pt-6 mt-auto">
-                            <div class="flex gap-8 mb-6">
-                                <div class="flex flex-col">
-                                    <span class="text-xl text-gray-900 dark:text-white font-medium mb-0.5">94%</span>
-                                    <span class="text-[9px] uppercase tracking-[0.15em] text-gray-400 font-medium">PM2.5 Drop</span>
-                                </div>
-                                <div class="flex flex-col">
-                                    <span class="text-xl text-gray-900 dark:text-white font-medium mb-0.5">2</span>
-                                    <span class="text-[9px] uppercase tracking-[0.15em] text-gray-400 font-medium">AirPro 2 Units</span>
-                                </div>
-                            </div>
-                            <div class="text-[10px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] flex items-center gap-2 group-hover:gap-3 transition-all">
-                                Read the story <span class="text-sm leading-none mb-[2px]">&rarr;</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
+            <!-- Image Header -->
+            <div class="relative w-full h-[220px] md:h-[240px] bg-gray-100 dark:bg-gray-900 overflow-hidden shrink-0">
+              <img src="./assets/images/case-study-1.png" alt="South Mumbai Apartment"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <!-- Overlay Tag -->
+              <div
+                class="absolute top-0 left-0 bg-white/95 dark:bg-tickerDark/95 backdrop-blur-sm px-4 py-2 text-[9px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.2em]">
+                Residential - Mumbai
+              </div>
             </div>
+
+            <!-- Card Content -->
+            <div class="p-4 md:p-6 flex flex-col flex-1">
+              <p class="text-[11px] text-gray-600 dark:text-gray-400 mb-2 font-normal">Residential &middot; Mumbai</p>
+              <h3
+                class="text-[20px] lg:text-[22px] text-gray-900 dark:text-white font-normal mb-3 leading-snug tracking-tight">
+                A South Mumbai family cuts indoor PM2.5 by 94%
+              </h3>
+              <p class="text-[13px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-8">
+                How a sea-facing apartment overcame coastal humidity and traffic pollution with two Air Pro 2 units.
+              </p>
+
+              <!-- Stats & Link (Pushed to bottom) -->
+              <div class="border-t border-gray-100 dark:border-gray-800 pt-6 mt-auto">
+                <div class="flex gap-8 mb-6">
+                  <div class="flex flex-col">
+                    <span class="text-xl text-gray-900 dark:text-white font-medium mb-0.5">94%</span>
+                    <span class="text-[9px] uppercase tracking-[0.15em] text-gray-400 font-medium">PM2.5 Drop</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-xl text-gray-900 dark:text-white font-medium mb-0.5">2</span>
+                    <span class="text-[9px] uppercase tracking-[0.15em] text-gray-400 font-medium">AirPro 2 Units</span>
+                  </div>
+                </div>
+                <div
+                  class="text-[10px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] flex items-center gap-2 group-hover:gap-3 transition-all">
+                  Read the story <span class="text-sm leading-none mb-[2px]">&rarr;</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Case Study Card 2 -->
+          <a href="/case-study-detailst.html"
+            class="swiper-slide flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors group cursor-pointer h-auto">
+            <div class="relative w-full h-[220px] md:h-[240px] bg-gray-100 dark:bg-gray-900 overflow-hidden shrink-0">
+              <img src="./assets/images/case-study-2.png" alt="South Mumbai Apartment"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div
+                class="absolute top-0 left-0 bg-white/95 dark:bg-tickerDark/95 backdrop-blur-sm px-4 py-2 text-[9px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.2em]">
+                Residential - Mumbai
+              </div>
+            </div>
+            <div class="p-4 md:p-6 flex flex-col flex-1">
+              <p class="text-[11px] text-gray-600 dark:text-gray-400 mb-2 font-normal">Residential &middot; Mumbai</p>
+              <h3
+                class="text-[20px] lg:text-[22px] text-gray-900 dark:text-white font-normal mb-3 leading-snug tracking-tight">
+                A South Mumbai family cuts indoor PM2.5 by 94%
+              </h3>
+              <p class="text-[13px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-8">
+                How a sea-facing apartment overcame coastal humidity and traffic pollution with two Air Pro 2 units.
+              </p>
+              <div class="border-t border-gray-100 dark:border-gray-800 pt-6 mt-auto">
+                <div class="flex gap-8 mb-6">
+                  <div class="flex flex-col">
+                    <span class="text-xl text-gray-900 dark:text-white font-medium mb-0.5">94%</span>
+                    <span class="text-[9px] uppercase tracking-[0.15em] text-gray-400 font-medium">PM2.5 Drop</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-xl text-gray-900 dark:text-white font-medium mb-0.5">2</span>
+                    <span class="text-[9px] uppercase tracking-[0.15em] text-gray-400 font-medium">AirPro 2 Units</span>
+                  </div>
+                </div>
+                <div
+                  class="text-[10px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] flex items-center gap-2 group-hover:gap-3 transition-all">
+                  Read the story <span class="text-sm leading-none mb-[2px]">&rarr;</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Case Study Card 3 -->
+          <a href="/case-study-details.html"
+            class="swiper-slide flex flex-col bg-white dark:bg-tickerDark border border-gray-200 dark:border-gray-800 hover:border-[#156E8A] dark:hover:border-[#156E8A] transition-colors group cursor-pointer h-auto">
+            <div class="relative w-full h-[220px] md:h-[240px] bg-gray-100 dark:bg-gray-900 overflow-hidden shrink-0">
+              <img src="./assets/images/case-study-3.png" alt="South Mumbai Apartment"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div
+                class="absolute top-0 left-0 bg-white/95 dark:bg-tickerDark/95 backdrop-blur-sm px-4 py-2 text-[9px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.2em]">
+                Residential - Mumbai
+              </div>
+            </div>
+            <div class="p-4 md:p-6 flex flex-col flex-1">
+              <p class="text-[11px] text-gray-600 dark:text-gray-400 mb-2 font-normal">Residential &middot; Mumbai</p>
+              <h3
+                class="text-[20px] lg:text-[22px] text-gray-900 dark:text-white font-normal mb-3 leading-snug tracking-tight">
+                A South Mumbai family cuts indoor PM2.5 by 94%
+              </h3>
+              <p class="text-[13px] text-gray-500 dark:text-gray-400 font-light leading-relaxed mb-8">
+                How a sea-facing apartment overcame coastal humidity and traffic pollution with two Air Pro 2 units.
+              </p>
+              <div class="border-t border-gray-100 dark:border-gray-800 pt-6 mt-auto">
+                <div class="flex gap-8 mb-6">
+                  <div class="flex flex-col">
+                    <span class="text-xl text-gray-900 dark:text-white font-medium mb-0.5">94%</span>
+                    <span class="text-[9px] uppercase tracking-[0.15em] text-gray-400 font-medium">PM2.5 Drop</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-xl text-gray-900 dark:text-white font-medium mb-0.5">2</span>
+                    <span class="text-[9px] uppercase tracking-[0.15em] text-gray-400 font-medium">AirPro 2 Units</span>
+                  </div>
+                </div>
+                <div
+                  class="text-[10px] text-[#156E8A] dark:text-brandTeal font-bold uppercase tracking-[0.15em] flex items-center gap-2 group-hover:gap-3 transition-all">
+                  Read the story <span class="text-sm leading-none mb-[2px]">&rarr;</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
         </div>
+      </div>
     </section>
 
     <!-- ========================================== -->
@@ -425,7 +441,7 @@
 
       <p class="text-gray-400 font-light text-[12px] md:text-[15px] max-w-2xl mx-auto mb-12 leading-relaxed">
         From a single clinic room to an entire campus — Breathe In scales with<br class="hidden md:block" />
-you.
+        you.
       </p>
 
       <div class="flex flex-row items-center justify-center gap-6 sm:gap-10 w-full max-w-md sm:max-w-none">
