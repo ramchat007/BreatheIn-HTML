@@ -33,7 +33,7 @@
   <!-- ========================================== -->
   <!-- FULL-SCREEN MOBILE NAVIGATION OVERLAY      -->
   <!-- ========================================== -->
-  <div id="mobileNavOverlay"
+  <div id="mobileNavOverlay" role="dialog" aria-modal="true" aria-label="Main Menu"
     class="fixed inset-0 z-[60] bg-white flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out hidden">
     <button id="closeMobileNav" class="absolute top-6 right-8 p-2 rounded-full hover:bg-gray-100 transition-colors"
       aria-label="Close Menu">
@@ -73,7 +73,7 @@
       <div
         class="bg-tickerDark md:bg-brandTeal px-4 md:px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative">
         <!-- <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> -->
-        <span class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse animate-pulse motion-reduce:animate-none"></span>
         INDIA AQI TODAY
       </div>
 
@@ -82,7 +82,7 @@
 
       <!-- Scrolling Content -->
       <div class="flex flex-1 overflow-hidden relative bg-tickerDark">
-        <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
+        <div class="flex whitespace-nowrap animate-marquee motion-reduce:animate-none items-center pl-6">
           <!-- Ticker Items List 1 -->
           <div class="flex items-center gap-6 pr-6">
             <div class="flex items-center gap-2">

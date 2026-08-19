@@ -72,7 +72,7 @@ body {
     transform: translateX(-50%);
   }
   /* It translates by -50% because the container holds two identical blocks. 
-     Once it shifts half its width, it snaps back to 0 perfectly seamlessly. */
+       Once it shifts half its width, it snaps back to 0 perfectly seamlessly. */
 }
 .animate-marquee {
   animation: marquee 25s linear infinite;
@@ -144,7 +144,8 @@ body {
 .custom-slider::-webkit-slider-runnable-track {
   width: 100%;
   height: 6px;
-  background: #E5E7EB; /* Tailwind gray-200 */
+  background: #E5E7EB;
+  /* Tailwind gray-200 */
   border-radius: 9999px;
 }
 
@@ -161,10 +162,12 @@ body {
   height: 24px;
   width: 24px;
   border-radius: 50%;
-  background: #156E8A; /* Tailwind brand teal */
+  background: #156E8A;
+  /* Tailwind brand teal */
   border: 3px solid #ffffff;
   box-shadow: 0 0 0 4px rgba(21, 110, 138, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: -9px; /* Centers thumb on the track */
+  margin-top: -9px;
+  /* Centers thumb on the track */
   -webkit-transition: transform 0.1s;
   transition: transform 0.1s;
 }
@@ -188,7 +191,8 @@ body {
 .reviews-pagination .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
-  background-color: #D1D5DB; /* Tailwind gray-300 */
+  background-color: #D1D5DB;
+  /* Tailwind gray-300 */
   opacity: 1;
   margin: 0 4px !important;
   transition: all 0.2s ease;
@@ -197,12 +201,13 @@ body {
 .reviews-pagination .swiper-pagination-bullet-active {
   width: 10px;
   height: 10px;
-  background-color: #156E8A; /* Brand Teal */
+  background-color: #156E8A;
+  /* Brand Teal */
 }
 
 /* ==========================================
-   GLOBAL DARK MODE OVERRIDES
-   ========================================== */
+     GLOBAL DARK MODE OVERRIDES
+     ========================================== */
 /* 1. Backgrounds */
 html.dark .border-gray-100.hover\:border-\[\#156E8A\]:hover,
 html.dark .border-gray-200.hover\:border-\[\#156E8A\]:hover {
@@ -212,7 +217,8 @@ html.dark .border-gray-200.hover\:border-\[\#156E8A\]:hover {
 
 html.dark body,
 html.dark .bg-white {
-  background-color: #0D1418 !important; /* Your tickerDark color */
+  background-color: #0D1418 !important;
+  /* Your tickerDark color */
 }
 
 html.dark .bg-\[\#FAFCFD\],
@@ -221,7 +227,8 @@ html.dark .bg-\[\#EEF2F5\],
 html.dark .bg-\[\#EEF2F5\],
 html.dark .bg-\[\#F7F9FA\],
 html.dark .bg-gray-50 {
-  background-color: #111a20 !important; /* Slightly lighter dark for cards */
+  background-color: #111a20 !important;
+  /* Slightly lighter dark for cards */
 }
 
 /* 2. Text Colors */
@@ -232,13 +239,15 @@ html.dark .text-gray-800 {
 
 html.dark .text-gray-500,
 html.dark .text-gray-400 {
-  color: #8E989E !important; /* Your textMuted color */
+  color: #8E989E !important;
+  /* Your textMuted color */
 }
 
 /* 3. Borders */
 html.dark .border-gray-100,
 html.dark .border-gray-200 {
-  border-color: #1f2937 !important; /* A dark gray border */
+  border-color: #1f2937 !important;
+  /* A dark gray border */
 }
 
 /* 4. Fix specific UI elements (like the light gray slider track) */
@@ -271,12 +280,14 @@ html.dark .bg-\[\#FAFCFD\],
 html.dark .bg-\[\#F4F9FA\],
 html.dark .bg-\[\#F0F5F7\],
 html.dark .bg-\[\#F9FAFB\] {
-  background-color: #111a20 !important; /* Use a slightly lighter dark color than the #0D1418 background */
+  background-color: #111a20 !important;
+  /* Use a slightly lighter dark color than the #0D1418 background */
 }
 
 /* Update the gradient colors */
 html.dark .from-white {
-  --tw-gradient-from: #0D1418 !important; /* Your tickerDark color */
+  --tw-gradient-from: #0D1418 !important;
+  /* Your tickerDark color */
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
 }
 
@@ -291,7 +302,8 @@ html.dark .bg-\[\#E7F5ED\] {
 }
 
 html.dark .text-\[\#2C7A53\] {
-  color: #4ADE80 !important; /* A bright, legible neon/mint green */
+  color: #4ADE80 !important;
+  /* A bright, legible neon/mint green */
 }
 
 /* Override opacity modifiers on borders */
@@ -299,4 +311,9 @@ html.dark .border-gray-200\/60,
 html.dark .border-gray-200\/80,
 html.dark .divide-gray-200\/60 > :not([hidden]) ~ :not([hidden]) {
   border-color: #1f2937 !important;
+}
+
+*:focus-visible {
+  outline: 2px solid #156E8A;
+  outline-offset: 2px;
 }/*# sourceMappingURL=style.css.map */

@@ -716,8 +716,9 @@ function initPageScripts() {
       console.log(btn);
       const targetFilter = btn.getAttribute("data-filter");
 
-      // 1. Reset all buttons to inactive styling
+      // 1. Reset all buttons to inactive styling and ARIA state
       filterBtns.forEach((b) => {
+        b.setAttribute("aria-pressed", "false"); // <-- Accessibility update
         b.classList.remove(
           "bg-[#156E8A]",
           "dark:bg-[#2094B6]",
@@ -733,7 +734,8 @@ function initPageScripts() {
         );
       });
 
-      // 2. Apply active styling to the clicked button
+      // 2. Apply active styling and ARIA state to the clicked button
+      btn.setAttribute("aria-pressed", "true"); // <-- Accessibility update
       btn.classList.remove(
         "bg-white",
         "dark:bg-[#111a20]",
@@ -748,7 +750,7 @@ function initPageScripts() {
         "border-[#156E8A]",
       );
 
-      // 3. Instantly Show/Hide the corresponding orders
+      // 3. Instantly Show/Hide the corresponding orders and update ARIA visibility
       orderItems.forEach((item) => {
         // Force opacity back to 1 just in case previous script got it stuck at 0
         item.style.opacity = "1";
@@ -758,8 +760,10 @@ function initPageScripts() {
           item.getAttribute("data-status") === targetFilter
         ) {
           item.style.display = ""; // Reverts to default CSS (flex/grid)
+          item.setAttribute("aria-hidden", "false"); // <-- Accessibility update
         } else {
           item.style.display = "none"; // Completely hides the element
+          item.setAttribute("aria-hidden", "true"); // <-- Accessibility update
         }
       });
     });

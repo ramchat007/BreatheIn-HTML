@@ -441,11 +441,11 @@
 
           <!-- Filter Tabs -->
           <div class="flex items-center gap-2 mb-6 lg:mb-8 overflow-x-auto [&::-webkit-scrollbar]:hidden">
-            <button type="button" data-filter="all"
+            <button type="button" data-filter="all" aria-pressed="true"
               class="order-filter-btn active bg-[#156E8A] dark:bg-[#2094B6] text-white border border-[#156E8A] px-4 md:px-5 py-2 md:py-2.5 text-[10px] md:text-[11px] font-bold uppercase tracking-wider shrink-0 transition-colors">
               <span class="md:hidden">All</span><span class="hidden md:inline">All Orders</span>
             </button>
-            <button type="button" data-filter="delivered"
+            <button type="button" data-filter="delivered" aria-pressed="false"
               class="order-filter-btn bg-white dark:bg-[#111a20] text-gray-400 border border-gray-200 dark:border-gray-700 hover:text-gray-900 dark:hover:text-white px-4 md:px-5 py-2 md:py-2.5 text-[10px] md:text-[11px] font-bold uppercase tracking-wider shrink-0 transition-colors">
               Delivered
             </button>
