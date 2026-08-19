@@ -232,7 +232,8 @@
         <!-- Primary CTA (Now visible on mobile per design) -->
         <a href="./find-my-purifier.html"
           class="border border-black text-[11px] md:text-[13px] font-bold tracking-widest px-3 py-2 md:px-6 md:py-2.5 uppercase hover:bg-black hover:text-white transition-all duration-200">
-          FIND MY PURIFIER
+          <span class="hidden sm:inline">FIND MY PURIFIER</span>
+          <span class="sm:hidden">Find</span>
         </a>
 
         <!-- Desktop Dark Mode Toggle (Hidden on Mobile) -->
@@ -262,15 +263,15 @@
     <!-- HERO SECTION                               -->
     <!-- ========================================== -->
     <section class="w-full relative bg-white border-b border-gray-100">
-      <div class="swiper heroSwiper w-full min-h-[100dvh] lg:min-h-[600px]">
+      <div class="swiper heroSwiper w-full md:min-h-[100dvh] lg:min-h-[600px]">
         <div class="swiper-wrapper w-full h-full">
           <div class="swiper-slide w-full h-full">
-            <div class="grid grid-cols-1 lg:grid-cols-2 w-full h-screen">
+            <div class="grid grid-cols-1 lg:grid-cols-2 w-full md:h-screen">
               <!-- ============================================== -->
               <!-- 1. VISUAL COLUMN (Top Mobile, Right Desktop)   -->
               <!-- ============================================== -->
               <div
-                class="relative w-full min-h-[118px] md:min-h-[350px] lg:h-full lg:min-h-full order-1 lg:order-2 bg-gray-100 flex items-center justify-center overflow-hidden">
+                class="relative w-full min-h-[200px] md:min-h-[350px] lg:h-full lg:min-h-full order-1 lg:order-2 bg-gray-100 flex items-center justify-center overflow-hidden">
 
                 <!-- Responsive Background Image -->
                 <picture class="absolute inset-0 w-full h-full z-0">
