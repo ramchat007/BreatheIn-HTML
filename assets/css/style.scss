@@ -357,6 +357,10 @@ html.dark .text-black {
   color: #FFFFFF !important;
 }
 
+html.dark .bottom-form-container .text-gray-900 {
+  color: #000000 !important;
+}
+
 html.dark p,
 html.dark span.text-gray-600,
 html.dark .text-gray-700,
@@ -391,9 +395,9 @@ html.dark .border-\[\#DCE4E7\],
 html.dark .border-\[\#E5E7EB\],
 html.dark .border-gray-200\/60,
 html.dark .border-gray-200\/80,
-html.dark .divide-gray-100 > :not([hidden]) ~ :not([hidden]),
-html.dark .divide-gray-200 > :not([hidden]) ~ :not([hidden]),
-html.dark .divide-gray-200\/60 > :not([hidden]) ~ :not([hidden]) {
+html.dark .divide-gray-100> :not([hidden])~ :not([hidden]),
+html.dark .divide-gray-200> :not([hidden])~ :not([hidden]),
+html.dark .divide-gray-200\/60> :not([hidden])~ :not([hidden]) {
   border-color: #1F2937 !important;
 }
 
@@ -421,13 +425,14 @@ html.dark .bg-black:hover {
   color: #FFFFFF !important;
 }
 
-@media (min-width: 1024px) and (max-width: 1920px)  {
-  html.dark .bg-\[\#111111\].lg\:text-brandTeal{
+@media (min-width: 1024px) and (max-width: 1920px) {
+  html.dark .bg-\[\#111111\].lg\:text-brandTeal {
     background: none !important;
     border: none !important;
     color: #22D3EE !important;
   }
-  html.dark .bg-\[\#111111\]:hover.lg\:text-brandTeal{
+
+  html.dark .bg-\[\#111111\]:hover.lg\:text-brandTeal {
     color: #156E8A !important;
   }
 }
@@ -545,4 +550,41 @@ html.dark [class*="shadow-gray"] {
 *:focus-visible {
   outline: 2px solid #156E8A;
   outline-offset: 2px;
+}
+
+/* 10. App Section Mobile Dark Mode Consistency */
+@media (max-width: 1023px) {
+
+  #app-section,
+  .app-section {
+    background-color: #0A1014 !important;
+  }
+
+  #app-section h2,
+  .app-section h2 {
+    color: #FFFFFF !important;
+  }
+
+  #app-section p,
+  .app-section p {
+    color: #8E989E !important;
+  }
+
+  #app-section h4,
+  .app-section h4 {
+    color: #FFFFFF !important;
+  }
+
+  #app-section .app-icon-badge,
+  .app-section .app-icon-badge {
+    background-color: #0F222B !important;
+    color: #22D3EE !important;
+  }
+
+  #app-section .app-store-btn,
+  .app-section .app-store-btn {
+    background-color: #0A1014 !important;
+    border: 1px solid #1F2937 !important;
+    color: #FFFFFF !important;
+  }
 }
