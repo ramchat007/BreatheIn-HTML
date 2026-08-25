@@ -31,10 +31,10 @@ if (
 // TOGGLE BUTTON LOGIC (Best placed at the bottom of the <body>)
 // ==============================================================
 document.addEventListener("DOMContentLoaded", () => {
-  const themeToggleBtn = document.getElementById("themeToggle");
+  const themeToggleBtns = document.querySelectorAll("#themeToggle, #mobileThemeToggle");
 
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener("click", function () {
+  themeToggleBtns.forEach((btn) => {
+    btn.addEventListener("click", function () {
       // 1. Toggle the class visually on the page
       document.documentElement.classList.toggle("dark");
 
@@ -45,5 +45,5 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("theme", "light");
       }
     });
-  }
+  });
 });
