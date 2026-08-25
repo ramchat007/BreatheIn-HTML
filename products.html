@@ -29,7 +29,7 @@
       </svg>
     </button>
     <nav class="flex flex-col items-center gap-8 text-center">
-      <a href="./collection.html"
+      <a href="./products.html"
         class="text-3xl text-[#156E8A] font-light tracking-wide hover:text-brandTeal transition-colors">COLLECTION</a>
       <a href="./technology.html"
         class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors">TECHNOLOGY</a>
@@ -186,7 +186,7 @@
 
       <!-- Desktop Nav Links -->
       <nav class="hidden lg:flex items-center gap-8">
-        <a href="./collection.html"
+        <a href="./products.html"
           class="text-[13px] text-[#156E8A] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">COLLECTION</a>
         <a href="./technology.html"
           class="text-[13px] font-bold tracking-widest text-gray-600 hover:text-brandTeal transition-colors">TECHNOLOGY</a>
@@ -242,11 +242,11 @@
     </header>
   </div>
 
-  <main>
+  <main class="bg-[#F7F9FA]">
     <!-- ========================================== -->
     <!-- COLLECTION HERO SECTION                    -->
     <!-- ========================================== -->
-    <section class="relative flex items-center overflow-hidden bg-[#FAFCFD]">
+    <section class="relative flex items-center overflow-hidden">
       <!-- Soft Radial Glow (Top Right) -->
       <div class="hidden md:block absolute inset-0 pointer-events-none" style="
             background: radial-gradient(
@@ -260,430 +260,501 @@
         <div class="max-w-2xl">
           <!-- Breadcrumb -->
           <nav class="uppercase tracking-[.25em] text-[12px] text-gray-400 mb-5">
-            HOME <span class="text-gray-300 px-2">/</span> COLLECTION
+            HOME <span class="text-gray-300 px-2">/</span> Products
           </nav>
-
-          <!-- Eyebrow -->
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-8 h-px bg-[#156E8A]"></div>
-            <p class="uppercase tracking-[.25em] text-[11px] text-[#156E8A] font-bold">
-              Four Models &middot; One Standard
-            </p>
-          </div>
 
           <!-- Headline -->
           <h1 class="text-5xl md:text-6xl lg:text-[80px] font-light leading-tight tracking-tight text-gray-900 mb-5">
-            The <span class="font-medium text-[#156E8A]">Collection.</span>
+            Our <span class="font-medium text-[#156E8A]">Products.</span>
           </h1>
 
           <!-- Subtext -->
           <p class="max-w-xl text-gray-500 text-sm md:text-base leading-relaxed font-light">
-            Not a catalogue &mdash; a curated set of four. Each Breathe In
-            model is sized for a specific kind of space, so the only choice
-            you make is where it lives.
+            Four air purifiers, each designed for a different space - from bedrooms and living rooms to large homes and
+            workplaces
           </p>
         </div>
       </div>
     </section>
 
     <!-- ========================================== -->
+    <!-- ========================================== -->
     <!-- COLLECTION GRID (ZIG-ZAG)                  -->
     <!-- ========================================== -->
-    <section class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-20 pb-10">
+    <section class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-20 pb-20">
       <!-- MODEL 1: AIR PRO -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 border-b border-gray-200/60 lg:pb-0 mb-6 lg:mb-0">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center py-5 lg:py-16 border-t border-b border-[#DCE4E7]">
         <!-- Image (Top on mobile, Left on desktop) -->
-        <div class="h-[250px] md:h-[400px] lg:h-auto lg:min-h-[500px] xl:min-h-[600px] relative">
-          <picture>
+        <div
+          class="w-full h-[320px] sm:h-[420px] lg:h-[540px] xl:h-[600px] relative overflow-hidden flex items-center justify-center">
+          <picture class="w-full h-full">
             <!-- Desktop Image (Triggers at 1024px and up) -->
-            <source media="(min-width: 1024px)" srcset="./assets/images/air-pro-room.jpg" />
+            <source media="(min-width: 1024px)" srcset="./assets/images/air-pro-room.png" />
 
             <!-- Mobile Image (Default fallback for smaller screens) -->
-            <img src="./assets/images/air-pro-room-mobile.jpg" alt="Air Pro"
-              class="absolute inset-0 w-full h-full object-cover" />
+            <img src="./assets/images/air-pro-room-mobile.png" alt="Air Pro" class="w-full h-full object-cover" />
           </picture>
         </div>
 
         <!-- Text Content -->
-        <div class="bg-white py-5 px-4 lg:p-10 xl:p-20 flex flex-col justify-center">
+        <div class="flex flex-col justify-center">
           <!-- Eyebrow -->
-          <p class="uppercase tracking-[.25em] text-[#156E8A] font-bold text-[8px] md:text-[13px] mb-4 lg:mb-6">
-            Air Pro &middot; Model P280W
+          <p class="uppercase tracking-[.22em] text-[#156E8A] dark:text-[#22D3EE] font-bold text-[11px] mb-3">
+            AIR PRO &middot; MODEL P280W
           </p>
 
-          <h2 class="text-4xl md:text-5xl font-light text-gray-900 mb-4 lg:mb-6">
+          <h2
+            class="text-4xl lg:text-[48px] font-light text-gray-900 dark:text-white mb-4 tracking-tight leading-tight">
             Air Pro
           </h2>
 
-          <p class="text-gray-600 lg:text-gray-500 font-light text-[13px] leading-relaxed mb-5 lg:mb-12 max-w-md">
-            Compact protection for bedrooms and personal spaces. Double-sided
-            suction cleans the air faster, with 3-stage filtration and double
-            deodorisation. Designed for pet parents as well.
+          <p
+            class="text-gray-500 dark:text-gray-400 font-light text-[13.5px] sm:text-[14px] leading-relaxed mb-6 max-w-xl">
+            Compact air purifications for bedrooms and personal spaces. Dual-Sided suction with two filters helps
+            circulate and clean the air efficiently, while 3-stage filtration reduces fine particle, dust and everyday
+            odours
           </p>
 
-          <!-- MOBILE ONLY: The Technology Link (Shows above specs on mobile, hidden on desktop) -->
-          <div class="lg:hidden mb-5 border-b border-gray-200 pb-4 inline-block self-start pr-0">
-            <a href="#"
-              class="inline-flex items-center gap-3 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] transition-colors">
-              The Technology
-              <span class="text-base leading-none mb-[2px]">&rarr;</span>
-            </a>
+          <!-- Feature Bullets with Circular Arrow Icons -->
+          <div class="flex flex-col gap-3 mb-8">
+            <div class="flex items-center gap-3">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10.0001" cy="10" r="8.33333" stroke="#156E8A" />
+                <path d="M10.8333 7.5L13.3333 10L10.8333 12.5M13.3333 10L6.66659 10" stroke="#156E8A"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="text-gray-600 dark:text-gray-300 text-[13px] sm:text-[13.5px] font-normal">
+                3-stage filtration (Pre-Filter, HEPA13, Activated Carbon)
+              </span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10.0001" cy="10" r="8.33333" stroke="#156E8A" />
+                <path d="M10.8333 7.5L13.3333 10L10.8333 12.5M13.3333 10L6.66659 10" stroke="#156E8A"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="text-gray-600 dark:text-gray-300 text-[13px] sm:text-[13.5px] font-normal">
+                Smart Life App Control + AQI display
+              </span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10.0001" cy="10" r="8.33333" stroke="#156E8A" />
+                <path d="M10.8333 7.5L13.3333 10L10.8333 12.5M13.3333 10L6.66659 10" stroke="#156E8A"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="text-gray-600 dark:text-gray-300 text-[13px] sm:text-[13.5px] font-normal">
+                Quiet purification for bedrooms &amp; study spaces
+              </span>
+            </div>
           </div>
 
-          <!-- Specs Container (3-Column Grid on both Mobile and Desktop) -->
-          <div class="grid grid-cols-3 gap-2 md:gap-4 lg:gap-6 mb-6 lg:mb-12 w-full">
+          <!-- Specs Container (3-Column Clean Row on White Background) -->
+          <div
+            class="flex items-center justify-center md:justify-evenly gap-8 sm:gap-14 lg:gap-16 mb-8 p-4 md:p-8 bg-white dark:bg-[#0D1418]">
             <!-- Coverage -->
-            <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-              <span
-                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">Coverage</span>
+            <div>
               <h3
-                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
+                class="text-[12px] sm:text-[20px] font-normal text-gray-900 dark:text-white tracking-tight leading-none mb-2">
                 35 - 40 m²
               </h3>
+              <span class="text-[9px] uppercase tracking-[0.2em] text-gray-400 font-bold block">
+                COVERAGE
+              </span>
             </div>
             <!-- CADR -->
-            <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-              <span
-                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">CADR</span>
+            <div>
               <h3
-                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
-                325 m³/h
+                class="text-[12px] sm:text-[20px] font-normal text-gray-900 dark:text-white tracking-tight leading-none mb-2">
+                325 - 335m³/h
               </h3>
+              <span class="text-[9px] uppercase tracking-[0.2em] text-gray-400 font-bold block">
+                CADR
+              </span>
             </div>
             <!-- Filtration -->
-            <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-              <span
-                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">Filtration</span>
+            <div>
               <h3
-                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
+                class="text-[12px] sm:text-[20px] font-normal text-gray-900 dark:text-white tracking-tight leading-none mb-2">
                 3-Stage
               </h3>
+              <span class="text-[9px] uppercase tracking-[0.2em] text-gray-400 font-bold block">
+                FILTRATION
+              </span>
             </div>
           </div>
 
-          <!-- Bottom Action Row (Side-by-side on mobile, stacked text on desktop) -->
-          <div class="flex flex-row lg:flex-col justify-between items-end lg:items-start lg:gap-10 mt-auto">
-            <!-- Price -->
-            <div class="flex flex-col lg:flex-row lg:items-baseline gap-1 lg:gap-3">
-              <span
-                class="text-[8px] lg:text-[12px] uppercase lg:normal-case tracking-[0.15em] lg:tracking-normal text-gray-400 lg:text-gray-500 font-bold lg:font-light">Starting
-                from</span>
-              <span class="text-xl lg:text-3xl font-light text-gray-900 leading-none tracking-tight">₹24,990</span>
-            </div>
+          <!-- Price -->
+          <div
+            class="text-3xl sm:text-[36px] font-light text-gray-900 dark:text-white tracking-tight leading-none mb-8 sm:mb-10">
+            ₹9,999
+          </div>
 
-            <!-- Buttons -->
-            <div class="flex items-center gap-6 md:gap-8">
-              <a href="#"
-                class="bg-[#111111] text-white px-3 py-2 lg:px-8 uppercase text-[11px] tracking-[0.2em] font-bold flex items-center gap-3 hover:bg-[#156E8A] transition-colors rounded-xl shrink-0">
-                <span class="hidden lg:inline">Add to Compare</span>
-                <span class="lg:hidden">Add to Cart</span>
-                <span class="text-base leading-none mb-[2px]">&rarr;</span>
-              </a>
-              <!-- DESKTOP ONLY: The Technology Link -->
-              <a href="#"
-                class="hidden lg:inline-flex border-b border-gray-300 pb-1 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] hover:border-[#156E8A] transition-colors">
-                The Technology
-              </a>
-            </div>
+          <!-- Buttons -->
+          <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-8">
+            <a href="./product-details.html?model=air-pro"
+              class="bg-[#111827] dark:bg-white text-white dark:text-black px-7 sm:px-8 py-3.5 sm:py-4 uppercase text-[11px] sm:text-[12px] tracking-[0.2em] font-bold flex items-center justify-between gap-6 hover:bg-[#156E8A] dark:hover:bg-[#156E8A] dark:hover:text-white transition-colors rounded-lg shadow-sm">
+              <span>VIEW AIR PRO</span>
+              <span class="text-base leading-none">&rarr;</span>
+            </a>
+            <a href="./compare.html"
+              class="h-[51px] py-4 border-b border-[#DCE4E7] text-gray-900 text-[12px] tracking-[0.15em] font-semibold uppercase hover:text-[#156E8A] hover:border-[#156E8A] transition-colors flex items-center justify-center whitespace-nowrap sm:w-auto">
+              <span>ADD TO COMPARE</span>
+            </a>
           </div>
         </div>
       </div>
 
       <!-- MODEL 2: AIR PRO 1 -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 border-b lg:border-none border-gray-200/60 lg:pb-0 mb-6 lg:mb-0">
-        <!-- Text Content (Bottom on mobile, Left on desktop) -->
-        <div class="bg-white py-5 px-4 lg:p-10 xl:p-20 flex flex-col justify-center order-2 lg:order-1">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center py-5 lg:py-16 border-t border-b border-[#DCE4E7]">
+
+        <!-- Text Content -->
+        <div class="flex flex-col justify-center order-2 lg:order-1">
           <!-- Eyebrow -->
-          <p class="uppercase tracking-[.25em] text-[#156E8A] font-bold text-[8px] md:text-[13px] mb-4 lg:mb-6">
-            Air Pro 1 &middot; Model C06 &middot; Most Chosen
+          <p class="uppercase tracking-[.22em] text-[#156E8A] dark:text-[#22D3EE] font-bold text-[11px] mb-3">
+            Air Pro 1 &middot; Model C06 &middot; popular Choice
           </p>
 
-          <h2 class="text-4xl md:text-5xl font-light text-gray-900 mb-4 lg:mb-6">
+          <h2
+            class="text-4xl lg:text-[48px] font-light text-gray-900 dark:text-white mb-4 tracking-tight leading-tight">
             Air Pro 1
           </h2>
 
-          <p class="text-gray-600 lg:text-gray-500 font-light text-[13px] leading-relaxed mb-5 lg:mb-12 max-w-md">
-            AI-intelligent 4-stage purification for medium to large rooms. LED
-            touchscreen, mobile app control, and a reactive oxygen module for
-            deeper cleaning.
+          <p
+            class="text-gray-500 dark:text-gray-400 font-light text-[13.5px] sm:text-[14px] leading-relaxed mb-6 max-w-xl">
+            Smart 4-stage purification for medium to large rooms, with HEPA H13, activated carbon and Bio-Enzyme
+            filtration, real-time air-quality display and app control.
           </p>
 
-          <!-- MOBILE ONLY: The Technology Link -->
-          <div class="lg:hidden mb-5 border-b border-gray-200 pb-4 inline-block self-start pr-0">
-            <a href="#"
-              class="inline-flex items-center gap-3 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] transition-colors">
-              The Technology
-              <span class="text-base leading-none mb-[2px]">&rarr;</span>
-            </a>
+          <!-- Feature Bullets with Circular Arrow Icons -->
+          <div class="flex flex-col gap-3 mb-8">
+            <div class="flex items-center gap-3">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10.0001" cy="10" r="8.33333" stroke="#156E8A" />
+                <path d="M10.8333 7.5L13.3333 10L10.8333 12.5M13.3333 10L6.66659 10" stroke="#156E8A"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="text-gray-600 dark:text-gray-300 text-[13px] sm:text-[13.5px] font-normal">
+                4-stage filtration (Pre-Filter, HEPA13, Bio-Enzyme, Plasma/Negative Ion)
+              </span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10.0001" cy="10" r="8.33333" stroke="#156E8A" />
+                <path d="M10.8333 7.5L13.3333 10L10.8333 12.5M13.3333 10L6.66659 10" stroke="#156E8A"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="text-gray-600 dark:text-gray-300 text-[13px] sm:text-[13.5px] font-normal">
+                AI Intelligent Purification
+              </span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10.0001" cy="10" r="8.33333" stroke="#156E8A" />
+                <path d="M10.8333 7.5L13.3333 10L10.8333 12.5M13.3333 10L6.66659 10" stroke="#156E8A"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="text-gray-600 dark:text-gray-300 text-[13px] sm:text-[13.5px] font-normal">
+                LED Touchscreen + Smart Life App Control
+              </span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10.0001" cy="10" r="8.33333" stroke="#156E8A" />
+                <path d="M10.8333 7.5L13.3333 10L10.8333 12.5M13.3333 10L6.66659 10" stroke="#156E8A"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="text-gray-600 dark:text-gray-300 text-[13px] sm:text-[13.5px] font-normal">
+                Reactive Oxygen Module
+              </span>
+            </div>
           </div>
 
-          <!-- Specs Container (3-Column Grid on both Mobile and Desktop) -->
-          <div class="grid grid-cols-3 gap-2 md:gap-4 lg:gap-6 mb-6 lg:mb-12 w-full">
+          <!-- Specs Container (3-Column Clean Row on White Background) -->
+          <div
+            class="flex items-center justify-center md:justify-evenly gap-8 sm:gap-14 lg:gap-16 mb-8 p-4 md:p-8 bg-white dark:bg-[#0D1418]">
             <!-- Coverage -->
-            <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-              <span
-                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">Coverage</span>
+            <div>
               <h3
-                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
+                class="text-[12px] sm:text-[20px] font-normal text-gray-900 dark:text-white tracking-tight leading-none mb-2">
                 50 - 55 m²
               </h3>
+              <span class="text-[9px] uppercase tracking-[0.2em] text-gray-400 font-bold block">
+                COVERAGE
+              </span>
             </div>
             <!-- CADR -->
-            <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-              <span
-                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">CADR</span>
+            <div>
               <h3
-                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
+                class="text-[12px] sm:text-[20px] font-normal text-gray-900 dark:text-white tracking-tight leading-none mb-2">
                 400 m³/h
               </h3>
+              <span class="text-[9px] uppercase tracking-[0.2em] text-gray-400 font-bold block">
+                CADR
+              </span>
             </div>
             <!-- Filtration -->
-            <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-              <span
-                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">Filtration</span>
+            <div>
               <h3
-                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
+                class="text-[12px] sm:text-[20px] font-normal text-gray-900 dark:text-white tracking-tight leading-none mb-2">
                 4-Stage
               </h3>
+              <span class="text-[9px] uppercase tracking-[0.2em] text-gray-400 font-bold block">
+                FILTRATION
+              </span>
             </div>
           </div>
 
-          <!-- Bottom Action Row -->
-          <div class="flex flex-row lg:flex-col justify-between items-end lg:items-start lg:gap-10 mt-auto">
-            <!-- Price -->
-            <div class="flex flex-col lg:flex-row lg:items-baseline gap-1 lg:gap-3">
-              <span
-                class="text-[8px] lg:text-[12px] uppercase lg:normal-case tracking-[0.15em] lg:tracking-normal text-gray-400 lg:text-gray-500 font-bold lg:font-light">Starting
-                from</span>
-              <span class="text-xl lg:text-3xl font-light text-gray-900 leading-none tracking-tight">₹44,990</span>
-            </div>
+          <!-- Price -->
+          <div
+            class="text-3xl sm:text-[36px] font-light text-gray-900 dark:text-white tracking-tight leading-none mb-8 sm:mb-10">
+            ₹19,999
+          </div>
 
-            <!-- Buttons -->
-            <div class="flex items-center gap-6 md:gap-8">
-              <a href="#"
-                class="bg-[#111111] text-white px-3 py-2 lg:px-8 uppercase text-[11px] tracking-[0.2em] font-bold flex items-center gap-3 hover:bg-[#156E8A] transition-colors rounded-xl shrink-0">
-                <span class="hidden lg:inline">Add to Compare</span>
-                <span class="lg:hidden">Add to Cart</span>
-                <span class="text-base leading-none mb-[2px]">&rarr;</span>
-              </a>
-              <!-- DESKTOP ONLY: The Technology Link -->
-              <a href="#"
-                class="hidden lg:inline-flex border-b border-gray-300 pb-1 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] hover:border-[#156E8A] transition-colors">
-                The Technology
-              </a>
-            </div>
+          <!-- Buttons -->
+          <div class="flex items-center gap-6 sm:gap-8">
+            <a href="./product-details.html?model=air-pro"
+              class="bg-[#111827] dark:bg-white text-white dark:text-black px-7 sm:px-8 py-3.5 sm:py-4 uppercase text-[11px] sm:text-[12px] tracking-[0.2em] font-bold flex items-center justify-between gap-6 hover:bg-[#156E8A] dark:hover:bg-[#156E8A] dark:hover:text-white transition-colors rounded-lg shadow-sm">
+              <span>VIEW AIR PRO 1</span>
+              <span class="text-base leading-none">&rarr;</span>
+            </a>
+            <a href="./compare.html"
+              class="h-[51px] py-4 border-b border-[#DCE4E7] text-gray-900 text-[12px] tracking-[0.15em] font-semibold uppercase hover:text-[#156E8A] hover:border-[#156E8A] transition-colors flex items-center justify-center whitespace-nowrap w-full sm:w-auto">
+              <span>ADD TO COMPARE</span>
+            </a>
           </div>
         </div>
+        <!-- Image (Top on mobile, Left on desktop) -->
+        <div
+          class="w-full h-[320px] sm:h-[420px] lg:h-[540px] xl:h-[600px] relative overflow-hidden flex items-center justify-center order-2 lg:order-2">
+          <picture class="w-full h-full">
+            <!-- Desktop Image (Triggers at 1024px and up) -->
+            <source media="(min-width: 1024px)" srcset="./assets/images/air-pro1-room.png" />
 
-        <!-- Image (Top on mobile, Right on desktop) -->
-        <div class="h-[250px] md:h-[400px] lg:h-auto lg:min-h-[500px] xl:min-h-[600px] relative order-1 lg:order-2">
-          <picture>
-            <source media="(min-width: 1024px)" srcset="./assets/images/air-pro1-room.jpg" />
-            <img src="./assets/images/air-pro1-room-mobile.jpg" alt="Air Pro 1"
-              class="absolute inset-0 w-full h-full object-cover" />
+            <!-- Mobile Image (Default fallback for smaller screens) -->
+            <img src="./assets/images/air-pro1-room-mobile.png" alt="Air Pro 1" class="w-full h-full object-cover" />
           </picture>
         </div>
       </div>
 
-      <!-- ========================================== -->
-      <!-- MODEL 3: AIR PRO 2                         -->
-      <!-- ========================================== -->
-      <!-- Desktop: Image Left, Text Right -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 border-b border-gray-200/60 lg:pb-0 mb-6 lg:mb-0">
-        <!-- Image -->
-        <div class="h-[250px] md:h-[400px] lg:h-auto lg:min-h-[500px] xl:min-h-[600px] relative">
-          <!-- Bestseller Badge -->
-          <div
-            class="absolute top-6 left-0 bg-[#156E8A] text-white text-[11px] tracking-[0.2em] font-bold uppercase px-4 py-2 z-10 shadow-sm">
-            Bestseller
-          </div>
-          <picture>
-            <source media="(min-width: 1024px)" srcset="./assets/images/air-pro2-room.jpg" />
-            <img src="./assets/images/air-pro2-room-mobile.jpg" alt="Air Pro 2"
-              class="absolute inset-0 w-full h-full object-cover" />
+      <!-- MODEL 3: AIR PRO 2 -->
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center py-5 lg:py-16 border-t border-b border-[#DCE4E7]">
+        <!-- Image (Top on mobile, Left on desktop) -->
+        <div
+          class="w-full h-[320px] sm:h-[420px] lg:h-[540px] xl:h-[600px] relative overflow-hidden flex items-center justify-center">
+          <picture class="w-full h-full">
+            <source media="(min-width: 1024px)" srcset="./assets/images/air-pro-max-room.png" />
+            <img src="./assets/images/air-pro-max-room-mobile.png" alt="Air Pro 2" class="w-full h-full object-cover" />
           </picture>
         </div>
 
         <!-- Text Content -->
-        <div class="bg-white py-5 px-4 lg:p-10 xl:p-20 flex flex-col justify-center">
+        <div class="flex flex-col justify-center">
           <!-- Eyebrow -->
-          <p class="uppercase tracking-[.25em] text-[#156E8A] font-bold text-[8px] md:text-[13px] mb-4 lg:mb-6">
-            Air Pro 1 &middot; Model C06 &middot; Most Chosen
+          <p class="uppercase tracking-[.22em] text-[#156E8A] dark:text-[#22D3EE] font-bold text-[11px] mb-3">
+            AIR PRO 2 &middot; Model 500G &middot; Purification + Humidification
           </p>
 
-          <h2 class="text-4xl md:text-5xl font-light text-gray-900 mb-4 lg:mb-6">
+          <h2
+            class="text-4xl lg:text-[48px] font-light text-gray-900 dark:text-white mb-4 tracking-tight leading-tight">
             Air Pro 2
           </h2>
 
-          <p class="text-gray-600 lg:text-gray-500 font-light text-[13px] leading-relaxed mb-5 lg:mb-12 max-w-md">
-            AI-intelligent 4-stage purification for medium to large rooms. LED
-            touchscreen, mobile app control and a reactive oxygen module for
-            deeper cleaning.
+          <p
+            class="text-gray-500 dark:text-gray-400 font-light text-[13.5px] sm:text-[14px] leading-relaxed mb-6 max-w-xl">
+            Advanced 7-in-1 air purification with built-in humidification for large living spaces. Features six
+            environmental sensors, aromatherapy support and a separate 2.3 L water tank
           </p>
 
-          <!-- MOBILE ONLY: The Technology Link -->
-          <div class="lg:hidden mb-5 border-b border-gray-200 pb-4 inline-block self-start pr-0">
-            <a href="#"
-              class="inline-flex items-center gap-3 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] transition-colors">
-              The Technology
-              <span class="text-base leading-none mb-[2px]">&rarr;</span>
-            </a>
+          <!-- Feature Bullets with Circular Arrow Icons -->
+          <div class="flex flex-col gap-3 mb-8">
+            <div class="flex items-center gap-3">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10.0001" cy="10" r="8.33333" stroke="#156E8A" />
+                <path d="M10.8333 7.5L13.3333 10L10.8333 12.5M13.3333 10L6.66659 10" stroke="#156E8A"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="text-gray-600 dark:text-gray-300 text-[13px] sm:text-[13.5px] font-normal">
+                Purification + humidification
+              </span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10.0001" cy="10" r="8.33333" stroke="#156E8A" />
+                <path d="M10.8333 7.5L13.3333 10L10.8333 12.5M13.3333 10L6.66659 10" stroke="#156E8A"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="text-gray-600 dark:text-gray-300 text-[13px] sm:text-[13.5px] font-normal">
+                HEPA13-based 7-in-1 purification system
+              </span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10.0001" cy="10" r="8.33333" stroke="#156E8A" />
+                <path d="M10.8333 7.5L13.3333 10L10.8333 12.5M13.3333 10L6.66659 10" stroke="#156E8A"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="text-gray-600 dark:text-gray-300 text-[13px] sm:text-[13.5px] font-normal">
+                2.3 L tank, 222 mL/h mist, 360° adjustable nozzle
+              </span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10.0001" cy="10" r="8.33333" stroke="#156E8A" />
+                <path d="M10.8333 7.5L13.3333 10L10.8333 12.5M13.3333 10L6.66659 10" stroke="#156E8A"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="text-gray-600 dark:text-gray-300 text-[13px] sm:text-[13.5px] font-normal">
+                6 environmental sensors + Smart Life App
+              </span>
+            </div>
           </div>
 
-          <!-- Specs Container (3-Column Grid on both Mobile and Desktop) -->
-          <div class="grid grid-cols-3 gap-1 md:gap-4 lg:gap-6 mb-10 lg:mb-12 w-full">
+          <!-- Specs Container (3-Column Clean Row on White Background) -->
+          <div
+            class="flex items-center justify-center md:justify-evenly gap-8 sm:gap-14 lg:gap-16 mb-8 p-4 md:p-8 bg-white dark:bg-[#0D1418]">
             <!-- Coverage -->
-            <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-              <span
-                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">Coverage</span>
+            <div>
               <h3
-                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate leading-tight">
+                class="text-[12px] sm:text-[20px] font-normal text-gray-900 dark:text-white tracking-tight leading-none mb-2">
                 75 - 80 m²
               </h3>
+              <span class="text-[9px] uppercase tracking-[0.2em] text-gray-400 font-bold block">
+                COVERAGE
+              </span>
             </div>
             <!-- CADR -->
-            <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-              <span
-                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">CADR</span>
+            <div>
               <h3
-                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
-                400 m³/h
+                class="text-[12px] sm:text-[20px] font-normal text-gray-900 dark:text-white tracking-tight leading-none mb-2">
+                500 m³/h
               </h3>
+              <span class="text-[9px] uppercase tracking-[0.2em] text-gray-400 font-bold block">
+                CADR
+              </span>
             </div>
             <!-- Filtration -->
-            <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-              <span
-                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">Filtration</span>
+            <div>
               <h3
-                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
-                4-Stage
+                class="text-[12px] sm:text-[20px] font-normal text-gray-900 dark:text-white tracking-tight leading-none mb-2">
+                7-in-1
               </h3>
+              <span class="text-[9px] uppercase tracking-[0.2em] text-gray-400 font-bold block">
+                FILTRATION
+              </span>
             </div>
           </div>
 
-          <!-- Bottom Action Row -->
-          <div class="flex flex-row lg:flex-col justify-between items-end lg:items-start lg:gap-10 mt-auto">
-            <!-- Price -->
-            <div class="flex flex-col lg:flex-row lg:items-baseline gap-1 lg:gap-3">
-              <span
-                class="text-[8px] lg:text-[12px] uppercase lg:normal-case tracking-[0.15em] lg:tracking-normal text-gray-400 lg:text-gray-500 font-bold lg:font-light">Starting
-                from</span>
-              <span class="text-xl lg:text-3xl font-light text-gray-900 leading-none tracking-tight">₹24,999.00</span>
-            </div>
+          <!-- Price -->
+          <div
+            class="text-3xl sm:text-[36px] font-light text-gray-900 dark:text-white tracking-tight leading-none mb-8 sm:mb-10">
+            ₹24,999
+          </div>
 
-            <!-- Buttons -->
-            <div class="flex items-center gap-6 md:gap-8">
-              <a href="#"
-                class="bg-[#111111] text-white px-3 py-2 lg:px-8 uppercase text-[11px] tracking-[0.2em] font-bold flex items-center gap-3 hover:bg-[#156E8A] transition-colors rounded-xl shrink-0">
-                <span class="hidden lg:inline">Add to Compare</span>
-                <span class="lg:hidden">Add to Cart</span>
-                <span class="text-base leading-none mb-[2px]">&rarr;</span>
-              </a>
-              <!-- DESKTOP ONLY: The Technology Link -->
-              <a href="#"
-                class="hidden lg:inline-flex border-b border-gray-300 pb-1 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] hover:border-[#156E8A] transition-colors">
-                The Technology
-              </a>
-            </div>
+          <!-- Buttons -->
+          <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-8">
+            <a href="./product-details.html?model=air-pro-2"
+              class="bg-[#111827] dark:bg-white text-white dark:text-black px-7 sm:px-8 py-3.5 sm:py-4 uppercase text-[11px] sm:text-[12px] tracking-[0.2em] font-bold flex items-center justify-between gap-6 hover:bg-[#156E8A] dark:hover:bg-[#156E8A] dark:hover:text-white transition-colors rounded-lg shadow-sm">
+              <span>VIEW AIR PRO</span>
+              <span class="text-base leading-none">&rarr;</span>
+            </a>
+            <a href="./compare.html"
+              class="h-[51px] py-4 border-b border-[#DCE4E7] text-gray-900 text-[12px] tracking-[0.15em] font-semibold uppercase hover:text-[#156E8A] hover:border-[#156E8A] transition-colors flex items-center justify-center whitespace-nowrap sm:w-auto">
+              <span>ADD TO COMPARE</span>
+            </a>
           </div>
         </div>
       </div>
 
-      <!-- ========================================== -->
-      <!-- MODEL 4: AIR PRO MAX                       -->
-      <!-- ========================================== -->
-      <!-- Desktop: Text Left, Image Right -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 border-b lg:border-none border-gray-200/60 lg:pb-0 mb-6 lg:mb-0">
+      <!-- MODEL 4: AIR PRO MAX -->
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center py-5 lg:py-16 border-t border-[#DCE4E7]">
         <!-- Text Content -->
-        <div class="bg-white py-5 px-4 lg:p-10 xl:p-20 flex flex-col justify-center order-2 lg:order-1">
+        <div class="flex flex-col justify-center order-2 lg:order-1">
           <!-- Eyebrow -->
-          <p class="uppercase tracking-[.25em] text-[#156E8A] font-bold text-[8px] md:text-[13px] mb-4 lg:mb-6">
-            Air Pro Max &middot; Ultimate Protection
+          <p class="uppercase tracking-[.22em] text-[#156E8A] dark:text-[#22D3EE] font-bold text-[11px] mb-3">
+            Air Pro Max &middot; Coming soon
           </p>
 
-          <h2 class="text-4xl md:text-5xl font-light text-gray-900 mb-4 lg:mb-6">
+          <h2
+            class="text-4xl lg:text-[48px] font-light text-gray-900 dark:text-white mb-4 tracking-tight leading-tight">
             Air Pro Max
           </h2>
 
-          <p class="text-gray-600 lg:text-gray-500 font-light text-[13px] leading-relaxed mb-5 lg:mb-12 max-w-md">
-            Maximum capacity for expansive living spaces. Features dual HEPA
-            filters, comprehensive smart home integration, and the highest
-            CADR rating in its class.
+          <p
+            class="text-gray-500 dark:text-gray-400 font-light text-[13.5px] sm:text-[14px] leading-relaxed mb-6 max-w-xl">
+            High-capacity 6-fold purification for large homes, offices and commercial spaces. Powered by a 240 W motor
+            with dual-duct airflow and tested for up to 99.99% virus reduction.*
+            Based on laboratory testing under specified test conditions. Actual performance may vary depending on usage
+            and operating environment.
           </p>
 
-          <!-- MOBILE ONLY: The Technology Link -->
-          <div class="lg:hidden mb-5 border-b border-gray-200 pb-4 inline-block self-start pr-0">
-            <a href="#"
-              class="inline-flex items-center gap-3 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] transition-colors">
-              The Technology
-              <span class="text-base leading-none mb-[2px]">&rarr;</span>
-            </a>
-          </div>
-
-          <!-- Specs Container (3-Column Grid on both Mobile and Desktop) -->
-          <div class="grid grid-cols-3 gap-1 md:gap-4 lg:gap-6 mb-10 lg:mb-12 w-full">
+          <!-- Specs Container (3-Column Clean Row on White Background) -->
+          <div
+            class="flex items-center justify-center md:justify-evenly gap-8 sm:gap-14 lg:gap-16 mb-8 p-4 md:p-8 bg-white dark:bg-[#0D1418]">
             <!-- Coverage -->
-            <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-              <span
-                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">Coverage</span>
+            <div>
               <h3
-                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate leading-tight">
-                90 - 100 m²
+                class="text-[12px] sm:text-[20px] font-normal text-gray-900 dark:text-white tracking-tight leading-none mb-2">
+                120 - 150 m²
               </h3>
+              <span class="text-[9px] uppercase tracking-[0.2em] text-gray-400 font-bold block">
+                COVERAGE
+              </span>
             </div>
             <!-- CADR -->
-            <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-              <span
-                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">CADR</span>
+            <div>
               <h3
-                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
-                600 m³/h
+                class="text-[12px] sm:text-[20px] font-normal text-gray-900 dark:text-white tracking-tight leading-none mb-2">
+                1600 m³/h
               </h3>
+              <span class="text-[9px] uppercase tracking-[0.2em] text-gray-400 font-bold block">
+                CADR
+              </span>
             </div>
             <!-- Filtration -->
-            <div class="flex flex-col gap-1 md:gap-1.5 bg-[#F8FAFC] lg:bg-transparent p-2 sm:p-3 lg:p-0">
-              <span
-                class="text-[8px] uppercase tracking-[0.1em] lg:tracking-[0.15em] text-gray-400 font-medium lg:font-bold order-1 lg:order-2">Filtration</span>
+            <div>
               <h3
-                class="text-[14px] sm:text-[17px] lg:text-xl xl:text-2xl font-normal text-gray-900 order-2 lg:order-1 tracking-tight truncate">
-                5-Stage
+                class="text-[12px] sm:text-[20px] font-normal text-gray-900 dark:text-white tracking-tight leading-none mb-2">
+                6-Fold
               </h3>
+              <span class="text-[9px] uppercase tracking-[0.2em] text-gray-400 font-bold block">
+                FILTRATION
+              </span>
             </div>
           </div>
 
-          <!-- Bottom Action Row -->
-          <div class="flex flex-row lg:flex-col justify-between items-end lg:items-start lg:gap-10 mt-auto">
-            <!-- Price -->
-            <div class="flex flex-col lg:flex-row lg:items-baseline gap-1 lg:gap-3">
-              <span
-                class="text-[8px] lg:text-[12px] uppercase lg:normal-case tracking-[0.15em] lg:tracking-normal text-gray-400 lg:text-gray-500 font-bold lg:font-light">Starting
-                from</span>
-              <span class="text-xl lg:text-3xl font-light text-gray-900 leading-none tracking-tight">₹34,999.00</span>
-            </div>
+          <!-- Price -->
+          <div
+            class="text-3xl sm:text-[36px] font-light text-gray-900 dark:text-white tracking-tight leading-none mb-8 sm:mb-10">
+            Coming Soon
+          </div>
 
-            <!-- Buttons -->
-            <div class="flex items-center gap-6 md:gap-8">
-              <a href="#"
-                class="bg-[#111111] text-white px-3 py-2 lg:px-8 uppercase text-[11px] tracking-[0.2em] font-bold flex items-center gap-3 hover:bg-[#156E8A] transition-colors rounded-xl shrink-0">
-                <span class="hidden lg:inline">Add to Compare</span>
-                <span class="lg:hidden">Add to Cart</span>
-                <span class="text-base leading-none mb-[2px]">&rarr;</span>
-              </a>
-              <!-- DESKTOP ONLY: The Technology Link -->
-              <a href="#"
-                class="hidden lg:inline-flex border-b border-gray-300 pb-1 uppercase text-[11px] tracking-[0.2em] font-bold text-gray-900 hover:text-[#156E8A] hover:border-[#156E8A] transition-colors">
-                The Technology
-              </a>
-            </div>
+          <!-- Buttons -->
+          <div class="flex items-center gap-6 sm:gap-8">
+            <a href="./product-details.html?model=air-pro-max"
+              class="bg-[#111827] dark:bg-white text-white dark:text-black px-7 sm:px-8 py-3.5 sm:py-4 uppercase text-[11px] sm:text-[12px] tracking-[0.2em] font-bold flex items-center justify-between gap-6 hover:bg-[#156E8A] dark:hover:bg-[#156E8A] dark:hover:text-white transition-colors rounded-lg shadow-sm">
+              <span>Register interest</span>
+              <span class="text-base leading-none">&rarr;</span>
+            </a>
+            <a href="./compare.html"
+              class="h-[51px] py-4 border-b border-[#DCE4E7] text-gray-900 text-[12px] tracking-[0.15em] font-semibold uppercase hover:text-[#156E8A] hover:border-[#156E8A] transition-colors flex items-center justify-center whitespace-nowrap w-full sm:w-auto">
+              <span>ADD TO COMPARE</span>
+            </a>
           </div>
         </div>
+        <!-- Image (Top on mobile, Left on desktop) -->
+        <div
+          class="w-full h-[320px] sm:h-[420px] lg:h-[540px] xl:h-[600px] relative overflow-hidden flex items-center justify-center order-2 lg:order-2">
+          <picture class="w-full h-full">
+            <!-- Desktop Image (Triggers at 1024px and up) -->
+            <source media="(min-width: 1024px)" srcset="./assets/images/air-pro1-room.png" />
 
-        <!-- Image -->
-        <div class="h-[250px] md:h-[400px] lg:h-auto lg:min-h-[500px] xl:min-h-[600px] relative order-1 lg:order-2">
-          <picture>
-            <source media="(min-width: 1024px)" srcset="./assets/images/air-pro-max-room.jpg" />
-            <img src="./assets/images/air-pro-max-room-mobile.jpg" alt="Air Pro Max"
-              class="absolute inset-0 w-full h-full object-cover" />
+            <!-- Mobile Image (Default fallback for smaller screens) -->
+            <img src="./assets/images/air-pro1-room-mobile.png" alt="Air Pro 1" class="w-full h-full object-cover" />
           </picture>
         </div>
       </div>
@@ -704,7 +775,7 @@
       <div class="flex flex-row items-center justify-center gap-6 sm:gap-10 w-full max-w-md sm:max-w-none">
         <!-- Primary Solid Button -->
         <a href="./find-my-purifier.html"
-          class="bg-white text-[#0B1115] px-4 py-4 md:py-4 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold flex items-center justify-center gap-3 hover:bg-gray-200 transition-colors rounded-xl w-full sm:w-auto">
+          class="bg-[#156E8A] text-white text-[11px] sm:text-[12px] font-bold tracking-[0.15em] uppercase px-4 sm:px-8 py-3.5 sm:py-4 rounded-lg hover:bg-[#11576E] transition-colors flex items-center justify-center gap-2 shadow-md w-1/2 sm:w-auto text-center whitespace-nowrap">
           <span>Find My Purifier</span>
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg">
