@@ -328,6 +328,208 @@ function initPageScripts() {
     },
   });
 
+  // ==========================================
+  // MOBILE COMPARE TABLE INTERACTION
+  // ==========================================
+  const compareData = [
+    {
+      id: 0,
+      name: "Air Pro",
+      price: "From ₹9,999",
+      badge: null,
+      isHighlight: false,
+      specs: {
+        model: "720W",
+        coverage: "35 - 40 m²",
+        cadr: "215 m³/h",
+        filtration: "3-Stage",
+        idealSpace: "Bedroom / Compact",
+        weight: "4.9 kg",
+        hepaH13: true,
+        appControl: false,
+        realtimeAqi: false,
+        reactiveO2: false,
+        humidifier: false,
+        virusRemoval: "99.07%"
+      }
+    },
+    {
+      id: 1,
+      name: "Air Pro 1",
+      price: "From ₹19,999",
+      badge: "MOST CHOSEN",
+      isHighlight: true,
+      specs: {
+        model: "D90",
+        coverage: "50 - 55 m²",
+        cadr: "400 m³/h",
+        filtration: "4-Stage",
+        idealSpace: "Medium-Large Room",
+        weight: "9.8 kg",
+        hepaH13: true,
+        appControl: true,
+        realtimeAqi: true,
+        reactiveO2: true,
+        humidifier: false,
+        virusRemoval: "99.97%"
+      }
+    },
+    {
+      id: 2,
+      name: "Air Pro 2",
+      price: "From ₹24,999",
+      badge: null,
+      isHighlight: false,
+      specs: {
+        model: "H80",
+        coverage: "75 - 80 m²",
+        cadr: "600 m³/h",
+        filtration: "7-in-1 System",
+        idealSpace: "Open Plan Living",
+        weight: "12.5 kg",
+        hepaH13: true,
+        appControl: true,
+        realtimeAqi: true,
+        reactiveO2: true,
+        humidifier: true,
+        virusRemoval: "99.99%"
+      }
+    },
+    {
+      id: 3,
+      name: "Air Pro Max",
+      price: "From ----",
+      badge: null,
+      isHighlight: false,
+      specs: {
+        model: "MAX1",
+        coverage: "120 - 150 m²",
+        cadr: "1000 m³/h",
+        filtration: "6-Stage Multi-Cyclone",
+        idealSpace: "Entire Floor",
+        weight: "18.2 kg",
+        hepaH13: true,
+        appControl: true,
+        realtimeAqi: true,
+        reactiveO2: true,
+        humidifier: false,
+        virusRemoval: "99.99%"
+      }
+    }
+  ];
+
+  let selectedCompareModels = [0, 1];
+
+  function renderMobileCompare() {
+    const $container = $("#mobileCompareTable");
+    if (!$container.length) return;
+
+    const m1 = compareData[selectedCompareModels[0]];
+    const m2 = compareData[selectedCompareModels[1]];
+
+    const renderVal = (val) => {
+      if (val === true) {
+        return `<svg class="w-3.5 h-3.5 text-[#156E8A] dark:text-[#22D3EE] mx-auto" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>`;
+      }
+      if (val === false) {
+        return `<span class="text-gray-300 dark:text-gray-600 font-light">&mdash;</span>`;
+      }
+      return `<span class="text-gray-700 dark:text-gray-300 font-normal">${val}</span>`;
+    };
+
+    const specRows = [
+      { label: "MODEL", key: "model" },
+      { label: "COVERAGE", key: "coverage" },
+      { label: "CADR", key: "cadr" },
+      { label: "FILTRATION", key: "filtration" },
+      { label: "IDEAL SPACE", key: "idealSpace" },
+      { label: "WEIGHT", key: "weight" },
+      { label: "HEPA H13", key: "hepaH13" },
+      { label: "APP CONTROL", key: "appControl" },
+      { label: "REAL-TIME AQI", key: "realtimeAqi" },
+      { label: "REACTIVE O₂", key: "reactiveO2" },
+      { label: "HUMIDIFIER", key: "humidifier" },
+      { label: "VIRUS REMOVAL", key: "virusRemoval" }
+    ];
+
+    let html = `
+      <div class="grid grid-cols-[105px_1fr_1fr] text-xs">
+        <!-- Header -->
+        <div class="p-3.5 flex items-end text-[10px] uppercase tracking-wider text-gray-400 font-bold border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-[#111a20]">
+          FEATURE
+        </div>
+        <div class="p-3.5 flex flex-col items-center justify-center text-center border-b border-gray-100 dark:border-gray-800 ${m1.isHighlight ? 'bg-[#EDF3F6] dark:bg-[#16222a]' : 'bg-white dark:bg-[#111a20]'} relative">
+          ${m1.badge ? `<div class="bg-[#156E8A] text-white text-[7px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm mb-1">${m1.badge}</div>` : ''}
+          <h4 class="text-[13px] font-medium text-gray-900 dark:text-white">${m1.name}</h4>
+          <span class="text-[10px] text-gray-400 dark:text-gray-400 font-light mt-0.5">${m1.price}</span>
+        </div>
+        <div class="p-3.5 flex flex-col items-center justify-center text-center border-b border-gray-100 dark:border-gray-800 ${m2.isHighlight ? 'bg-[#EDF3F6] dark:bg-[#16222a]' : 'bg-white dark:bg-[#111a20]'} relative">
+          ${m2.badge ? `<div class="bg-[#156E8A] text-white text-[7px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm mb-1">${m2.badge}</div>` : ''}
+          <h4 class="text-[13px] font-medium text-gray-900 dark:text-white">${m2.name}</h4>
+          <span class="text-[10px] text-gray-400 dark:text-gray-400 font-light mt-0.5">${m2.price}</span>
+        </div>
+    `;
+
+    specRows.forEach(row => {
+      html += `
+        <div class="p-3 border-b border-gray-100 dark:border-gray-800 flex items-center text-[10px] uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-[#111a20]">
+          ${row.label}
+        </div>
+        <div class="p-3 border-b border-gray-100 dark:border-gray-800 flex items-center justify-center text-center ${m1.isHighlight ? 'bg-[#EDF3F6] dark:bg-[#16222a]' : 'bg-white dark:bg-[#111a20]'}">
+          ${renderVal(m1.specs[row.key])}
+        </div>
+        <div class="p-3 border-b border-gray-100 dark:border-gray-800 flex items-center justify-center text-center ${m2.isHighlight ? 'bg-[#EDF3F6] dark:bg-[#16222a]' : 'bg-white dark:bg-[#111a20]'}">
+          ${renderVal(m2.specs[row.key])}
+        </div>
+      `;
+    });
+
+    // Action Row
+    html += `
+        <div class="p-3 bg-white dark:bg-[#111a20]"></div>
+        <div class="p-3 ${m1.isHighlight ? 'bg-[#EDF3F6] dark:bg-[#16222a]' : 'bg-white dark:bg-[#111a20]'} flex items-center justify-center">
+          <button class="w-full bg-[#141414] text-white text-[10px] font-bold tracking-wider uppercase py-2.5 px-2 rounded hover:bg-[#156E8A] transition-colors">
+            BUY NOW
+          </button>
+        </div>
+        <div class="p-3 ${m2.isHighlight ? 'bg-[#EDF3F6] dark:bg-[#16222a]' : 'bg-white dark:bg-[#111a20]'} flex items-center justify-center">
+          <button class="w-full bg-[#141414] text-white text-[10px] font-bold tracking-wider uppercase py-2.5 px-2 rounded hover:bg-[#156E8A] transition-colors">
+            BUY NOW
+          </button>
+        </div>
+      </div>
+    `;
+
+    $container.html(html);
+
+    // Update selector card active states
+    $(".mobile-compare-btn").each(function() {
+      const id = parseInt($(this).data("model"), 10);
+      const isSelected = selectedCompareModels.includes(id);
+      if (isSelected) {
+        $(this).addClass("border-[#156E8A] bg-[#EDF3F6]/60 dark:bg-[#16222a]").removeClass("border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111a20]");
+        $(this).find(".select-status").removeClass("hidden").addClass("flex");
+      } else {
+        $(this).removeClass("border-[#156E8A] bg-[#EDF3F6]/60 dark:bg-[#16222a]").addClass("border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111a20]");
+        $(this).find(".select-status").addClass("hidden").removeClass("flex");
+      }
+    });
+  }
+
+  if ($("#mobileCompareTable").length) {
+    renderMobileCompare();
+
+    $(document).on("click", ".mobile-compare-btn", function() {
+      const id = parseInt($(this).data("model"), 10);
+      if (selectedCompareModels.includes(id)) {
+        return;
+      }
+      selectedCompareModels.shift();
+      selectedCompareModels.push(id);
+      renderMobileCompare();
+    });
+  }
+
   // 1. ACCORDION TOGGLE LOGIC
   const faqButtons = document.querySelectorAll(".faq-toggle-btn");
 

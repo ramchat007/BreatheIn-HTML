@@ -352,7 +352,7 @@
               <div
                 class="bg-white text-gray-900 flex flex-col justify-center px-6 py-8 md:py-12 lg:px-16 lg:pl-[10%] lg:pr-16 relative order-2 lg:order-1">
                 <div
-                  class="slide-content w-full opacity-0 translate-y-8 transition-all duration-700 ease-out delay-300 mx-auto lg:mx-0 max-w-xl">
+                  class="slide-content w-full opacity-0 translate-y-8 transition-all duration-700 ease-out delay-300 mx-auto lg:mx-0 max-w-2xl">
 
                   <!-- Responsive Headline -->
                   <h1
@@ -814,12 +814,10 @@
               THE FIX: 
               Using md:gap-[1px] and md:bg-gray-200 to automatically generate perfect inner borders on desktop! 
             -->
-          <div
-            class="swiper-wrapper md:!grid md:!grid-cols-3 md:gap-[1px] md:bg-gray-200 dark:md:bg-gray-800 md:border md:border-gray-200 dark:md:border-gray-800 md:!transform-none md:!w-full md:!h-auto">
+          <div class="swiper-wrapper md:!grid md:!grid-cols-3 md:!transform-none md:!w-full md:!h-auto bg-transparent">
             <!-- Feature 01 -->
-            <!-- md:border-none is used because the grid gap provides the borders on desktop -->
             <div
-              class="swiper-slide md:!w-auto md:!m-0 h-auto bg-white dark:bg-[#111a20] p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 md:border-none shadow-sm md:shadow-none rounded-[4px] md:rounded-none flex flex-col">
+              class="swiper-slide md:!w-auto md:!m-0 h-auto bg-white dark:bg-[#111a20] p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 shadow-sm md:shadow-none rounded-[4px] md:rounded-none flex flex-col">
               <div class="flex justify-between items-start mb-8 md:mb-12">
                 <span class="text-[12px] text-[#156E8A] font-medium tracking-widest">01</span>
                 <div
@@ -843,7 +841,7 @@
 
             <!-- Feature 02 -->
             <div
-              class="swiper-slide md:!w-auto md:!m-0 h-auto bg-white dark:bg-[#111a20] p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 md:border-none shadow-sm md:shadow-none rounded-[4px] md:rounded-none flex flex-col">
+              class="swiper-slide md:!w-auto md:!m-0 h-auto bg-white dark:bg-[#111a20] p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 md:-ml-[1px] shadow-sm md:shadow-none rounded-[4px] md:rounded-none flex flex-col">
               <div class="flex justify-between items-start mb-8 md:mb-12">
                 <span class="text-[12px] text-[#156E8A] font-medium tracking-widest">02</span>
                 <div
@@ -867,7 +865,7 @@
 
             <!-- Feature 03 -->
             <div
-              class="swiper-slide md:!w-auto md:!m-0 h-auto bg-white dark:bg-[#111a20] p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 md:border-none shadow-sm md:shadow-none rounded-[4px] md:rounded-none flex flex-col">
+              class="swiper-slide md:!w-auto md:!m-0 h-auto bg-white dark:bg-[#111a20] p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 md:-ml-[1px] shadow-sm md:shadow-none rounded-[4px] md:rounded-none flex flex-col">
               <div class="flex justify-between items-start mb-8 md:mb-12">
                 <span class="text-[12px] text-[#156E8A] font-medium tracking-widest">03</span>
                 <div
@@ -894,7 +892,7 @@
 
             <!-- Feature 04 -->
             <div
-              class="swiper-slide md:!w-auto md:!m-0 h-auto bg-white dark:bg-[#111a20] p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 md:border-none shadow-sm md:shadow-none rounded-[4px] md:rounded-none flex flex-col">
+              class="swiper-slide md:!w-auto md:!m-0 h-auto bg-white dark:bg-[#111a20] p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 md:-mt-[1px] shadow-sm md:shadow-none rounded-[4px] md:rounded-none flex flex-col">
               <div class="flex justify-between items-start mb-8 md:mb-12">
                 <span class="text-[12px] text-[#156E8A] font-medium tracking-widest">04</span>
                 <div
@@ -921,7 +919,7 @@
 
             <!-- Feature 05 -->
             <div
-              class="swiper-slide md:!w-auto md:!m-0 h-auto bg-white dark:bg-[#111a20] p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 md:border-none shadow-sm md:shadow-none rounded-[4px] md:rounded-none flex flex-col">
+              class="swiper-slide md:!w-auto md:!m-0 h-auto bg-white dark:bg-[#111a20] p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 md:-ml-[1px] md:-mt-[1px] shadow-sm md:shadow-none rounded-[4px] md:rounded-none flex flex-col">
               <div class="flex justify-between items-start mb-8 md:mb-12">
                 <span class="text-[12px] text-[#156E8A] font-medium tracking-widest">05</span>
                 <div
@@ -940,10 +938,11 @@
               </h3>
               <p
                 class="text-[13px] md:text-[13px] lg:text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed">
-                Smart features include PM2.5 monitoring, automatic operation, app control and filter alerts, with advocated six-sensor monitoring on Air Pro 2
+                Smart features include PM2.5 monitoring, automatic operation, app control and filter alerts, with
+                advocated six-sensor monitoring on Air Pro 2
               </p>
             </div>
-            
+
           </div>
 
           <!-- Swiper Pagination (Mobile Only) -->
@@ -1342,264 +1341,480 @@
 
       <!-- Comparison Table Wrapper -->
       <!-- Added rounded corners, border, and horizontal scroll for mobile -->
+      <!-- Comparison Table Wrapper -->
       <div class="max-w-6xl mx-auto scroll-reveal opacity-0 translate-y-6 transition-all duration-700 delay-100 pb-8">
-        <div
-          class="overflow-x-auto md:overflow-visible no-scrollbar rounded-xl border border-gray-200 bg-white shadow-sm relative">
-          <!-- CSS Grid for the Table -->
-          <!-- Mobile: Fixed 120px first column, auto-sizing for the rest. Desktop: 5 equal columns -->
-          <div class="grid grid-cols-[120px_repeat(4,minmax(140px,1fr))] md:grid-cols-5 min-w-[700px] md:min-w-full">
-            <!-- ================= ROW 1: HEADERS ================= -->
 
-            <!-- Col 1: Label Space (Sticky on mobile) -->
+        <!-- ========================================== -->
+        <!-- MOBILE VIEW (md:hidden)                   -->
+        <!-- ========================================== -->
+        <div class="md:hidden mb-6">
+          <div class="text-[10px] tracking-[0.2em] uppercase text-gray-400 font-semibold mb-3">
+            SELECT 2 MODELS TO COMPARE
+          </div>
+
+          <!-- 4 Model Selector Cards Grid -->
+          <div class="grid grid-cols-2 gap-2.5 sm:gap-3 mb-5" id="mobileCompareSelectors">
+            <!-- Card 0: Air Pro -->
+            <button type="button"
+              class="mobile-compare-btn text-left p-3.5 rounded-lg border border-[#156E8A] bg-[#EDF3F6]/60 dark:bg-[#16222a] flex flex-col justify-between transition-all"
+              data-model="0">
+              <div>
+                <div class="text-sm font-semibold text-gray-900 dark:text-white">Air Pro</div>
+                <div class="text-[11px] text-gray-500 dark:text-gray-400 font-light mt-0.5">From ₹9,999</div>
+              </div>
+              <div
+                class="text-[11px] text-[#156E8A] dark:text-[#22D3EE] font-semibold mt-3 flex items-center gap-1 select-status">
+                <span>✓</span> <span>Selected</span>
+              </div>
+            </button>
+
+            <!-- Card 1: Air Pro 1 -->
+            <button type="button"
+              class="mobile-compare-btn text-left p-3.5 rounded-lg border border-[#156E8A] bg-[#EDF3F6]/60 dark:bg-[#16222a] flex flex-col justify-between transition-all"
+              data-model="1">
+              <div>
+                <div class="text-sm font-semibold text-gray-900 dark:text-white">Air Pro 1</div>
+                <div class="text-[11px] text-gray-500 dark:text-gray-400 font-light mt-0.5">From ₹19,999</div>
+              </div>
+              <div
+                class="text-[11px] text-[#156E8A] dark:text-[#22D3EE] font-semibold mt-3 flex items-center gap-1 select-status">
+                <span>✓</span> <span>Selected</span>
+              </div>
+            </button>
+
+            <!-- Card 2: Air Pro 2 -->
+            <button type="button"
+              class="mobile-compare-btn text-left p-3.5 rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111a20] flex flex-col justify-between transition-all"
+              data-model="2">
+              <div>
+                <div class="text-sm font-semibold text-gray-900 dark:text-white">Air Pro 2</div>
+                <div class="text-[11px] text-gray-500 dark:text-gray-400 font-light mt-0.5">From ₹24,999</div>
+              </div>
+              <div
+                class="text-[11px] text-[#156E8A] dark:text-[#22D3EE] font-semibold mt-3 items-center gap-1 select-status hidden">
+                <span>✓</span> <span>Selected</span>
+              </div>
+            </button>
+
+            <!-- Card 3: Air Pro Max -->
+            <button type="button"
+              class="mobile-compare-btn text-left p-3.5 rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111a20] flex flex-col justify-between transition-all"
+              data-model="3">
+              <div>
+                <div class="text-sm font-semibold text-gray-900 dark:text-white">Air Pro Max</div>
+                <div class="text-[11px] text-gray-500 dark:text-gray-400 font-light mt-0.5">From ----</div>
+              </div>
+              <div
+                class="text-[11px] text-[#156E8A] dark:text-[#22D3EE] font-semibold mt-3 items-center gap-1 select-status hidden">
+                <span>✓</span> <span>Selected</span>
+              </div>
+            </button>
+          </div>
+
+          <!-- Mobile Comparison 2-Column Table -->
+          <div
+            class="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111a20] overflow-hidden shadow-sm"
+            id="mobileCompareTable">
+            <!-- Rendered dynamically by JS -->
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- DESKTOP VIEW (hidden md:block)            -->
+        <!-- ========================================== -->
+        <div
+          class="hidden md:block rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111a20] shadow-sm relative">
+          <!-- 5 Equal Columns Grid -->
+          <div class="grid grid-cols-5 w-full">
+            <!-- ================= ROW 1: HEADERS ================= -->
             <div
-              class="p-5 md:p-8 sticky left-0 bg-white z-20 flex items-end text-[11px] uppercase tracking-[0.2em] text-gray-400 font-bold border-b border-gray-100">
-              Feature
+              class="p-6 md:p-8 flex items-end border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-[#111a20]">
+              <span class="text-[11px] uppercase tracking-[0.2em] text-gray-400 font-bold">FEATURE</span>
             </div>
 
             <!-- Col 2: Air Pro -->
-            <div class="p-5 md:p-8 flex flex-col items-center justify-center text-center border-b border-gray-100">
-              <h3 class="text-base md:text-xl font-medium md:font-normal text-gray-900 mb-1 md:mb-2">
+            <div
+              class="p-6 md:p-8 flex flex-col items-center justify-center text-center border-b border-gray-100 dark:border-gray-800">
+              <h3 class="text-xl sm:text-2xl font-normal text-gray-900 dark:text-white mb-1">
                 Air Pro
               </h3>
-              <span class="text-[11px] md:text-sm text-gray-400 md:text-[#156E8A] font-light">From ₹24,990</span>
+              <span class="text-[12px] sm:text-[13px] text-[#156E8A] font-normal">From ₹9,999</span>
             </div>
 
-            <!-- Col 3: Air Pro 1 (HIGHLIGHTED COLUMN) -->
+            <!-- Col 3: Air Pro 1 (POPULAR CHOICE HIGHLIGHT) -->
             <div
-              class="p-5 md:p-8 flex flex-col items-center justify-center text-center bg-[#EDF3F6] relative border-b border-gray-100">
-              <!-- Badge -->
+              class="p-6 md:p-8 flex flex-col items-center justify-center text-center bg-[#EDF3F6] dark:bg-[#16222a] relative border-b border-gray-100 dark:border-gray-800">
               <div
-                class="absolute top-0 right-0 md:-top-3 md:left-1/2 md:-translate-x-1/2 bg-[#156E8A] text-white text-[7px] md:text-[8px] uppercase tracking-widest font-bold px-3 py-1.5 md:whitespace-nowrap z-10 rounded-bl-md md:rounded-none">
-                Most Chosen
+                class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#156E8A] text-white text-[8px] uppercase tracking-widest font-bold px-3 py-1 whitespace-nowrap z-10 rounded-sm shadow-sm">
+                MOST CHOSEN
               </div>
-              <h3 class="text-base md:text-xl font-medium md:font-normal text-gray-900 mb-1 md:mb-2 mt-4 md:mt-0">
+              <h3 class="text-xl sm:text-2xl font-normal text-gray-900 dark:text-white mb-1 mt-2 md:mt-0">
                 Air Pro 1
               </h3>
-              <span class="text-[11px] md:text-sm text-gray-400 md:text-[#156E8A] font-light">From ₹44,990</span>
+              <span class="text-[12px] sm:text-[13px] text-[#156E8A] font-normal">From ₹19,999</span>
             </div>
 
             <!-- Col 4: Air Pro 2 -->
-            <div class="p-5 md:p-8 flex flex-col items-center justify-center text-center border-b border-gray-100">
-              <h3 class="text-base md:text-xl font-medium md:font-normal text-gray-900 mb-1 md:mb-2">
+            <div
+              class="p-6 md:p-8 flex flex-col items-center justify-center text-center border-b border-gray-100 dark:border-gray-800">
+              <h3 class="text-xl sm:text-2xl font-normal text-gray-900 dark:text-white mb-1">
                 Air Pro 2
               </h3>
-              <span class="text-[11px] md:text-sm text-gray-400 md:text-[#156E8A] font-light">From ₹74,990</span>
+              <span class="text-[12px] sm:text-[13px] text-[#156E8A] font-normal">From ₹24,999</span>
             </div>
 
             <!-- Col 5: Air Pro Max -->
-            <div class="p-5 md:p-8 flex flex-col items-center justify-center text-center border-b border-gray-100">
-              <h3 class="text-base md:text-xl font-medium md:font-normal text-gray-900 mb-1 md:mb-2">
+            <div
+              class="p-6 md:p-8 flex flex-col items-center justify-center text-center border-b border-gray-100 dark:border-gray-800">
+              <h3 class="text-xl sm:text-2xl font-normal text-gray-900 dark:text-white mb-1">
                 Air Pro Max
               </h3>
-              <span class="text-[11px] md:text-sm text-gray-400 md:text-[#156E8A] font-light">From ₹1,24,990</span>
+              <span class="text-[12px] sm:text-[13px] text-[#156E8A] font-normal">From ----</span>
             </div>
 
-            <!-- ================= ROW 2: COVERAGE AREA ================= -->
+            <!-- ================= ROW 1: MODEL ================= -->
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-widest font-bold text-gray-800 sticky left-0 bg-white z-10 md:static shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] md:shadow-none">
-              Coverage Area
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-[#111a20]">
+              MODEL
             </div>
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
-              Up to 400 sq ft
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              720W
             </div>
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 bg-[#EDF3F6] text-right md:text-center">
-              Up to 650 sq ft
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 bg-[#EDF3F6] dark:bg-[#16222a] text-center">
+              D90
             </div>
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
-              Up to 900 sq ft
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              H80
             </div>
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
-              Up to 1,200 sq ft
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              MAX1
             </div>
 
-            <!-- ================= ROW 3: IDEAL SPACE ================= -->
+            <!-- ================= ROW 2: COVERAGE ================= -->
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-widest font-bold text-gray-800 sticky left-0 bg-white z-10 md:static shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] md:shadow-none">
-              Ideal Space
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-[#111a20]">
+              COVERAGE
             </div>
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
-              Studio / Bedroom
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              35 - 40 m²
             </div>
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 bg-[#EDF3F6] text-right md:text-center">
-              Living Room
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 bg-[#EDF3F6] dark:bg-[#16222a] text-center">
+              50 - 55 m²
             </div>
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              75 - 80 m²
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              120 - 150 m²
+            </div>
+
+            <!-- ================= ROW 3: CADR ================= -->
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-[#111a20]">
+              CADR
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              215 m³/h
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 bg-[#EDF3F6] dark:bg-[#16222a] text-center">
+              400 m³/h
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              600 m³/h
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              1000 m³/h
+            </div>
+
+            <!-- ================= ROW 4: FILTRATION ================= -->
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-[#111a20]">
+              FILTRATION
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              3-Stage
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 bg-[#EDF3F6] dark:bg-[#16222a] text-center">
+              4-Stage
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              7-in-1 System
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              6-Stage Multi-Cyclone
+            </div>
+
+            <!-- ================= ROW 5: IDEAL SPACE ================= -->
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-[#111a20]">
+              IDEAL SPACE
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              Bedroom / Compact
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 bg-[#EDF3F6] dark:bg-[#16222a] text-center">
+              Medium-Large Room
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
               Open Plan Living
             </div>
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
               Entire Floor
             </div>
 
-            <!-- ================= ROW 4: SMART FEATURES ================= -->
+            <!-- ================= ROW 6: WEIGHT ================= -->
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-widest font-bold text-gray-800 sticky left-0 bg-white z-10 md:static shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] md:shadow-none">
-              Smart Features
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-[#111a20]">
+              WEIGHT
             </div>
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
-              Air Quality Display
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              4.9 kg
             </div>
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 bg-[#EDF3F6] text-right md:text-center">
-              App + Voice Control
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 bg-[#EDF3F6] dark:bg-[#16222a] text-center">
+              9.8 kg
             </div>
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
-              Full Smart Home
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              12.5 kg
             </div>
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
-              Professional Suite
-            </div>
-
-            <!-- ================= ROW 5: FILTER LIFE ================= -->
-            <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-widest font-bold text-gray-800 sticky left-0 bg-white z-10 md:static shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] md:shadow-none">
-              Filter Life
-            </div>
-            <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
-              8 months
-            </div>
-            <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 bg-[#EDF3F6] text-right md:text-center">
-              10 months
-            </div>
-            <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
-              12 months
-            </div>
-            <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
-              12 months
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              18.2 kg
             </div>
 
-            <!-- ================= ROW 6: NOISE LEVEL ================= -->
+            <!-- ================= ROW 7: HEPA H13 ================= -->
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-widest font-bold text-gray-800 sticky left-0 bg-white z-10 md:static shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] md:shadow-none">
-              Noise Level
-            </div>
-            <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
-              22 &ndash; 45 dB
-            </div>
-            <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 bg-[#EDF3F6] text-right md:text-center">
-              20 &ndash; 42 dB
-            </div>
-            <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
-              18 &ndash; 40 dB
-            </div>
-            <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
-              18 &ndash; 38 dB
-            </div>
-
-            <!-- ================= ROW 7: WARRANTY ================= -->
-            <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-widest font-bold text-gray-800 sticky left-0 bg-white z-10 md:static shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] md:shadow-none">
-              Warranty
-            </div>
-            <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
-              1 Year
-            </div>
-            <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 bg-[#EDF3F6] text-right md:text-center">
-              2 Years
-            </div>
-            <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
-              2 Years
-            </div>
-            <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[13px] md:text-sm font-light text-gray-600 text-center">
-              3 Years
-            </div>
-
-            <!-- ================= ROW 8: HEPA H13 (Booleans) ================= -->
-            <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-widest font-bold text-gray-800 sticky left-0 bg-white z-10 md:static shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] md:shadow-none">
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-[#111a20]">
               HEPA H13
             </div>
-            <div class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[#156E8A]">
-              <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-800 dark:text-gray-200">
+              <svg class="w-4 h-4 text-[#156E8A] dark:text-[#22D3EE]" fill="none" stroke="currentColor"
+                stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[#156E8A] bg-[#EDF3F6]">
-              <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-800 dark:text-gray-200 bg-[#EDF3F6] dark:bg-[#16222a]">
+              <svg class="w-4 h-4 text-[#156E8A] dark:text-[#22D3EE]" fill="none" stroke="currentColor"
+                stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <div class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[#156E8A]">
-              <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-800 dark:text-gray-200">
+              <svg class="w-4 h-4 text-[#156E8A] dark:text-[#22D3EE]" fill="none" stroke="currentColor"
+                stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <div class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[#156E8A]">
-              <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-800 dark:text-gray-200">
+              <svg class="w-4 h-4 text-[#156E8A] dark:text-[#22D3EE]" fill="none" stroke="currentColor"
+                stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
 
-            <!-- ================= ROW 9: ACTIVE CARBON ================= -->
+            <!-- ================= ROW 8: APP CONTROL ================= -->
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-widest font-bold text-gray-800 sticky left-0 bg-white z-10 md:static shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] md:shadow-none">
-              Active Carbon
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-[#111a20]">
+              APP CONTROL
             </div>
-            <div class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-gray-300 font-light">
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-400 font-light text-center">
               &mdash;
             </div>
             <div
-              class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[#156E8A] bg-[#EDF3F6]">
-              <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-800 dark:text-gray-200 bg-[#EDF3F6] dark:bg-[#16222a]">
+              <svg class="w-4 h-4 text-[#156E8A] dark:text-[#22D3EE]" fill="none" stroke="currentColor"
+                stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <div class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[#156E8A]">
-              <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-800 dark:text-gray-200">
+              <svg class="w-4 h-4 text-[#156E8A] dark:text-[#22D3EE]" fill="none" stroke="currentColor"
+                stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <div class="border-b border-gray-100 p-4 md:p-6 flex items-center justify-center text-[#156E8A]">
-              <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-800 dark:text-gray-200">
+              <svg class="w-4 h-4 text-[#156E8A] dark:text-[#22D3EE]" fill="none" stroke="currentColor"
+                stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
 
-            <!-- ================= ROW 10: PM2.5 SENSOR ================= -->
+            <!-- ================= ROW 9: REAL-TIME AQI ================= -->
             <div
-              class="p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-widest font-bold text-gray-800 sticky left-0 bg-white z-10 md:static shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] md:shadow-none">
-              PM2.5 Sensor
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-[#111a20]">
+              REAL-TIME AQI
             </div>
-            <div class="p-4 md:p-6 flex items-center justify-center text-gray-300 font-light">
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-400 font-light text-center">
               &mdash;
             </div>
-            <div class="p-4 md:p-6 flex items-center justify-center text-[#156E8A] bg-[#EDF3F6]">
-              <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-800 dark:text-gray-200 bg-[#EDF3F6] dark:bg-[#16222a]">
+              <svg class="w-4 h-4 text-[#156E8A] dark:text-[#22D3EE]" fill="none" stroke="currentColor"
+                stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <div class="p-4 md:p-6 flex items-center justify-center text-[#156E8A]">
-              <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-800 dark:text-gray-200">
+              <svg class="w-4 h-4 text-[#156E8A] dark:text-[#22D3EE]" fill="none" stroke="currentColor"
+                stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <div class="p-4 md:p-6 flex items-center justify-center text-[#156E8A]">
-              <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-800 dark:text-gray-200">
+              <svg class="w-4 h-4 text-[#156E8A] dark:text-[#22D3EE]" fill="none" stroke="currentColor"
+                stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
               </svg>
+            </div>
+
+            <!-- ================= ROW 10: REACTIVE O2 ================= -->
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-[#111a20]">
+              REACTIVE O₂
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-400 font-light text-center">
+              &mdash;
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-800 dark:text-gray-200 bg-[#EDF3F6] dark:bg-[#16222a]">
+              <svg class="w-4 h-4 text-[#156E8A] dark:text-[#22D3EE]" fill="none" stroke="currentColor"
+                stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-800 dark:text-gray-200">
+              <svg class="w-4 h-4 text-[#156E8A] dark:text-[#22D3EE]" fill="none" stroke="currentColor"
+                stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-800 dark:text-gray-200">
+              <svg class="w-4 h-4 text-[#156E8A] dark:text-[#22D3EE]" fill="none" stroke="currentColor"
+                stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+
+            <!-- ================= ROW 11: HUMIDIFIER ================= -->
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-[#111a20]">
+              HUMIDIFIER
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-400 font-light text-center">
+              &mdash;
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-400 font-light bg-[#EDF3F6] dark:bg-[#16222a] text-center">
+              &mdash;
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-800 dark:text-gray-200">
+              <svg class="w-4 h-4 text-[#156E8A] dark:text-[#22D3EE]" fill="none" stroke="currentColor"
+                stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-gray-400 font-light text-center">
+              &mdash;
+            </div>
+
+            <!-- ================= ROW 12: VIRUS REMOVAL ================= -->
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center text-[11px] md:text-[12px] uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-[#111a20]">
+              VIRUS REMOVAL
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              99.07%
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 bg-[#EDF3F6] dark:bg-[#16222a] text-center">
+              99.97%
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              99.99%
+            </div>
+            <div
+              class="border-b border-gray-100 dark:border-gray-800 p-4 md:p-6 flex items-center justify-center text-[13px] sm:text-sm font-normal text-gray-700 dark:text-gray-300 text-center">
+              99.99%
+            </div>
+
+            <!-- ================= ROW 13: BUY NOW BUTTONS ================= -->
+            <div class="p-4 md:p-6 bg-white dark:bg-[#111a20]"></div>
+            <div class="p-4 md:p-6 flex items-center justify-center">
+              <button
+                class="w-full bg-[#141414] text-white text-[11px] font-bold tracking-[0.15em] uppercase py-3.5 px-4 rounded-lg hover:bg-[#156E8A] transition-colors flex items-center justify-center gap-2">
+                <span>BUY NOW</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+            </div>
+            <div class="p-4 md:p-6 flex items-center justify-center bg-[#EDF3F6] dark:bg-[#16222a]">
+              <button
+                class="w-full bg-[#141414] text-white text-[11px] font-bold tracking-[0.15em] uppercase py-3.5 px-4 rounded-lg hover:bg-[#156E8A] transition-colors flex items-center justify-center gap-2">
+                <span>BUY NOW</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+            </div>
+            <div class="p-4 md:p-6 flex items-center justify-center">
+              <button
+                class="w-full bg-[#141414] text-white text-[11px] font-bold tracking-[0.15em] uppercase py-3.5 px-4 rounded-lg hover:bg-[#156E8A] transition-colors flex items-center justify-center gap-2">
+                <span>BUY NOW</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+            </div>
+            <div class="p-4 md:p-6 flex items-center justify-center">
+              <button
+                class="w-full bg-[#141414] text-white text-[11px] font-bold tracking-[0.15em] uppercase py-3.5 px-4 rounded-lg hover:bg-[#156E8A] transition-colors flex items-center justify-center gap-2">
+                <span>BUY NOW</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -2721,7 +2936,7 @@
     <!-- SECTION 16: FINAL CTA (Begin Here)         -->
     <!-- ========================================== -->
     <section
-      class="w-full relative overflow-hidden flex flex-col items-center justify-center min-h-[70vh] bg-[#FAFCFD] py-16 md:py-20 px-6 md:px-16 lg:px-24">
+      class="w-full relative overflow-hidden flex flex-col items-center justify-center min-h-[70vh] bg-[#F7F9FA] py-16 md:py-20 px-6 md:px-16 lg:px-24">
       <!-- Mobile-Only Background Image & Dark Overlay -->
       <div class="absolute inset-0 md:hidden z-0">
         <!-- Reusing an existing interior image to match the mockup's aesthetic -->
@@ -2787,6 +3002,58 @@
           <a href="./find-my-purifier.html"
             class="h-[51px] py-4 border-b border-[#DCE4E7] text-gray-300 md:text-gray-900 text-[12px] tracking-[0.15em] font-semibold uppercase hover:text-[#156E8A] hover:border-[#156E8A] transition-colors flex items-center justify-center whitespace-nowrap w-full md:w-auto">
             <span>FIND MY PURIFIER</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="w-full relative overflow-hidden flex flex-col items-center justify-center min-h-[50vh] bg-[#FAFCFD] py-16 md:py-20 px-6 md:px-16 lg:px-24">
+      <!-- Eyebrow -->
+      <span
+        class="text-[11px] text-left md:text-center uppercase tracking-[0.25em] text-[#4A99B2] md:text-[#156E8A] font-bold mb-6 md:mb-8 block w-full">
+        For Business
+      </span>
+
+      <!-- Giant Background Watermark ('B') -->
+      <!-- Hidden on mobile to keep the dark theme clean, visible on desktop -->
+      <div class="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none select-none z-0">
+        <span
+          class="text-[400px] lg:text-[600px] font-bold text-gray-900 opacity-[0.02] leading-none transform absolute bottom-[-100px]">B</span>
+      </div>
+
+      <!-- Content Container -->
+      <div
+        class="relative z-10 max-w-5xl mx-auto md:text-center scroll-reveal opacity-0 translate-y-6 transition-all duration-700 ease-out w-full">
+
+        <!-- Headline -->
+        <!-- Mobile: White text. Desktop: Dark text with blue highlight -->
+        <h2
+          class="text-[34px] md:text-5xl lg:text-7xl font-light tracking-tight text-gray-900 leading-[1.2] md:leading-[1.1] mb-6 md:mb-8">
+          Purifying offices, clinics & <span class="text-[#156E8A] font-normal md:font-medium">hotels.</span>
+        </h2>
+
+        <!-- Subtext -->
+        <p
+          class="text-gray-300 md:text-gray-500 text-[15px] md:text-base font-light leading-relaxed max-w-2xl mx-auto mb-10 md:mb-14 px-2 md:px-0">
+          Bulk pricing and dedicated support
+        </p>
+
+        <!-- CTA Buttons -->
+        <!-- Mobile: Stacked vertically. Desktop: Side-by-side -->
+        <div
+          class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 w-full md:max-w-[280px] mx-auto md:max-w-none">
+          <!-- Primary Solid Button -->
+          <!-- Mobile: White BG, Dark Text. Desktop: Dark BG, White Text -->
+          <a href="#"
+            class="bg-[#111111] text-white text-[12px] tracking-[0.15em] font-bold uppercase px-8 py-4 md:py-5 hover:bg-gray-100 md:hover:bg-[#156E8A] transition-colors flex items-center justify-between md:justify-center gap-3 rounded-sm shadow-[0_10px_30px_rgba(0,0,0,0.2)] md:shadow-xl md:shadow-gray-200 w-full md:w-auto">
+            <span>Talk to Sales</span>
+            <!-- Sleek SVG Arrow -->
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3">
+              </path>
+            </svg>
           </a>
         </div>
       </div>
