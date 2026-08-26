@@ -503,7 +503,7 @@ function initPageScripts() {
     $container.html(html);
 
     // Update selector card active states
-    $(".mobile-compare-btn").each(function() {
+    $(".mobile-compare-btn").each(function () {
       const id = parseInt($(this).data("model"), 10);
       const isSelected = selectedCompareModels.includes(id);
       if (isSelected) {
@@ -519,7 +519,7 @@ function initPageScripts() {
   if ($("#mobileCompareTable").length) {
     renderMobileCompare();
 
-    $(document).on("click", ".mobile-compare-btn", function() {
+    $(document).on("click", ".mobile-compare-btn", function () {
       const id = parseInt($(this).data("model"), 10);
       if (selectedCompareModels.includes(id)) {
         return;

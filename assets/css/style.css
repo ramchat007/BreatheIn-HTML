@@ -205,6 +205,10 @@ body {
   /* Brand Teal */
 }
 
+.bgDarkBlue {
+  background-color: #0B1115;
+}
+
 /* ==========================================
    GLOBAL DARK MODE SYSTEM
    ========================================== */
@@ -234,6 +238,14 @@ html.dark .bg-white,
 html.dark section.bg-white,
 html.dark main.bg-white {
   background-color: #0D1418 !important;
+}
+
+html.dark .bgDarkBlue .bg-white {
+  background-color: #fff !important;
+}
+
+html.dark .bgDarkBlue .bg-white:hover {
+  background-color: #22D3EE !important;
 }
 
 html.dark .bg-gray-50,

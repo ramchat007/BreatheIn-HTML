@@ -1,6 +1,7 @@
 /* assets/css/style.scss */
 $bg-color: #FFFFFF;
 $brandTeal: #1A7388;
+$bgDarkBlue: #0B1115;
 
 body {
   background-color: $bg-color;
@@ -231,7 +232,7 @@ body {
   /* Brand Teal */
 }
 
-
+.bgDarkBlue{background-color: $bgDarkBlue;}
 
 
 
@@ -314,6 +315,13 @@ html.dark .bg-white,
 html.dark section.bg-white,
 html.dark main.bg-white {
   background-color: #0D1418 !important;
+}
+
+html.dark .bgDarkBlue .bg-white {
+  background-color: #fff !important;
+}
+html.dark .bgDarkBlue .bg-white:hover {
+  background-color:  #22D3EE !important;;
 }
 
 html.dark .bg-gray-50,

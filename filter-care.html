@@ -300,7 +300,7 @@
               Three Steps
             </p>
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight">
-              <span class="text-gray-500 dark:text-gray-400">Maintenance that takes</span>
+              <span class="text-gray-900 dark:text-gray-400">Maintenance that takes</span>
               <span class="font-medium text-[#156E8A] dark:text-[#2094B6]">minutes.</span>
             </h2>
           </div>
@@ -384,8 +384,49 @@
                 <div class="border-t border-gray-100 dark:border-gray-800 pt-4 pb-2">
                   <p class="text-[10px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-2">Replacement Price</p>
                   <div
-                    class="inline-flex items-center justify-center border border-dashed border-[#8E989E] dark:border-gray-600 bg-gray-50 dark:bg-[#0D1418] rounded-[2px] px-3 py-1">
+                    class="inline-flex items-center justify-center border border-dashed border-[#8E989E] dark:border-gray-600 bg-gray-50 dark:bg-[#0D1418] rounded-xl px-3 py-1">
                     <span class="text-[13px] text-gray-800 dark:text-gray-200 font-medium">₹1499</span>
+                  </div>
+                </div>
+
+                <!-- Action Controls (Quantity + Add to Cart + Buy Now) -->
+                <div class="border-t border-gray-100 dark:border-gray-800 pt-5 mt-2 flex flex-col gap-4">
+                  <!-- Quantity -->
+                  <div class="flex items-center gap-4">
+                    <span class="text-[13px] text-gray-500 dark:text-gray-400 font-medium">Quantity</span>
+                    <div
+                      class="flex items-center border border-gray-200 dark:border-gray-700 rounded-[10px] h-10 w-28 overflow-hidden bg-white dark:bg-[#0D1418]">
+                      <button type="button"
+                        class="qty-decrement w-9 h-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border-r border-gray-200 dark:border-gray-700 text-[16px]">
+                        &minus;
+                      </button>
+                      <input type="text" value="1" readonly
+                        class="qty-input flex-1 w-8 text-center text-[14px] font-medium text-gray-900 dark:text-white bg-transparent outline-none select-none" />
+                      <button type="button"
+                        class="qty-increment w-9 h-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border-l border-gray-200 dark:border-gray-700 text-[16px]">
+                        &plus;
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Buttons -->
+                  <div class="flex items-center gap-3 w-full">
+                    <!-- Add to Cart -->
+                    <button type="button"
+                      class="flex-1 border border-gray-900 dark:border-gray-400 bg-white dark:bg-transparent text-gray-900 dark:text-white h-11 px-3 flex items-center justify-center gap-2 text-[13px] font-medium rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">
+                      <span>Add to Cart</span>
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
+                        </path>
+                      </svg>
+                    </button>
+
+                    <!-- Buy Now -->
+                    <button type="button"
+                      class="flex-1 bg-[#111111] dark:bg-white text-white dark:text-[#111111] h-11 px-3 flex items-center justify-center text-[13px] font-medium rounded-xl hover:bg-[#156E8A] dark:hover:bg-[#2094B6] dark:hover:text-white transition-colors shadow-sm whitespace-nowrap">
+                      Buy Now
+                    </button>
                   </div>
                 </div>
               </div>
@@ -413,8 +454,49 @@
                 <div class="border-t border-gray-100 dark:border-gray-800 pt-4 pb-2">
                   <p class="text-[10px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-2">Replacement Price</p>
                   <div
-                    class="inline-flex items-center justify-center border border-dashed border-[#8E989E] dark:border-gray-600 bg-gray-50 dark:bg-[#0D1418] rounded-[2px] px-3 py-1">
+                    class="inline-flex items-center justify-center border border-dashed border-[#8E989E] dark:border-gray-600 bg-gray-50 dark:bg-[#0D1418] rounded-xl px-3 py-1">
                     <span class="text-[13px] text-gray-800 dark:text-gray-200 font-medium">₹2499</span>
+                  </div>
+                </div>
+
+                <!-- Action Controls (Quantity + Add to Cart + Buy Now) -->
+                <div class="border-t border-gray-100 dark:border-gray-800 pt-5 mt-2 flex flex-col gap-4">
+                  <!-- Quantity -->
+                  <div class="flex items-center gap-4">
+                    <span class="text-[13px] text-gray-500 dark:text-gray-400 font-medium">Quantity</span>
+                    <div
+                      class="flex items-center border border-gray-200 dark:border-gray-700 rounded-[10px] h-10 w-28 overflow-hidden bg-white dark:bg-[#0D1418]">
+                      <button type="button"
+                        class="qty-decrement w-9 h-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border-r border-gray-200 dark:border-gray-700 text-[16px]">
+                        &minus;
+                      </button>
+                      <input type="text" value="1" readonly
+                        class="qty-input flex-1 w-8 text-center text-[14px] font-medium text-gray-900 dark:text-white bg-transparent outline-none select-none" />
+                      <button type="button"
+                        class="qty-increment w-9 h-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border-l border-gray-200 dark:border-gray-700 text-[16px]">
+                        &plus;
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Buttons -->
+                  <div class="flex items-center gap-3 w-full">
+                    <!-- Add to Cart -->
+                    <button type="button"
+                      class="flex-1 border border-gray-900 dark:border-gray-400 bg-white dark:bg-transparent text-gray-900 dark:text-white h-11 px-3 flex items-center justify-center gap-2 text-[13px] font-medium rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">
+                      <span>Add to Cart</span>
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
+                        </path>
+                      </svg>
+                    </button>
+
+                    <!-- Buy Now -->
+                    <button type="button"
+                      class="flex-1 bg-[#111111] dark:bg-white text-white dark:text-[#111111] h-11 px-3 flex items-center justify-center text-[13px] font-medium rounded-xl hover:bg-[#156E8A] dark:hover:bg-[#2094B6] dark:hover:text-white transition-colors shadow-sm whitespace-nowrap">
+                      Buy Now
+                    </button>
                   </div>
                 </div>
               </div>
@@ -442,8 +524,49 @@
                 <div class="border-t border-gray-100 dark:border-gray-800 pt-4 pb-2">
                   <p class="text-[10px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-2">Replacement Price</p>
                   <div
-                    class="inline-flex items-center justify-center border border-dashed border-[#8E989E] dark:border-gray-600 bg-gray-50 dark:bg-[#0D1418] rounded-[2px] px-3 py-1">
+                    class="inline-flex items-center justify-center border border-dashed border-[#8E989E] dark:border-gray-600 bg-gray-50 dark:bg-[#0D1418] rounded-xl px-3 py-1">
                     <span class="text-[13px] text-gray-800 dark:text-gray-200 font-medium">₹3499</span>
+                  </div>
+                </div>
+
+                <!-- Action Controls (Quantity + Add to Cart + Buy Now) -->
+                <div class="border-t border-gray-100 dark:border-gray-800 pt-5 mt-2 flex flex-col gap-4">
+                  <!-- Quantity -->
+                  <div class="flex items-center gap-4">
+                    <span class="text-[13px] text-gray-500 dark:text-gray-400 font-medium">Quantity</span>
+                    <div
+                      class="flex items-center border border-gray-200 dark:border-gray-700 rounded-[10px] h-10 w-28 overflow-hidden bg-white dark:bg-[#0D1418]">
+                      <button type="button"
+                        class="qty-decrement w-9 h-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border-r border-gray-200 dark:border-gray-700 text-[16px]">
+                        &minus;
+                      </button>
+                      <input type="text" value="1" readonly
+                        class="qty-input flex-1 w-8 text-center text-[14px] font-medium text-gray-900 dark:text-white bg-transparent outline-none select-none" />
+                      <button type="button"
+                        class="qty-increment w-9 h-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border-l border-gray-200 dark:border-gray-700 text-[16px]">
+                        &plus;
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Buttons -->
+                  <div class="flex items-center gap-3 w-full">
+                    <!-- Add to Cart -->
+                    <button type="button"
+                      class="flex-1 border border-gray-900 dark:border-gray-400 bg-white dark:bg-transparent text-gray-900 dark:text-white h-11 px-3 flex items-center justify-center gap-2 text-[13px] font-medium rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">
+                      <span>Add to Cart</span>
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
+                        </path>
+                      </svg>
+                    </button>
+
+                    <!-- Buy Now -->
+                    <button type="button"
+                      class="flex-1 bg-[#111111] dark:bg-white text-white dark:text-[#111111] h-11 px-3 flex items-center justify-center text-[13px] font-medium rounded-xl hover:bg-[#156E8A] dark:hover:bg-[#2094B6] dark:hover:text-white transition-colors shadow-sm whitespace-nowrap">
+                      Buy Now
+                    </button>
                   </div>
                 </div>
               </div>
@@ -472,8 +595,49 @@
                 <div class="border-t border-gray-100 dark:border-gray-800 pt-4 pb-2">
                   <p class="text-[10px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-2">Replacement Price</p>
                   <div
-                    class="inline-flex items-center justify-center border border-dashed border-[#8E989E] dark:border-gray-600 bg-gray-50 dark:bg-[#0D1418] rounded-[2px] px-3 py-1">
+                    class="inline-flex items-center justify-center border border-dashed border-[#8E989E] dark:border-gray-600 bg-gray-50 dark:bg-[#0D1418] rounded-xl px-3 py-1">
                     <span class="text-[13px] text-gray-800 dark:text-gray-200 font-medium">₹6999</span>
+                  </div>
+                </div>
+
+                <!-- Action Controls (Quantity + Add to Cart + Buy Now) -->
+                <div class="border-t border-gray-100 dark:border-gray-800 pt-5 mt-2 flex flex-col gap-4">
+                  <!-- Quantity -->
+                  <div class="flex items-center gap-4">
+                    <span class="text-[13px] text-gray-500 dark:text-gray-400 font-medium">Quantity</span>
+                    <div
+                      class="flex items-center border border-gray-200 dark:border-gray-700 rounded-[10px] h-10 w-28 overflow-hidden bg-white dark:bg-[#0D1418]">
+                      <button type="button"
+                        class="qty-decrement w-9 h-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border-r border-gray-200 dark:border-gray-700 text-[16px]">
+                        &minus;
+                      </button>
+                      <input type="text" value="1" readonly
+                        class="qty-input flex-1 w-8 text-center text-[14px] font-medium text-gray-900 dark:text-white bg-transparent outline-none select-none" />
+                      <button type="button"
+                        class="qty-increment w-9 h-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border-l border-gray-200 dark:border-gray-700 text-[16px]">
+                        &plus;
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Buttons -->
+                  <div class="flex items-center gap-3 w-full">
+                    <!-- Add to Cart -->
+                    <button type="button"
+                      class="flex-1 border border-gray-900 dark:border-gray-400 bg-white dark:bg-transparent text-gray-900 dark:text-white h-11 px-3 flex items-center justify-center gap-2 text-[13px] font-medium rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">
+                      <span>Add to Cart</span>
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
+                        </path>
+                      </svg>
+                    </button>
+
+                    <!-- Buy Now -->
+                    <button type="button"
+                      class="flex-1 bg-[#111111] dark:bg-white text-white dark:text-[#111111] h-11 px-3 flex items-center justify-center text-[13px] font-medium rounded-xl hover:bg-[#156E8A] dark:hover:bg-[#2094B6] dark:hover:text-white transition-colors shadow-sm whitespace-nowrap">
+                      Buy Now
+                    </button>
                   </div>
                 </div>
               </div>
@@ -510,7 +674,7 @@
 
           <!-- CTA Button -->
           <a href="#"
-            class="bg-white text-black hover:bg-gray-100 transition-colors px-8 py-4 lg:py-5 rounded-[2px] text-[11px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 shrink-0 w-full md:w-auto">
+            class="bg-gray-200 dark:bg-gray-500 text-black hover:bg-gray-100 transition-colors px-8 py-4 lg:py-5 rounded-xl text-[11px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 shrink-0 w-full md:w-auto">
             Set Up Reminders <span class="text-lg leading-none mb-[2px]">&rarr;</span>
           </a>
 
@@ -521,7 +685,7 @@
     <!-- ========================================== -->
     <!-- DARK CTA SECTION: EXPLORE / COMPARE        -->
     <!-- ========================================== -->
-    <section class="w-full bg-[#0B1115] py-10 md:py-20 px-6 flex flex-col items-center justify-center text-center">
+    <section class="w-full bgDarkBlue py-10 md:py-20 px-6 flex flex-col items-center justify-center text-center">
       <h2 class="text-4xl md:text-5xl lg:text-[56px] font-light text-white mb-6 md:mb-8 tracking-tight">
         Genuine filters. <span class="text-[#156E8A]">Verified performance.</span>
       </h2>
@@ -544,7 +708,7 @@
 
         <!-- Secondary Ghost/Underline Button -->
         <a href="#"
-          class="text-white border-b border-gray-700 pb-1 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold hover:text-[#156E8A] hover:border-[#156E8A] transition-colors w-full sm:w-auto text-center mt-2 sm:mt-0">
+          class="h-[51px] py-3.5 sm:py-4 border-b-2 border-white/80 hover:border-white text-white text-[11px] sm:text-[12px] tracking-[0.15em] font-semibold uppercase hover:text-[#156E8A] transition-colors flex items-center justify-center whitespace-nowrap w-1/2 sm:w-auto text-center">
           How Purification Works
         </a>
       </div>
@@ -554,7 +718,7 @@
     <!-- ========================================== -->
     <!-- SECTION 17: FOOTER                         -->
     <!-- ========================================== -->
-    <footer class="w-full bg-[#0B1115] pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24">
+    <footer class="w-full bgDarkBlue pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24">
       <div class="max-w-[1400px] mx-auto">
         <!-- Top Section: Brand & Links -->
         <div class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-10 lg:mb-20">

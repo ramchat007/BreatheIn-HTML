@@ -243,46 +243,76 @@
   </div>
 
   <main class="bg-[#FAFCFD]">
-    <!-- ========================================== -->
-    <!-- HERO SECTION                    -->
-    <!-- ========================================== -->
-    <section class="relative flex items-center overflow-hidden ">
-      <!-- Soft Radial Glow (Top Right) -->
-      <div class="hidden md:block absolute inset-0 pointer-events-none" style="
-            background: radial-gradient(
-              40% 60% at 90% 10%,
-              rgba(21, 110, 138, 0.08) 0%,
-              rgba(0, 0, 0, 0) 100%
-            );
-          "></div>
 
-      <div class="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-20 py-10 lg:py-20 w-full relative z-10">
-        <div class="max-w-2xl">
-          <!-- Breadcrumb -->
-          <nav class="uppercase tracking-[.25em] text-[12px] text-gray-400 mb-5">
-            HOME <span class="text-gray-300 px-2">/</span> About us
-          </nav>
+    <!-- ========================================== -->
+    <!-- HERO SECTION                               -->
+    <!-- ========================================== -->
+    <section class="w-full relative bg-white border-b border-gray-100">
+      <div class="swiper heroSwiper w-full md:min-h-[100dvh] lg:min-h-[600px]">
+        <div class="swiper-wrapper w-full h-full">
+          <div class="swiper-slide w-full h-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 w-full md:h-screen max-h-[720px]">
+              <!-- ============================================== -->
+              <!-- 1. VISUAL COLUMN (Top Mobile, Right Desktop)   -->
+              <!-- ============================================== -->
+              <div class="relative order-1 lg:order-2 bg-gray-100 flex items-center justify-center overflow-hidden">
 
-          <!-- Eyebrow -->
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-8 h-px bg-[#156E8A]"></div>
-            <p class="uppercase tracking-[.25em] text-[11px] text-[#156E8A] font-bold">
-              BreathePure™ About us
-            </p>
+                <!-- Responsive Background Image -->
+                <picture class="absolute inset-0 w-full h-full z-0">
+                  <!-- Mobile Image Source -->
+                  <source media="(max-width: 1023px)" srcset="./assets/images/about-us-bg.png">
+                  <!-- Desktop Image Source -->
+                  <img src="./assets/images/about-us-bg.png" alt="Air Purifier in Bedroom Setup"
+                    class="w-full h-full object-cover object-center slide-product opacity-0 transition-all duration-1000 ease-out delay-200" />
+                </picture>
+              </div>
+
+              <!-- ============================================== -->
+              <!-- 2. TEXT COLUMN (Bottom Mobile, Left Desktop)   -->
+              <!-- ============================================== -->
+              <div
+                class="bg-white text-gray-900 flex flex-col justify-center px-6 py-8 md:py-12 lg:px-16 lg:pl-[10%] lg:pr-16 relative order-2 lg:order-1">
+                <div class="max-w-2xl">
+                  <!-- Breadcrumb -->
+                  <nav class="uppercase tracking-[.25em] text-[12px] text-gray-400 mb-5">
+                    HOME <span class="text-gray-300 px-2">/</span> About us
+                  </nav>
+
+                  <!-- Eyebrow -->
+                  <div class="flex items-center gap-4 mb-6">
+                    <div class="w-8 h-px bg-[#156E8A]"></div>
+                    <p class="uppercase tracking-[.25em] text-[11px] text-[#156E8A] font-bold">
+                      BreathePure™ About us
+                    </p>
+                  </div>
+
+                  <!-- Headline -->
+                  <h1
+                    class="text-5xl md:text-6xl lg:text-[80px] font-light leading-tight tracking-tight text-gray-900 mb-5">
+                    Breathe In.
+                    The <span class="font-medium text-[#156E8A]">Right Air.</span>
+                  </h1>
+
+                  <!-- Subtext -->
+                  <p class="max-w-xl text-gray-500 text-sm md:text-base leading-relaxed font-light">
+                    Breathe In is a premium clean-air technology brand dedicated to improving indoor air quality for
+                    homes,
+                    families, and institutions across India and global markets.
+                  </p>
+                </div>
+
+                <!-- Desktop Scroll Indicator -->
+                <div
+                  class="hidden lg:flex absolute bottom-8 left-[10%] items-center gap-3 opacity-60 slide-content opacity-0 transition-all duration-700 delay-500">
+                  <div class="w-8 h-[1px] bg-gray-400"></div>
+                  <span class="text-[9px] tracking-[0.2em] uppercase text-gray-500 font-semibold">Scroll to
+                    explore</span>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <!-- Headline -->
-          <h1 class="text-5xl md:text-6xl lg:text-[80px] font-light leading-tight tracking-tight text-gray-900 mb-5">
-            Breathe In.
-            The <span class="font-medium text-[#156E8A]">Right Air.</span>
-          </h1>
-
-          <!-- Subtext -->
-          <p class="max-w-xl text-gray-500 text-sm md:text-base leading-relaxed font-light">
-            Breathe In is a premium clean-air technology brand dedicated to improving indoor air quality for homes,
-            families, and institutions across India and global markets.
-          </p>
         </div>
+        <div class="swiper-pagination hidden lg:block"></div>
       </div>
     </section>
 
@@ -290,7 +320,7 @@
     <!-- ABOUT US - QUOTE SECTION                   -->
     <!-- ========================================== -->
     <section
-      class="max-w-[1320px] mx-auto bg-white dark:bg-[#050505] py-10 md:py-20 lg:py-32 px-6 md:px-10 lg:px-16 transition-colors duration-300 ">
+      class="max-w-[1320px] mx-auto bg-white dark:bg-[#050505] py-5 md:py-10 lg:py-24 px-6 md:px-10 lg:px-16 transition-colors duration-300 ">
       <div class="  ">
         <blockquote class="max-w-[850px]">
           <!-- Quote Text -->
@@ -309,149 +339,355 @@
     </section>
 
     <!-- ========================================== -->
-    <!-- SECTION 8: TECHNOLOGY & FILTRATION         -->
+    <!-- SECTION 12: TRUST & CERTIFICATIONS         -->
     <!-- ========================================== -->
-    <section class="w-full bg-[#FAFCFD] py-10 md:py-20 px-6 md:px-16 lg:px-24">
+    <section class="w-full bg-[#FAFCFD] py-16 md:py-20 px-6 md:px-16 lg:px-24">
       <!-- Header Section (Responsive Alignment) -->
       <div
-        class="max-w-3xl mx-0 md:mx-auto text-left md:text-center mb-10 md:mb-24 scroll-reveal opacity-0 translate-y-6 transition-all duration-700 ease-out">
+        class="max-w-4xl mx-0 md:mx-auto text-left md:text-center mb-5 md:mb-10 scroll-reveal opacity-0 translate-y-6 transition-all duration-700 ease-out">
+        <!-- Eyebrow with decorative lines (Lines hidden on mobile) -->
+        <div class="flex items-center justify-start md:justify-center gap-4 mb-4 md:mb-6">
+          <div class="hidden md:block w-8 h-[1px] bg-gray-300"></div>
+          <span class="text-[11px] uppercase tracking-[0.25em] text-[#156E8A] font-bold">
+            Clean air you can trust
+          </span>
+          <div class="hidden md:block w-8 h-[1px] bg-gray-300"></div>
+        </div>
 
         <!-- Headline -->
         <h2
-          class="text-[32px] md:text-5xl font-light tracking-tight text-gray-900 leading-[1.15] md:leading-[1.2] mb-4 md:mb-6">
-          BreathePure&trade; Technology
+          class="text-[32px] md:text-5xl lg:text-6xl font-light tracking-tight text-gray-900 leading-[1.15] md:leading-[1.2] mb-4 md:mb-6">
+          Clean air you can trust &mdash;
+          <span class="text-[#156E8A] font-medium">proven by design</span>
         </h2>
 
         <!-- Subtext -->
         <p
-          class="text-gray-500 text-[12px] md:text-[15px] font-light leading-relaxed max-w-xl mx-0 md:mx-auto pr-4 md:pr-0">
-          A multi-stage purification system that captures fine particles, reduces everyday odours and intelligently
-          responds to changing air quality.
+          class="text-gray-500 text-[12px] md:text-[15px] font-light leading-relaxed max-w-2xl mx-0 md:mx-auto pr-4 md:pr-0">
+          Four pillars on Home
         </p>
       </div>
 
-      <!-- 4-Stage Technology Grid/List -->
-      <!-- Mobile: Transparent background, divided list. Desktop: White card, shadow, side-by-side grid -->
+      <!-- 4-Column Feature Grid (Stacking on mobile, side-by-side flex inside cards) -->
       <div
-        class="max-w-6xl mx-auto bg-transparent md:bg-white border-0 md:border md:border-gray-100 md:shadow-[0_4px_20px_rgb(0,0,0,0.02)] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y divide-gray-200/80 md:divide-y-0 md:divide-x md:divide-gray-100 mb-12 scroll-reveal opacity-0 translate-y-6 transition-all duration-700 delay-100">
-        <!-- Stage 01: Capture -->
-        <div class="py-6 md:p-10 flex flex-col h-full lg:border-b-0 border-gray-100 md:border-b">
-          <!-- Header Row: Flex on mobile to align number/title, Block on desktop -->
-          <div class="flex items-start md:block mb-1.5 md:mb-4">
-            <span
-              class="text-[15px] md:text-[12px] text-[#156E8A] font-medium tracking-widest w-10 shrink-0 md:w-auto md:mb-5 block mt-0.5 md:mt-0">01</span>
-
-            <!-- Simple Intake SVG Icon (Hidden on Mobile) -->
-            <svg class="hidden md:block mb-4" width="44" height="44" viewBox="0 0 44 44" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 14H36M12 22H32M16 30H28" stroke="#141414" stroke-width="1.4" stroke-linecap="round" />
-            </svg>
-
-            <h3 class="text-[17px] font-normal text-gray-900">Built for Real Homes</h3>
+        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 mb-10 md:mb-20 scroll-reveal opacity-0 translate-y-6 transition-all duration-700 delay-100">
+        <!-- Card 1: Certified Performance -->
+        <div
+          class="bg-white p-6 md:p-10 shadow-sm md:shadow-[0_8px_30px_rgb(0,0,0,0.03)] border border-gray-100 flex flex-col h-full hover:-translate-y-1 transition-transform duration-300 rounded-xl md:rounded-none">
+          <!-- Card Header: Flex Row on Mobile, Flex Col on Desktop -->
+          <div class="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0 mb-3 md:mb-0">
+            <!-- Icon -->
+            <div class="w-10 h-10 rounded-full md:mb-8">
+              <img src="./assets/images/why-icon1.png" alt="">
+            </div>
+            <h3 class="text-[17px] md:text-base text-gray-900 font-normal md:font-medium md:mb-4">
+              Certified Performance
+            </h3>
           </div>
 
-          <!-- Description: Indented on mobile to align with title, standard on desktop -->
-          <p class="text-[15px] md:text-xs text-gray-500 font-light leading-relaxed ml-10 md:ml-0 pr-4 md:pr-0">
-            Every product is designed with Indian homes and families in mind — real pollution, real comfort, real needs.
+          <p class="text-[15px] md:text-xs text-gray-500 font-light leading-relaxed pr-2 md:pr-0">
+            Tested for high-efficiency particle capture, with verified reports for virus and bacteria reduction across
+            the range
           </p>
         </div>
 
-        <!-- Stage 02: Filter -->
-        <div class="py-6 md:p-10 flex flex-col h-full lg:border-b-0 border-gray-100 md:border-b">
-          <div class="flex items-start md:block mb-1.5 md:mb-4">
-            <span
-              class="text-[15px] md:text-[12px] text-[#156E8A] font-medium tracking-widest w-10 shrink-0 md:w-auto md:mb-5 block mt-0.5 md:mt-0">02</span>
-
-            <!-- Simple Filter Layers SVG Icon (Hidden on Mobile) -->
-            <svg class="hidden md:block mb-4" width="44" height="44" viewBox="0 0 44 44" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M34 10H10C8.89543 10 8 10.8954 8 12V13C8 14.1046 8.89543 15 10 15H34C35.1046 15 36 14.1046 36 13V12C36 10.8954 35.1046 10 34 10Z"
-                stroke="#141414" stroke-width="1.4" />
-              <path
-                d="M34 19H10C8.89543 19 8 19.8954 8 21V22C8 23.1046 8.89543 24 10 24H34C35.1046 24 36 23.1046 36 22V21C36 19.8954 35.1046 19 34 19Z"
-                stroke="#141414" stroke-width="1.4" />
-              <path
-                d="M34 28H10C8.89543 28 8 28.8954 8 30V31C8 32.1046 8.89543 33 10 33H34C35.1046 33 36 32.1046 36 31V30C36 28.8954 35.1046 28 34 28Z"
-                stroke="#141414" stroke-width="1.4" />
-            </svg>
-
-            <h3 class="text-[17px] font-normal text-gray-900">Clean Air Mission</h3>
+        <!-- Card 2: Japanese Technology -->
+        <div
+          class="bg-white p-6 md:p-10 shadow-sm md:shadow-[0_8px_30px_rgb(0,0,0,0.03)] border border-gray-100 flex flex-col h-full hover:-translate-y-1 transition-transform duration-300 delay-75 rounded-xl md:rounded-none">
+          <div class="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0 mb-3 md:mb-0">
+            <div class="w-10 h-10 rounded-full md:mb-8">
+              <img src="./assets/images/why-icon2.png" alt="">
+            </div>
+            <h3 class="text-[17px] md:text-base text-gray-900 font-normal md:font-medium md:mb-4">
+              Japanese Technology
+            </h3>
           </div>
-          <p class="text-[15px] md:text-xs text-gray-500 font-light leading-relaxed ml-10 md:ml-0 pr-4 md:pr-0">
-            We believe clean indoor air should be accessible, not a luxury. Our mission is to make premium purification
-            affordable.
+          <p class="text-[15px] md:text-xs text-gray-500 font-light leading-relaxed pr-2 md:pr-0">
+            Advanced motor technology designed for efficient airflow, dependable performance and quieter operation
           </p>
         </div>
 
-        <!-- Stage 03: Neutralise -->
-        <div class="py-6 md:p-10 flex flex-col h-full lg:border-t-0 lg:border-b-0 border-gray-100 border-t">
-          <div class="flex items-start md:block mb-1.5 md:mb-4">
-            <span
-              class="text-[15px] md:text-[12px] text-[#156E8A] font-medium tracking-widest w-10 shrink-0 md:w-auto md:mb-5 block mt-0.5 md:mt-0">03</span>
-
-            <svg class="hidden md:block mb-4" width="44" height="44" viewBox="0 0 44 44" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path d="M22 8V16M16 11L20 15M28 11L24 15M12 22H8M22 36V28M32 22H36M16 33L20 29M28 33L24 29"
-                stroke="#141414" stroke-width="1.4" stroke-linecap="round" />
-              <path
-                d="M22 27C24.7614 27 27 24.7614 27 22C27 19.2386 24.7614 17 22 17C19.2386 17 17 19.2386 17 22C17 24.7614 19.2386 27 22 27Z"
-                stroke="#141414" stroke-width="1.4" />
-            </svg>
-
-            <h3 class="text-[17px] font-normal text-gray-900">Designed for Global Markets</h3>
+        <!-- Card 3: HEPA H13 Filtration -->
+        <div
+          class="bg-white p-6 md:p-10 shadow-sm md:shadow-[0_8px_30px_rgb(0,0,0,0.03)] border border-gray-100 flex flex-col h-full hover:-translate-y-1 transition-transform duration-300 delay-150 rounded-xl md:rounded-none">
+          <div class="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0 mb-3 md:mb-0">
+            <div class="w-10 h-10 rounded-full md:mb-8">
+              <img src="./assets/images/why-icon3.png" alt="">
+            </div>
+            <h3 class="text-[17px] md:text-base text-gray-900 font-normal md:font-medium md:mb-4">
+              HEPA H13 Filtration
+            </h3>
           </div>
-          <p class="text-[15px] md:text-xs text-gray-500 font-light leading-relaxed ml-10 md:ml-0 pr-4 md:pr-0">
-            Engineered for Indian conditions, built to global standards. Breathe In products are designed for export
-            markets too.
+          <p class="text-[15px] md:text-xs text-gray-500 font-light leading-relaxed pr-2 md:pr-0">
+            HEPA H13 filtration helps capture up to 99.97% of fine particles as small as 0.3 microns, including PM2.5,
+            dust and pollen
           </p>
         </div>
 
-        <!-- Stage 04: Monitor -->
-        <div class="py-6 md:p-10 flex flex-col h-full lg:border-t-0 border-gray-100 border-t">
-          <div class="flex items-start md:block mb-1.5 md:mb-4">
-            <span
-              class="text-[15px] md:text-[12px] text-[#156E8A] font-medium tracking-widest w-10 shrink-0 md:w-auto md:mb-5 block mt-0.5 md:mt-0">04</span>
-
-            <!-- Simple Sensor/Clock SVG Icon (Hidden on Mobile) -->
-            <svg class="hidden md:block mb-4" width="44" height="44" viewBox="0 0 44 44" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M22 34C28.6274 34 34 28.6274 34 22C34 15.3726 28.6274 10 22 10C15.3726 10 10 15.3726 10 22C10 28.6274 15.3726 34 22 34Z"
-                stroke="#141414" stroke-width="1.4" />
-              <path d="M22 14V22L27 25" stroke="#141414" stroke-width="1.4" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-
-            <h3 class="text-[17px] font-normal text-gray-900">Support & Service</h3>
+        <!-- Card 4: Service & Support -->
+        <div
+          class="bg-white p-6 md:p-10 shadow-sm md:shadow-[0_8px_30px_rgb(0,0,0,0.03)] border border-gray-100 flex flex-col h-full hover:-translate-y-1 transition-transform duration-300 delay-200 rounded-xl md:rounded-none">
+          <div class="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0 mb-3 md:mb-0">
+            <div class="w-10 h-10 rounded-full md:mb-8">
+              <img src="./assets/images/why-icon4.png" alt="">
+            </div>
+            <h3 class="text-[17px] md:text-base text-gray-900 font-normal md:font-medium md:mb-4">
+              Service & Support
+            </h3>
           </div>
-          <p class="text-[15px] md:text-xs text-gray-500 font-light leading-relaxed ml-10 md:ml-0 pr-4 md:pr-0">
-            From purchase to long-term use, our team is available to guide, support, and service every Breathe In
-            product.
+          <p class="text-[15px] md:text-xs text-gray-500 font-light leading-relaxed pr-2 md:pr-0">
+            Dedicated support for product guidance, troubleshooting, warranty assistance and genuine replacement filters
           </p>
         </div>
       </div>
 
+      <!-- Certifications Strip -->
+      <!-- Removed borders on mobile -->
+      <div
+        class="max-w-7xl mx-auto md:border-t md:border-b border-[#DCE4E7] py-6 md:py-10 px-0 md:px-6 scroll-reveal opacity-0 translate-y-6 transition-all duration-700 delay-200">
+        <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6 lg:gap-8">
+          <img src="./assets/images/cert-logo-1.png" alt="Certification 1"
+            class="h-8 md:h-10 w-auto object-contain md:grayscale hover:grayscale-0 transition-all" />
+          <img src="./assets/images/cert-logo-2.png" alt="Certification 2"
+            class="h-8 md:h-10 w-auto object-contain md:grayscale hover:grayscale-0 transition-all" />
+          <img src="./assets/images/cert-logo-3.png" alt="Certification 3"
+            class="h-8 md:h-10 w-auto object-contain md:grayscale hover:grayscale-0 transition-all" />
+          <img src="./assets/images/cert-logo-4.png" alt="Certification 4"
+            class="h-8 md:h-10 w-auto object-contain md:grayscale hover:grayscale-0 transition-all" />
+          <img src="./assets/images/cert-logo-5.png" alt="Certification 5"
+            class="h-8 md:h-10 w-auto object-contain md:grayscale hover:grayscale-0 transition-all" />
+          <img src="./assets/images/cert-logo-6.png" alt="Certification 6"
+            class="h-8 md:h-10 w-auto object-contain md:grayscale hover:grayscale-0 transition-all" />
+          <img src="./assets/images/cert-logo-7.png" alt="Certification 7"
+            class="h-8 md:h-10 w-auto object-contain md:grayscale hover:grayscale-0 transition-all" />
+          <img src="./assets/images/cert-logo-8.png" alt="Certification 8"
+            class="h-8 md:h-10 w-auto object-contain md:grayscale hover:grayscale-0 transition-all" />
+          <img src="./assets/images/cert-logo-9.png" alt="Certification 9"
+            class="h-8 md:h-10 w-auto object-contain md:grayscale hover:grayscale-0 transition-all" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- BREATHEPURE™ SYSTEM FEATURE BREAKDOWN       -->
+    <!-- ========================================== -->
+    <section class="w-full py-10 md:py-20 px-6 md:px-10 lg:px-20 bg-[#FAFCFD]">
+      <div class="max-w-[1400px] mx-auto flex flex-col gap-5 lg:gap-20">
+        <!-- FEATURE 1: Real-Time Air Intelligence -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 items-center md:border-b md:border-gray-200/60 md:pb-10 lg:pb-20 bg-white md:bg-transparent">
+          <!-- Text Content -->
+          <div class="flex flex-col justify-center order-2 lg:order-1 p-5">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight mb-6">
+              Bedrooms
+            </h2>
+            <p class="text-gray-500 font-light text-[15px] md:text-sm leading-relaxed mb-8">
+              Built-in sensors monitor indoor air quality in real time, while Automatic Mode adjusts purifications as
+              conditions change. Available features vary by model
+            </p>
+
+            <!-- Bullet Points -->
+            <ul class="flex flex-col gap-3.5">
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span class="w-2 h-2 rounded-full bg-[#156E8A] flex items-center justify-center"></span>
+                Real-time PM2.5 monitoring
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span class="w-2 h-2 rounded-full bg-[#156E8A] flex items-center justify-center"></span>
+                Colour-coded air quality display
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span class="w-2 h-2 rounded-full bg-[#156E8A] flex items-center justify-center"></span>
+                Automatic fan-speed adjustment
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span class="w-2 h-2 rounded-full bg-[#156E8A] flex items-center justify-center"></span>
+                Six-sensor monitoring on Air Pro 2
+              </li>
+            </ul>
+          </div>
+
+          <!-- Image with Badge Overlay (Shadow removed) -->
+          <div class="relative md:rounded-xl overflow-hidden h-[215px] md:h-[350px] lg:h-[450px] order-1 lg:order-2">
+            <img src="./assets/images/about1.png" alt="Real-Time Air Intelligence"
+              class="absolute inset-0 w-full h-full object-cover" />
+          </div>
+        </div>
+
+        <!-- FEATURE 2: Medical-Grade HEPA H13 -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 items-center md:border-b md:border-gray-200/60 md:pb-10 lg:pb-20 bg-white md:bg-transparent">
+          <!-- Image with Badge Overlay (Shadow removed) -->
+          <div class="relative md:rounded-xl overflow-hidden h-[215px] md:h-[350px] lg:h-[450px] order-1">
+            <img src="./assets/images/about2.png" alt="Medical-Grade HEPA H13"
+              class="absolute inset-0 w-full h-full object-cover" />
+          </div>
+
+          <!-- Text Content -->
+          <div class="flex flex-col justify-center order-2 p-5">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight mb-6">
+              Families
+            </h2>
+            <p class="text-gray-500 font-light text-[15px] md:text-sm leading-relaxed mb-8">
+              HEPA H13 filtration helps capture fine airborne particles that are often invisible to the eye, supporting
+              cleaner air throughout your space.
+            </p>
+
+            <!-- Bullet Points -->
+            <ul class="flex flex-col gap-3.5">
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span class="w-2 h-2 rounded-full bg-[#156E8A] flex items-center justify-center"></span>
+                Captures upto to 99.97% of particles as small as 0.3 microns*
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span class="w-2 h-2 rounded-full bg-[#156E8A] flex items-center justify-center"></span>
+                Helps reduce PM2.5, dust, pollen and other fine particles
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span class="w-2 h-2 rounded-full bg-[#156E8A] flex items-center justify-center"></span>
+                Virus and bacteria reduction performance backed by test reports
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- FEATURE 3: Activated Carbon Neutralising -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 items-center md:border-b md:border-gray-200/60 md:pb-10 lg:pb-20 bg-white md:bg-transparent">
+          <!-- Text Content -->
+          <div class="flex flex-col justify-center order-2 lg:order-1 p-5">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight mb-6">
+              Workspaces
+            </h2>
+            <p class="text-gray-500 font-light text-[15px] md:text-sm leading-relaxed mb-8">
+              Activated carbon filtration helps reduce cooking smoke, pet smells, everyday odours,
+              VOCs and selected gaseous pollutants from the surrounding air.
+            </p>
+
+            <!-- Bullet Points -->
+            <ul class="flex flex-col gap-3.5">
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span class="w-2 h-2 rounded-full bg-[#156E8A] flex items-center justify-center"></span>
+                Helps reduce VOCs and selected gaseous pollutants.
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span class="w-2 h-2 rounded-full bg-[#156E8A] flex items-center justify-center"></span>
+                Reduces cooking smoke, pet smells and everyday odours.
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span class="w-2 h-2 rounded-full bg-[#156E8A] flex items-center justify-center"></span>
+                Works alongside HEPA H13 and other model-specific filtration layers.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Image with Badge Overlay (Shadow removed) -->
+          <div class="relative md:rounded-xl overflow-hidden h-[215px] md:h-[350px] lg:h-[450px] order-1 lg:order-2">
+            <img src="./assets/images/about3.png" alt="Activated Carbon Neutralising"
+              class="absolute inset-0 w-full h-full object-cover" />
+          </div>
+        </div>
+
+        <!-- FEATURE 4: Ultra-Silent Sleep Mode (No border on the last item) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-16 items-center bg-white md:bg-transparent">
+          <!-- Image with Badge Overlay (Shadow removed) -->
+          <div class="relative md:rounded-xl overflow-hidden h-[215px] md:h-[350px] lg:h-[450px] order-1">
+            <img src="./assets/images/about4.png" alt="Ultra-Silent Sleep Mode"
+              class="absolute inset-0 w-full h-full object-cover" />
+          </div>
+
+          <!-- Text Content -->
+          <div class="flex flex-col justify-center order-2 p-5">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight mb-6">
+              Clinics
+            </h2>
+            <p class="text-gray-500 font-light text-[15px] md:text-sm leading-relaxed mb-8">
+              Operating from as low as 18 dB*, Sleep Mode reduces fan noise and display brightness for quieter,
+              uninterrupted nighttime purification.
+            </p>
+
+            <!-- Bullet Points -->
+            <ul class="flex flex-col gap-3.5">
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span class="w-2 h-2 rounded-full bg-[#156E8A] flex items-center justify-center"></span>
+                As low as 18 dB*
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span class="w-2 h-2 rounded-full bg-[#156E8A] flex items-center justify-center"></span>
+                Reduced display brightness
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span class="w-2 h-2 rounded-full bg-[#156E8A] flex items-center justify-center"></span>
+                Sleep schedules on compatible models
+              </li>
+              <li class="flex gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span
+                  class="w-[20px!important] h-2 mt-2 rounded-full bg-[#156E8A] flex items-center justify-center"></span>
+                *Minimum noise level applies to selected models and
+                operating modes. Actual noise levels may vary by model, f
+                an speed and operating conditions.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- FEATURE 5: lobbies -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 items-center md:border-b md:border-gray-200/60 md:pb-10 lg:pb-20 bg-white md:bg-transparent">
+          <!-- Text Content -->
+          <div class="flex flex-col justify-center order-2 lg:order-1 p-5">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 tracking-tight mb-6">
+              Lobbies
+            </h2>
+            <p class="text-gray-500 font-light text-[15px] md:text-sm leading-relaxed mb-8">
+              Activated carbon filtration helps reduce cooking smoke, pet smells, everyday odours,
+              VOCs and selected gaseous pollutants from the surrounding air.
+            </p>
+
+            <!-- Bullet Points -->
+            <ul class="flex flex-col gap-3.5">
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span class="w-2 h-2 rounded-full bg-[#156E8A] flex items-center justify-center"></span>
+                Helps reduce VOCs and selected gaseous pollutants.
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span class="w-2 h-2 rounded-full bg-[#156E8A] flex items-center justify-center"></span>
+                Reduces cooking smoke, pet smells and everyday odours.
+              </li>
+              <li class="flex items-center gap-3 text-gray-700 text-[15px] md:text-sm font-light">
+                <span class="w-2 h-2 rounded-full bg-[#156E8A] flex items-center justify-center"></span>
+                Works alongside HEPA H13 and other model-specific filtration layers.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Image with Badge Overlay (Shadow removed) -->
+          <div class="relative md:rounded-xl overflow-hidden h-[215px] md:h-[350px] lg:h-[450px] order-1 lg:order-2">
+            <img src="./assets/images/about5.png" alt="Activated Carbon Neutralising"
+              class="absolute inset-0 w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ========================================== -->
     <!-- DARK CTA SECTION: EXPLORE / COMPARE        -->
     <!-- ========================================== -->
-    <section class="w-full bg-[#0B1115] py-10 md:py-20 px-6 flex flex-col items-center justify-center text-center">
+    <section class="w-full bgDarkBlue py-10 md:py-20 px-6 flex flex-col items-center justify-center text-center">
       <h2 class="text-4xl md:text-5xl lg:text-[56px] font-light text-white mb-6 md:mb-8 tracking-tight">
-        Equip your space with <span class="text-[#156E8A]">the right air.</span>
+        Technology you can <span class="text-[#156E8A]">live with.</span>
       </h2>
 
       <p class="text-gray-400 font-light text-[12px] md:text-[15px] max-w-2xl mx-auto mb-12 leading-relaxed">
-        From a single clinic room to an entire campus — Breathe In scales with<br class="hidden md:block" />
-        you.
+        Every Breathe In model combines high-efficiency filtration, intelligent features and dependable
+        performance — choose the one that fits your space.
       </p>
 
       <div class="flex flex-row items-center justify-center gap-6 sm:gap-10 w-full max-w-md sm:max-w-none">
         <!-- Primary Solid Button -->
         <a href="#"
           class="bg-white text-[#0B1115] px-4 py-4 md:py-4 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold flex items-center justify-center gap-3 hover:bg-gray-200 transition-colors rounded-xl w-full sm:w-auto">
-          <span>Compare Models</span>
+          <span>Explore the prodcuts</span>
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -460,8 +696,8 @@
 
         <!-- Secondary Ghost/Underline Button -->
         <a href="#"
-          class="text-white border-b border-gray-700 pb-1 uppercase text-[12px] md:text-[13px] tracking-[0.2em] font-bold hover:text-[#156E8A] hover:border-[#156E8A] transition-colors w-full sm:w-auto text-center mt-2 sm:mt-0">
-          Book a Demo
+          class="h-[51px] py-3.5 sm:py-4 border-b-2 border-white/80 hover:border-white text-white text-[11px] sm:text-[12px] tracking-[0.15em] font-semibold uppercase hover:text-[#156E8A] transition-colors flex items-center justify-center whitespace-nowrap w-1/2 sm:w-auto text-center">
+          Compare Models
         </a>
       </div>
     </section>
@@ -469,7 +705,7 @@
     <!-- ========================================== -->
     <!-- SECTION 17: FOOTER                         -->
     <!-- ========================================== -->
-    <footer class="w-full bg-[#0B1115] pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24">
+    <footer class="w-full bgDarkBlue pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24">
       <div class="max-w-[1400px] mx-auto">
         <!-- Top Section: Brand & Links -->
         <div class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-10 lg:mb-20">
