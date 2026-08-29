@@ -335,7 +335,9 @@ html.dark .bg-\[\#F0F5F7\],
 html.dark .bg-\[\#F2F6F8\],
 html.dark .bg-\[\#F8FAFC\],
 html.dark .bg-\[\#F9FAFB\],
-html.dark .bg-\[\#080C0F\] {
+html.dark .bg-\[\#080C0F\],
+html.dark .md\:bg-white,
+html.dark .lg\:bg-white {
   background-color: #111A20 !important;
 }
 
@@ -373,7 +375,8 @@ html.dark p,
 html.dark span.text-gray-600,
 html.dark .text-gray-700,
 html.dark .text-gray-600,
-html.dark .text-gray-500 {
+html.dark .text-gray-500,
+html.dark .md\:text-\[\#141414\] {
   color: #9CA3AF !important;
 }
 
