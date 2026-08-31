@@ -1,0 +1,1262 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms & Conditions &mdash; Breathe In</title>
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./assets/js/tailwind.config.js"></script>
+
+    <!-- Link to compiled CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="antialiased text-gray-900 selection:bg-brandTeal/20 relative">
+    <!-- ========================================== -->
+    <!-- FULL-SCREEN MOBILE NAVIGATION OVERLAY      -->
+    <!-- ========================================== -->
+    <div id="mobileNavOverlay"
+        class="fixed inset-0 z-[60] bg-white dark:bg-[#0D1418] flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out hidden">
+        <button id="closeMobileNav"
+            class="absolute top-6 right-8 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            aria-label="Close Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-8 h-8 dark:text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <nav class="flex flex-col items-center gap-8 text-center">
+            <a href="./products.html"
+                class="text-3xl text-[#156E8A] font-light tracking-wide hover:text-brandTeal transition-colors">COLLECTION</a>
+            <a href="./technology.html"
+                class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors dark:text-white">TECHNOLOGY</a>
+            <a href="./app.html"
+                class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors dark:text-white">APP</a>
+            <a href="./real-homes.html"
+                class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors dark:text-white">REAL
+                HOMES</a>
+            <a href="./compare.html"
+                class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors dark:text-white">COMPARE</a>
+            <div
+                class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 w-full flex flex-col items-center gap-4">
+                <a href="./account-overview.html" class="text-lg font-medium hover:text-brandTeal dark:text-white">My
+                    Account</a>
+                <a href="./support.html" class="text-lg font-medium hover:text-brandTeal dark:text-white">Support</a>
+            </div>
+        </nav>
+    </div>
+    <!-- ========================================== -->
+
+    <!-- ========================================== -->
+    <!-- SMART STICKY HEADER                        -->
+    <!-- ========================================== -->
+    <div id="smart-header"
+        class="sticky top-0 z-50 w-full flex flex-col shadow-sm transition-transform duration-300 ease-in-out translate-y-0">
+        <!-- 1. TOP LIVE AQI TICKER BAR -->
+        <div class="w-full bg-tickerDark text-white flex items-center text-[11px] tracking-wider font-medium animate-fade-in-down overflow-hidden"
+            style="animation-delay: 100ms">
+            <div
+                class="bg-tickerDark md:bg-brandTeal px-4 md:px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative">
+                <span class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse"></span>
+                INDIA AQI TODAY
+            </div>
+
+            <!-- Separator Line -->
+            <div class="w-[1px] h-6 bg-gray-800 shrink-0 z-10 relative"></div>
+
+            <!-- Scrolling Content -->
+            <div class="flex flex-1 overflow-hidden relative bg-tickerDark">
+                <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
+                    <!-- Ticker Items List 1 -->
+                    <div class="flex items-center gap-6 pr-6">
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Delhi</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">392</span>
+                            <span class="text-textMuted text-[12px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Ghaziabad</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">358</span>
+                            <span class="text-textMuted text-[12px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Noida</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">311</span>
+                            <span class="text-textMuted text-[12px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Patna</span>
+                            <span
+                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">286</span>
+                            <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Lucknow</span>
+                            <span
+                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">242</span>
+                            <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Kolkata</span>
+                            <span
+                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">198</span>
+                            <span class="text-textMuted text-[12px]">Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Mumbai</span>
+                            <span
+                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">164</span>
+                            <span class="text-textMuted text-[12px]">Unhealthy</span>
+                        </div>
+                    </div>
+
+                    <!-- Ticker Items List 2 (Duplicated for seamless scrolling) -->
+                    <div class="flex items-center gap-6 pr-6">
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Delhi</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">392</span>
+                            <span class="text-textMuted text-[12px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Ghaziabad</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">358</span>
+                            <span class="text-textMuted text-[12px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Noida</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">311</span>
+                            <span class="text-textMuted text-[12px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Patna</span>
+                            <span
+                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">286</span>
+                            <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Lucknow</span>
+                            <span
+                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">242</span>
+                            <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Kolkata</span>
+                            <span
+                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">198</span>
+                            <span class="text-textMuted text-[12px]">Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Mumbai</span>
+                            <span
+                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">164</span>
+                            <span class="text-textMuted text-[12px]">Unhealthy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Info Banner -->
+            <div
+                class="px-6 py-3 shrink-0 font-medium text-gray-300 hidden lg:block bg-tickerDark z-10 relative shadow-[-10px_0_15px_-3px_rgba(13,20,24,1)]">
+                Indoors is often
+                <span class="text-sky-400 font-bold">5x worse</span> &middot;
+                <a href="#" class="hover:underline text-white inline-flex items-center gap-1">CHECK YOURS <span
+                        class="text-[11px]">&darr;</span></a>
+            </div>
+        </div>
+
+        <!-- 2. MAIN NAVIGATION HEADER -->
+        <header
+            class="w-full bg-[#FAFCFD] dark:bg-[#111a20] border-b border-gray-100 dark:border-gray-800 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between animate-fade-in-down"
+            style="animation-delay: 200ms">
+            <!-- Left: Logo -->
+            <div class="flex items-center">
+                <a href="./index.html" class="h-7 md:h-10 w-auto">
+                    <img src="./assets/images/logo.png" alt="Breathe In" class="h-7 md:h-10 w-auto object-contain" />
+                </a>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="./products.html"
+                    class="text-[13px] font-bold tracking-widest text-gray-600 dark:text-gray-300 hover:text-brandTeal transition-colors">COLLECTION</a>
+                <a href="./technology.html"
+                    class="text-[13px] font-bold tracking-widest text-gray-600 dark:text-gray-300 hover:text-brandTeal transition-colors">TECHNOLOGY</a>
+                <a href="./app.html"
+                    class="text-[13px] font-bold tracking-widest text-gray-600 dark:text-gray-300 hover:text-brandTeal transition-colors">APP</a>
+                <a href="./real-homes.html"
+                    class="text-[13px] font-bold tracking-widest text-gray-600 dark:text-gray-300 hover:text-brandTeal transition-colors">REAL
+                    HOMES</a>
+                <a href="./compare.html"
+                    class="text-[13px] font-bold tracking-widest text-gray-600 dark:text-gray-300 hover:text-brandTeal transition-colors">COMPARE</a>
+            </nav>
+
+            <!-- Right: Action Buttons & Hamburger -->
+            <div class="flex items-center gap-3 md:gap-5">
+                <!-- Cart Button with Notification Badge -->
+                <button id="cartBtn"
+                    class="relative p-1.5 text-gray-900 dark:text-white hover:text-brandTeal transition-colors flex items-center justify-center">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1.5"></circle>
+                        <circle cx="20" cy="21" r="1.5"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <!-- Teal Badge -->
+                    <span
+                        class="absolute -top-1.5 -right-1.5 bg-brandTeal text-white text-[11px] font-bold w-4 h-4 aspect-square rounded-full flex items-center justify-center border border-white">3</span>
+                </button>
+
+                <!-- Primary CTA -->
+                <a href="./find-my-purifier.html"
+                    class="border border-black dark:border-white text-[11px] md:text-[13px] font-bold tracking-widest px-3 py-2 md:px-6 md:py-2.5 uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black dark:text-white transition-all duration-200">
+                    FIND MY PURIFIER
+                </a>
+
+                <!-- Desktop Dark Mode Toggle -->
+                <button id="themeToggle"
+                    class="flex items-center gap-1.5 border border-gray-200 dark:border-gray-700 rounded-full px-4 py-2 hover:border-black dark:hover:border-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-3.5 h-3.5 dark:text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                    </svg>
+                    <span class="hidden lg:block text-[12px] font-bold tracking-widest dark:text-white">DARK</span>
+                </button>
+
+                <!-- Hamburger Menu Icon -->
+                <button id="openMobileNav" class="lg:hidden p-1" aria-label="Open Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-7 h-7 text-gray-900 dark:text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <main class="bg-white dark:bg-[#0B1114]">
+        <!-- ========================================== -->
+        <!-- HERO SECTION: TERMS & CONDITIONS          -->
+        <!-- ========================================== -->
+        <section
+            class="w-full bg-[#0D1418] text-white py-12 md:py-16 lg:py-20 px-6 md:px-10 lg:px-16 border-b border-gray-800">
+            <div class="w-full max-w-[1200px] mx-auto flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+                <!-- Left: Breadcrumb & Title -->
+                <div>
+                    <!-- Breadcrumb -->
+                    <nav class="uppercase tracking-[.2em] text-[11px] text-gray-400 mb-6 flex items-center gap-2">
+                        <a href="./index.html" class="hover:text-white transition-colors">HOME</a>
+                        <span class="text-gray-600">/</span>
+                        <span class="text-[#156E8A]">TERMS &amp; CONDITIONS</span>
+                    </nav>
+
+                    <!-- Eyebrow -->
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-6 h-[2px] bg-[#156E8A]"></div>
+                        <p class="uppercase tracking-[.25em] text-[10px] md:text-[11px] text-[#156E8A] font-bold">
+                            LEGAL
+                        </p>
+                    </div>
+
+                    <!-- Headline -->
+                    <h1 class="text-3xl md:text-5xl lg:text-[54px] font-light tracking-tight text-white leading-tight">
+                        Terms &amp; Conditions
+                    </h1>
+
+                    <!-- Mobile Operated By -->
+                    <div class="flex flex-col gap-1 mt-6 lg:hidden">
+                        <p class="uppercase tracking-[0.18em] text-[10px] text-gray-500 font-semibold">
+                            OPERATED BY
+                        </p>
+                        <p class="text-[14px] text-white font-medium">
+                            KSA Enterprises
+                        </p>
+                        <p class="text-[12px] text-gray-400 font-light">
+                            Bengaluru, Karnataka, India
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Desktop Right: Operated By Info -->
+                <div class="hidden lg:flex flex-col text-right gap-1 shrink-0 pb-1">
+                    <p class="uppercase tracking-[0.18em] text-[10px] text-gray-500 font-semibold">
+                        OPERATED BY
+                    </p>
+                    <p class="text-[14px] text-white font-medium">
+                        KSA Enterprises
+                    </p>
+                    <p class="text-[12px] text-gray-400 font-light">
+                        Bengaluru, Karnataka, India
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- INTRO BANNER                               -->
+        <!-- ========================================== -->
+        <div
+            class="w-full bg-[#EEF5F8] dark:bg-[#111a20] border-b border-gray-200/70 dark:border-gray-800 py-6 md:py-8 px-6 md:px-10 lg:px-16">
+            <div class="max-w-[1200px] mx-auto flex items-start gap-4 md:gap-6">
+                <div class="w-8 h-[2px] bg-[#156E8A] mt-2.5 shrink-0 hidden sm:block"></div>
+                <p class="text-[13px] md:text-[14px] text-gray-700 dark:text-gray-300 font-normal leading-relaxed">
+                    Welcome to <strong class="font-semibold text-gray-900 dark:text-white">Breathe In &ndash; The Right
+                        Air</strong>. The website <a href="https://www.breathein.co.in"
+                        class="text-[#156E8A] dark:text-[#2094B6] hover:underline font-normal">www.breathein.co.in</a>
+                    is operated by KSA Enterprises. By accessing this website, purchasing our products, submitting an
+                    enquiry or otherwise using our services, you agree to these Terms &amp; Conditions.
+                </p>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- MOBILE DROPDOWN STICKY SELECTOR            -->
+        <!-- ========================================== -->
+        <div
+            class="lg:hidden sticky top-[53px] z-30 bg-white dark:bg-[#111a20] border-b border-gray-200 dark:border-gray-800 shadow-sm transition-colors duration-200">
+            <button type="button" id="mobileTermsDropdownBtn"
+                class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none">
+                <div class="flex items-baseline gap-2">
+                    <span id="mobileActiveNumber"
+                        class="text-[#156E8A] dark:text-[#2094B6] font-medium text-[14px]">1.</span>
+                    <span id="mobileActiveTitle" class="text-[14px] font-medium text-gray-900 dark:text-white">Products
+                        and Services</span>
+                </div>
+                <svg id="mobileDropdownChevron" class="w-4 h-4 text-gray-500 transition-transform duration-300"
+                    fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+            </button>
+
+            <!-- Dropdown Accordion/Menu -->
+            <div id="mobileTermsDropdownMenu"
+                class="hidden bg-[#FAFCFD] dark:bg-[#0D1418] border-t border-gray-100 dark:border-gray-800 max-h-[60vh] overflow-y-auto px-6 py-4 flex flex-col gap-3.5 shadow-lg">
+                <a href="#products-services"
+                    class="mobile-terms-link flex items-baseline gap-2.5 text-[13px] text-gray-700 dark:text-gray-300 font-medium">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">1.</span>
+                    <span>Products and Services</span>
+                </a>
+                <a href="#product-performance"
+                    class="mobile-terms-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">2.</span>
+                    <span>Product Performance</span>
+                </a>
+                <a href="#pricing"
+                    class="mobile-terms-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">3.</span>
+                    <span>Pricing</span>
+                </a>
+                <a href="#orders"
+                    class="mobile-terms-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">4.</span>
+                    <span>Orders</span>
+                </a>
+                <a href="#payments"
+                    class="mobile-terms-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">5.</span>
+                    <span>Payments</span>
+                </a>
+                <a href="#shipping-delivery"
+                    class="mobile-terms-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">6.</span>
+                    <span>Shipping and Delivery</span>
+                </a>
+                <a href="#cancellation-returns"
+                    class="mobile-terms-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">7.</span>
+                    <span>Cancellation, Returns and Refunds</span>
+                </a>
+                <a href="#warranty"
+                    class="mobile-terms-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">8.</span>
+                    <span>Warranty</span>
+                </a>
+                <a href="#filters-consumables"
+                    class="mobile-terms-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">9.</span>
+                    <span>Filters and Consumables</span>
+                </a>
+                <a href="#intellectual-property"
+                    class="mobile-terms-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">10.</span>
+                    <span>Intellectual Property</span>
+                </a>
+                <a href="#prohibited-use"
+                    class="mobile-terms-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">11.</span>
+                    <span>Prohibited Use</span>
+                </a>
+                <a href="#third-party-services"
+                    class="mobile-terms-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">12.</span>
+                    <span>Third-Party Services</span>
+                </a>
+                <a href="#limitation-of-liability"
+                    class="mobile-terms-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">13.</span>
+                    <span>Limitation of Liability</span>
+                </a>
+                <a href="#changes-to-terms"
+                    class="mobile-terms-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">14.</span>
+                    <span>Changes to These Terms</span>
+                </a>
+                <a href="#governing-law"
+                    class="mobile-terms-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">15.</span>
+                    <span>Governing Law</span>
+                </a>
+                <a href="#contact-grievance"
+                    class="mobile-terms-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">16.</span>
+                    <span>Contact &amp; Grievance Redressal</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- MAIN CONTENT SECTION: SIDEBAR + CONTENT    -->
+        <!-- ========================================== -->
+        <section
+            class="w-full bg-white dark:bg-[#0B1114] py-8 md:py-12 lg:py-20 px-6 md:px-10 lg:px-16 transition-colors duration-300">
+            <div class="w-full max-w-[1200px] mx-auto flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
+
+                <!-- STICKY SIDEBAR: CONTENTS (DESKTOP ONLY) -->
+                <aside class="hidden lg:block w-full lg:w-[280px] shrink-0 lg:sticky lg:top-28">
+                    <div
+                        class="bg-[#F7F9FA] dark:bg-[#111a20] p-6 rounded-[2px] border border-gray-100 dark:border-gray-800">
+                        <p class="text-[11px] uppercase tracking-[0.2em] text-gray-400 font-bold mb-5">
+                            CONTENTS
+                        </p>
+                        <nav class="flex flex-col gap-3" id="termsNav">
+                            <a href="#products-services"
+                                class="terms-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">1.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Products and
+                                    Services</span>
+                            </a>
+                            <a href="#product-performance"
+                                class="terms-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">2.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Product
+                                    Performance</span>
+                            </a>
+                            <a href="#pricing"
+                                class="terms-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">3.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Pricing</span>
+                            </a>
+                            <a href="#orders"
+                                class="terms-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">4.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Orders</span>
+                            </a>
+                            <a href="#payments"
+                                class="terms-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">5.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Payments</span>
+                            </a>
+                            <a href="#shipping-delivery"
+                                class="terms-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">6.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Shipping and
+                                    Delivery</span>
+                            </a>
+                            <a href="#cancellation-returns"
+                                class="terms-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">7.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Cancellation, Returns and
+                                    Refunds</span>
+                            </a>
+                            <a href="#warranty"
+                                class="terms-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">8.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Warranty</span>
+                            </a>
+                            <a href="#filters-consumables"
+                                class="terms-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">9.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Filters and
+                                    Consumables</span>
+                            </a>
+                            <a href="#intellectual-property"
+                                class="terms-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">10.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Intellectual
+                                    Property</span>
+                            </a>
+                            <a href="#prohibited-use"
+                                class="terms-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">11.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Prohibited Use</span>
+                            </a>
+                            <a href="#third-party-services"
+                                class="terms-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">12.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Third-Party
+                                    Services</span>
+                            </a>
+                            <a href="#limitation-of-liability"
+                                class="terms-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">13.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Limitation of
+                                    Liability</span>
+                            </a>
+                            <a href="#changes-to-terms"
+                                class="terms-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">14.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Changes to These
+                                    Terms</span>
+                            </a>
+                            <a href="#governing-law"
+                                class="terms-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">15.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Governing Law</span>
+                            </a>
+                            <a href="#contact-grievance"
+                                class="terms-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">16.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Contact &amp; Grievance
+                                    Redressal</span>
+                            </a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- RIGHT COLUMN: TERMS SECTIONS CONTENT -->
+                <div class="flex-1 w-full max-w-4xl">
+
+                    <!-- 1. Products and Services -->
+                    <article id="products-services" class="scroll-mt-32 pl-3">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-7">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">1.</span>
+                            Products and Services
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Breathe In offers air purifiers, replacement filters, accessories, maintenance/service plans
+                            and related indoor air-quality products and services.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            We make reasonable efforts to ensure that product descriptions, images, specifications,
+                            prices and other information displayed on the website are accurate. Product appearance,
+                            packaging and minor specifications may vary due to product improvements or manufacturing
+                            updates, provided such changes do not materially alter the product sold.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 2. Product Performance -->
+                    <article id="product-performance" class="scroll-mt-32 pl-3">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-7">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">2.</span>
+                            Product Performance
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Coverage area, CADR, filtration efficiency, filter life, noise level and other performance
+                            information may vary depending on room size, ventilation, outdoor pollution, usage
+                            conditions, fan speed, filter condition and other environmental factors.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            Information on this website is intended to describe our products and should not be
+                            interpreted as medical advice or as a guarantee to prevent, treat or cure any disease or
+                            medical condition.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 3. Pricing -->
+                    <article id="pricing" class="scroll-mt-32 pl-3">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-7">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">3.</span>
+                            Pricing
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            All prices displayed on the website are in Indian Rupees (INR) unless otherwise stated.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Applicable taxes, shipping charges or other charges, where applicable, will be disclosed to
+                            the customer before completion of the purchase.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            Breathe In reserves the right to revise product prices and promotional offers prospectively.
+                            Changes will not affect an order already accepted except where required to correct an
+                            obvious pricing or technical error, subject to applicable law.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 4. Orders -->
+                    <article id="orders" class="scroll-mt-32 pl-3">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-7">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">4.</span>
+                            Orders
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            An order placed through the website constitutes an offer to purchase the selected product.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Breathe In reserves the right to reject or cancel an order where reasonably necessary,
+                            including because of product unavailability, incorrect pricing, payment failure, suspected
+                            fraudulent activity, incorrect customer information or circumstances beyond our reasonable
+                            control.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            Where payment has already been received for an order that we cancel, the applicable amount
+                            will be refunded through the appropriate payment method.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 5. Payments -->
+                    <article id="payments" class="scroll-mt-32 pl-3">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-7">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">5.</span>
+                            Payments
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Payments may be processed through authorised third-party payment gateways.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Breathe In does not directly store complete debit-card, credit-card, UPI PIN or banking
+                            authentication credentials provided to payment processors.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            Customers are responsible for ensuring that the payment information provided is accurate and
+                            that they are authorised to use the selected payment method.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 6. Shipping and Delivery -->
+                    <article id="shipping-delivery" class="scroll-mt-32 pl-3">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-7">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">6.</span>
+                            Shipping and Delivery
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Products will be delivered to the address provided by the customer during checkout.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Estimated delivery timelines displayed or communicated are estimates and may vary due to
+                            location, courier operations, weather, public holidays, force majeure or other circumstances
+                            outside our reasonable control.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            Specific shipping, cancellation, return and refund conditions may additionally be governed
+                            by our Shipping, Cancellation, Return & Refund Policy.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 7. Cancellation, Returns and Refunds -->
+                    <article id="cancellation-returns" class="scroll-mt-32 pl-3">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-7">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">7.</span>
+                            Cancellation, Returns and Refunds
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Cancellation, replacement, return and refund requests will be handled according to the
+                            applicable policy displayed on our website and applicable Indian consumer law.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Nothing in these Terms is intended to restrict any statutory rights available to a consumer
+                            for products that are defective, damaged, deficient, incorrectly supplied, materially
+                            different from their advertised characteristics, or otherwise covered by applicable law.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 8. Warranty -->
+                    <article id="warranty" class="scroll-mt-32 pl-3">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-7">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">8.</span>
+                            Warranty
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Eligible Breathe In air purifiers are covered by the warranty period stated on the
+                            applicable product page, invoice or warranty documentation.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Warranty coverage is subject to the applicable Warranty Policy and may exclude consumable
+                            components such as filters, normal wear and tear, misuse, unauthorised modification or
+                            repair, accidental/physical damage, improper electrical supply and damage resulting from
+                            failure to follow operating instructions.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            Where there is any inconsistency, the warranty terms supplied with the purchased
+                            product/invoice and applicable law will prevail.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 9. Filters and Consumables -->
+                    <article id="filters-consumables" class="scroll-mt-32 pl-3">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-7">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">9.</span>
+                            Filters and Consumables
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Replacement filters and other consumables have a useful life dependent on operating hours,
+                            pollution levels, environmental conditions and usage.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Any estimated filter-life figure displayed on the website is therefore indicative rather
+                            than a guaranteed lifespan unless expressly stated otherwise.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 10. Intellectual Property -->
+                    <article id="intellectual-property" class="scroll-mt-32 pl-3">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-7">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">10.</span>
+                            Intellectual Property
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            The Breathe In name, logo, product names, photographs, graphics, videos, website design,
+                            written material and other brand assets are owned by or licensed to KSA Enterprises unless
+                            otherwise stated.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            They may not be copied, reproduced, commercially exploited, distributed or modified without
+                            prior written permission, except as permitted by applicable law.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 11. Prohibited Use -->
+                    <article id="prohibited-use" class="scroll-mt-32 pl-3">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-7">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">11.</span>
+                            Prohibited Use
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Users must not misuse the website, attempt unauthorised access, introduce malicious
+                            software, interfere with website operation, conduct fraudulent transactions, impersonate
+                            another person or use website content unlawfully.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 12. Third-Party Services -->
+                    <article id="third-party-services" class="scroll-mt-32 pl-3">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-7">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">12.</span>
+                            Third-Party Services
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            The website may use or link to third-party services such as payment gateways, logistics
+                            providers, analytics services, social-media platforms and communication services.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            Their services may be governed by their respective terms and privacy practices.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 13. Limitation of Liability -->
+                    <article id="limitation-of-liability" class="scroll-mt-32 pl-3">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-7">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">13.</span>
+                            Limitation of Liability
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            To the extent permitted by applicable law, Breathe In/KSA Enterprises will not be liable for
+                            indirect, incidental or consequential losses resulting solely from misuse of the products,
+                            failure to follow operating instructions, unauthorised modification, or events outside our
+                            reasonable control.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            Nothing in these Terms excludes or limits liability or consumer rights where such exclusion
+                            or limitation is prohibited by law.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 14. Changes to These Terms -->
+                    <article id="changes-to-terms" class="scroll-mt-32 pl-3">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-7">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">14.</span>
+                            Changes to These Terms
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            We may update these Terms & Conditions periodically to reflect changes to our business,
+                            website, products or applicable law.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            The latest version and effective date will be published on this website.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 15. Governing Law -->
+                    <article id="governing-law" class="scroll-mt-32 pl-3">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-7">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">15.</span>
+                            Governing Law
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            These Terms are governed by the laws of India. Subject to mandatory consumer-protection and
+                            other applicable jurisdictional provisions, disputes shall be subject to the jurisdiction of
+                            competent courts in Bengaluru, Karnataka.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 16. Contact & Grievance Redressal -->
+                    <article id="contact-grievance" class="scroll-mt-32 pl-3">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-7">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">16.</span>
+                            Contact &amp; Grievance Redressal
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-8">
+                            For questions, complaints or assistance concerning an order or product, customers may
+                            contact:
+                        </p>
+
+                        <!-- Card 1: Primary Contact -->
+                        <div
+                            class="bg-white dark:bg-[#111a20] border border-gray-200 dark:border-gray-800 rounded-[2px] p-6 md:p-8 shadow-sm mb-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-6 h-[2px] bg-[#156E8A]"></div>
+                                <span
+                                    class="text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-[#156E8A] font-bold">
+                                    PRIMARY CONTACT
+                                </span>
+                            </div>
+                            <h3 class="text-[18px] md:text-[20px] font-normal text-gray-900 dark:text-white mb-1">
+                                Breathe In &ndash; The Right Air
+                            </h3>
+                            <p class="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-semibold mb-6">
+                                OPERATED BY KSA ENTERPRISES
+                            </p>
+
+                            <div class="flex flex-col gap-3.5">
+                                <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+                                    <span
+                                        class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold w-24 shrink-0">LOCATION</span>
+                                    <span
+                                        class="text-[13px] md:text-[14px] text-gray-700 dark:text-gray-300 font-normal">Bengaluru,
+                                        Karnataka, India</span>
+                                </div>
+                                <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+                                    <span
+                                        class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold w-24 shrink-0">EMAIL</span>
+                                    <a href="mailto:enquiries@breathein.co.in"
+                                        class="text-[13px] md:text-[14px] text-gray-700 dark:text-gray-300 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors font-normal">enquiries@breathein.co.in</a>
+                                </div>
+                                <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+                                    <span
+                                        class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold w-24 shrink-0">PHONE</span>
+                                    <a href="tel:+919076636639"
+                                        class="text-[13px] md:text-[14px] text-gray-700 dark:text-gray-300 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors font-normal">+91
+                                        90766 36639</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Grievance Officer -->
+                        <div
+                            class="bg-[#F7F9FA] dark:bg-[#111a20] border border-gray-200 dark:border-gray-800 rounded-[2px] p-6 md:p-8 shadow-sm mb-6">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-6 h-[2px] bg-gray-400"></div>
+                                <span
+                                    class="text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-gray-400 font-bold">
+                                    GRIEVANCE OFFICER
+                                </span>
+                            </div>
+
+                            <div class="flex flex-col gap-3.5">
+                                <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+                                    <span
+                                        class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold w-24 shrink-0">NAME</span>
+                                    <span class="text-[13px] md:text-[14px] text-gray-400 font-light italic">[To be
+                                        inserted]</span>
+                                </div>
+                                <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+                                    <span
+                                        class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold w-24 shrink-0">EMAIL</span>
+                                    <span class="text-[13px] md:text-[14px] text-gray-400 font-light italic">[Grievance
+                                        email to be inserted]</span>
+                                </div>
+                                <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+                                    <span
+                                        class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold w-24 shrink-0">CONTACT</span>
+                                    <span class="text-[13px] md:text-[14px] text-gray-400 font-light italic">[Number to
+                                        be inserted]</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- ========================================== -->
+                    <!-- PRE-FOOTER CTA BANNER                      -->
+                    <!-- ========================================== -->
+                    <section
+                        class="w-full bg-[#080E11] text-white py-5 md:py-10 mt-10 lg:mt-14 px-6 md:px-6 lg:px-10 border-t border-gray-800">
+                        <div class="w-full flex flex-col md:flex-row md:items-center justify-between gap-8">
+                            <!-- Left: Text -->
+                            <div>
+                                <h2 class="text-2xl md:text-[22px] font-normal text-white tracking-tight mb-2">
+                                    Have a question about your order?
+                                </h2>
+                                <p class="text-[13px] md:text-[14px] text-gray-400 font-light">
+                                    Our team is available on WhatsApp and email.
+                                </p>
+                            </div>
+
+                            <!-- Right: Action Buttons -->
+                            <div class="flex flex-wrap items-center gap-4">
+                                <a href="https://wa.me/919076636639" target="_blank"
+                                    class="bg-[#156E8A] hover:bg-[#1a7f9e] text-white px-6 md:px-8 py-3.5 rounded-xl md:rounded-full text-[11px] md:text-[12px] uppercase font-bold tracking-widest flex items-center justify-center gap-2 transition-colors shadow-sm w-full md:w-auto">
+                                    <span>TALK TO EXPERT</span>
+                                    <span class="text-sm leading-none">&rarr;</span>
+                                </a>
+                                <a href="./index.html"
+                                    class="border border-gray-800 hover:border-gray-600 bg-transparent text-white px-6 md:px-8 py-3.5 rounded-xl md:rounded-full text-[11px] md:text-[12px] uppercase font-bold tracking-widest flex items-center justify-center transition-colors w-full md:w-auto">
+                                    BACK TO HOME
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- FOOTER                                     -->
+        <!-- ========================================== -->
+        <footer class="w-full bgDarkBlue pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24">
+            <div class="max-w-[1400px] mx-auto">
+                <!-- Top Section: Brand & Links -->
+                <div class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-10 lg:mb-20">
+                    <!-- Left: Brand, Bio & Buttons -->
+                    <div class="flex flex-col lg:w-5/12">
+                        <!-- Logo -->
+                        <img src="./assets/images/logo.png" alt="Breathe In"
+                            class="h-9 md:h-10 w-auto mb-6 object-contain object-left self-start" />
+
+                        <!-- Bio -->
+                        <p class="text-gray-400 text-[13px] md:text-[14px] font-light leading-[1.8] mb-8 max-w-sm">
+                            <span class="hidden md:inline">
+                                Clean air isn’t a luxury, it’s a necessity<br />
+                                Sophisticated Japanese air-purification<br />
+                                technology, at honest prices. The right air, for<br />
+                                every Indian home.
+                            </span>
+                            <span class="inline md:hidden">
+                                Clean air isn’t a luxury, it’s a necessity. Sophisticated Japanese air-purification
+                                technology, at
+                                honest prices. The right air, for every Indian home.
+                            </span>
+                        </p>
+
+                        <!-- Buttons -->
+                        <div class="flex items-center gap-3">
+                            <a href="./find-my-purifier.html"
+                                class="bg-white text-gray-950 px-3 md:px-5 py-2.5 rounded-full text-[10px] md:text-[12px] uppercase font-bold tracking-widest hover:bg-gray-100 transition-colors">
+                                Find My Purifier &rarr;
+                            </a>
+                            <a href="./book-a-demo.html"
+                                class="border border-gray-600 text-white px-3 md:px-5 py-2.5 rounded-full text-[10px] md:text-[12px] uppercase font-bold tracking-widest hover:border-white transition-colors">
+                                Book a Demo
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: 4 Column Navigation Grid -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 lg:w-7/12">
+                        <!-- Col 1: Products -->
+                        <div class="flex flex-col gap-4">
+                            <p class="text-white text-[12px] font-bold tracking-widest uppercase">Products</p>
+                            <ul class="flex flex-col gap-2.5 text-[13px] text-gray-400 font-light">
+                                <li><a href="./product-details.html" class="hover:text-white transition-colors">Air
+                                        Pro</a></li>
+                                <li><a href="./products.html" class="hover:text-white transition-colors">Air Pro 1</a>
+                                </li>
+                                <li><a href="./products.html" class="hover:text-white transition-colors">Air Pro 2</a>
+                                </li>
+                                <li><a href="./products.html" class="hover:text-white transition-colors">Air Pro Max</a>
+                                </li>
+                                <li><a href="./filter-care.html" class="hover:text-white transition-colors">Replacement
+                                        Filters</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Col 2: Technology -->
+                        <div class="flex flex-col gap-4">
+                            <p class="text-white text-[12px] font-bold tracking-widest uppercase">Technology</p>
+                            <ul class="flex flex-col gap-2.5 text-[13px] text-gray-400 font-light">
+                                <li><a href="./technology.html" class="hover:text-white transition-colors">HEPA H13</a>
+                                </li>
+                                <li><a href="./technology.html" class="hover:text-white transition-colors">Japanese DC
+                                        Motor</a></li>
+                                <li><a href="./technology.html" class="hover:text-white transition-colors">Smart Life
+                                        App</a></li>
+                                <li><a href="./technology.html" class="hover:text-white transition-colors">Filtration
+                                        Stages</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Col 3: Company -->
+                        <div class="flex flex-col gap-4">
+                            <p class="text-white text-[12px] font-bold tracking-widest uppercase">Company</p>
+                            <ul class="flex flex-col gap-2.5 text-[13px] text-gray-400 font-light">
+                                <li><a href="./about-us.html" class="hover:text-white transition-colors">About Us</a>
+                                </li>
+                                <li><a href="./case-study.html" class="hover:text-white transition-colors">Case
+                                        Study</a></li>
+                                <li><a href="./corporate.html" class="hover:text-white transition-colors">Corporate
+                                        Gifting</a></li>
+                                <li><a href="./real-homes.html" class="hover:text-white transition-colors">Real
+                                        Homes</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Col 4: Support -->
+                        <div class="flex flex-col gap-4">
+                            <p class="text-white text-[12px] font-bold tracking-widest uppercase">Support</p>
+                            <ul class="flex flex-col gap-2.5 text-[13px] text-gray-400 font-light">
+                                <li><a href="./faq.html" class="hover:text-white transition-colors">FAQ</a></li>
+                                <li><a href="./support.html" class="hover:text-white transition-colors">Contact
+                                        Support</a></li>
+                                <li><a href="./filter-care.html" class="hover:text-white transition-colors">Filter Care
+                                        Guide</a></li>
+                                <li><a href="./support.html" class="hover:text-white transition-colors">Warranty
+                                        Info</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Divider Line -->
+                <div class="w-full h-px bg-gray-800/80 mb-8"></div>
+
+                <!-- Bottom Strip: Legal & Copyright -->
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+                    <!-- Legal Links -->
+                    <div class="flex flex-wrap items-center gap-6 lg:order-2">
+                        <a href="./privacy-policy.html"
+                            class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Privacy
+                            Policy</a>
+                        <a href="./terms.html"
+                            class="text-[11px] md:text-[13px] text-gray-300 hover:text-white transition-colors font-medium">Terms
+                            of
+                            Use</a>
+                        <a href="#"
+                            class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Cookie
+                            Policy</a>
+                    </div>
+
+                    <!-- Copyright -->
+                    <p class="text-[11px] md:text-[13px] text-gray-500 font-light lg:order-1">
+                        &copy; 2026 Breathe In &mdash; The Right Air. All rights reserved.
+                        Made in India.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- jQuery Core Library -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Link to Custom JS -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- ScrollSpy & Mobile Dropdown for Terms Page -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const articles = document.querySelectorAll("article[id]");
+            const navLinks = document.querySelectorAll(".terms-nav-link");
+            const mobileLinks = document.querySelectorAll(".mobile-terms-link");
+            const mobileBtn = document.getElementById("mobileTermsDropdownBtn");
+            const mobileMenu = document.getElementById("mobileTermsDropdownMenu");
+            const mobileChevron = document.getElementById("mobileDropdownChevron");
+            const mobNum = document.getElementById("mobileActiveNumber");
+            const mobTitle = document.getElementById("mobileActiveTitle");
+
+            // Mobile dropdown toggle
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener("click", () => {
+                    mobileMenu.classList.toggle("hidden");
+                    if (mobileChevron) {
+                        mobileChevron.classList.toggle("-rotate-180");
+                    }
+                });
+            }
+
+            // Close mobile dropdown when a link is clicked
+            mobileLinks.forEach((link) => {
+                link.addEventListener("click", () => {
+                    if (mobileMenu) {
+                        mobileMenu.classList.add("hidden");
+                    }
+                    if (mobileChevron) {
+                        mobileChevron.classList.remove("-rotate-180");
+                    }
+                });
+            });
+
+            const onScroll = () => {
+                let currentId = "";
+                const scrollPosition = window.scrollY + 200;
+
+                articles.forEach((article) => {
+                    const top = article.offsetTop;
+                    const height = article.offsetHeight;
+                    if (scrollPosition >= top && scrollPosition < top + height) {
+                        currentId = article.getAttribute("id");
+                    }
+                });
+
+                if (!currentId && articles.length > 0 && window.scrollY < articles[0].offsetTop) {
+                    currentId = articles[0].getAttribute("id");
+                }
+
+                // Update desktop sidebar links
+                navLinks.forEach((link) => {
+                    const href = link.getAttribute("href").replace("#", "");
+                    if (href === currentId) {
+                        link.classList.add("text-[#156E8A]", "dark:text-[#2094B6]", "font-semibold");
+                        link.classList.remove("text-gray-600", "dark:text-gray-400");
+                    } else {
+                        link.classList.remove("text-[#156E8A]", "dark:text-[#2094B6]", "font-semibold");
+                        link.classList.add("text-gray-600", "dark:text-gray-400");
+                    }
+                });
+
+                // Update mobile active text
+                if (currentId) {
+                    const activeArticle = document.getElementById(currentId);
+                    if (activeArticle) {
+                        const heading = activeArticle.querySelector("h2");
+                        if (heading) {
+                            const numSpan = heading.querySelector("span");
+                            const numText = numSpan ? numSpan.textContent.trim() : "";
+                            const fullTitle = heading.textContent.replace(numText, "").trim();
+                            if (mobNum) mobNum.textContent = numText;
+                            if (mobTitle) mobTitle.textContent = fullTitle;
+                        }
+                    }
+                }
+            };
+
+            window.addEventListener("scroll", onScroll, { passive: true });
+            onScroll();
+        });
+    </script>
+</body>
+
+</html>

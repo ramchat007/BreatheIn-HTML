@@ -1,0 +1,1241 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy &mdash; Breathe In</title>
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./assets/js/tailwind.config.js"></script>
+
+    <!-- Link to compiled CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="antialiased text-gray-900 selection:bg-brandTeal/20 relative">
+    <!-- ========================================== -->
+    <!-- FULL-SCREEN MOBILE NAVIGATION OVERLAY      -->
+    <!-- ========================================== -->
+    <div id="mobileNavOverlay"
+        class="fixed inset-0 z-[60] bg-white dark:bg-[#0D1418] flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out hidden">
+        <button id="closeMobileNav"
+            class="absolute top-6 right-8 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            aria-label="Close Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-8 h-8 dark:text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <nav class="flex flex-col items-center gap-8 text-center">
+            <a href="./products.html"
+                class="text-3xl text-[#156E8A] font-light tracking-wide hover:text-brandTeal transition-colors">COLLECTION</a>
+            <a href="./technology.html"
+                class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors dark:text-white">TECHNOLOGY</a>
+            <a href="./app.html"
+                class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors dark:text-white">APP</a>
+            <a href="./real-homes.html"
+                class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors dark:text-white">REAL
+                HOMES</a>
+            <a href="./compare.html"
+                class="text-3xl font-light tracking-wide hover:text-brandTeal transition-colors dark:text-white">COMPARE</a>
+            <div
+                class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 w-full flex flex-col items-center gap-4">
+                <a href="./account-overview.html" class="text-lg font-medium hover:text-brandTeal dark:text-white">My
+                    Account</a>
+                <a href="./support.html" class="text-lg font-medium hover:text-brandTeal dark:text-white">Support</a>
+            </div>
+        </nav>
+    </div>
+    <!-- ========================================== -->
+
+    <!-- ========================================== -->
+    <!-- SMART STICKY HEADER                        -->
+    <!-- ========================================== -->
+    <div id="smart-header"
+        class="sticky top-0 z-50 w-full flex flex-col shadow-sm transition-transform duration-300 ease-in-out translate-y-0">
+        <!-- 1. TOP LIVE AQI TICKER BAR -->
+        <div class="w-full bg-tickerDark text-white flex items-center text-[11px] tracking-wider font-medium animate-fade-in-down overflow-hidden"
+            style="animation-delay: 100ms">
+            <div
+                class="bg-tickerDark md:bg-brandTeal px-4 md:px-6 py-3 flex items-center gap-2 font-bold shrink-0 z-10 relative">
+                <span class="w-2.5 h-2.5 rounded-full bg-brandTeal md:bg-white animate-pulse"></span>
+                INDIA AQI TODAY
+            </div>
+
+            <!-- Separator Line -->
+            <div class="w-[1px] h-6 bg-gray-800 shrink-0 z-10 relative"></div>
+
+            <!-- Scrolling Content -->
+            <div class="flex flex-1 overflow-hidden relative bg-tickerDark">
+                <div class="flex whitespace-nowrap animate-marquee items-center pl-6">
+                    <!-- Ticker Items List 1 -->
+                    <div class="flex items-center gap-6 pr-6">
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Delhi</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">392</span>
+                            <span class="text-textMuted text-[12px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Ghaziabad</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">358</span>
+                            <span class="text-textMuted text-[12px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Noida</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">311</span>
+                            <span class="text-textMuted text-[12px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Patna</span>
+                            <span
+                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">286</span>
+                            <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Lucknow</span>
+                            <span
+                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">242</span>
+                            <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Kolkata</span>
+                            <span
+                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">198</span>
+                            <span class="text-textMuted text-[12px]">Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Mumbai</span>
+                            <span
+                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">164</span>
+                            <span class="text-textMuted text-[12px]">Unhealthy</span>
+                        </div>
+                    </div>
+
+                    <!-- Ticker Items List 2 (Duplicated for seamless scrolling) -->
+                    <div class="flex items-center gap-6 pr-6">
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Delhi</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">392</span>
+                            <span class="text-textMuted text-[12px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Ghaziabad</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">358</span>
+                            <span class="text-textMuted text-[12px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Noida</span>
+                            <span
+                                class="bg-badgeHazardous text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">311</span>
+                            <span class="text-textMuted text-[12px]">Hazardous</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Patna</span>
+                            <span
+                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">286</span>
+                            <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Lucknow</span>
+                            <span
+                                class="bg-badgeVeryUnhealthy text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">242</span>
+                            <span class="text-textMuted text-[12px]">Very Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Kolkata</span>
+                            <span
+                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">198</span>
+                            <span class="text-textMuted text-[12px]">Unhealthy</span>
+                        </div>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-semibold text-gray-200">Mumbai</span>
+                            <span
+                                class="bg-badgeUnhealthy text-white px-2 py-0.5 rounded-xl font-bold text-[12px]">164</span>
+                            <span class="text-textMuted text-[12px]">Unhealthy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Info Banner -->
+            <div
+                class="px-6 py-3 shrink-0 font-medium text-gray-300 hidden lg:block bg-tickerDark z-10 relative shadow-[-10px_0_15px_-3px_rgba(13,20,24,1)]">
+                Indoors is often
+                <span class="text-sky-400 font-bold">5x worse</span> &middot;
+                <a href="#" class="hover:underline text-white inline-flex items-center gap-1">CHECK YOURS <span
+                        class="text-[11px]">&darr;</span></a>
+            </div>
+        </div>
+
+        <!-- 2. MAIN NAVIGATION HEADER -->
+        <header
+            class="w-full bg-[#FAFCFD] dark:bg-[#111a20] border-b border-gray-100 dark:border-gray-800 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between animate-fade-in-down"
+            style="animation-delay: 200ms">
+            <!-- Left: Logo -->
+            <div class="flex items-center">
+                <a href="./index.html" class="h-7 md:h-10 w-auto">
+                    <img src="./assets/images/logo.png" alt="Breathe In" class="h-7 md:h-10 w-auto object-contain" />
+                </a>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="./products.html"
+                    class="text-[13px] font-bold tracking-widest text-gray-600 dark:text-gray-300 hover:text-brandTeal transition-colors">COLLECTION</a>
+                <a href="./technology.html"
+                    class="text-[13px] font-bold tracking-widest text-gray-600 dark:text-gray-300 hover:text-brandTeal transition-colors">TECHNOLOGY</a>
+                <a href="./app.html"
+                    class="text-[13px] font-bold tracking-widest text-gray-600 dark:text-gray-300 hover:text-brandTeal transition-colors">APP</a>
+                <a href="./real-homes.html"
+                    class="text-[13px] font-bold tracking-widest text-gray-600 dark:text-gray-300 hover:text-brandTeal transition-colors">REAL
+                    HOMES</a>
+                <a href="./compare.html"
+                    class="text-[13px] font-bold tracking-widest text-gray-600 dark:text-gray-300 hover:text-brandTeal transition-colors">COMPARE</a>
+            </nav>
+
+            <!-- Right: Action Buttons & Hamburger -->
+            <div class="flex items-center gap-3 md:gap-5">
+                <!-- Cart Button with Notification Badge -->
+                <button id="cartBtn"
+                    class="relative p-1.5 text-gray-900 dark:text-white hover:text-brandTeal transition-colors flex items-center justify-center">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1.5"></circle>
+                        <circle cx="20" cy="21" r="1.5"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <!-- Teal Badge -->
+                    <span
+                        class="absolute -top-1.5 -right-1.5 bg-brandTeal text-white text-[11px] font-bold w-4 h-4 aspect-square rounded-full flex items-center justify-center border border-white">3</span>
+                </button>
+
+                <!-- Primary CTA -->
+                <a href="./find-my-purifier.html"
+                    class="border border-black dark:border-white text-[11px] md:text-[13px] font-bold tracking-widest px-3 py-2 md:px-6 md:py-2.5 uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black dark:text-white transition-all duration-200">
+                    FIND MY PURIFIER
+                </a>
+
+                <!-- Desktop Dark Mode Toggle -->
+                <button id="themeToggle"
+                    class="flex items-center gap-1.5 border border-gray-200 dark:border-gray-700 rounded-full px-4 py-2 hover:border-black dark:hover:border-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-3.5 h-3.5 dark:text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                    </svg>
+                    <span class="hidden lg:block text-[12px] font-bold tracking-widest dark:text-white">DARK</span>
+                </button>
+
+                <!-- Hamburger Menu Icon -->
+                <button id="openMobileNav" class="lg:hidden p-1" aria-label="Open Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-7 h-7 text-gray-900 dark:text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <main class="bg-white dark:bg-[#0B1114]">
+        <!-- ========================================== -->
+        <!-- HERO SECTION: PRIVACY POLICY               -->
+        <!-- ========================================== -->
+        <section
+            class="w-full bg-[#0D1418] text-white py-12 md:py-16 lg:py-20 px-6 md:px-10 lg:px-16 border-b border-gray-800">
+            <div class="max-w-[1200px] mx-auto flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+                <!-- Left: Breadcrumb & Title -->
+                <div>
+                    <!-- Breadcrumb -->
+                    <nav class="uppercase tracking-[.2em] text-[11px] text-gray-400 mb-6 flex items-center gap-2">
+                        <a href="./index.html" class="hover:text-white transition-colors">HOME</a>
+                        <span class="text-gray-600">/</span>
+                        <span class="text-[#156E8A]">PRIVACY POLICY</span>
+                    </nav>
+
+                    <!-- Eyebrow -->
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-6 h-[2px] bg-[#156E8A]"></div>
+                        <p class="uppercase tracking-[.25em] text-[10px] md:text-[11px] text-[#156E8A] font-bold">
+                            LEGAL
+                        </p>
+                    </div>
+
+                    <!-- Headline -->
+                    <h1 class="text-3xl md:text-5xl lg:text-[54px] font-light tracking-tight text-white leading-tight">
+                        Privacy Policy
+                    </h1>
+
+                    <!-- Mobile Operated By -->
+                    <div class="flex flex-col gap-1 mt-6 lg:hidden">
+                        <p class="uppercase tracking-[0.18em] text-[10px] text-gray-500 font-semibold">
+                            OPERATED BY
+                        </p>
+                        <p class="text-[14px] text-white font-medium">
+                            KSA Enterprises
+                        </p>
+                        <p class="text-[12px] text-gray-400 font-light">
+                            Bengaluru, Karnataka, India
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Desktop Right: Operated By Info -->
+                <div class="hidden lg:flex flex-col text-right gap-1 shrink-0 pb-1">
+                    <p class="uppercase tracking-[0.18em] text-[10px] text-gray-500 font-semibold">
+                        OPERATED BY
+                    </p>
+                    <p class="text-[14px] text-white font-medium">
+                        KSA Enterprises
+                    </p>
+                    <p class="text-[12px] text-gray-400 font-light">
+                        Bengaluru, Karnataka, India
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- INTRO BANNER                               -->
+        <!-- ========================================== -->
+        <div
+            class="w-full bg-[#EEF5F8] dark:bg-[#111a20] border-b border-gray-200/70 dark:border-gray-800 py-6 md:py-8 px-6 md:px-10 lg:px-16">
+            <div class="max-w-[1200px] mx-auto flex items-start gap-4 md:gap-6">
+                <div class="w-8 h-[2px] bg-[#156E8A] mt-2.5 shrink-0 hidden sm:block"></div>
+                <p class="text-[13px] md:text-[14px] text-gray-700 dark:text-gray-300 font-normal leading-relaxed">
+                    Welcome to <strong class="font-semibold text-gray-900 dark:text-white">Breathe In &ndash; The Right
+                        Air</strong>. The website <a href="https://www.breathein.co.in"
+                        class="text-[#156E8A] dark:text-[#2094B6] hover:underline font-normal">www.breathein.co.in</a>
+                    is operated by KSA Enterprises. This Privacy Policy explains how we collect, handle, utilize, and
+                    protect your personal information when you use our website, purchase our products, or engage with
+                    our services.
+                </p>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- MOBILE DROPDOWN STICKY SELECTOR            -->
+        <!-- ========================================== -->
+        <div
+            class="lg:hidden sticky top-[53px] z-30 bg-white dark:bg-[#111a20] border-b border-gray-200 dark:border-gray-800 shadow-sm transition-colors duration-200">
+            <button type="button" id="mobilePrivacyDropdownBtn"
+                class="w-full py-4 px-6 flex items-center justify-between text-left focus:outline-none">
+                <div class="flex items-baseline gap-2">
+                    <span id="mobileActiveNumber"
+                        class="text-[#156E8A] dark:text-[#2094B6] font-medium text-[14px]">1.</span>
+                    <span id="mobileActiveTitle"
+                        class="text-[14px] font-medium text-gray-900 dark:text-white">Information We May Collect</span>
+                </div>
+                <svg id="mobileDropdownChevron" class="w-4 h-4 text-gray-500 transition-transform duration-300"
+                    fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+            </button>
+
+            <!-- Dropdown Accordion/Menu -->
+            <div id="mobilePrivacyDropdownMenu"
+                class="hidden bg-[#FAFCFD] dark:bg-[#0D1418] border-t border-gray-100 dark:border-gray-800 max-h-[60vh] overflow-y-auto px-6 py-4 flex flex-col gap-3.5 shadow-lg">
+                <a href="#information-we-may-collect"
+                    class="mobile-privacy-link flex items-baseline gap-2.5 text-[13px] text-gray-700 dark:text-gray-300 font-medium">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">1.</span>
+                    <span>Information We May Collect</span>
+                </a>
+                <a href="#how-we-use-information"
+                    class="mobile-privacy-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">2.</span>
+                    <span>How We Use Information</span>
+                </a>
+                <a href="#marketing-communications"
+                    class="mobile-privacy-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">3.</span>
+                    <span>Marketing Communications</span>
+                </a>
+                <a href="#cookies-and-analytics"
+                    class="mobile-privacy-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">4.</span>
+                    <span>Cookies and Analytics</span>
+                </a>
+                <a href="#sharing-of-personal-information"
+                    class="mobile-privacy-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">5.</span>
+                    <span>Sharing of Personal Information</span>
+                </a>
+                <a href="#data-security"
+                    class="mobile-privacy-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">6.</span>
+                    <span>Data Security</span>
+                </a>
+                <a href="#data-retention"
+                    class="mobile-privacy-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">7.</span>
+                    <span>Data Retention</span>
+                </a>
+                <a href="#your-privacy-rights"
+                    class="mobile-privacy-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">8.</span>
+                    <span>Your Privacy Rights</span>
+                </a>
+                <a href="#childrens-privacy"
+                    class="mobile-privacy-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">9.</span>
+                    <span>Children's Privacy</span>
+                </a>
+                <a href="#third-party-websites"
+                    class="mobile-privacy-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">10.</span>
+                    <span>Third-Party Websites</span>
+                </a>
+                <a href="#changes-to-this-privacy-policy"
+                    class="mobile-privacy-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">11.</span>
+                    <span>Changes to This Privacy Policy</span>
+                </a>
+                <a href="#contact-us"
+                    class="mobile-privacy-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400">
+                    <span class="text-[#156E8A] dark:text-[#2094B6] w-5 shrink-0">12.</span>
+                    <span>Contact Us</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- MAIN CONTENT SECTION: SIDEBAR + CONTENT    -->
+        <!-- ========================================== -->
+        <section
+            class="w-full bg-white dark:bg-[#0B1114] py-8 md:py-12 lg:py-20 px-6 md:px-10 lg:px-16 transition-colors duration-300">
+            <div class="w-full max-w-[1200px] mx-auto flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
+
+                <!-- STICKY SIDEBAR: CONTENTS (DESKTOP ONLY) -->
+                <aside class="hidden lg:block w-full lg:w-[280px] shrink-0 lg:sticky lg:top-28">
+                    <div
+                        class="bg-[#F7F9FA] dark:bg-[#111a20] p-6 rounded-[2px] border border-gray-100 dark:border-gray-800">
+                        <p class="text-[11px] uppercase tracking-[0.2em] text-gray-400 font-bold mb-5">
+                            CONTENTS
+                        </p>
+                        <nav class="flex flex-col gap-3" id="privacyNav">
+                            <a href="#information-we-may-collect"
+                                class="privacy-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">1.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Information We May
+                                    Collect</span>
+                            </a>
+                            <a href="#how-we-use-information"
+                                class="privacy-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">2.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">How We Use
+                                    Information</span>
+                            </a>
+                            <a href="#marketing-communications"
+                                class="privacy-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">3.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Marketing
+                                    Communications</span>
+                            </a>
+                            <a href="#cookies-and-analytics"
+                                class="privacy-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">4.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Cookies and
+                                    Analytics</span>
+                            </a>
+                            <a href="#sharing-of-personal-information"
+                                class="privacy-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">5.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Sharing of Personal
+                                    Information</span>
+                            </a>
+                            <a href="#data-security"
+                                class="privacy-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">6.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Data Security</span>
+                            </a>
+                            <a href="#data-retention"
+                                class="privacy-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">7.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Data Retention</span>
+                            </a>
+                            <a href="#your-privacy-rights"
+                                class="privacy-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">8.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Your Privacy
+                                    Rights</span>
+                            </a>
+                            <a href="#childrens-privacy"
+                                class="privacy-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">9.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Children's Privacy</span>
+                            </a>
+                            <a href="#third-party-websites"
+                                class="privacy-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">10.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Third-Party
+                                    Websites</span>
+                            </a>
+                            <a href="#changes-to-this-privacy-policy"
+                                class="privacy-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">11.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Changes to This Privacy
+                                    Policy</span>
+                            </a>
+                            <a href="#contact-us"
+                                class="privacy-nav-link flex items-baseline gap-2.5 text-[13px] text-gray-600 dark:text-gray-400 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors group">
+                                <span class="text-[#156E8A] dark:text-[#2094B6] font-medium w-5 shrink-0">12.</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">Contact Us</span>
+                            </a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- RIGHT COLUMN: PRIVACY SECTIONS CONTENT -->
+                <div class="flex-1 w-full max-w-4xl">
+
+                    <!-- 1. Information We May Collect -->
+                    <article id="information-we-may-collect" class="scroll-mt-32 pl-6">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-6">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">1.</span>
+                            Information We May Collect
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-5">
+                            Depending on how you interact with us, we may collect information including your:
+                        </p>
+                        <ul
+                            class="flex flex-col gap-3 text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-6 pl-1">
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Name</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Mobile number</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Email address</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Billing and delivery address</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Order and transaction information</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Product/service enquiries</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Warranty and service information</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Communications with our customer-support team</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>IP address, browser/device information and website activity</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Cookie and analytics information</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Marketing preferences and consent choices</span>
+                            </li>
+                        </ul>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            Payment information may be processed directly by authorised payment-service providers.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 2. How We Use Information -->
+                    <article id="how-we-use-information" class="scroll-mt-32 pl-6">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-6">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">2.</span>
+                            How We Use Information
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            We may use personal information where permitted by applicable law to:
+                        </p>
+                        <ul
+                            class="flex flex-col gap-2.5 text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed pl-1">
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Process and deliver orders</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Process payments and refunds</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Communicate order and delivery updates</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Register and administer warranties</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Provide customer support and after-sales service</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Respond to enquiries and demo requests</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Prevent fraud and maintain website security</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Improve our website, products and customer experience</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Maintain business and transaction records</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Comply with tax, accounting, legal and regulatory requirements</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Send marketing communications where permitted and based on appropriate consent or
+                                    other lawful basis</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 3. Marketing Communications -->
+                    <article id="marketing-communications" class="scroll-mt-32 pl-6">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-6">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">3.</span>
+                            Marketing Communications
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Where required, promotional emails, SMS messages, WhatsApp communications or other direct
+                            marketing will be sent based on appropriate consent.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            Users may withdraw marketing consent or opt out of promotional communications using the
+                            unsubscribe/opt-out mechanism provided or by contacting us.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            Withdrawal from marketing does not prevent us from sending transactional or service-related
+                            communications relating to an existing order, warranty or customer request where permitted.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 4. Cookies and Analytics -->
+                    <article id="cookies-and-analytics" class="scroll-mt-32 pl-6">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-6">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">4.</span>
+                            Cookies and Analytics
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Our website may use cookies and similar technologies to operate the website, remember
+                            preferences, analyse website performance and, subject to applicable consent requirements,
+                            measure or personalise advertising.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            Third-party analytics and advertising technologies may also be used.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            Where legally required, users will be provided with appropriate choices regarding
+                            non-essential cookies.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 5. Sharing of Personal Information -->
+                    <article id="sharing-of-personal-information" class="scroll-mt-32 pl-6">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-6">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">5.</span>
+                            Sharing of Personal Information
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            <strong>We do not sell personal information to third parties.</strong>
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            We may share information, where necessary and legally permitted, with service providers
+                            involved in operating our business, including:
+                        </p>
+                        <ul
+                            class="flex flex-col gap-2.5 text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed pl-1">
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span><strong>Logistics Partners:</strong> Delivery carriers and freight partners to
+                                    ship orders to your address.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Payment processors</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Courier and logistics providers</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Website/hosting providers</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Customer-support providers</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>IT and cybersecurity providers</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Analytics and advertising platforms</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Professional advisers</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#156E8A] mt-2 shrink-0"></span>
+                                <span>Government, regulatory or law-enforcement authorities where required by law</span>
+                            </li>
+                        </ul>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Service providers should receive only information reasonably necessary to perform the
+                            relevant service and should process it in accordance with applicable obligations.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 6. Data Security -->
+                    <article id="data-security" class="scroll-mt-32 pl-6">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-6">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">6.</span>
+                            Data Security
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            We use reasonable technical and organisational safeguards appropriate to the nature of the
+                            information we process.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            However, no internet-based system can be guaranteed to be completely secure, and users
+                            should also take appropriate precautions to protect their accounts and devices.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 7. Data Retention -->
+                    <article id="data-retention" class="scroll-mt-32 pl-6">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-6">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">7.</span>
+                            Data Retention
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            Personal information will be retained only for as long as reasonably necessary for the
+                            purposes for which it was collected or as required by applicable tax, accounting, warranty,
+                            contractual or legal obligations.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            When information is no longer required, it may be securely deleted or anonymised in
+                            accordance with applicable requirements.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 8. Your Privacy Rights -->
+                    <article id="your-privacy-rights" class="scroll-mt-32 pl-6">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-6">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">8.</span>
+                            Your Privacy Rights
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Subject to applicable law and the relevant provisions being in force, individuals may have
+                            rights concerning their personal data, including rights to obtain information about
+                            processing, request correction or updating of information, request erasure where applicable,
+                            withdraw consent and seek grievance redressal.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Requests can be submitted using the contact information below.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 9. Children's Privacy -->
+                    <article id="childrens-privacy" class="scroll-mt-32 pl-6">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-6">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">9.</span>
+                            Children's Privacy
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            Our products and website are intended for purchase and use by adults.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            We do not knowingly seek to collect children's personal information for commercial purposes
+                            without appropriate authorisation where required by applicable law.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 10. Third-Party Websites -->
+                    <article id="third-party-websites" class="scroll-mt-32 pl-6">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-6">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">10.</span>
+                            Third-Party Websites
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            Our website may contain links to third-party websites or services. Breathe In is not
+                            responsible for the privacy practices of independently operated third-party websites.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            Users should review the privacy policies of those services before providing personal
+                            information.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 11. Changes to This Privacy Policy -->
+                    <article id="changes-to-this-privacy-policy" class="scroll-mt-32 pl-6">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-6">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">11.</span>
+                            Changes to This Privacy Policy
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-4">
+                            We may update this Privacy Policy to reflect changes to our services, technologies or legal
+                            obligations.
+                        </p>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                            The latest version and effective date will be published on this website.
+                        </p>
+                    </article>
+
+                    <div class="w-full h-px bg-gray-100 dark:bg-gray-800 my-8 lg:my-11"></div>
+
+                    <!-- 12. Contact Us -->
+                    <article id="contact-us" class="scroll-mt-32 pl-6">
+                        <h2
+                            class="text-[18px] md:text-[22px] font-normal text-gray-900 dark:text-white mb-6 flex items-baseline gap-3 -ml-6">
+                            <span
+                                class="text-[12px] md:text-[13px] text-[#156E8A] dark:text-[#2094B6] font-normal">12.</span>
+                            Contact Us
+                        </h2>
+                        <p
+                            class="text-[14px] md:text-[15px] text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-6">
+                            For privacy-related questions, requests or complaints:
+                        </p>
+
+                        <!-- Card 1: Privacy Contact -->
+                        <div
+                            class="bg-white dark:bg-[#111a20] border border-gray-200 dark:border-gray-800 rounded-[2px] p-6 md:p-8 shadow-sm mb-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-6 h-[2px] bg-[#156E8A]"></div>
+                                <span
+                                    class="text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-[#156E8A] font-bold">
+                                    PRIVACY CONTACT
+                                </span>
+                            </div>
+                            <h3 class="text-[18px] md:text-[20px] font-normal text-gray-900 dark:text-white mb-1">
+                                Breathe In &ndash; The Right Air
+                            </h3>
+                            <p class="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-semibold mb-6">
+                                OPERATED BY KSA ENTERPRISES
+                            </p>
+
+                            <div class="flex flex-col gap-3.5">
+                                <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+                                    <span
+                                        class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold w-24 shrink-0">LOCATION</span>
+                                    <span
+                                        class="text-[13px] md:text-[14px] text-gray-700 dark:text-gray-300 font-normal">Bengaluru,
+                                        Karnataka, India</span>
+                                </div>
+                                <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+                                    <span
+                                        class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold w-24 shrink-0">EMAIL</span>
+                                    <a href="mailto:enquiries@breathein.co.in"
+                                        class="text-[13px] md:text-[14px] text-gray-700 dark:text-gray-300 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors font-normal">enquiries@breathein.co.in</a>
+                                </div>
+                                <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+                                    <span
+                                        class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold w-24 shrink-0">PHONE</span>
+                                    <a href="tel:+919076636639"
+                                        class="text-[13px] md:text-[14px] text-gray-700 dark:text-gray-300 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors font-normal">+91
+                                        90766 36639</a>
+                                </div>
+                                <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+                                    <span
+                                        class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold w-24 shrink-0">WEBSITE</span>
+                                    <a href="https://www.breathein.co.in"
+                                        class="text-[13px] md:text-[14px] text-gray-700 dark:text-gray-300 hover:text-[#156E8A] dark:hover:text-[#2094B6] transition-colors font-normal">www.breathein.co.in</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Related Policies -->
+                        <div
+                            class="bg-[#FAFCFD] dark:bg-[#111a20] border border-gray-200/80 dark:border-gray-800 rounded-[2px] p-6 md:p-8 shadow-sm">
+                            <p
+                                class="text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-gray-400 font-bold mb-4">
+                                RELATED POLICIES
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <a href="./terms.html"
+                                    class="bg-white dark:bg-[#0D1418] border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 rounded-[8px] md:rounded-[10px] px-6 py-4 flex items-center justify-between text-[11px] md:text-[12px] font-bold uppercase tracking-wider text-gray-900 dark:text-white transition-all group shadow-sm">
+                                    <span>TERMS &amp; CONDITIONS</span>
+                                    <span
+                                        class="text-sm font-normal group-hover:translate-x-0.5 transition-transform">&rarr;</span>
+                                </a>
+                                <a href="./terms.html#shipping-delivery"
+                                    class="bg-white dark:bg-[#0D1418] border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 rounded-[8px] md:rounded-[10px] px-6 py-4 flex items-center justify-between text-[11px] md:text-[12px] font-bold uppercase tracking-wider text-gray-900 dark:text-white transition-all group shadow-sm">
+                                    <span>SHIPPING &amp; REFUND POLICY</span>
+                                    <span
+                                        class="text-sm font-normal group-hover:translate-x-0.5 transition-transform">&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ========================================== -->
+                    <!-- PRE-FOOTER CTA BANNER                      -->
+                    <!-- ========================================== -->
+                    <section
+                        class="w-full bg-[#080E11] text-white py-5 md:py-10 mt-10 lg:mt-14 px-6 md:px-6 lg:px-10 border-t border-gray-800">
+                        <div class="w-full flex flex-col md:flex-row md:items-center justify-between gap-8">
+                            <!-- Left: Text -->
+                            <div>
+                                <h2 class="text-2xl md:text-[22px] font-normal text-white tracking-tight mb-2">
+                                    Have a question about your order?
+                                </h2>
+                                <p class="text-[13px] md:text-[14px] text-gray-400 font-light">
+                                    Our team is available on WhatsApp and email.
+                                </p>
+                            </div>
+
+                            <!-- Right: Action Buttons -->
+                            <div class="flex flex-wrap items-center gap-4">
+                                <a href="https://wa.me/919076636639" target="_blank"
+                                    class="bg-[#156E8A] hover:bg-[#1a7f9e] text-white px-6 md:px-8 py-3.5 rounded-xl md:rounded-full text-[11px] md:text-[12px] uppercase font-bold tracking-widest flex items-center justify-center gap-2 transition-colors shadow-sm w-full md:w-auto">
+                                    <span>TALK TO EXPERT</span>
+                                    <span class="text-sm leading-none">&rarr;</span>
+                                </a>
+                                <a href="./index.html"
+                                    class="border border-gray-800 hover:border-gray-600 bg-transparent text-white px-6 md:px-8 py-3.5 rounded-xl md:rounded-full text-[11px] md:text-[12px] uppercase font-bold tracking-widest flex items-center justify-center transition-colors w-full md:w-auto">
+                                    BACK TO HOME
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- FOOTER                                     -->
+        <!-- ========================================== -->
+        <footer class="w-full bgDarkBlue pt-16 md:pt-24 pb-8 px-6 md:px-16 lg:px-24">
+            <div class="max-w-[1200px] mx-auto">
+                <!-- Top Section: Brand & Links -->
+                <div class="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-10 lg:mb-20">
+                    <!-- Left: Brand, Bio & Buttons -->
+                    <div class="flex flex-col lg:w-5/12">
+                        <!-- Logo -->
+                        <img src="./assets/images/logo.png" alt="Breathe In"
+                            class="h-9 md:h-10 w-auto mb-6 object-contain object-left self-start" />
+
+                        <!-- Bio -->
+                        <p class="text-gray-400 text-[13px] md:text-[14px] font-light leading-[1.8] mb-8 max-w-sm">
+                            <span class="hidden md:inline">
+                                Clean air isn’t a luxury, it’s a necessity<br />
+                                Sophisticated Japanese air-purification<br />
+                                technology, at honest prices. The right air, for<br />
+                                every Indian home.
+                            </span>
+                            <span class="inline md:hidden">
+                                Clean air isn’t a luxury, it’s a necessity. Sophisticated Japanese air-purification
+                                technology, at
+                                honest prices. The right air, for every Indian home.
+                            </span>
+                        </p>
+
+                        <!-- Buttons -->
+                        <div class="flex items-center gap-3">
+                            <a href="./find-my-purifier.html"
+                                class="bg-white text-gray-950 px-3 md:px-5 py-2.5 rounded-full text-[10px] md:text-[12px] uppercase font-bold tracking-widest hover:bg-gray-100 transition-colors">
+                                Find My Purifier &rarr;
+                            </a>
+                            <a href="./book-a-demo.html"
+                                class="border border-gray-600 text-white px-3 md:px-5 py-2.5 rounded-full text-[10px] md:text-[12px] uppercase font-bold tracking-widest hover:border-white transition-colors">
+                                Book a Demo
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: 4 Column Navigation Grid -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 lg:w-7/12">
+                        <!-- Col 1: Products -->
+                        <div class="flex flex-col gap-4">
+                            <p class="text-white text-[12px] font-bold tracking-widest uppercase">Products</p>
+                            <ul class="flex flex-col gap-2.5 text-[13px] text-gray-400 font-light">
+                                <li><a href="./product-details.html" class="hover:text-white transition-colors">Air
+                                        Pro</a></li>
+                                <li><a href="./products.html" class="hover:text-white transition-colors">Air Pro 1</a>
+                                </li>
+                                <li><a href="./products.html" class="hover:text-white transition-colors">Air Pro 2</a>
+                                </li>
+                                <li><a href="./products.html" class="hover:text-white transition-colors">Air Pro Max</a>
+                                </li>
+                                <li><a href="./filter-care.html" class="hover:text-white transition-colors">Replacement
+                                        Filters</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Col 2: Technology -->
+                        <div class="flex flex-col gap-4">
+                            <p class="text-white text-[12px] font-bold tracking-widest uppercase">Technology</p>
+                            <ul class="flex flex-col gap-2.5 text-[13px] text-gray-400 font-light">
+                                <li><a href="./technology.html" class="hover:text-white transition-colors">HEPA H13</a>
+                                </li>
+                                <li><a href="./technology.html" class="hover:text-white transition-colors">Japanese DC
+                                        Motor</a></li>
+                                <li><a href="./technology.html" class="hover:text-white transition-colors">Smart Life
+                                        App</a></li>
+                                <li><a href="./technology.html" class="hover:text-white transition-colors">Filtration
+                                        Stages</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Col 3: Company -->
+                        <div class="flex flex-col gap-4">
+                            <p class="text-white text-[12px] font-bold tracking-widest uppercase">Company</p>
+                            <ul class="flex flex-col gap-2.5 text-[13px] text-gray-400 font-light">
+                                <li><a href="./about-us.html" class="hover:text-white transition-colors">About Us</a>
+                                </li>
+                                <li><a href="./case-study.html" class="hover:text-white transition-colors">Case
+                                        Study</a></li>
+                                <li><a href="./corporate.html" class="hover:text-white transition-colors">Corporate
+                                        Gifting</a></li>
+                                <li><a href="./real-homes.html" class="hover:text-white transition-colors">Real
+                                        Homes</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Col 4: Support -->
+                        <div class="flex flex-col gap-4">
+                            <p class="text-white text-[12px] font-bold tracking-widest uppercase">Support</p>
+                            <ul class="flex flex-col gap-2.5 text-[13px] text-gray-400 font-light">
+                                <li><a href="./faq.html" class="hover:text-white transition-colors">FAQ</a></li>
+                                <li><a href="./support.html" class="hover:text-white transition-colors">Contact
+                                        Support</a></li>
+                                <li><a href="./filter-care.html" class="hover:text-white transition-colors">Filter Care
+                                        Guide</a></li>
+                                <li><a href="./support.html" class="hover:text-white transition-colors">Warranty
+                                        Info</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Divider Line -->
+                <div class="w-full h-px bg-gray-800/80 mb-8"></div>
+
+                <!-- Bottom Strip: Legal & Copyright -->
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+                    <!-- Legal Links -->
+                    <div class="flex flex-wrap items-center gap-6 lg:order-2">
+                        <a href="./privacy-policy.html"
+                            class="text-[11px] md:text-[13px] text-gray-300 hover:text-white transition-colors font-medium">Privacy
+                            Policy</a>
+                        <a href="./terms.html"
+                            class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Terms
+                            of
+                            Use</a>
+                        <a href="#"
+                            class="text-[11px] md:text-[13px] text-gray-500 hover:text-gray-300 transition-colors font-light">Cookie
+                            Policy</a>
+                    </div>
+
+                    <!-- Copyright -->
+                    <p class="text-[11px] md:text-[13px] text-gray-500 font-light lg:order-1">
+                        &copy; 2026 Breathe In &mdash; The Right Air. All rights reserved.
+                        Made in India.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- jQuery Core Library -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Link to Custom JS -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- ScrollSpy & Mobile Dropdown for Privacy Page -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const articles = document.querySelectorAll("article[id]");
+            const navLinks = document.querySelectorAll(".privacy-nav-link");
+            const mobileLinks = document.querySelectorAll(".mobile-privacy-link");
+            const mobileBtn = document.getElementById("mobilePrivacyDropdownBtn");
+            const mobileMenu = document.getElementById("mobilePrivacyDropdownMenu");
+            const mobileChevron = document.getElementById("mobileDropdownChevron");
+            const mobNum = document.getElementById("mobileActiveNumber");
+            const mobTitle = document.getElementById("mobileActiveTitle");
+
+            // Mobile dropdown toggle
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener("click", () => {
+                    mobileMenu.classList.toggle("hidden");
+                    if (mobileChevron) {
+                        mobileChevron.classList.toggle("-rotate-180");
+                    }
+                });
+            }
+
+            // Close mobile dropdown when a link is clicked
+            mobileLinks.forEach((link) => {
+                link.addEventListener("click", () => {
+                    if (mobileMenu) {
+                        mobileMenu.classList.add("hidden");
+                    }
+                    if (mobileChevron) {
+                        mobileChevron.classList.remove("-rotate-180");
+                    }
+                });
+            });
+
+            const onScroll = () => {
+                let currentId = "";
+                const scrollPosition = window.scrollY + 200;
+
+                articles.forEach((article) => {
+                    const top = article.offsetTop;
+                    const height = article.offsetHeight;
+                    if (scrollPosition >= top && scrollPosition < top + height) {
+                        currentId = article.getAttribute("id");
+                    }
+                });
+
+                if (!currentId && articles.length > 0 && window.scrollY < articles[0].offsetTop) {
+                    currentId = articles[0].getAttribute("id");
+                }
+
+                // Update desktop sidebar links
+                navLinks.forEach((link) => {
+                    const href = link.getAttribute("href").replace("#", "");
+                    if (href === currentId) {
+                        link.classList.add("text-[#156E8A]", "dark:text-[#2094B6]", "font-semibold");
+                        link.classList.remove("text-gray-600", "dark:text-gray-400");
+                    } else {
+                        link.classList.remove("text-[#156E8A]", "dark:text-[#2094B6]", "font-semibold");
+                        link.classList.add("text-gray-600", "dark:text-gray-400");
+                    }
+                });
+
+                // Update mobile active text
+                if (currentId) {
+                    const activeArticle = document.getElementById(currentId);
+                    if (activeArticle) {
+                        const heading = activeArticle.querySelector("h2");
+                        if (heading) {
+                            const numSpan = heading.querySelector("span");
+                            const numText = numSpan ? numSpan.textContent.trim() : "";
+                            const fullTitle = heading.textContent.replace(numText, "").trim();
+                            if (mobNum) mobNum.textContent = numText;
+                            if (mobTitle) mobTitle.textContent = fullTitle;
+                        }
+                    }
+                }
+            };
+
+            window.addEventListener("scroll", onScroll, { passive: true });
+            onScroll();
+        });
+    </script>
+</body>
+
+</html>
